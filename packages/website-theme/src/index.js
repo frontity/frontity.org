@@ -1,18 +1,9 @@
-import React from "react";
+import Theme from "./components";
 
-const Root = () => {
-  return (
-    <>
-      You can edit your package in:
-      <pre>packages/website-theme/src/index.js</pre>
-    </>
-  );
-};
-
-export default {
+const websiteTheme = {
   name: "website-theme",
   roots: {
-    theme: Root
+    theme: Theme
   },
   state: {
     theme: {}
@@ -21,3 +12,5 @@ export default {
     theme: {}
   }
 };
+
+export default websiteTheme;
