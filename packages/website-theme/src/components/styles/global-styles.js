@@ -75,6 +75,9 @@ const documentSetup = colors => css`
     font-family: "Poppins";
     color: ${colors.primary[100]};
   }
+  img {
+    max-width: 100%;
+  }
 `;
 
 const elementBase = colors => css`
