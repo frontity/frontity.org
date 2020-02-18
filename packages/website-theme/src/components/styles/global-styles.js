@@ -106,6 +106,13 @@ const elementBase = colors => css`
     color: ${colors.primary[40]};
     text-transform: uppercase;
   }
+  ul,
+  ol {
+    list-style-position: inside;
+  }
+  ul {
+    list-style-type: "→ ";
+  }
 `;
 
 const globalStyle = colors =>
