@@ -9,7 +9,7 @@ const settings = {
   },
   packages: [
     {
-      name: "website-theme"
+      name: "@frontity/frontity-org-theme"
     },
     {
       name: "@frontity/wp-source",
