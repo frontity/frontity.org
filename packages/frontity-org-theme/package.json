@@ -1,7 +1,7 @@
 {
-  "name": "website-theme",
-  "version": "1.0.0",
-  "description": "Frontity package created using the Frontity CLI.",
+  "name": "@frontity/frontity-org-theme",
+  "version": "0.1.0",
+  "description": "The Frontity theme of https://frontity.org",
   "keywords": [
     "frontity",
     "frontity-theme"
