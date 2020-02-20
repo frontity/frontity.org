@@ -12,7 +12,13 @@
     "serve": "frontity serve"
   },
   "prettier": {},
+  "workspaces": [
+    ".",
+    "packages/*"
+  ],
   "dependencies": {
+    "@changesets/changelog-github": "^0.1.1",
+    "@changesets/cli": "^2.4.0",
     "@frontity/core": "^1.4.1",
     "@frontity/html2react": "^1.1.15",
     "@frontity/frontity-org-theme": "file:packages/frontity-org-theme",
