@@ -27,7 +27,7 @@ jobs:
         run: echo "::set-output name=args::--prod"
 
       - name: Deploy to now
-        run: npx frontity build && npx now --confirm --token $NOW_TOKEN ${{ steps.deploy.outputs.args }}
+        run: npx frontity build && npx now --confirm --token $NOW_TOKEN ${{ steps.deploy.outputs.args }} | tee >(grep '^https:\/\/frontity-org-' > deploy-url.txt)
         env:
           NOW_TOKEN: ${{ secrets.NOW_TOKEN }}
 
@@ -36,6 +36,12 @@ jobs:
         env:
           COMMIT_SHA: ${{ github.sha }}
           NOW_TOKEN: ${{ secrets.NOW_TOKEN }}
+
+      - name: Save deploy url
+        uses: actions/upload-artifact@v1
+        with:
+          name: deploy-url
+          path: "deploy-url.txt"
 
   lighthouse:
     runs-on: ubuntu-latest
