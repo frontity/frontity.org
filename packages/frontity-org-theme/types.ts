@@ -1,4 +1,6 @@
 import { ReactType } from "react";
+import Source from "@frontity/source";
+import Router from "@frontity/router";
 import { Package } from "frontity/types";
 
 interface FrontityOrg extends Package {
@@ -21,6 +23,8 @@ interface FrontityOrg extends Package {
         lightgreen: string;
       };
     };
+    source?: Source["state"]["source"];
+    router?: Router["state"]["router"];
   };
   actions: {
     theme: {};
