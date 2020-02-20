@@ -30,7 +30,7 @@ interface FrontityOrg extends Package {
   actions: {
     theme: {};
   };
-  libraries: {
+  libraries?: {
     html2react: Html2React["libraries"]["html2react"];
   };
 }
