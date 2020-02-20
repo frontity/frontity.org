@@ -9,22 +9,17 @@
     "plugin:cypress/recommended"
   ],
   "rules": {
-    "react/prop-types": "off",
-    "import/named": "off"
+    "react/prop-types": "off"
   },
   "env": {
     "browser": true,
     "node": true,
-    "es6": true,
-    "cypress/globals": true
+    "es6": true
   },
   "settings": {
     "import/resolver": {
       "node": {
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
-      },
-      "typescript": {
-        "alwaysTryTypes": true
       }
     }
   },
@@ -36,7 +31,6 @@
         "plugin:@typescript-eslint/recommended"
       ],
       "rules": {
-        "@typescript-eslint/indent": "off",
         "@typescript-eslint/explicit-function-return-type": "off",
         "@typescript-eslint/no-explicit-any": "off"
       }
