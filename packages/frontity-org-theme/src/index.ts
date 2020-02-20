@@ -1,7 +1,8 @@
+import FrontityOrg from "../types";
 import Theme from "./components";
 
-const websiteTheme = {
-  name: "website-theme",
+const frontityOrg: FrontityOrg = {
+  name: "frontity-org-theme",
   roots: {
     theme: Theme
   },
@@ -26,4 +27,4 @@ const websiteTheme = {
   }
 };
 
-export default websiteTheme;
+export default frontityOrg;
