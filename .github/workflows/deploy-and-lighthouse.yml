@@ -32,7 +32,7 @@ jobs:
           NOW_TOKEN: ${{ secrets.NOW_TOKEN }}
 
       - name: Create alias for this deploy
-        run: npx now alias --token $NOW_TOKEN set frontity-org.now.sh frontity-org-$COMMIT_SHA.now.sh
+        run: npx now alias --token $NOW_TOKEN set echo "$(cat deploy-url.txt)" frontity-org-$COMMIT_SHA.now.sh
         env:
           COMMIT_SHA: ${{ github.sha }}
           NOW_TOKEN: ${{ secrets.NOW_TOKEN }}
