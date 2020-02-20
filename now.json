@@ -1,0 +1,10 @@
+{
+  "scope": "frontity",
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@frontity/now"
+    }
+  ]
+}
