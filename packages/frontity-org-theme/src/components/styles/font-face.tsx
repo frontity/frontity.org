@@ -3,7 +3,7 @@ import { Global, css } from "frontity";
 import poppinsSemiBold from "../../fonts/Poppins-SemiBold.ttf";
 import IBMPlexSansRegular from "../../fonts/IBMPlexSans-Regular.ttf";
 
-const FontFace = () => (
+const FontFace: React.FC = () => (
   <Global
     styles={css`
       @font-face {
