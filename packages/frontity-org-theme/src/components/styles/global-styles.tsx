@@ -1,4 +1,5 @@
 import { css } from "frontity";
+import FrontityOrg from "../../../types";
 
 const cssReset = css`
   html,
@@ -56,7 +57,7 @@ const cssReset = css`
   }
 `;
 
-const documentSetup = colors => css`
+const documentSetup = (colors: FrontityOrg["state"]["theme"]["colors"]) => css`
   body {
     background: ${colors.wall};
     font-family: "IBMPlexSans";
@@ -80,7 +81,7 @@ const documentSetup = colors => css`
   }
 `;
 
-const elementBase = colors => css`
+const elementBase = (colors: FrontityOrg["state"]["theme"]["colors"]) => css`
   h1 {
     font-size: 48px;
     line-height: 72px;
@@ -115,7 +116,7 @@ const elementBase = colors => css`
   }
 `;
 
-const globalStyle = colors =>
+const globalStyle = (colors: FrontityOrg["state"]["theme"]["colors"]) =>
   css([cssReset, documentSetup(colors), elementBase(colors)]);
 
 export default globalStyle;
