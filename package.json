@@ -18,6 +18,18 @@
     "@frontity/frontity-org-theme": "file:packages/frontity-org-theme",
     "@frontity/tiny-router": "^1.0.18",
     "@frontity/wp-source": "^1.5.0",
-    "frontity": "^1.4.4"
+    "@typescript-eslint/eslint-plugin": "^2.20.0",
+    "@typescript-eslint/parser": "^2.20.0",
+    "eslint": "^6.8.0",
+    "eslint-import-resolver-typescript": "^2.0.0",
+    "eslint-plugin-cypress": "^2.10.3",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jest": "^23.7.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.18.3",
+    "frontity": "^1.4.4",
+    "husky": "^4.2.3",
+    "lint-staged": "10.0.7",
+    "prettier": "^1.19.1"
   }
 }
