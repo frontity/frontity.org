@@ -31,7 +31,7 @@ const textColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
 
         // Replace the `css` prop with a new one with `color`.
         node.props.css = css`
-          ${node.props.css || ""}
+          ${node.props.css}
           color: ${state.theme.colors[colorName]};
         `;
       }

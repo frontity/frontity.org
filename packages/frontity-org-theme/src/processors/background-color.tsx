@@ -27,7 +27,7 @@ const backgroundColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
 
         // Replace the `css` prop with a new one with `background-color`.
         node.props.css = css`
-          ${node.props.css || ""}
+          ${node.props.css}
           background-color: ${state.theme.colors[colorName]};
         `;
       }
