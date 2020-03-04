@@ -8,13 +8,13 @@ const createBorderRadiusProcessors = (options: {
     test: element =>
       element.type === "element" &&
       element.props.className &&
-      element.props.className.split(/ +/).includes(className),
+      element.props.className.split(" ").includes(className),
     process: element => ({
       ...element,
       props: {
         ...element.props,
         css: css`
-          ${element.props.css || ""}
+          ${element.props.css}
           ${style}
         `
       }
