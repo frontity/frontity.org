@@ -1,7 +1,7 @@
 import { css } from "frontity";
 
 const createBorderRadiusProcessors = (options: {
-  [prop: string]: ReturnType<typeof css>;
+  [className: string]: ReturnType<typeof css>;
 }) => {
   return Object.entries(options).map(([className, style]) => ({
     name: className,
