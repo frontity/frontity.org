@@ -22,13 +22,15 @@ const backgroundColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
         .find(name => colorClassRegex.test(name));
 
       // Get the color name from that class.
-      const [, colorName] = colorClass.match(colorClassRegex);
+      if (colorClass) {
+        const [, colorName] = colorClass.match(colorClassRegex);
 
-      // Replace the `css` prop with a new one with `background-color`.
-      node.props.css = css`
-        ${node.props.css || ""}
-        background-color: ${state.theme.colors[colorName]};
-      `;
+        // Replace the `css` prop with a new one with `background-color`.
+        node.props.css = css`
+          ${node.props.css || ""}
+          background-color: ${state.theme.colors[colorName]};
+        `;
+      }
     }
 
     return node;

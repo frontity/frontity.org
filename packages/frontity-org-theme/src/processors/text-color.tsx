@@ -25,14 +25,16 @@ const textColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
             !(name.endsWith("text-color") || name.endsWith("background-color"))
         );
 
-      // Get the color name from that class.
-      const [, colorName] = colorClass.match(colorClassRegex);
+      if (colorClass) {
+        // Get the color name from that class.
+        const [, colorName] = colorClass.match(colorClassRegex);
 
-      // Replace the `css` prop with a new one with `color`.
-      node.props.css = css`
-        ${node.props.css || ""}
-        color: ${state.theme.colors[colorName]};
-      `;
+        // Replace the `css` prop with a new one with `color`.
+        node.props.css = css`
+          ${node.props.css || ""}
+          color: ${state.theme.colors[colorName]};
+        `;
+      }
     }
 
     return node;
