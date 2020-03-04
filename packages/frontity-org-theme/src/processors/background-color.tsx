@@ -7,13 +7,10 @@ const colorClassRegex = /has-(\w+)-background-color/;
 
 const backgroundColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
   name: "backgroundColor",
-  test: ({ node }) => {
-    return (
-      node.type === "element" &&
-      node.props.className &&
-      node.props.className.split(/ +/).includes("has-background")
-    );
-  },
+  test: ({ node }) =>
+    node.type === "element" &&
+    node.props.className &&
+    node.props.className.split(/ +/).includes("has-background"),
   processor: ({ node, state }) => {
     if (node.type === "element") {
       // Get the class with the color name.

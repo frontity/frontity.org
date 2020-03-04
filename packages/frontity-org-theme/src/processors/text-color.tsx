@@ -7,13 +7,10 @@ const colorClassRegex = /has-(\w+)-color/;
 
 const textColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
   name: "textColor",
-  test: ({ node }) => {
-    return (
-      node.type === "element" &&
-      node.props.className &&
-      node.props.className.split(/ +/).includes("has-text-color")
-    );
-  },
+  test: ({ node }) =>
+    node.type === "element" &&
+    node.props.className &&
+    node.props.className.split(/ +/).includes("has-text-color"),
   processor: ({ node, state }) => {
     if (node.type === "element") {
       // Get the class with the color name.
