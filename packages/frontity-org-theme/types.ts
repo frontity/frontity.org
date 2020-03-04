@@ -1,5 +1,5 @@
 import { ReactType } from "react";
-import Source from "@frontity/source";
+import Source from "@frontity/source/types";
 import Router from "@frontity/router";
 import Html2React from "@frontity/html2react/types";
 import { Package } from "frontity/types";
@@ -30,8 +30,13 @@ interface FrontityOrg extends Package {
   actions: {
     theme: {};
   };
-  libraries?: {
-    html2react: Html2React["libraries"]["html2react"];
+  libraries: {
+    html2react?: Html2React["libraries"]["html2react"];
+    theme: {
+      colors: {
+        addAlpha: (hex: string, alpha: number) => string;
+      };
+    };
   };
 }
 
