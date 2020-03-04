@@ -1,45 +1,41 @@
 import React from "react";
 import { css } from "frontity";
 import { Processor } from "@frontity/html2react/types";
+import FrontityOrg from "../../types";
 
 const colorClassRegex = /has-(\w+)-color/;
 
-const textColor: Processor<React.HTMLProps<HTMLElement>> = {
+const textColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
   name: "textColor",
-  test: element => {
+  test: ({ node }) => {
     return (
-      element.type === "element" &&
-      element.props.className &&
-      element.props.className.split(/ +/).includes("has-text-color")
+      node.type === "element" &&
+      node.props.className &&
+      node.props.className.split(/ +/).includes("has-text-color")
     );
   },
-  process: element => {
-    // Do nothing if this element is not an `element` (just a type guard).
-    if (element.type !== "element") return element;
+  processor: ({ node, state }) => {
+    if (node.type === "element") {
+      // Get the class with the color name.
+      const colorClass = node.props.className
+        .split(/ +/)
+        .find(
+          name =>
+            colorClassRegex.test(name) &&
+            !(name.endsWith("text-color") || name.endsWith("background-color"))
+        );
 
-    // Get the class with the color name.
-    const colorClass = element.props.className
-      .split(/ +/)
-      .find(
-        name =>
-          colorClassRegex.test(name) &&
-          !(name.endsWith("text-color") || name.endsWith("background-color"))
-      );
+      // Get the color name from that class.
+      const [, colorName] = colorClass.match(colorClassRegex);
 
-    // Get the color name from that class.
-    const [, colorName] = colorClass.match(colorClassRegex);
+      // Replace the `css` prop with a new one with `color`.
+      node.props.css = css`
+        ${node.props.css || ""}
+        color: ${state.theme.colors[colorName]};
+      `;
+    }
 
-    // Return the new component
-    return {
-      ...element,
-      props: {
-        ...element.props,
-        css: css`
-          ${element.props.css || ""}
-          color: ${colorName};
-        `
-      }
-    };
+    return node;
   }
 };
 
