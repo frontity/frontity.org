@@ -3,7 +3,7 @@ import { css } from "frontity";
 import { Processor } from "@frontity/html2react/types";
 import FrontityOrg from "../../types";
 
-const colorClassRegex = /has-(\w+)-background-color/;
+const colorClassRegex = /has-([\w-]+)-background-color/;
 
 const backgroundColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
   name: "backgroundColor",
