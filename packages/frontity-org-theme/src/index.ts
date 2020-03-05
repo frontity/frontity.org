@@ -1,6 +1,6 @@
 import FrontityOrg from "../types";
 import Theme from "./components";
-import { borders } from "./processors";
+import { backgroundColor, textColor, borders } from "./processors";
 
 const frontityOrg: FrontityOrg = {
   name: "frontity-org-theme",
@@ -28,7 +28,7 @@ const frontityOrg: FrontityOrg = {
   },
   libraries: {
     html2react: {
-      processors: [...borders]
+      processors: [backgroundColor, textColor, ...borders]
     }
   }
 };
