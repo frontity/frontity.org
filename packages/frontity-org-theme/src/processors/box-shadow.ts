@@ -2,7 +2,7 @@ import { css } from "frontity";
 
 const boxShadowProcessor = {
   name: "box-shadow",
-  test: node =>
+  test: ({ node }) =>
     node.type === "element" &&
     node.props.className &&
     node.props.className.split(" ").includes("has-box-shadow"),
