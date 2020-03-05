@@ -31,11 +31,11 @@ interface FrontityOrg extends Package {
     theme: {};
   };
   libraries: {
-    html2react?: Html2React["libraries"]["html2react"];
+    html2react?: {
+      processors: Html2React["libraries"]["html2react"]["processors"];
+    };
     theme: {
-      colors: {
-        addAlpha: (hex: string, alpha: number) => string;
-      };
+      addAlpha: (hex: string, alpha: number) => string;
     };
   };
 }

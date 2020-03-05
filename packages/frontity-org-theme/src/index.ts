@@ -1,5 +1,6 @@
 import FrontityOrg from "../types";
 import Theme from "./components";
+import { backgroundColor, textColor } from "./processors";
 
 const frontityOrg: FrontityOrg = {
   name: "frontity-org-theme",
@@ -27,15 +28,16 @@ const frontityOrg: FrontityOrg = {
   },
   libraries: {
     theme: {
-      colors: {
-        addAlpha: (hex, alpha) =>
-          `rgba(${hex
-            .match(/^#(.{2})(.{2})(.{2})$/)
-            .slice(1)
-            .map(value => Number(`0x${value}`))
-            .concat(alpha)
-            .join(", ")})`
-      }
+      addAlpha: (hex, alpha) =>
+        `rgba(${hex
+          .match(/^#(.{2})(.{2})(.{2})$/)
+          .slice(1)
+          .map(value => Number(`0x${value}`))
+          .concat(alpha)
+          .join(", ")})`
+    },
+    html2react: {
+      processors: [backgroundColor, textColor]
     }
   }
 };
