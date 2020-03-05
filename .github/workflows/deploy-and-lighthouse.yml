@@ -34,7 +34,7 @@ jobs:
       - name: Add comment to pull request
         uses: iam4x/now-deploy-preview-comment@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.FRONTIBOTITO_GH }}
           ZEIT_TOKEN: ${{ secrets.NOW_TOKEN }}
           ZEIT_TEAMID: ${{ secrets.ZEIT_TEAM }}
 
