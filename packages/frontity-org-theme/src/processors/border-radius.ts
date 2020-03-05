@@ -5,16 +5,16 @@ const createBorderRadiusProcessors = (options: {
 }) => {
   return Object.entries(options).map(([className, style]) => ({
     name: className,
-    test: element =>
-      element.type === "element" &&
-      element.props.className &&
-      element.props.className.split(" ").includes(className),
-    process: element => ({
-      ...element,
+    test: ({ node }) =>
+      node.type === "element" &&
+      node.props.className &&
+      node.props.className.split(" ").includes(className),
+    processor: ({ node }) => ({
+      ...node,
       props: {
-        ...element.props,
+        ...node.props,
         css: css`
-          ${element.props.css}
+          ${node.props.css}
           ${style}
         `
       }
