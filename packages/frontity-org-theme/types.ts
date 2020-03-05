@@ -1,4 +1,4 @@
-import { ReactType } from "react";
+import React, { ReactType } from "react";
 import Source from "@frontity/source";
 import Router from "@frontity/router";
 import { Processor } from "@frontity/html2react/types";
@@ -32,7 +32,7 @@ interface FrontityOrg extends Package {
   };
   libraries?: {
     html2react: {
-      processors?: Processor[];
+      processors?: Processor<React.HTMLProps<HTMLElement>>[];
     };
   };
 }

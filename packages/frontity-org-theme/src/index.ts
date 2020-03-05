@@ -1,6 +1,7 @@
 import FrontityOrg from "../types";
 import Theme from "./components";
-import { boxShadow } from "../src/processors";
+import { boxShadow , backgroundColor, textColor } from "../src/processors";
+
 
 const frontityOrg: FrontityOrg = {
   name: "frontity-org-theme",
@@ -28,7 +29,7 @@ const frontityOrg: FrontityOrg = {
   },
   libraries: {
     html2react: {
-      processors: [boxShadow]
+      processors: [backgroundColor, textColor, boxShadow]
     }
   }
 };
