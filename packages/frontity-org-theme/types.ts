@@ -1,5 +1,5 @@
 import React, { ReactType } from "react";
-import Source from "@frontity/source";
+import Source from "@frontity/source/types";
 import Router from "@frontity/router";
 import { Processor } from "@frontity/html2react/types";
 import { Package } from "frontity/types";
