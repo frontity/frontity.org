@@ -5,14 +5,11 @@ function createBordersProcessors(obj: {
 }) {
   return Object.entries(obj).map(([className, style]) => ({
     name: "borders",
-    test: element => {
-      return (
-        element.type === "element" &&
-        element.props.className?.split(/ +/).includes(className)
-      );
-    },
+    test: ({ node }) =>
+      node.type === "element" &&
+      node.props.className?.split(/ /).includes(className),
 
-    process: element => {
+    processor: element => {
       // Do nothing if this element is not an `element` (just a type guard).
       if (element.type !== "element") return element;
 
@@ -22,8 +19,8 @@ function createBordersProcessors(obj: {
         props: {
           ...element.props,
           css: css`
-            ${element.props.css || ""}
-            ${style}
+            ${element.props.css};
+            ${style};
           `
         }
       };
