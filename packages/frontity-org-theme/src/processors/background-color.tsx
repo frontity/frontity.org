@@ -2,6 +2,7 @@ import React from "react";
 import { css } from "frontity";
 import { Processor } from "@frontity/html2react/types";
 import FrontityOrg from "../../types";
+import { addAlpha } from "../utils";
 
 const colorClassRegex = /has-([\w-]+)-background-color/;
 const opacityClassRegex = /has-background-opacity-(\d+)/;
@@ -12,7 +13,7 @@ const backgroundColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
     node.type === "element" &&
     node.props.className &&
     node.props.className.split(" ").includes("has-background"),
-  processor: ({ node, state, libraries }) => {
+  processor: ({ node, state }) => {
     if (node.type === "element") {
       // Get the class with the color name.
       const colorClass = node.props.className
@@ -37,7 +38,7 @@ const backgroundColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
           const [, opacityValue] = opacityClass.match(opacityClassRegex);
 
           // Assign color value with the opacity.
-          color = libraries.theme.addAlpha(
+          color = addAlpha(
             state.theme.colors[colorName],
             Number(opacityValue) / 100
           );
