@@ -2,6 +2,7 @@ import React from "react";
 import { css } from "frontity";
 import { Processor } from "@frontity/html2react/types";
 import FrontityOrg from "../../types";
+import { addAlpha } from "../utils";
 
 const borderRadiusRegex = /has-border-radius-(\d+)px/;
 
@@ -11,16 +12,18 @@ const textColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
     node.type === "element" &&
     node.props.className &&
     node.props.className.split(" ").includes("special-icon"),
-  processor: ({ node }) => {
+  processor: ({ node, state }) => {
     if (node.type === "element") {
       const classNames = node.props.className.split(" ");
 
       const hasBackground = classNames.includes("has-background");
       const hasBorderRadius = classNames.some(c => borderRadiusRegex.test(c));
 
+      const defaultBgColor = addAlpha(state.theme.colors.primary, 0.08);
+
       node.props.css = css`
         ${node.props.css}
-        ${!hasBackground && `background-color: rgba(15,28,100,0.08);`}
+        ${!hasBackground && `background-color: ${defaultBgColor};`}
         ${!hasBorderRadius && `border-radius: 12px;`}
         height: 60px;
         width: 60px;
