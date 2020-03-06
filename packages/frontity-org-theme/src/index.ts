@@ -1,7 +1,6 @@
 import FrontityOrg from "../types";
 import Theme from "./components";
-import { boxShadow , backgroundColor, textColor } from "../src/processors";
-
+import { boxShadow, backgroundColor, textColor } from "./processors";
 
 const frontityOrg: FrontityOrg = {
   name: "frontity-org-theme",
