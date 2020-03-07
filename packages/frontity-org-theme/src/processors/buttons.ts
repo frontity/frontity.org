@@ -1,35 +1,89 @@
+import React from "react";
 import { css } from "frontity";
+import { Processor, Node } from "@frontity/html2react/types";
+import FrontityOrg from "../../types";
 
-const buttons = {
+const buttons: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
   test: ({ node }) =>
     node.type === "element" &&
     (node.component === "a" ||
-      node.props.className?.split(/ /).includes("wp-block-button")),
+      node.props.className?.split(/ /).includes("wp-block-button__link")),
 
   processor: ({ node, state }) => {
-    // if we have a regular link, just give it a color
-    if (node.component === "a") {
+    // just a TS type guard
+    if (node.type !== "element") return node;
+
+    const hasClassName = node.props.className
+      ?.split(/ /)
+      .includes("wp-block-button__link");
+
+    // Link button
+    if (!hasClassName) {
       node.props.css = css`
         ${node.props.css}
         color: ${state.theme.colors.frontity};
+        text-decoration: none;
+        outline: none;
+        &:focus {
+          box-shadow: outline;
+        }
+        cursor: pointer;
       `;
     }
 
-    if (node.props.className?.split(/ /).includes("wp-block-button")) {
-      node.props.css = css`
-        height: 40px;
-        width: 140px;
-        background-color: ${state.theme.colors.frontity};
-        color: white;
-        padding: auto 16px auto 38px;
-        font-size: 16px;
-        line-height: 16px;
-        &::before {
+    const parent: Node<React.HTMLProps<HTMLElement>> = node.parent;
+
+    if (parent.props.className?.split(/ /).includes("wp-block-button")) {
+      // Big Button
+      if (parent.props.className?.split(/ /).includes("big-button")) {
+        node.props.css = css`
+          ${node.props.css}
+          color: white;
+          background-color: ${state.theme.colors.frontity};
           border-radius: 8px;
           box-shadow: 0 4px 8px 0 rgba(12, 17, 43, 0.12),
             0 1px 4px 0 rgba(12, 17, 43, 0.16);
-        }
-      `;
+
+          &:hover {
+            filter: brightness(0.88);
+            cursor: pointer;
+          }
+        `;
+      }
+
+      // Text Button
+      else if (parent.props.className?.split(/ /).includes("text-button")) {
+        node.props.css = css`
+          ${node.props.css}
+          color: ${state.theme.colors.frontity};
+          text-decoration: none;
+          outline: none;
+          &:focus {
+            box-shadow: outline;
+          }
+          cursor: pointer;
+        `;
+      } else {
+        // Regular Button
+        node.props.css = css`
+          ${node.props.css}
+          height: 28px;
+          width: 90px;
+          color: white;
+          padding: 8px 19px;
+          font-size: 16px;
+          line-height: 16px;
+          background-color: ${state.theme.colors.frontity};
+          border-radius: 8px;
+          box-shadow: 0 4px 8px 0 rgba(12, 17, 43, 0.12),
+            0 1px 4px 0 rgba(12, 17, 43, 0.16);
+
+          &:hover {
+            filter: brightness(0.88);
+            cursor: pointer;
+          }
+        `;
+      }
     }
 
     return node;
