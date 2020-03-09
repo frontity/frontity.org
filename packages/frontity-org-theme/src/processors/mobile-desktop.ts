@@ -24,16 +24,12 @@ const createProcessors = (options: {
 
 export default createProcessors({
   "mobile-only": css`
-    display: none;
-
-    @media only screen and (max-width: 768px) {
-      display: block;
+    @media only screen and (min-width: 769px) {
+      display: none;
     }
   `,
   "desktop-only": css`
-    display: block;
-
-    @media only screen and (max-width: 769px) {
+    @media only screen and (max-width: 768px) {
       display: none;
     }
   `
