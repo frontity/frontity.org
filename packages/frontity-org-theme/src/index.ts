@@ -4,6 +4,7 @@ import {
   backgroundColor,
   textColor,
   specialIcons,
+  paragraphs,
   mobileDesktop,
   borders,
   boxShadow
@@ -37,6 +38,7 @@ const frontityOrg: FrontityOrg = {
   libraries: {
     html2react: {
       processors: [
+        ...paragraphs,
         ...mobileDesktop,
         ...borders,
         backgroundColor,
