@@ -25,7 +25,8 @@ const frontityOrg: FrontityOrg = {
         orange: "#f4c053",
         red: "#f76d64",
         turqoise: "#6ac8c9",
-        lightgreen: "#8ACB88"
+        lightgreen: "#8ACB88",
+        white: "#ffffff"
       }
     }
   },
