@@ -4,7 +4,8 @@ import {
   backgroundColor,
   textColor,
   specialIcons,
-  mobileDesktop
+  mobileDesktop,
+  horizontalSeparator
 } from "./processors";
 
 const frontityOrg: FrontityOrg = {
@@ -33,7 +34,13 @@ const frontityOrg: FrontityOrg = {
   },
   libraries: {
     html2react: {
-      processors: [...mobileDesktop, backgroundColor, textColor, specialIcons]
+      processors: [
+        ...mobileDesktop,
+        backgroundColor,
+        textColor,
+        specialIcons,
+        horizontalSeparator
+      ]
     }
   }
 };
