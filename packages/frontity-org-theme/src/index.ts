@@ -5,7 +5,8 @@ import {
   textColor,
   specialIcons,
   mobileDesktop,
-  borders
+  borders,
+  boxShadow
 } from "./processors";
 
 const frontityOrg: FrontityOrg = {
@@ -37,10 +38,11 @@ const frontityOrg: FrontityOrg = {
     html2react: {
       processors: [
         ...mobileDesktop,
+        ...borders,
         backgroundColor,
         textColor,
         specialIcons,
-        ...borders
+        boxShadow
       ]
     }
   }
