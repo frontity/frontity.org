@@ -5,7 +5,8 @@ import {
   textColor,
   specialIcons,
   mobileDesktop,
-  horizontalSeparator
+  horizontalSeparator,
+  borders
 } from "./processors";
 
 const frontityOrg: FrontityOrg = {
@@ -39,7 +40,8 @@ const frontityOrg: FrontityOrg = {
         backgroundColor,
         textColor,
         specialIcons,
-        horizontalSeparator
+        horizontalSeparator,
+        ...borders
       ]
     }
   }
