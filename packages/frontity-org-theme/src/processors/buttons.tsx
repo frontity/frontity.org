@@ -2,6 +2,7 @@ import React from "react";
 import { css } from "frontity";
 import { Processor, Node } from "@frontity/html2react/types";
 import FrontityOrg from "../../types";
+import Logo from "../components/logo";
 
 const buttons: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
   test: ({ node }) =>
@@ -12,6 +13,24 @@ const buttons: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
   processor: ({ node, state }) => {
     // just a TS type guard
     if (node.type !== "element") return node;
+
+    const children: Node<React.HTMLProps<HTMLElement>>[] = node.children;
+
+    // Check if the element has an image that we should use
+    const logoComponent = children.find(
+      child => child.type === "element" && child.component === "img"
+    );
+    // If it exists, add it
+    if (logoComponent) {
+      node.children.unshift(logoComponent);
+      // Otherwise add the default logo
+    } else {
+      node.children.unshift({
+        component: Logo,
+        props: {},
+        type: "element"
+      });
+    }
 
     const hasClassName = node.props.className
       ?.split(/ /)
