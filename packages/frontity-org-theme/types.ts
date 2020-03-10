@@ -22,6 +22,7 @@ interface FrontityOrg extends Package {
         red: string;
         turqoise: string;
         lightgreen: string;
+        white: string;
       };
     };
     source?: Source["state"]["source"];

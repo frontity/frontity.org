@@ -1,5 +1,6 @@
 import { css } from "frontity";
 import FrontityOrg from "../../../types";
+import { addAlpha } from "../../utils";
 
 const cssReset = css`
   html,
@@ -61,7 +62,7 @@ const documentSetup = (colors: FrontityOrg["state"]["theme"]["colors"]) => css`
   body {
     background: ${colors.wall};
     font-family: "IBMPlexSans";
-    color: ${colors.primary[80]};
+    color: ${addAlpha(colors.primary, 0.8)};
     max-width: 1080px;
     margin: auto;
     font-size: 16px;
@@ -74,7 +75,7 @@ const documentSetup = (colors: FrontityOrg["state"]["theme"]["colors"]) => css`
   h5,
   h6 {
     font-family: "Poppins";
-    color: ${colors.primary[100]};
+    color: ${colors.primary};
   }
   img {
     max-width: 100%;
@@ -104,7 +105,7 @@ const elementBase = (colors: FrontityOrg["state"]["theme"]["colors"]) => css`
   h5 {
     font-size: 14px;
     line-height: 21px;
-    color: ${colors.primary[40]};
+    color: ${addAlpha(colors.primary, 0.4)};
     text-transform: uppercase;
   }
   ul,
