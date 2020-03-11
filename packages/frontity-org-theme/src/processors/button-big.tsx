@@ -47,7 +47,7 @@ const buttons: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
       transition: transform filter 250ms ease-in-out;
 
       .frontity-logo {
-        transition: transform 250ms ease-in-out;
+        transition: transform 300ms ease-in-out;
       }
 
       &:hover {
