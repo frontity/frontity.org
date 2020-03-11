@@ -7,6 +7,7 @@ import globalStyles from "./styles/global-styles";
 import FontFace from "./styles/font-face";
 import gutenbergStyle from "./styles/gutenberg/style.css";
 import gutenbergTheme from "./styles/gutenberg/theme.css";
+import normalizeCSS from "./styles/normalize.css";
 
 const Theme: React.FC<Connect<FrontityOrg>> = ({ state }) => {
   const data = state.source.get(state.router.link);
@@ -15,6 +16,7 @@ const Theme: React.FC<Connect<FrontityOrg>> = ({ state }) => {
       <Global styles={globalStyles(state.theme.colors)} />
       <Global styles={css(gutenbergStyle)} />
       <Global styles={css(gutenbergTheme)} />
+      <Global styles={css(normalizeCSS)} />
       <FontFace />
       {(data.isPage && <Page />) || (
         <>
