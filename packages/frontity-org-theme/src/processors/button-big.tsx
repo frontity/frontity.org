@@ -14,16 +14,20 @@ const buttons: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
     // just a TS type guard
     if (node.type !== "element") return node;
 
-    // Add the frontity logo
-    node.children.unshift({
+    const element: any = {
       component: Logo,
       props: {
         css: css`
           margin-right: 10px;
-        `
+          transform: translateX(0px);
+        `,
+        className: "frontity-logo"
       },
       type: "element"
-    });
+    };
+
+    // Add the frontity logo
+    node.children.unshift(element);
 
     // Regular (default) button
     node.props.css = css`
@@ -40,12 +44,21 @@ const buttons: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
       border-radius: 8px;
       box-shadow: 0 4px 8px 0 rgba(12, 17, 43, 0.12),
         0 1px 4px 0 rgba(12, 17, 43, 0.16);
-      transition: transform filter 150ms ease-in-out;
+      transition: transform filter 250ms ease-in-out;
+
+      .frontity-logo {
+        transition: transform 250ms ease-in-out;
+      }
 
       &:hover {
         filter: opacity(0.91);
         cursor: pointer;
+
+        .frontity-logo {
+          transform: translateX(2px);
+        }
       }
+
       &:active {
         transform: translateY(2px);
       }

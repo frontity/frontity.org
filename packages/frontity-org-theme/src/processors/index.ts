@@ -1,7 +1,6 @@
 export { default as borders } from "./borders";
 export { default as backgroundColor } from "./background-color";
 export { default as textColor } from "./text-color";
-export { default as buttons } from "./buttons";
 export { default as buttonDefault } from "./button-default";
 export { default as buttonBig } from "./button-big";
 export { default as buttonIcon } from "./button-icon";
