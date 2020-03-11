@@ -9,7 +9,8 @@ import {
   buttonDefault,
   commonLink,
   buttonBig,
-  buttonIcon
+  buttonIcon,
+  buttonLink
 } from "./processors";
 
 const frontityOrg: FrontityOrg = {
@@ -47,7 +48,8 @@ const frontityOrg: FrontityOrg = {
         buttonDefault,
         commonLink,
         buttonBig,
-        buttonIcon
+        buttonIcon,
+        buttonLink
       ]
     }
   }
