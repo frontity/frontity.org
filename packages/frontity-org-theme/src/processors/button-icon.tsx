@@ -17,7 +17,7 @@ const buttons: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
     node.props.css = css`
       ${node.props.css}
       max-height: 52px;
-      max-width: 156px;
+      max-width: 200px;
       color: ${state.theme.colors.frontity};
       padding: 18px 24px;
       text-align: center;
