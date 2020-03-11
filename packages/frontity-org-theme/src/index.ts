@@ -1,14 +1,14 @@
 import FrontityOrg from "../types";
 import Theme from "./components";
 import {
-  borderRadius,
   backgroundColor,
   textColor,
   specialIcons,
   paragraphs,
   mobileDesktop,
   borders,
-  boxShadow
+  boxShadow,
+  borderRadius
 } from "./processors";
 
 const frontityOrg: FrontityOrg = {
