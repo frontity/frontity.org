@@ -7,7 +7,8 @@ import {
   paragraphs,
   mobileDesktop,
   borders,
-  boxShadow
+  boxShadow,
+  dropdown
 } from "./processors";
 
 const frontityOrg: FrontityOrg = {
@@ -44,7 +45,8 @@ const frontityOrg: FrontityOrg = {
         backgroundColor,
         textColor,
         specialIcons,
-        boxShadow
+        boxShadow,
+        dropdown
       ]
     }
   }
