@@ -52,6 +52,9 @@ const buttons: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
       &:hover {
         filter: opacity(0.91);
         cursor: pointer;
+      }
+
+      &:active {
         transform: translateY(2px);
       }
     `;
