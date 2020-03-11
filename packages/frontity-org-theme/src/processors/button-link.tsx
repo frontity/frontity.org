@@ -43,8 +43,6 @@ const buttonLink: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
       text-decoration: none;
       position: relative;
 
-      /* max-height: 40px;
-      max-width: 140px; */
       color: ${state.theme.colors.frontity};
       padding: 12px 18px;
       font-size: 16px;
@@ -55,11 +53,11 @@ const buttonLink: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
       transition: transform filter 250ms ease-in-out;
 
       .frontity-logo {
-        transition: transform 250ms ease-in-out;
+        transition: transform 300ms ease-in-out;
       }
 
       &:hover::after {
-        width: 100%;
+        width: calc(100% - 60px);
       }
 
       &:hover {
@@ -74,29 +72,30 @@ const buttonLink: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
 
       &::after {
         position: absolute;
-        bottom: 0;
-        left: 0;
+        bottom: 5px;
+        left: 42px;
 
         content: "";
         display: block;
         width: 0;
         height: 2px;
 
-        background: #000;
+        background: ${state.theme.colors.frontity};
         transition: width 0.3s;
       }
 
       &::before {
         position: absolute;
-        bottom: 0;
-        left: 0;
+        bottom: 5px;
+        left: 42px;
 
         content: "";
         display: block;
-        width: 100%;
+        width: calc(100% - 60px);
         height: 2px;
 
-        background: red;
+        background: ${state.theme.colors.frontity};
+        opacity: 0.4;
       }
 
       &:active {
