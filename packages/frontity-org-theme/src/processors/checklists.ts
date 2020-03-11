@@ -16,8 +16,9 @@ const checklistsProcessor = {
 
         li {
           position: relative;
-          display: inline-flex;
+          display: flex;
           line-height: 1.3;
+          margin: 0.3em 0;
 
           &:before {
             content: url("https://wp.frontity.org/wp-content/uploads/2020/02/check-circle-marker.svg");
