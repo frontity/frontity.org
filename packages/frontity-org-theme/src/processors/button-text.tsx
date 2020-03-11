@@ -35,7 +35,7 @@ const buttonLink: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
       node.children.unshift(element);
     }
 
-    // Regular (default) button
+    // Text button
     node.props.css = css`
       ${node.props.css}
 
@@ -47,7 +47,7 @@ const buttonLink: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
       padding: 12px 18px;
       font-size: 16px;
       font-weight: 600;
-      line-height: 16px;
+      line-height: 20px;
       background-color: transparent;
 
       transition: transform filter 250ms ease-in-out;
@@ -70,9 +70,13 @@ const buttonLink: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
         }
       }
 
+      /* The ::before and :: after pseudoclasses are used for adding the
+         "underline" effect. One is on top of the other and the ::after
+         changes it's width on hover
+      */
       &::after {
         position: absolute;
-        bottom: 5px;
+        bottom: 6px;
         left: 42px;
 
         content: "";
@@ -86,7 +90,7 @@ const buttonLink: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
 
       &::before {
         position: absolute;
-        bottom: 5px;
+        bottom: 6px;
         left: 42px;
 
         content: "";

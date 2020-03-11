@@ -19,7 +19,6 @@ const buttons: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
       props: {
         css: css`
           margin-right: 10px;
-          transform: translateX(0px);
         `,
         className: "frontity-logo"
       },
@@ -36,14 +35,14 @@ const buttons: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
       max-width: 156px;
       color: white;
       padding: 18px 24px;
-      text-align: center;
-      line-height: 16px;
       font-weight: 600;
+      line-height: 20px;
       font-size: 16px;
       background-color: ${state.theme.colors.frontity};
       border-radius: 8px;
       box-shadow: 0 4px 8px 0 rgba(12, 17, 43, 0.12),
         0 1px 4px 0 rgba(12, 17, 43, 0.16);
+
       transition: transform filter 250ms ease-in-out;
 
       .frontity-logo {

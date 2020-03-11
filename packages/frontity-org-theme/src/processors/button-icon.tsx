@@ -13,15 +13,27 @@ const buttons: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
     // just a TS type guard
     if (node.type !== "element") return node;
 
-    // Regular (default) button
+    // check if the component has the icon
+    const image: any = node.children.find(
+      child => child.type === "element" && child.component === "img"
+    );
+
+    if (image) {
+      image.props.css = css`
+        margin-right: 8px;
+        vertical-align: middle;
+        transform: translateY(-1px);
+      `;
+    }
+
     node.props.css = css`
       ${node.props.css}
       max-height: 52px;
-      max-width: 200px;
+      max-width: 220px;
       color: ${state.theme.colors.frontity};
       padding: 18px 24px;
       text-align: center;
-      line-height: 16px;
+      line-height: 20px;
       font-weight: 600;
       font-size: 16px;
       background-color: ${state.theme.colors.wall};

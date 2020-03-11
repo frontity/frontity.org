@@ -42,9 +42,9 @@ const buttons: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
       max-width: 140px;
       color: white;
       padding: 12px 18px;
-      font-size: 16px;
       font-weight: 600;
-      line-height: 16px;
+      line-height: 20px;
+      font-size: 16px;
       background-color: ${state.theme.colors.frontity};
       border-radius: 8px;
       box-shadow: 0 4px 8px 0 rgba(12, 17, 43, 0.12),
