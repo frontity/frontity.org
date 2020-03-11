@@ -1,32 +1,33 @@
 import { css } from "frontity";
 
-const createBorderRadiusProcessors = (options: {
-  [className: string]: ReturnType<typeof css>;
-}) => {
-  return Object.entries(options).map(([className, style]) => ({
-    name: className,
-    test: ({ node }) =>
-      node.type === "element" &&
-      node.props.className &&
-      node.props.className.split(" ").includes(className),
-    processor: ({ node }) => ({
+const borderRadiusProcessor = {
+  name: "border-radius",
+  test: ({ node }) =>
+    node.type === "element" &&
+    node.props.className &&
+    node.props.className.split(" ").includes("has-border-radius"),
+  processor: ({ node }) => {
+    const radiusRegExp = /^has-border-radius-(\w+)$/;
+
+    // Get border-radius class
+    const radiusClass = node.props.className
+      .split(" ")
+      .find(name => radiusRegExp.test(name));
+
+    // Get value of radius
+    const [, radius] = radiusClass.match(radiusRegExp);
+
+    return {
       ...node,
       props: {
         ...node.props,
         css: css`
           ${node.props.css}
-          ${style}
+          border-radius: ${radius};
         `
       }
-    })
-  }));
+    };
+  }
 };
 
-export default createBorderRadiusProcessors({
-  "has-border-radius-8px": css`
-    border-radius: 8px;
-  `,
-  "has-border-radius-12px": css`
-    border-radius: 12px;
-  `
-});
+export default borderRadiusProcessor;

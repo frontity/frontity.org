@@ -39,14 +39,14 @@ const frontityOrg: FrontityOrg = {
   libraries: {
     html2react: {
       processors: [
-        ...borderRadius,
         ...paragraphs,
         ...mobileDesktop,
         ...borders,
         backgroundColor,
         textColor,
         specialIcons,
-        boxShadow
+        boxShadow,
+        borderRadius
       ]
     }
   }
