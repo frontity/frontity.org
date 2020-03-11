@@ -4,13 +4,15 @@ import {
   backgroundColor,
   textColor,
   specialIcons,
+  paragraphs,
   mobileDesktop,
   borders,
   buttonDefault,
   commonLink,
   buttonBig,
   buttonIcon,
-  buttonLink
+  buttonLink,
+  boxShadow
 } from "./processors";
 
 const frontityOrg: FrontityOrg = {
@@ -30,7 +32,8 @@ const frontityOrg: FrontityOrg = {
         orange: "#f4c053",
         red: "#f76d64",
         turqoise: "#6ac8c9",
-        lightgreen: "#8ACB88"
+        lightgreen: "#8ACB88",
+        white: "#ffffff"
       }
     }
   },
@@ -40,7 +43,9 @@ const frontityOrg: FrontityOrg = {
   libraries: {
     html2react: {
       processors: [
+        ...paragraphs,
         ...mobileDesktop,
+        ...borders,
         backgroundColor,
         textColor,
         specialIcons,
@@ -49,7 +54,8 @@ const frontityOrg: FrontityOrg = {
         commonLink,
         buttonBig,
         buttonIcon,
-        buttonLink
+        buttonLink,
+        boxShadow
       ]
     }
   }
