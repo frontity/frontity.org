@@ -6,7 +6,10 @@ import {
   specialIcons,
   mobileDesktop,
   borders,
-  buttons
+  buttonDefault,
+  commonLink,
+  buttonBig,
+  buttonIcon
 } from "./processors";
 
 const frontityOrg: FrontityOrg = {
@@ -41,7 +44,10 @@ const frontityOrg: FrontityOrg = {
         textColor,
         specialIcons,
         ...borders,
-        buttons
+        buttonDefault,
+        commonLink,
+        buttonBig,
+        buttonIcon
       ]
     }
   }

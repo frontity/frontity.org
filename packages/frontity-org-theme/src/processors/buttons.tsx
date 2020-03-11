@@ -21,10 +21,7 @@ const buttons: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
       child => child.type === "element" && child.component === "img"
     );
     // If it exists, add it
-    if (logoComponent) {
-      node.children.unshift(logoComponent);
-      // Otherwise add the default logo
-    } else {
+    if (!logoComponent) {
       node.children.unshift({
         component: Logo,
         props: {},
