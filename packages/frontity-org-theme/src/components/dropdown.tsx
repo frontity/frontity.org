@@ -20,12 +20,13 @@ const Dropdown: React.FC<Connect<
   // Get colors from the state.
   const separatorColor = addAlpha(state.theme.colors.primary, 0.08);
 
-  // Get the height of the content.
-  const [contentHeight, setContentHeight] = React.useState(0);
-  const ref = React.useRef<HTMLDivElement>(null);
-  React.useLayoutEffect(() => {
-    setContentHeight(ref.current.offsetHeight);
-  }, []);
+  /**
+   * Get a reference to Content to pass it to AnimatedContent
+   * and retrieve its height later.
+   *
+   * The transition uses `max-height` and that needs a value in pixels.
+   */
+  const contentRef = React.useRef<HTMLDivElement>(null);
 
   return (
     /**
@@ -39,8 +40,8 @@ const Dropdown: React.FC<Connect<
           <Arrow />
         </IconContainer>
       </Button>
-      <AnimatedContent contentHeight={isOpen ? contentHeight : 0}>
-        <Content ref={ref} separatorColor={separatorColor}>
+      <AnimatedContent isOpen={isOpen} contentRef={contentRef}>
+        <Content ref={contentRef} separatorColor={separatorColor}>
           {content}
         </Content>
       </AnimatedContent>
@@ -89,12 +90,14 @@ const IconContainer = styled.div<{ isOpen: boolean }>`
 `;
 
 const AnimatedContent = styled.div<{
-  contentHeight: number;
+  isOpen: boolean;
+  contentRef: React.RefObject<HTMLDivElement>;
 }>`
   /* Animate content */
   overflow: hidden;
   transition: max-height 0.3s ease;
-  max-height: ${({ contentHeight }) => contentHeight}px;
+  max-height: ${({ isOpen, contentRef }) =>
+    isOpen ? contentRef.current.offsetHeight : 0}px;
 `;
 
 const Content = styled.div<{
