@@ -29,8 +29,8 @@ const Dropdown: React.FC<Connect<
 
   return (
     /**
-     * Pass down `className` and `css` props to keep styles
-     * added by processors and classes.
+     * Pass down `className` prop to keep styles
+     * added by processors and gutenberg classes.
      */
     <Container className={className}>
       <Button onClick={() => setOpen(!isOpen)}>
