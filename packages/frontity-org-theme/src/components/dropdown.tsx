@@ -1,5 +1,5 @@
 import React from "react";
-import { styled, css, connect } from "frontity";
+import { styled, connect } from "frontity";
 import { Connect } from "frontity/types";
 import FrontityOrg from "../../types";
 import Arrow from "./icons/arrow";
@@ -9,9 +9,8 @@ const Dropdown: React.FC<Connect<
   FrontityOrg,
   {
     className?: string;
-    css?: ReturnType<typeof css>;
   }
->> = ({ className, css, children, state }) => {
+>> = ({ className, children, state }) => {
   // Define the inner state.
   const [isOpen, setOpen] = React.useState(false);
 
@@ -19,7 +18,6 @@ const Dropdown: React.FC<Connect<
   const [button, content] = React.Children.toArray(children);
 
   // Get colors from the state.
-  const buttonColor = state.theme.colors.frontity;
   const separatorColor = addAlpha(state.theme.colors.primary, 0.08);
 
   return (
@@ -27,11 +25,11 @@ const Dropdown: React.FC<Connect<
      * Pass down `className` and `css` props to keep styles
      * added by processors and classes.
      */
-    <Container className={className} css={css}>
+    <Container className={className}>
       <Button onClick={() => setOpen(!isOpen)}>
         {button}
         <IconContainer isOpen={isOpen}>
-          <Arrow color={buttonColor} />
+          <Arrow />
         </IconContainer>
       </Button>
       {isOpen && <Content separatorColor={separatorColor}>{content}</Content>}
@@ -60,12 +58,6 @@ const Button = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
-  /* Style the inner heading */
-  h4 {
-    line-height: 24px;
-    font-size: 16px;
-  }
 `;
 
 const IconContainer = styled.div<{ isOpen: boolean }>`
@@ -91,10 +83,4 @@ const Content = styled.div<{ separatorColor: string }>`
 
   /* Draw a separator line */
   border-top: 2px solid ${({ separatorColor }) => separatorColor};
-
-  /* Style inner paragraphs */
-  p {
-    line-height: 20px;
-    font-size: 14px;
-  }
 `;
