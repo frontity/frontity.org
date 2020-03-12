@@ -20,6 +20,13 @@ const Dropdown: React.FC<Connect<
   // Get colors from the state.
   const separatorColor = addAlpha(state.theme.colors.primary, 0.08);
 
+  // Get the height of the content.
+  const [contentHeight, setContentHeight] = React.useState(0);
+  const ref = React.useRef<HTMLDivElement>(null);
+  React.useLayoutEffect(() => {
+    setContentHeight(ref.current.offsetHeight);
+  }, []);
+
   return (
     /**
      * Pass down `className` and `css` props to keep styles
@@ -32,7 +39,11 @@ const Dropdown: React.FC<Connect<
           <Arrow />
         </IconContainer>
       </Button>
-      {isOpen && <Content separatorColor={separatorColor}>{content}</Content>}
+      <AnimatedContent contentHeight={isOpen ? contentHeight : 0}>
+        <Content ref={ref} separatorColor={separatorColor}>
+          {content}
+        </Content>
+      </AnimatedContent>
     </Container>
   );
 };
@@ -77,7 +88,19 @@ const IconContainer = styled.div<{ isOpen: boolean }>`
   transition: transform 0.3s;
 `;
 
-const Content = styled.div<{ separatorColor: string }>`
+const AnimatedContent = styled.div<{
+  contentHeight: number;
+}>`
+  /* Animate content */
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  max-height: ${({ contentHeight }) => contentHeight}px;
+`;
+
+const Content = styled.div<{
+  separatorColor: string;
+}>`
+  box-sizing: border-box;
   padding: 12px 0 16px 0;
   margin: 0 20px;
 
