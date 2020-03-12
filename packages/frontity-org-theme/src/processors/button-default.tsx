@@ -10,7 +10,7 @@ const buttons: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
     node.props.className?.split(/ /).includes("wp-block-button__link") &&
     (node as any).parent?.props?.className
       ?.split(/ /)
-      .includes("default-button"),
+      .includes("button-default"),
 
   processor: ({ node, state }) => {
     // just a TS type guard

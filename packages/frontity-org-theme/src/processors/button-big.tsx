@@ -8,7 +8,7 @@ const buttons: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
   test: ({ node }) =>
     node.type === "element" &&
     node.props.className?.split(/ /).includes("wp-block-button__link") &&
-    (node as any).parent?.props?.className?.split(/ /).includes("big-button"),
+    (node as any).parent?.props?.className?.split(/ /).includes("button-big"),
 
   processor: ({ node, state }) => {
     // just a TS type guard
