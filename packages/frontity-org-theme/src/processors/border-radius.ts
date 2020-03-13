@@ -1,14 +1,14 @@
 import { css } from "frontity";
 
+const radiusRegExp = /^has-border-radius-(\w+)$/;
+
 const borderRadiusProcessor = {
   name: "border-radius",
   test: ({ node }) =>
     node.type === "element" &&
     node.props.className &&
-    node.props.className.split(" ").includes("has-border-radius"),
+    node.props.className.split(" ").some(name => radiusRegExp.test(name)),
   processor: ({ node }) => {
-    const radiusRegExp = /^has-border-radius-(\w+)$/;
-
     // Get border-radius class
     const radiusClass = node.props.className
       .split(" ")
