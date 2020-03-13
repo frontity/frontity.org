@@ -1,14 +1,18 @@
+import React from "react";
 import { css } from "frontity";
+import { Processor } from "@frontity/html2react/types";
 
 const radiusRegExp = /^has-border-radius-(\w+)$/;
 
-const borderRadiusProcessor = {
+const borderRadiusProcessor: Processor<React.HTMLProps<HTMLElement>> = {
   name: "border-radius",
   test: ({ node }) =>
     node.type === "element" &&
     node.props.className &&
     node.props.className.split(" ").some(name => radiusRegExp.test(name)),
   processor: ({ node }) => {
+    if (node.type !== "element") return node;
+
     // Get border-radius class
     const radiusClass = node.props.className
       .split(" ")
