@@ -7,11 +7,7 @@ import {
   paragraphs,
   mobileDesktop,
   borders,
-  buttonDefault,
-  commonLink,
-  buttonBig,
-  buttonIcon,
-  buttonLink,
+  links,
   boxShadow
 } from "./processors";
 
@@ -50,11 +46,7 @@ const frontityOrg: FrontityOrg = {
         textColor,
         specialIcons,
         ...borders,
-        buttonDefault,
-        commonLink,
-        buttonBig,
-        buttonIcon,
-        buttonLink,
+        links,
         boxShadow
       ]
     }
