@@ -12,7 +12,7 @@ const links: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
     if (node.type !== "element") return node;
 
     // Add all needed conditions
-    const isButton = node.props.className
+    const isButton = node.props?.className
       ?.split(/ /)
       .includes("wp-block-button__link");
     const isBig = (node as any).parent?.props?.className
@@ -24,15 +24,15 @@ const links: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
     const noLogo = (node as any).parent?.props?.className
       ?.split(/ /)
       .includes("no-logo");
-    const hasCustomBackground = (node as any).parent?.props?.className
+    const hasCustomBackground = node.props?.className
       ?.split(/ /)
       .includes("has-background");
-    const hasCustomColor = (node as any).parent?.props?.className
+    const hasCustomColor = node.props?.className
       ?.split(/ /)
       .includes("has-text-color");
     const radiusRegExp = /^has-border-radius-(\w+)$/;
-    const hasCustomRadius = node.props.className
-      .split(" ")
+    const hasCustomRadius = node.props?.className
+      ?.split(" ")
       .some(name => radiusRegExp.test(name));
 
     if (isButton) {
@@ -44,7 +44,7 @@ const links: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
         padding: 12px 16px;
         font-weight: 600;
         &:hover {
-          filter: opacity(0.91);
+          filter: opacity(0.8);
           cursor: pointer;
         }
         &:active {
@@ -116,6 +116,14 @@ const links: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
         `;
         // Add the frontity logo
         node.children.unshift(element);
+      } else {
+        //If it has a different logo add margin to <img>
+        node.props.css = css`
+          ${node.props.css}
+          img {
+            margin-right: 8px;
+          }
+        `;
       }
       //If is text
       if (isButtonText) {
@@ -160,18 +168,18 @@ const links: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
     } else {
       //If it's a common link
       node.props.css = css`
-          ${node.props.css}
-          color: ${state.theme.colors.frontity};
-          text-decoration: none;
-          outline: none;
-          &:focus {
-            box-shadow: outline;
-          }
-          cursor: pointer;
-          &:hover, &:active{
-            opacity: 0.8;
-          }
-          `;
+        ${node.props.css}
+        color: ${state.theme.colors.frontity};
+        text-decoration: none;
+        outline: none;
+        &:focus {
+          box-shadow: outline;
+        }
+        cursor: pointer;
+        &:hover, &:active{
+          opacity: 0.8;
+        }
+      `;
     }
     return node;
   }
