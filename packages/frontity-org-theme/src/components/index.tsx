@@ -8,6 +8,8 @@ import FontFace from "./styles/font-face";
 import gutenbergStyle from "./styles/gutenberg/style.css";
 import gutenbergTheme from "./styles/gutenberg/theme.css";
 
+import BackgroundWithTriangles from "../components/background-with-triangles";
+
 const Theme: React.FC<Connect<FrontityOrg>> = ({ state }) => {
   const data = state.source.get(state.router.link);
   return (
@@ -16,6 +18,9 @@ const Theme: React.FC<Connect<FrontityOrg>> = ({ state }) => {
       <Global styles={css(gutenbergStyle)} />
       <Global styles={css(gutenbergTheme)} />
       <FontFace />
+      <BackgroundWithTriangles>
+        <h1>This is how it will going to be</h1>
+      </BackgroundWithTriangles>
       {(data.isPage && <Page />) || (
         <>
           <a href="/homepage">Visit /homepage</a>
