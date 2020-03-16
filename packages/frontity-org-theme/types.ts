@@ -24,6 +24,7 @@ interface FrontityOrg extends Package {
         lightgreen: string;
         white: string;
       };
+      templates: string[];
     };
     source?: Source["state"]["source"];
     router?: Router["state"]["router"];
@@ -34,6 +35,9 @@ interface FrontityOrg extends Package {
   libraries: {
     html2react?: {
       processors: Html2React["libraries"]["html2react"]["processors"];
+    };
+    source: {
+      handlers: any[];
     };
   };
 }

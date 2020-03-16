@@ -29,11 +29,21 @@ const frontityOrg: FrontityOrg = {
         turqoise: "#6ac8c9",
         lightgreen: "#8ACB88",
         white: "#ffffff"
-      }
+      },
+      templates: ["fixed-header", "header", "footer", "newsletter"]
     }
   },
   actions: {
-    theme: {}
+    theme: {
+      beforeSSR: ({ state, actions }) => async ({ ctx }) => {
+        const data = await Promise.all(
+          state.theme.templates.map(slug =>
+            actions.source.fetch(`/wp_template_part/${slug}`)
+          )
+        );
+        console.log("ready", data);
+      }
+    }
   },
   libraries: {
     html2react: {
@@ -46,8 +56,33 @@ const frontityOrg: FrontityOrg = {
         specialIcons,
         boxShadow
       ]
+    },
+    source: {
+      handlers: []
     }
   }
 };
+
+frontityOrg.libraries.source.handlers.push({
+  name: "template-parts",
+  priority: 10,
+  pattern: "/wp_template_part/:slug",
+  func: async ({ route, params, state, libraries, force }) => {
+    // 1. get product
+    const response = await libraries.source.api.get({
+      endpoint: "wp_template_part",
+      params: { slug: params.slug }
+    });
+
+    // 2. add product to state
+    const [template] = await libraries.source.populate({
+      response,
+      state,
+      force
+    });
+
+    console.log(template);
+  }
+});
 
 export default frontityOrg;
