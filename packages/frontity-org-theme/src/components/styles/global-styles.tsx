@@ -116,7 +116,13 @@ const elementBase = (colors: FrontityOrg["state"]["theme"]["colors"]) => css`
     list-style-type: "→ ";
 
     & > li {
-      margin: 0.5em 0;
+      margin: 1.1rem 0;
+      line-height: 1.3;
+
+      &::before {
+        line-height: 0;
+        margin-right: 0.5rem;
+      }
     }
   }
 `;
