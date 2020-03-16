@@ -6,6 +6,7 @@ import Logo from "../components/logo";
 
 const links: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
   test: ({ node }) => node.type === "element" && node.component === "a",
+  priority: 5,
 
   processor: ({ node, state }) => {
     // just a TS type guard
@@ -24,12 +25,6 @@ const links: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
     const noLogo = (node as any).parent?.props?.className
       ?.split(/ /)
       .includes("no-logo");
-    const hasCustomBackground = node.props?.className
-      ?.split(/ /)
-      .includes("has-background");
-    const hasCustomColor = node.props?.className
-      ?.split(/ /)
-      .includes("has-text-color");
     const radiusRegExp = /^has-border-radius-(\w+)$/;
     const hasCustomRadius = node.props?.className
       ?.split(" ")
@@ -43,6 +38,9 @@ const links: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
         font-size: 16px;
         padding: 12px 16px;
         font-weight: 600;
+        background-color: ${state.theme.colors.frontity};
+        color: ${state.theme.colors.white};
+        border-radius: 8px;
         &:hover {
           filter: opacity(0.8);
           cursor: pointer;
@@ -56,27 +54,6 @@ const links: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
         node.props.css = css`
           ${node.props.css}
           box-shadow: 0 4px 8px 0 rgba(12,17,43,0.12), 0 1px 4px 0 rgba(12,17,43,0.16);
-        `;
-      }
-      //Text color
-      if (!hasCustomColor) {
-        node.props.css = css`
-        ${node.props.css}
-        color: ${state.theme.colors.white};
-      `;
-      }
-      //Background
-      if (!hasCustomBackground) {
-        node.props.css = css`
-        ${node.props.css}
-        background-color: ${state.theme.colors.frontity};
-      `;
-      }
-      //Border-radius
-      if (!hasCustomRadius) {
-        node.props.css = css`
-          ${node.props.css}
-          border-radius: 8px;
         `;
       }
       //If is Big
