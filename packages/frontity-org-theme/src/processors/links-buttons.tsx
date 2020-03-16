@@ -25,10 +25,9 @@ const links: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
     const noLogo = (node as any).parent?.props?.className
       ?.split(/ /)
       .includes("no-logo");
-    const radiusRegExp = /^has-border-radius-(\w+)$/;
-    const hasCustomRadius = node.props?.className
-      ?.split(" ")
-      .some(name => radiusRegExp.test(name));
+    const hasImage = (node as any).children.some(
+      child => child.type === "element" && child.component === "img"
+    );
 
     if (isButton) {
       //Add common styles for the <a> tag
@@ -41,10 +40,6 @@ const links: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
         background-color: ${state.theme.colors.frontity};
         color: ${state.theme.colors.white};
         border-radius: 8px;
-        &:hover {
-          filter: opacity(0.8);
-          cursor: pointer;
-        }
         &:active {
           transform: translateY(2px);
         }
@@ -54,6 +49,11 @@ const links: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
         node.props.css = css`
           ${node.props.css}
           box-shadow: 0 4px 8px 0 rgba(12,17,43,0.12), 0 1px 4px 0 rgba(12,17,43,0.16);
+
+          &:hover {
+            filter: opacity(0.9);
+            cursor: pointer;
+          }
         `;
       }
       //If is Big
@@ -64,7 +64,7 @@ const links: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
         `;
       }
       //Add logo if needed
-      if (!noLogo) {
+      if (!noLogo && !hasImage) {
         const fillColor = isButtonText
           ? state.theme.colors.frontity
           : state.theme.colors.wall;
@@ -81,7 +81,7 @@ const links: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
         };
         node.props.css = css`
           ${node.props.css}
-          transition: transform filter 250ms ease-in-out;
+          transition: transform, filter 250ms ease-in-out;
           .frontity-logo {
             transition: transform 300ms ease-in-out;
           }
@@ -99,6 +99,7 @@ const links: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
           ${node.props.css}
           img {
             margin-right: 8px;
+            transform: translateY(2px);
           }
         `;
       }
