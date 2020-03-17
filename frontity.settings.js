@@ -19,7 +19,7 @@ const settings = {
           postTypes: [
             {
               type: "wp_template_part",
-              endpoint: "wp_template_part"
+              endpoint: "template-parts"
             }
           ]
         }
