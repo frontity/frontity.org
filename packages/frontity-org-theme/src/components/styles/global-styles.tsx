@@ -115,13 +115,16 @@ const elementBase = (colors: FrontityOrg["state"]["theme"]["colors"]) => css`
   ul {
     list-style-type: "→ ";
   }
+`;
+
+const syntaxHighlighting = (
+  colors: FrontityOrg["state"]["theme"]["colors"]
+) => css`
+  /* This is a modified theme for Prism.js
+  
   /* PrismJS 1.19.0
-https://prismjs.com/download.html#themes=prism-dark&languages=markup+clike+javascript+jsx */
-  /**
- * prism.js Dark theme for JavaScript, CSS and HTML
- * Based on the slides of the talk “/Reg(exp){2}lained/”
- * @author Lea Verou
- */
+      https://prismjs.com/download.html#themes=prism-dark&languages=markup+clike+javascript+jsx 
+  */
 
   code[class*="language-"],
   pre[class*="language-"] {
@@ -221,8 +224,12 @@ https://prismjs.com/download.html#themes=prism-dark&languages=markup+clike+javas
     color: red;
   }
 `;
-
 const globalStyle = (colors: FrontityOrg["state"]["theme"]["colors"]) =>
-  css([cssReset, documentSetup(colors), elementBase(colors)]);
+  css([
+    cssReset,
+    documentSetup(colors),
+    elementBase(colors),
+    syntaxHighlighting(colors)
+  ]);
 
 export default globalStyle;
