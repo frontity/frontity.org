@@ -10,8 +10,10 @@ const cssReset = css`
   }
 
   html {
+    cursor: default;
     line-height: 1.15;
-    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    word-break: break-word;
   }
 
   html,
@@ -167,7 +169,7 @@ const cssReset = css`
   [type="button"],
   [type="reset"],
   [type="submit"] {
-    -webkit-appearance: button;
+    appearance: button;
   }
 
   button::-moz-focus-inner,
@@ -185,6 +187,24 @@ const cssReset = css`
     outline: 1px dotted ButtonText;
   }
 
+  [aria-disabled="true"],
+  [disabled] {
+    cursor: not-allowed;
+  }
+
+  a,
+  area,
+  button,
+  input,
+  label,
+  select,
+  summary,
+  textarea,
+  [tabindex] {
+    touch-action: manipulation;
+  }
+
+  [aria-disabled="true"],
   [hidden] {
     display: none;
   }
