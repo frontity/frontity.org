@@ -117,7 +117,13 @@ const elementBase = (colors: FrontityOrg["state"]["theme"]["colors"]) => css`
   }
 `;
 
+const customStyles = css`
+  .has-polygon-background {
+    clip-path: polygon(0 0, 100% 36px, 100% 100%, 0 calc(100% - 72px));
+  }
+`;
+
 const globalStyle = (colors: FrontityOrg["state"]["theme"]["colors"]) =>
-  css([cssReset, documentSetup(colors), elementBase(colors)]);
+  css([cssReset, documentSetup(colors), elementBase(colors), customStyles]);
 
 export default globalStyle;
