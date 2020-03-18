@@ -8,7 +8,8 @@ import {
   mobileDesktop,
   borders,
   boxShadow,
-  checklists
+  checklists,
+  dropdown
 } from "./processors";
 
 const frontityOrg: FrontityOrg = {
@@ -46,7 +47,8 @@ const frontityOrg: FrontityOrg = {
         textColor,
         specialIcons,
         boxShadow,
-        checklists
+        checklists,
+        dropdown
       ]
     }
   }
