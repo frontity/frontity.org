@@ -8,7 +8,9 @@ import {
   mobileDesktop,
   borders,
   boxShadow,
-  terminal
+  terminal,
+  borderRadius,
+  dropdown
 } from "./processors";
 
 import "./prism";
@@ -48,7 +50,9 @@ const frontityOrg: FrontityOrg = {
         terminal,
         textColor,
         specialIcons,
-        boxShadow
+        boxShadow,
+        borderRadius,
+        dropdown
       ]
     }
   }
