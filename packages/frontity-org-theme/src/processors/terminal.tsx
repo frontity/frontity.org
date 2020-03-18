@@ -62,6 +62,7 @@ const backgroundColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
       height: 310px;
       width: 400px;
       padding: 0;
+      border: 0;
       box-shadow: 0 2px 12px 0 rgba(12, 17, 43, 0.4),
         0 1px 4px 0 rgba(12, 17, 43, 0.39);
       border-radius: 8px;
