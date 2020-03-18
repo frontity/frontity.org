@@ -9,6 +9,7 @@ const Dot = styled.span`
   width: 8px;
   border-radius: 50%;
   margin-left: 7px;
+  margin-top: 8px;
   background-color: rgba(255, 255, 255, 0.15);
 `;
 
@@ -43,15 +44,20 @@ const backgroundColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
     }
 
     if (node.component === "code") {
-      node.props.css = css``;
+      node.props.css = css`
+        position: absolute;
+        margin-left: 15px;
+        margin-top: 10px;
+      `;
       node.props.className = "language-javascript";
       return node;
     }
 
     node.props.css = css`
       ${node.props.css}
-      background-color: red;
-      font-family: monospace;
+      font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.65;
       background: ${state.theme.colors.voidblu};
       height: 310px;
       width: 400px;
@@ -72,7 +78,6 @@ const backgroundColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
       li {
         counter-increment: counter;
         margin-left: 18px;
-        line-height: 1.3;
       }
 
       ol li::before {

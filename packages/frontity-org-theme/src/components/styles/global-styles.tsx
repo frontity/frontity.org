@@ -126,14 +126,13 @@ https://prismjs.com/download.html#themes=prism-dark&languages=markup+clike+javas
   code[class*="language-"],
   pre[class*="language-"] {
     font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
-    font-size: inherit;
+    font-size: 0.78rem;
     text-align: left;
     white-space: pre;
     word-spacing: normal;
     word-break: normal;
     word-wrap: normal;
-    line-height: 1.5;
-    font-size: 0.85rem;
+    line-height: 1.65;
     color: ${colors.wall};
 
     -moz-tab-size: 4;
