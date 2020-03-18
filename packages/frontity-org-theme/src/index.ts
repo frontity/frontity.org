@@ -11,6 +11,8 @@ import {
   terminal
 } from "./processors";
 
+import "./prism";
+
 const frontityOrg: FrontityOrg = {
   name: "frontity-org-theme",
   roots: {
