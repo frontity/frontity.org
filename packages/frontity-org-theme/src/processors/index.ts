@@ -1,3 +1,4 @@
+export { default as borderRadius } from "./border-radius";
 export { default as boxShadow } from "./box-shadow";
 export { default as borders } from "./borders";
 export { default as backgroundColor } from "./background-color";
