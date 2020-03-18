@@ -18,9 +18,10 @@ const Theme: React.FC<Connect<FrontityOrg>> = ({ state }) => {
       <Global styles={css(gutenbergStyle)} />
       <Global styles={css(gutenbergTheme)} />
       <FontFace />
-      <BackgroundWithTriangles>
-        <h1>This is how it will going to be</h1>
+      <BackgroundWithTriangles position="left">
+        <h1>This is how it is going to be</h1>
       </BackgroundWithTriangles>
+
       {(data.isPage && <Page />) || (
         <>
           <a href="/homepage">Visit /homepage</a>
