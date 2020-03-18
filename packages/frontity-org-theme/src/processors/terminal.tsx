@@ -19,7 +19,11 @@ const Top = () => (
       border-bottom: 1px solid rgba(255, 255, 255, 0.07);
     `}
   >
-    <Dot />
+    <Dot
+      css={css`
+        margin-left: 10px;
+      `}
+    />
     <Dot />
     <Dot />
   </div>
@@ -30,10 +34,17 @@ const backgroundColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
   test: ({ node }) =>
     node.type === "element" &&
     (node.props?.className?.split(" ").includes("terminal") ||
-      node.props?.className?.split(" ").includes("has-code")),
+      node.props?.className?.split(" ").includes("wp-block-code") ||
+      node.component === "code"),
 
   processor: ({ node, state }) => {
     if (node.type !== "element") {
+      return node;
+    }
+
+    if (node.component === "code") {
+      node.props.css = css``;
+      node.props.className = "language-javascript";
       return node;
     }
 
@@ -44,6 +55,7 @@ const backgroundColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
       background: ${state.theme.colors.voidblu};
       height: 310px;
       width: 400px;
+      padding: 0;
       box-shadow: 0 2px 12px 0 rgba(12, 17, 43, 0.4),
         0 1px 4px 0 rgba(12, 17, 43, 0.39);
       border-radius: 8px;
