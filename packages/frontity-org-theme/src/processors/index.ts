@@ -5,3 +5,4 @@ export { default as textColor } from "./text-color";
 export { default as mobileDesktop } from "./mobile-desktop";
 export { default as specialIcons } from "./special-icons";
 export { default as paragraphs } from "./paragraph";
+export { default as dropdown } from "./dropdown";
