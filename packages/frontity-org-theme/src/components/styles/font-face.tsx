@@ -2,6 +2,7 @@ import React from "react";
 import { Global, css } from "frontity";
 import poppinsSemiBold from "../../fonts/Poppins-SemiBold.ttf";
 import IBMPlexSansRegular from "../../fonts/IBMPlexSans-Regular.ttf";
+import IBMPlexSansSemiBold from "../../fonts/IBMPlexSans-SemiBold.ttf";
 
 const FontFace: React.FC = () => (
   <Global
@@ -17,6 +18,13 @@ const FontFace: React.FC = () => (
         font-family: "IBMPlexSans";
         src: url(${IBMPlexSansRegular});
         font-weight: 500;
+        font-display: block;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "IBMPlexSans";
+        src: url(${IBMPlexSansSemiBold});
+        font-weight: 600;
         font-display: block;
         font-style: normal;
       }
