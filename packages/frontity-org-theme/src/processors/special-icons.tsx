@@ -6,7 +6,7 @@ import { addAlpha } from "../utils";
 
 const borderRadiusRegex = /has-border-radius-(\d+)px/;
 
-const textColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
+const specialIcons: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
   name: "textColor",
   test: ({ node }) =>
     node.type === "element" &&
@@ -64,4 +64,4 @@ const textColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
   }
 };
 
-export default textColor;
+export default specialIcons;
