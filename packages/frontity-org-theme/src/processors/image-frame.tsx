@@ -1,28 +1,7 @@
 import React from "react";
-import { css, styled } from "frontity";
+import { css } from "frontity";
 import { Processor } from "@frontity/html2react/types";
-
-const Dot = styled.span`
-  display: inline-block;
-  width: 9px;
-  height: 9px;
-  margin-left: 5px;
-  border-radius: 100%;
-  background-color: rgba(15, 28, 100, 0.2);
-`;
-
-const Top = () => (
-  <div
-    css={css`
-      height: 32px;
-      padding-left: 10px;
-    `}
-  >
-    <Dot />
-    <Dot />
-    <Dot />
-  </div>
-);
+import TopBar from "../components/window-top-bar";
 
 const imageFrame: Processor<React.HTMLProps<HTMLElement>> = {
   name: "border-radius",
@@ -35,7 +14,10 @@ const imageFrame: Processor<React.HTMLProps<HTMLElement>> = {
 
     const topFrame: any = {
       type: "element",
-      component: Top
+      component: TopBar,
+      props: {}
+      // we need to pass empty props, because other processors might
+      // expect `.props` to exist
     };
 
     node.children.unshift(topFrame);
@@ -46,10 +28,23 @@ const imageFrame: Processor<React.HTMLProps<HTMLElement>> = {
       background-color: rgba(12, 17, 43, 0.02);
       display: inline-flex;
       flex-flow: column nowrap;
+      border-radius: 12px;
 
-      img {
-        border-bottom-left-radius: 11px;
-        border-bottom-right-radius: 11px;
+      /* override the default WP styles */
+      .wp-block-image {
+        margin: 0;
+      }
+
+      /* override the default WP styles */
+      .wp-block-group__inner-container {
+        vertical-align: bottom;
+      }
+
+      img,
+      iframe,
+      video {
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
       }
     `;
 
