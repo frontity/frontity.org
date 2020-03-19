@@ -8,7 +8,9 @@ import {
   mobileDesktop,
   borders,
   links,
-  boxShadow
+  boxShadow,
+  borderRadius,
+  dropdown
 } from "./processors";
 
 const frontityOrg: FrontityOrg = {
@@ -47,7 +49,9 @@ const frontityOrg: FrontityOrg = {
         specialIcons,
         ...borders,
         links,
-        boxShadow
+        boxShadow,
+        borderRadius,
+        dropdown
       ]
     }
   }
