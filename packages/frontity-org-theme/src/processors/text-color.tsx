@@ -12,7 +12,8 @@ const textColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
   test: ({ node }) =>
     node.type === "element" &&
     node.props.className &&
-    node.props.className.split(" ").includes("has-text-color"),
+    (node.props.className.split(" ").includes("has-text-color") ||
+      node.props.className.split(" ").includes("has-inline-color")),
   processor: ({ node, state }) => {
     if (node.type === "element") {
       // Get the class with the color name.
@@ -21,7 +22,11 @@ const textColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
         .find(
           name =>
             colorClassRegex.test(name) &&
-            !(name.endsWith("text-color") || name.endsWith("background-color"))
+            !(
+              name.endsWith("text-color") ||
+              name.endsWith("inline-color") ||
+              name.endsWith("background-color")
+            )
         );
 
       if (colorClass) {
@@ -54,6 +59,9 @@ const textColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
         node.props.css = css`
           ${node.props.css}
           color: ${color};
+          &:hover, &:active{
+            color: ${color};
+          }
         `;
       }
     }
