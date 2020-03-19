@@ -7,7 +7,7 @@ import { addAlpha } from "../utils";
 const borderRadiusRegex = /has-border-radius-(\d+)px/;
 
 const specialIcons: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
-  name: "textColor",
+  name: "special-icons",
   test: ({ node }) =>
     node.type === "element" &&
     node.props.className &&
