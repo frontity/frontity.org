@@ -8,7 +8,7 @@ const colorClassRegex = /has-([\w-]+)-color/;
 const opacityClassRegex = /has-text-opacity-(\d+)/;
 
 const textColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
-  name: "textColor",
+  name: "text-color",
   test: ({ node }) =>
     node.type === "element" &&
     node.props.className &&
