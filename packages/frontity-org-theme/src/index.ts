@@ -9,6 +9,7 @@ import {
   borders,
   links,
   boxShadow,
+  checklists,
   borderRadius,
   dropdown
 } from "./processors";
@@ -50,6 +51,7 @@ const frontityOrg: FrontityOrg = {
         ...borders,
         links,
         boxShadow,
+        checklists,
         borderRadius,
         dropdown
       ]
