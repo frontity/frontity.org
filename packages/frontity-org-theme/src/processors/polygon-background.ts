@@ -18,6 +18,7 @@ const polygonBackground: Processor<
     }
 
     node.props.css = css`
+      ${node.props.css};
       clip-path: polygon(0 0, 100% 36px, 100% 100%, 0 calc(100% - 72px));
     `;
 
