@@ -9,6 +9,7 @@ import {
   borders,
   links,
   boxShadow,
+  checklists,
   borderRadius,
   dropdown,
   polygonBackground
@@ -52,6 +53,7 @@ const frontityOrg: FrontityOrg = {
         ...borders,
         links,
         boxShadow,
+        checklists,
         borderRadius,
         dropdown
       ]
