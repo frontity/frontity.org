@@ -59,9 +59,6 @@ const frontityOrg: FrontityOrg = {
         borderRadius,
         dropdown
       ]
-    },
-    source: {
-      handlers: []
     }
   }
 };
