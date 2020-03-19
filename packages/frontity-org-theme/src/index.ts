@@ -25,7 +25,7 @@ const frontityOrg: FrontityOrg = {
         voidblu: "#0c112b",
         grass: "#82c315",
         wall: "#f6f6f9",
-        purple: "#1f38c5",
+        purple: "#936af4",
         orange: "#f4c053",
         red: "#f76d64",
         turqoise: "#6ac8c9",
