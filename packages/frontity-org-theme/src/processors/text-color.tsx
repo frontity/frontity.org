@@ -59,6 +59,9 @@ const textColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
         node.props.css = css`
           ${node.props.css}
           color: ${color};
+          &:hover, &:active{
+            color: ${color};
+          }
         `;
       }
     }
