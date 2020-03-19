@@ -7,7 +7,9 @@ import {
   paragraphs,
   mobileDesktop,
   borders,
+  links,
   boxShadow,
+  checklists,
   borderRadius,
   dropdown,
   imageFrame
@@ -48,7 +50,10 @@ const frontityOrg: FrontityOrg = {
         textColor,
         specialIcons,
         imageFrame,
+        ...borders,
+        links,
         boxShadow,
+        checklists,
         borderRadius,
         dropdown
       ]
