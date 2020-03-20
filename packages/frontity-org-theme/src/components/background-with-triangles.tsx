@@ -1,50 +1,63 @@
 import React from "react";
-import { styled } from "frontity";
+import { styled, connect } from "frontity";
+import { Connect } from "frontity/types";
+import FrontityOrg from "../../types";
 
-const BackgroundWithTriangles: React.FC<{
-  position: "left" | "right" | "both";
-}> = ({ children }) => {
+const bgt = {
+  position: "left",
+  top: "",
+  topTriangleOpacity: ""
+}; // pressumed object
+
+const BackgroundWithTriangles: React.FC<Connect<FrontityOrg>> = ({
+  state,
+  children
+}) => {
+  const { position, top, topTriangleOpacity } = bgt;
+
   return (
     <Container>
-      <Triangle />
-      <Triangle className="small" />
+      <Triangle>
+        <Triangle className="inner" />
+      </Triangle>
+
       {children}
     </Container>
   );
 };
 
 const Container = styled.div`
+  background: rgba(193, 197, 222, 0.2);
+  position: fixed;
   height: 1000px;
-  border: 1px solid #000;
-  position: relative;
-  background: #c1c5de;
-  opacity: 0.15;
-  z-index: -3;
+  width: 100vw;
+  left: 0;
+  top: 0;
+  /* position: relative; */
 `;
 
 const Triangle = styled.div`
+  transform: translate(-58%, -52.5%) rotate(45deg);
+  box-shadow: 0 0 14px 0 rgba(12, 17, 43, 0.03);
+  transform-origin: left;
+  background: #fcfcfd;
   position: absolute;
-  transform: translateY(-20%);
+  height: 800px;
   z-index: -2;
-  opacity: 0.4;
-  top: 0;
-  left: 0;
+  width: 800px;
 
-  width: 0;
-  height: 0;
-
-  border: 400px solid transparent;
-  border-left: 450px solid #fdfdfe;
-
-  &.small {
-    z-index: -1;
-    opacity: 1;
-    top: 0;
-    left: 0;
-    transform: translateY(-10%);
-    border-width: 300px;
-    border-left: 350px solid #c1c5de;
+  .inner {
+    box-shadow: 0 0 14px 0 rgba(12, 17, 43, 0.03);
+    transform: translate(-50%, -50%);
+    height: calc(100% - 170px);
+    width: calc(100% - 170px);
+    position: relative;
+    background: gray;
+    opacity: 0.15;
+    z-index: -3;
+    left: 50%;
+    top: 50%;
   }
 `;
 
-export default BackgroundWithTriangles;
+export default connect(BackgroundWithTriangles);
