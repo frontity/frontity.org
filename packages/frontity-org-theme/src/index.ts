@@ -6,13 +6,15 @@ import {
   specialIcons,
   paragraphs,
   mobileDesktop,
+  horizontalSeparator,
   borders,
   links,
   boxShadow,
   checklists,
   borderRadius,
   dropdown,
-  imageFrame
+  imageFrame,
+  polygonBackground
 } from "./processors";
 
 const frontityOrg: FrontityOrg = {
@@ -28,17 +30,26 @@ const frontityOrg: FrontityOrg = {
         voidblu: "#0c112b",
         grass: "#82c315",
         wall: "#f6f6f9",
-        purple: "#1f38c5",
+        purple: "#936af4",
         orange: "#f4c053",
         red: "#f76d64",
         turqoise: "#6ac8c9",
         lightgreen: "#8ACB88",
         white: "#ffffff"
-      }
+      },
+      templates: ["fixed-header", "header", "footer", "newsletter"]
     }
   },
   actions: {
-    theme: {}
+    theme: {
+      beforeSSR: ({ state, actions }) => async () => {
+        await Promise.all(
+          state.theme.templates.map(slug =>
+            actions.source.fetch(`/wp_template_part/${slug}`)
+          )
+        );
+      }
+    }
   },
   libraries: {
     html2react: {
@@ -50,12 +61,17 @@ const frontityOrg: FrontityOrg = {
         textColor,
         specialIcons,
         imageFrame,
+        polygonBackground,
         ...borders,
         links,
+        borderRadius,
         boxShadow,
         checklists,
-        borderRadius,
-        dropdown
+        dropdown,
+        horizontalSeparator,
+        links,
+        specialIcons,
+        textColor
       ]
     }
   }
