@@ -7,6 +7,7 @@ export { default as dropdown } from "./dropdown";
 export { default as horizontalSeparator } from "./horizontal-separator";
 export { default as links } from "./links-buttons";
 export { default as mobileDesktop } from "./mobile-desktop";
+export { default as polygonBackground } from "./polygon-background";
 export { default as paragraphs } from "./paragraph";
 export { default as specialIcons } from "./special-icons";
 export { default as textColor } from "./text-color";

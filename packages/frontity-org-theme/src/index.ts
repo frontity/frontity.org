@@ -12,7 +12,8 @@ import {
   boxShadow,
   checklists,
   borderRadius,
-  dropdown
+  dropdown,
+  polygonBackground
 } from "./processors";
 
 const frontityOrg: FrontityOrg = {
@@ -56,6 +57,11 @@ const frontityOrg: FrontityOrg = {
         ...mobileDesktop,
         ...borders,
         backgroundColor,
+        textColor,
+        specialIcons,
+        polygonBackground,
+        ...borders,
+        links,
         borderRadius,
         boxShadow,
         checklists,
