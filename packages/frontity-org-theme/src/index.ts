@@ -6,6 +6,7 @@ import {
   specialIcons,
   paragraphs,
   mobileDesktop,
+  horizontalSeparator,
   borders,
   links,
   boxShadow,
@@ -46,14 +47,14 @@ const frontityOrg: FrontityOrg = {
         ...mobileDesktop,
         ...borders,
         backgroundColor,
-        textColor,
-        specialIcons,
-        ...borders,
-        links,
+        borderRadius,
         boxShadow,
         checklists,
-        borderRadius,
-        dropdown
+        dropdown,
+        horizontalSeparator,
+        links,
+        specialIcons,
+        textColor
       ]
     }
   }
