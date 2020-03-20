@@ -8,7 +8,7 @@ const Dot = styled.span`
   height: 8px;
   width: 8px;
   border-radius: 50%;
-  margin-left: 7px;
+  margin-left: 4px;
   margin-top: 8px;
   background-color: rgba(255, 255, 255, 0.15);
 `;
@@ -16,13 +16,13 @@ const Dot = styled.span`
 const Top = () => (
   <div
     css={css`
-      height: 26px;
+      height: 24px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.07);
     `}
   >
     <Dot
       css={css`
-        margin-left: 10px;
+        margin-left: 8px;
       `}
     />
     <Dot />
@@ -30,8 +30,8 @@ const Top = () => (
   </div>
 );
 
-const backgroundColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
-  name: "backgroundColor",
+const terminal: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
+  name: "terminal",
   test: ({ node }) =>
     node.type === "element" &&
     (node.props?.className?.split(" ").includes("terminal") ||
@@ -66,6 +66,7 @@ const backgroundColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
       box-shadow: 0 2px 12px 0 rgba(12, 17, 43, 0.4),
         0 1px 4px 0 rgba(12, 17, 43, 0.39);
       border-radius: 8px;
+      overflow: auto;
 
       .wp-block-group__inner-container {
         margin-top: 12px;
@@ -100,4 +101,4 @@ const backgroundColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
   }
 };
 
-export default backgroundColor;
+export default terminal;
