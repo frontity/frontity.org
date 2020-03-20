@@ -1,26 +1,26 @@
 import React from "react";
-import { styled, connect } from "frontity";
-import { Connect } from "frontity/types";
-import FrontityOrg from "../../types";
+import { styled } from "frontity";
 
 const bgt = {
-  position: "left",
+  position: "both",
   top: "",
   topTriangleOpacity: ""
 }; // pressumed object
 
-const BackgroundWithTriangles: React.FC<Connect<FrontityOrg>> = ({
-  state,
-  children
-}) => {
-  const { position, top, topTriangleOpacity } = bgt;
+const TriangleComp: React.FC<{ position: string }> = ({ position }) => (
+  <Triangle className={`position-${position}`}>
+    <Triangle className="inner" />
+  </Triangle>
+);
+
+const BackgroundWithTriangles: React.FC = ({ children }) => {
+  const { position } = bgt;
 
   return (
     <Container>
-      <Triangle>
-        <Triangle className="inner" />
-      </Triangle>
-
+      {position !== "both" && <TriangleComp position={position} />}
+      {position === "both" &&
+        ["left", "right"].map(pos => <TriangleComp position={pos} key={pos} />)}
       {children}
     </Container>
   );
@@ -29,22 +29,32 @@ const BackgroundWithTriangles: React.FC<Connect<FrontityOrg>> = ({
 const Container = styled.div`
   background: rgba(193, 197, 222, 0.2);
   position: fixed;
+  width: 100%;
+  z-index: -3;
   height: 1000px;
-  width: 100vw;
   left: 0;
   top: 0;
-  /* position: relative; */
 `;
 
 const Triangle = styled.div`
-  transform: translate(-58%, -52.5%) rotate(45deg);
   box-shadow: 0 0 14px 0 rgba(12, 17, 43, 0.03);
-  transform-origin: left;
   background: #fcfcfd;
   position: absolute;
-  height: 800px;
+  height: 750px;
   z-index: -2;
-  width: 800px;
+  width: 750px;
+
+  &.position-left {
+    transform: translate(-58%, -52.5%) rotate(45deg);
+    transform-origin: left;
+  }
+
+  &.position-right {
+    transform: translate(58%, -52.5%) rotate(-45deg);
+    transform-origin: right;
+    position: absolute;
+    right: 0;
+  }
 
   .inner {
     box-shadow: 0 0 14px 0 rgba(12, 17, 43, 0.03);
@@ -60,4 +70,4 @@ const Triangle = styled.div`
   }
 `;
 
-export default connect(BackgroundWithTriangles);
+export default BackgroundWithTriangles;
