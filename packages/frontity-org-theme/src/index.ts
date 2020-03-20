@@ -7,8 +7,10 @@ import {
   paragraphs,
   mobileDesktop,
   borders,
+  links,
   boxShadow,
   terminal,
+  checklists,
   borderRadius,
   dropdown
 } from "./processors";
@@ -50,7 +52,10 @@ const frontityOrg: FrontityOrg = {
         terminal,
         textColor,
         specialIcons,
+        ...borders,
+        links,
         boxShadow,
+        checklists,
         borderRadius,
         dropdown
       ]

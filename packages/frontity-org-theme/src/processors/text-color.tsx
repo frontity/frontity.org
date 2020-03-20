@@ -8,7 +8,7 @@ const colorClassRegex = /has-([\w-]+)-color/;
 const opacityClassRegex = /has-text-opacity-(\d+)/;
 
 const textColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
-  name: "textColor",
+  name: "text-color",
   test: ({ node }) =>
     node.type === "element" &&
     node.props.className &&
@@ -59,6 +59,9 @@ const textColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
         node.props.css = css`
           ${node.props.css}
           color: ${color};
+          &:hover, &:active{
+            color: ${color};
+          }
         `;
       }
     }

@@ -3,12 +3,26 @@ import FrontityOrg from "../../../types";
 import { addAlpha } from "../../utils";
 
 const cssReset = css`
-  html,
-  body {
-    border: none;
-    margin: 0;
-    padding: 0;
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
   }
+
+  html {
+    cursor: default;
+    line-height: 1.15;
+    text-size-adjust: 100%;
+    word-break: break-word;
+  }
+
+  html,
+  body,
+  div,
+  span,
+  applet,
+  object,
+  iframe,
   h1,
   h2,
   h3,
@@ -17,44 +31,182 @@ const cssReset = css`
   h6,
   p,
   blockquote,
+  pre,
+  a,
+  abbr,
+  acronym,
   address,
   big,
   cite,
   code,
+  del,
+  dfn,
   em,
-  font,
   img,
+  ins,
+  kbd,
+  q,
+  s,
+  samp,
   small,
   strike,
+  strong,
   sub,
   sup,
-  li,
+  tt,
+  var,
+  b,
+  u,
+  i,
+  center,
+  dl,
+  dt,
+  dd,
   ol,
   ul,
+  li,
   fieldset,
   form,
   label,
   legend,
-  button,
   table,
   caption,
+  tbody,
+  tfoot,
+  thead,
   tr,
   th,
-  td {
-    border: none;
-    font-size: inherit;
-    line-height: inherit;
+  td,
+  article,
+  aside,
+  canvas,
+  details,
+  embed,
+  figure,
+  figcaption,
+  footer,
+  header,
+  hgroup,
+  menu,
+  nav,
+  output,
+  ruby,
+  section,
+  summary,
+  time,
+  mark,
+  audio,
+  video {
     margin: 0;
     padding: 0;
-    text-align: inherit;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
   }
-  blockquote::before,
-  blockquote::after {
+
+  footer,
+  header,
+  hgroup,
+  menu,
+  nav,
+  section {
+    display: block;
+  }
+
+  body {
+    line-height: 1;
+  }
+
+  ol,
+  ul {
+    list-style: none;
+  }
+
+  blockquote,
+  q {
+    quotes: none;
+  }
+
+  blockquote:before,
+  blockquote:after,
+  q:before,
+  q:after {
     content: "";
+    content: none;
   }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  img {
+    border-style: none;
+  }
+
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+  }
+
+  textarea {
+    overflow: auto;
+  }
+
+  button,
+  select {
+    text-transform: none;
+  }
+
+  button,
+  [type="button"],
+  [type="reset"],
+  [type="submit"] {
+    appearance: button;
+  }
+
+  button::-moz-focus-inner,
+  [type="button"]::-moz-focus-inner,
+  [type="reset"]::-moz-focus-inner,
+  [type="submit"]::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+  }
+
+  button:-moz-focusring,
+  [type="button"]:-moz-focusring,
+  [type="reset"]:-moz-focusring,
+  [type="submit"]:-moz-focusring {
+    outline: 1px dotted ButtonText;
+  }
+
+  [aria-disabled="true"],
+  [disabled] {
+    cursor: not-allowed;
+  }
+
   a,
-  path {
-    transition: all 0.15s linear;
+  area,
+  button,
+  input,
+  label,
+  select,
+  summary,
+  textarea,
+  [tabindex] {
+    touch-action: manipulation;
+  }
+
+  [aria-disabled="true"],
+  [hidden] {
+    display: none;
   }
 `;
 
@@ -114,6 +266,16 @@ const elementBase = (colors: FrontityOrg["state"]["theme"]["colors"]) => css`
   }
   ul {
     list-style-type: "→ ";
+
+    & > li {
+      margin: 1.125rem 0;
+      line-height: 1.5rem;
+
+      &::before {
+        line-height: 0;
+        margin: auto 0.5rem auto 0;
+      }
+    }
   }
 `;
 
