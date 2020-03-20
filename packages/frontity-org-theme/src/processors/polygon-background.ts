@@ -10,7 +10,6 @@ const polygonBackground: Processor<
   name: "polygon-background",
   test: ({ node }) =>
     node.type === "element" &&
-    node.props.className &&
     node.props?.className?.split(" ").includes("has-polygon-background"),
   processor: ({ node }) => {
     if (node.type !== "element") {
