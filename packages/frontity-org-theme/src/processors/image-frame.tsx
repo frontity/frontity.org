@@ -29,6 +29,7 @@ const imageFrame: Processor<React.HTMLProps<HTMLElement>> = {
       display: inline-flex;
       flex-flow: column nowrap;
       border-radius: 12px;
+      overflow: hidden;
 
       /* override the default WP styles */
       .wp-block-image {
@@ -43,8 +44,7 @@ const imageFrame: Processor<React.HTMLProps<HTMLElement>> = {
       img,
       iframe,
       video {
-        border-bottom-left-radius: 12px;
-        border-bottom-right-radius: 12px;
+        display: block;
       }
     `;
 
