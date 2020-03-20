@@ -1,6 +1,6 @@
 import { css } from "frontity";
 
-const boxShadowProcessor = {
+export const boxShadow = {
   name: "box-shadow",
   test: ({ node }) =>
     node.type === "element" &&
@@ -18,5 +18,3 @@ const boxShadowProcessor = {
     }
   })
 };
-
-export default boxShadowProcessor;

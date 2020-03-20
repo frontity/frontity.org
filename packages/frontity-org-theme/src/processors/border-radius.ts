@@ -1,10 +1,10 @@
-import React from "react";
-import { css } from "frontity";
 import { Processor } from "@frontity/html2react/types";
+import { css } from "frontity";
+import React from "react";
 
 const radiusRegExp = /^has-border-radius-(\w+)$/;
 
-const borderRadiusProcessor: Processor<React.HTMLProps<HTMLElement>> = {
+export const borderRadius: Processor<React.HTMLProps<HTMLElement>> = {
   name: "border-radius",
   test: ({ node }) =>
     node.type === "element" &&
@@ -33,5 +33,3 @@ const borderRadiusProcessor: Processor<React.HTMLProps<HTMLElement>> = {
     };
   }
 };
-
-export default borderRadiusProcessor;
