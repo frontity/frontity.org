@@ -15,7 +15,13 @@ const settings = {
       name: "@frontity/wp-source",
       state: {
         source: {
-          api: "https://wp.frontity.org/wp-json"
+          api: "https://wp.frontity.org/wp-json",
+          postTypes: [
+            {
+              type: "wp_template_part",
+              endpoint: "template-parts"
+            }
+          ]
         }
       }
     },
