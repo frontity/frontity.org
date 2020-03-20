@@ -2,31 +2,33 @@ import React from "react";
 import { css, styled } from "frontity";
 import { Processor } from "@frontity/html2react/types";
 import FrontityOrg from "../../types";
+import { addAlpha } from "../utils";
 
-const Dot = styled.span`
+const Dot = styled("span")<{ colors: { [key: string]: string } }>`
   display: inline-block;
   height: 8px;
   width: 8px;
   border-radius: 50%;
   margin-left: 4px;
   margin-top: 8px;
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: ${({ colors }) => addAlpha(colors.white, 0.15)};
 `;
 
-const Top = () => (
+const Top = ({ colors }) => (
   <div
     css={css`
       height: 24px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      border-bottom: 1px solid ${addAlpha(colors.white, 0.07)};
     `}
   >
     <Dot
       css={css`
         margin-left: 8px;
       `}
+      colors={colors}
     />
-    <Dot />
-    <Dot />
+    <Dot colors={colors} />
+    <Dot colors={colors} />
   </div>
 );
 
@@ -49,6 +51,8 @@ const terminal: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
         margin-left: 15px;
         margin-top: 10px;
       `;
+
+      // This class is used by the CSS for Prism.js syntax highlighter
       node.props.className = "language-javascript";
       return node;
     }
@@ -85,7 +89,7 @@ const terminal: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
 
       ol li::before {
         content: counter(counter) " ";
-        color: rgba(255, 255, 255, 0.15);
+        color: ${addAlpha(state.theme.colors.white, 0.15)};
         margin-right: 15px;
         display: inline-block;
         text-align: right;
@@ -96,7 +100,7 @@ const terminal: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
     const top: any = {
       type: "element",
       component: Top,
-      props: { color: state.theme.colors.wall }
+      props: { colors: state.theme.colors }
     };
 
     node.children.unshift(top);
