@@ -67,6 +67,7 @@ const terminal: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
         0 1px 4px 0 rgba(12, 17, 43, 0.39);
       border-radius: 8px;
       overflow: auto;
+      max-width: 100%;
 
       .wp-block-group__inner-container {
         margin-top: 12px;
@@ -79,13 +80,16 @@ const terminal: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
 
       li {
         counter-increment: counter;
-        margin-left: 18px;
+        margin-left: 10px;
       }
 
       ol li::before {
         content: counter(counter) " ";
         color: rgba(255, 255, 255, 0.15);
-        margin-right: 2px;
+        margin-right: 15px;
+        display: inline-block;
+        text-align: right;
+        width: 17px;
       }
     `;
 
