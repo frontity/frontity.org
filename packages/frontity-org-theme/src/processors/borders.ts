@@ -4,7 +4,7 @@ function createBordersProcessors(obj: {
   [prop: string]: ReturnType<typeof css>;
 }) {
   return Object.entries(obj).map(([className, style]) => ({
-    name: "borders",
+    name: className,
     test: ({ node }) =>
       node.type === "element" &&
       node.props.className?.split(/ /).includes(className),

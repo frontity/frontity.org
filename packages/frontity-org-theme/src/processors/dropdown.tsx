@@ -1,7 +1,7 @@
 import Dropdown from "../components/dropdown";
 
 export const dropdown = {
-  name: "box-shadow",
+  name: "dropdown",
   test: ({ node }) =>
     node.type === "element" &&
     node.props.className &&

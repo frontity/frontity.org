@@ -24,6 +24,7 @@ interface FrontityOrg extends Package {
         lightgreen: string;
         white: string;
       };
+      templates: string[];
     };
     source?: Source["state"]["source"];
     router?: Router["state"]["router"];
