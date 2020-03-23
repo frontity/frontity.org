@@ -1,6 +1,7 @@
 import { connect } from "frontity";
-import React from "react";
 import { Connect } from "frontity/types";
+import React from "react";
+
 import FrontityOrg from "../../types";
 
 const Page: React.FC<Connect<FrontityOrg>> = ({ state, libraries }) => {

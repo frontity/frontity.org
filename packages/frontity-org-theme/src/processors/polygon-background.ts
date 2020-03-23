@@ -1,9 +1,10 @@
-import React from "react";
-import { css } from "frontity";
 import { Processor } from "@frontity/html2react/types";
+import { css } from "frontity";
+import React from "react";
+
 import FrontityOrg from "../../types";
 
-const polygonBackground: Processor<
+export const polygonBackground: Processor<
   React.HTMLProps<HTMLElement>,
   FrontityOrg
 > = {
@@ -24,5 +25,3 @@ const polygonBackground: Processor<
     return node;
   }
 };
-
-export default polygonBackground;

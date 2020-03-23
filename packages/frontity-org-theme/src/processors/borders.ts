@@ -28,7 +28,7 @@ function createBordersProcessors(obj: {
   }));
 }
 
-export default createBordersProcessors({
+export const borders = createBordersProcessors({
   "has-all-borders": css`
     border: 1px solid rgba(15, 28, 100, 0.12);
   `,

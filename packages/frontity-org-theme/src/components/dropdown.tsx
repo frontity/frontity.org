@@ -1,9 +1,10 @@
-import React from "react";
-import { styled, connect } from "frontity";
+import { connect, styled } from "frontity";
 import { Connect } from "frontity/types";
+import React from "react";
+
 import FrontityOrg from "../../types";
-import Arrow from "./icons/arrow";
 import { addAlpha } from "../utils";
+import Arrow from "./icons/arrow";
 
 const Dropdown: React.FC<Connect<
   FrontityOrg,

@@ -1,10 +1,11 @@
-import React from "react";
-import { css } from "frontity";
 import { Processor } from "@frontity/html2react/types";
-import { addAlpha } from "../utils";
-import FrontityOrg from "../../types";
+import { css } from "frontity";
+import React from "react";
 
-const horizontalSeparator: Processor<
+import FrontityOrg from "../../types";
+import { addAlpha } from "../utils";
+
+export const horizontalSeparator: Processor<
   React.HTMLProps<HTMLElement>,
   FrontityOrg
 > = {
@@ -24,5 +25,3 @@ const horizontalSeparator: Processor<
     return node;
   }
 };
-
-export default horizontalSeparator;

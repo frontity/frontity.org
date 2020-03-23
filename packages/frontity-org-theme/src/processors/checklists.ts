@@ -1,8 +1,8 @@
-import React from "react";
-import { css } from "frontity";
 import { Processor } from "@frontity/html2react/types";
+import { css } from "frontity";
+import React from "react";
 
-const checklistsProcessor: Processor<React.HTMLProps<HTMLElement>> = {
+export const checklists: Processor<React.HTMLProps<HTMLElement>> = {
   name: "checklists",
   test: ({ node }) =>
     node.type === "element" &&
@@ -34,5 +34,3 @@ const checklistsProcessor: Processor<React.HTMLProps<HTMLElement>> = {
     return node;
   }
 };
-
-export default checklistsProcessor;

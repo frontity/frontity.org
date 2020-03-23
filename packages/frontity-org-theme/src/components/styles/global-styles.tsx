@@ -1,4 +1,5 @@
 import { css } from "frontity";
+
 import FrontityOrg from "../../../types";
 import { addAlpha } from "../../utils";
 

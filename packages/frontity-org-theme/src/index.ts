@@ -1,20 +1,18 @@
 import FrontityOrg from "../types";
 import Theme from "./components";
-import {
-  backgroundColor,
-  textColor,
-  specialIcons,
-  paragraphs,
-  mobileDesktop,
-  horizontalSeparator,
-  borders,
-  links,
-  boxShadow,
-  checklists,
-  borderRadius,
-  dropdown,
-  polygonBackground
-} from "./processors";
+import { backgroundColor } from "./processors/background-color";
+import { borderRadius } from "./processors/border-radius";
+import { borders } from "./processors/borders";
+import { boxShadow } from "./processors/box-shadow";
+import { checklists } from "./processors/checklists";
+import { dropdown } from "./processors/dropdown";
+import { horizontalSeparator } from "./processors/horizontal-separator";
+import { links } from "./processors/links-buttons";
+import { mobileDesktop } from "./processors/mobile-desktop";
+import { paragraph } from "./processors/paragraph";
+import { polygonBackground } from "./processors/polygon-background";
+import { specialIcons } from "./processors/special-icons";
+import { textColor } from "./processors/text-color";
 
 const frontityOrg: FrontityOrg = {
   name: "frontity-org-theme",
@@ -53,7 +51,7 @@ const frontityOrg: FrontityOrg = {
   libraries: {
     html2react: {
       processors: [
-        ...paragraphs,
+        ...paragraph,
         ...mobileDesktop,
         ...borders,
         backgroundColor,
