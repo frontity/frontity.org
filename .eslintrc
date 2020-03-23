@@ -7,8 +7,10 @@
     "plugin:jsx-a11y/recommended",
     "plugin:jest/recommended"
   ],
+  "plugins": ["simple-import-sort"],
   "rules": {
-    "react/prop-types": "off"
+    "react/prop-types": "off",
+    "simple-import-sort/sort": "error"
   },
   "env": {
     "browser": true,

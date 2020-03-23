@@ -1,18 +1,20 @@
-import React from "react";
-import { css } from "frontity";
 import { Processor } from "@frontity/html2react/types";
+import { css } from "frontity";
+import React from "react";
+
 import FrontityOrg from "../../types";
 import { addAlpha } from "../utils";
 
 const colorClassRegex = /has-([\w-]+)-color/;
 const opacityClassRegex = /has-text-opacity-(\d+)/;
 
-const textColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
-  name: "textColor",
+export const textColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
+  name: "text-color",
   test: ({ node }) =>
     node.type === "element" &&
     node.props.className &&
-    node.props.className.split(" ").includes("has-text-color"),
+    (node.props.className.split(" ").includes("has-text-color") ||
+      node.props.className.split(" ").includes("has-inline-color")),
   processor: ({ node, state }) => {
     if (node.type === "element") {
       // Get the class with the color name.
@@ -21,7 +23,11 @@ const textColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
         .find(
           name =>
             colorClassRegex.test(name) &&
-            !(name.endsWith("text-color") || name.endsWith("background-color"))
+            !(
+              name.endsWith("text-color") ||
+              name.endsWith("inline-color") ||
+              name.endsWith("background-color")
+            )
         );
 
       if (colorClass) {
@@ -54,6 +60,9 @@ const textColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
         node.props.css = css`
           ${node.props.css}
           color: ${color};
+          &:hover, &:active{
+            color: ${color};
+          }
         `;
       }
     }
@@ -61,5 +70,3 @@ const textColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
     return node;
   }
 };
-
-export default textColor;

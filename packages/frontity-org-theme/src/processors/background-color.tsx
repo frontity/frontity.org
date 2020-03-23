@@ -1,14 +1,18 @@
-import React from "react";
-import { css } from "frontity";
 import { Processor } from "@frontity/html2react/types";
+import { css } from "frontity";
+import React from "react";
+
 import FrontityOrg from "../../types";
 import { addAlpha } from "../utils";
 
 const colorClassRegex = /has-([\w-]+)-background-color/;
 const opacityClassRegex = /has-background-opacity-(\d+)/;
 
-const backgroundColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
-  name: "backgroundColor",
+export const backgroundColor: Processor<
+  React.HTMLProps<HTMLElement>,
+  FrontityOrg
+> = {
+  name: "background-color",
   test: ({ node }) =>
     node.type === "element" &&
     node.props.className &&
@@ -58,5 +62,3 @@ const backgroundColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
     return node;
   }
 };
-
-export default backgroundColor;

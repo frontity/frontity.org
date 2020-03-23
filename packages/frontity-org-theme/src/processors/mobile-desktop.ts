@@ -22,7 +22,7 @@ const createProcessors = (options: {
   }));
 };
 
-export default createProcessors({
+export const mobileDesktop = createProcessors({
   "mobile-only": css`
     @media only screen and (min-width: 769px) {
       display: none;
