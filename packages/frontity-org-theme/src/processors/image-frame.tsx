@@ -1,9 +1,10 @@
-import React from "react";
-import { css } from "frontity";
 import { Processor } from "@frontity/html2react/types";
+import { css } from "frontity";
+import React from "react";
+
 import TopBar from "../components/window-top-bar";
 
-const imageFrame: Processor<React.HTMLProps<HTMLElement>> = {
+export const imageFrame: Processor<React.HTMLProps<HTMLElement>> = {
   name: "border-radius",
   test: ({ node }) =>
     node.type === "element" &&
@@ -50,5 +51,3 @@ const imageFrame: Processor<React.HTMLProps<HTMLElement>> = {
     return node;
   }
 };
-
-export default imageFrame;
