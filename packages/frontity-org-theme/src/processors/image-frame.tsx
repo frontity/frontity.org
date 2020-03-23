@@ -28,7 +28,6 @@ const imageFrame: Processor<React.HTMLProps<HTMLElement>> = {
       background-color: rgba(12, 17, 43, 0.02);
       display: inline-flex;
       flex-flow: column nowrap;
-      border-radius: 12px;
       overflow: hidden;
 
       /* override the default WP styles */
