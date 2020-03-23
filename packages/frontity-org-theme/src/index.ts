@@ -58,18 +58,14 @@ const frontityOrg: FrontityOrg = {
         ...borders,
         backgroundColor,
         textColor,
-        specialIcons,
         polygonBackground,
-        ...borders,
-        links,
         borderRadius,
         boxShadow,
         checklists,
         dropdown,
         horizontalSeparator,
         links,
-        specialIcons,
-        textColor
+        specialIcons
       ]
     }
   }
