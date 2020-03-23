@@ -1,8 +1,6 @@
-import React from "react";
 import { css } from "frontity";
-import { Processor } from "@frontity/html2react/types";
 
-const boxShadowProcessor: Processor<React.HTMLProps<HTMLElement>> = {
+export const boxShadow = {
   name: "box-shadow",
   test: ({ node }) =>
     node.type === "element" &&
@@ -26,5 +24,3 @@ const boxShadowProcessor: Processor<React.HTMLProps<HTMLElement>> = {
     return node;
   }
 };
-
-export default boxShadowProcessor;

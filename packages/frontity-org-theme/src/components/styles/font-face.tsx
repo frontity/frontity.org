@@ -1,8 +1,9 @@
+import { css, Global } from "frontity";
 import React from "react";
-import { Global, css } from "frontity";
-import poppinsSemiBold from "../../fonts/Poppins-SemiBold.ttf";
+
 import IBMPlexSansRegular from "../../fonts/IBMPlexSans-Regular.ttf";
 import IBMPlexSansSemiBold from "../../fonts/IBMPlexSans-SemiBold.ttf";
+import poppinsSemiBold from "../../fonts/Poppins-SemiBold.ttf";
 
 const FontFace: React.FC = () => (
   <Global

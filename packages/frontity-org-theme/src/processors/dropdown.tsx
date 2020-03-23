@@ -1,6 +1,6 @@
 import Dropdown from "../components/dropdown";
 
-const dropdown = {
+export const dropdown = {
   name: "dropdown",
   test: ({ node }) =>
     node.type === "element" &&
@@ -23,5 +23,3 @@ const dropdown = {
     return node;
   }
 };
-
-export default dropdown;

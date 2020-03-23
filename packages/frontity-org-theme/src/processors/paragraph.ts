@@ -22,7 +22,7 @@ const createParagraphProcessor = (options: {
   }));
 };
 
-export default createParagraphProcessor({
+export const paragraph = createParagraphProcessor({
   "has-small-font-size": css`
     font-size: 14px;
     line-height: 20px;

@@ -1,10 +1,11 @@
-import React from "react";
-import { css } from "frontity";
 import { Processor } from "@frontity/html2react/types";
+import { css } from "frontity";
+import React from "react";
+
 import FrontityOrg from "../../types";
 import Logo from "../components/logo";
 
-const links: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
+export const links: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
   test: ({ node }) => node.type === "element" && node.component === "a",
   priority: 5,
 
@@ -162,5 +163,3 @@ const links: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
     return node;
   }
 };
-
-export default links;
