@@ -1,12 +1,16 @@
-import React from "react";
-import { css } from "frontity";
 import { Processor } from "@frontity/html2react/types";
+import { css } from "frontity";
+import React from "react";
+
 import FrontityOrg from "../../types";
 import { addAlpha } from "../utils";
 
 const borderRadiusRegex = /has-border-radius-(\d+)px/;
 
-const specialIcons: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
+export const specialIcons: Processor<
+  React.HTMLProps<HTMLElement>,
+  FrontityOrg
+> = {
   name: "special-icons",
   test: ({ node }) =>
     node.type === "element" &&
@@ -17,7 +21,7 @@ const specialIcons: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
       const classNames = node.props.className.split(" ");
 
       const hasBackground = classNames.includes("has-background");
-      const hasBorderRadius = classNames.some(c => borderRadiusRegex.test(c));
+      const hasBorderRadius = classNames.some((c) => borderRadiusRegex.test(c));
 
       const defaultBgColor = addAlpha(state.theme.colors.primary, 0.08);
 
@@ -61,7 +65,5 @@ const specialIcons: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
     }
 
     return node;
-  }
+  },
 };
-
-export default specialIcons;

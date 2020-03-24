@@ -1,10 +1,11 @@
-import React from "react";
-import { connect, Global, css } from "frontity";
+import { connect, css, Global } from "frontity";
 import { Connect } from "frontity/types";
+import React from "react";
+
 import FrontityOrg from "../../types";
 import Page from "./page";
-import globalStyles from "./styles/global-styles";
 import FontFace from "./styles/font-face";
+import globalStyles from "./styles/global-styles";
 import gutenbergStyle from "./styles/gutenberg/style.css";
 import gutenbergTheme from "./styles/gutenberg/theme.css";
 

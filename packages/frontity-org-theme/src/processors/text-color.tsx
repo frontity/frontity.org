@@ -1,13 +1,14 @@
-import React from "react";
-import { css } from "frontity";
 import { Processor } from "@frontity/html2react/types";
+import { css } from "frontity";
+import React from "react";
+
 import FrontityOrg from "../../types";
 import { addAlpha } from "../utils";
 
 const colorClassRegex = /has-([\w-]+)-color/;
 const opacityClassRegex = /has-text-opacity-(\d+)/;
 
-const textColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
+export const textColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
   name: "text-color",
   test: ({ node }) =>
     node.type === "element" &&
@@ -20,7 +21,7 @@ const textColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
       const colorClass = node.props.className
         .split(" ")
         .find(
-          name =>
+          (name) =>
             colorClassRegex.test(name) &&
             !(
               name.endsWith("text-color") ||
@@ -39,7 +40,7 @@ const textColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
         // Get the opacity class if exists.
         const opacityClass = node.props.className
           .split(" ")
-          .find(name => opacityClassRegex.test(name));
+          .find((name) => opacityClassRegex.test(name));
 
         if (opacityClass) {
           // Get the value from the opacity class.
@@ -67,7 +68,5 @@ const textColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
     }
 
     return node;
-  }
+  },
 };
-
-export default textColor;

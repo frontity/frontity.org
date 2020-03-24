@@ -1,10 +1,11 @@
-import React from "react";
-import { css } from "frontity";
 import { Processor } from "@frontity/html2react/types";
+import { css } from "frontity";
+import React from "react";
+
 import FrontityOrg from "../../types";
 import Logo from "../components/logo";
 
-const links: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
+export const links: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
   test: ({ node }) => node.type === "element" && node.component === "a",
   priority: 5,
 
@@ -26,7 +27,7 @@ const links: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
       ?.split(/ /)
       .includes("no-logo");
     const hasImage = (node as any).children.some(
-      child => child.type === "element" && child.component === "img"
+      (child) => child.type === "element" && child.component === "img"
     );
 
     if (isButton) {
@@ -75,9 +76,9 @@ const links: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
               margin-right: 10px;
             `,
             className: "frontity-logo",
-            fill: fillColor
+            fill: fillColor,
           },
-          type: "element"
+          type: "element",
         };
         node.props.css = css`
           ${node.props.css}
@@ -160,7 +161,5 @@ const links: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
       `;
     }
     return node;
-  }
+  },
 };
-
-export default links;

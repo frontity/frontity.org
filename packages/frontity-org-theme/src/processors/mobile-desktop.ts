@@ -16,13 +16,13 @@ const createProcessors = (options: {
         css: css`
           ${node.props.css}
           ${style}
-        `
-      }
-    })
+        `,
+      },
+    }),
   }));
 };
 
-export default createProcessors({
+export const mobileDesktop = createProcessors({
   "mobile-only": css`
     @media only screen and (min-width: 769px) {
       display: none;
@@ -32,5 +32,5 @@ export default createProcessors({
     @media only screen and (max-width: 768px) {
       display: none;
     }
-  `
+  `,
 });

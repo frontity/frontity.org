@@ -16,13 +16,13 @@ const createParagraphProcessor = (options: {
         css: css`
           ${node.props.css}
           ${styles}
-        `
-      }
-    })
+        `,
+      },
+    }),
   }));
 };
 
-export default createParagraphProcessor({
+export const paragraph = createParagraphProcessor({
   "has-small-font-size": css`
     font-size: 14px;
     line-height: 20px;
@@ -34,5 +34,5 @@ export default createParagraphProcessor({
   "has-large-font-size": css`
     font-size: 20px;
     line-height: 32px;
-  `
+  `,
 });
