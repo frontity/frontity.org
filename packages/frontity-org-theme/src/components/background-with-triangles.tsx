@@ -1,11 +1,8 @@
-import React from "react";
-import { styled } from "frontity";
+import { connect,styled } from "frontity";
+import { Connect } from "frontity/types";
+import React, { ReactChild } from "react";
 
-const bgt = {
-  position: "both",
-  top: "",
-  topTriangleOpacity: ""
-}; // pressumed object
+import FrontityOrg from "../../types";
 
 const TriangleComp: React.FC<{ position: string }> = ({ position }) => (
   <Triangle className={`position-${position}`}>
@@ -13,8 +10,15 @@ const TriangleComp: React.FC<{ position: string }> = ({ position }) => (
   </Triangle>
 );
 
-const BackgroundWithTriangles: React.FC = ({ children }) => {
-  const { position } = bgt;
+const BackgroundWithTriangles: React.FC<Connect<
+  FrontityOrg,
+  {
+    children: ReactChild;
+  }
+>> = ({ state, children }) => {
+  const data = state.source.get(state.router.link);
+  const page = state.source.page[data.id];
+  const { position, top } = page?.acf["background-triangles"];
 
   return (
     <Container>
@@ -28,8 +32,8 @@ const BackgroundWithTriangles: React.FC = ({ children }) => {
 
 const Container = styled.div`
   background: rgba(193, 197, 222, 0.2);
-  position: fixed;
-  width: 100%;
+  /* position: fixed; */
+  width: 100vw;
   z-index: -3;
   height: 1000px;
   left: 0;
@@ -61,7 +65,6 @@ const Triangle = styled.div`
     transform: translate(-50%, -50%);
     height: calc(100% - 170px);
     width: calc(100% - 170px);
-    position: relative;
     background: gray;
     opacity: 0.15;
     z-index: -3;
@@ -70,4 +73,4 @@ const Triangle = styled.div`
   }
 `;
 
-export default BackgroundWithTriangles;
+export default connect(BackgroundWithTriangles);
