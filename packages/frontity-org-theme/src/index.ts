@@ -11,13 +11,14 @@ import { links } from "./processors/links-buttons";
 import { mobileDesktop } from "./processors/mobile-desktop";
 import { paragraph } from "./processors/paragraph";
 import { polygonBackground } from "./processors/polygon-background";
+import { scrollingSection } from "./processors/scrolling-section";
 import { specialIcons } from "./processors/special-icons";
 import { textColor } from "./processors/text-color";
 
 const frontityOrg: FrontityOrg = {
   name: "frontity-org-theme",
   roots: {
-    theme: Theme
+    theme: Theme,
   },
   state: {
     theme: {
@@ -32,21 +33,21 @@ const frontityOrg: FrontityOrg = {
         red: "#f76d64",
         turqoise: "#6ac8c9",
         lightgreen: "#8ACB88",
-        white: "#ffffff"
+        white: "#ffffff",
       },
-      templates: ["fixed-header", "header", "footer", "newsletter"]
-    }
+      templates: ["fixed-header", "header", "footer", "newsletter"],
+    },
   },
   actions: {
     theme: {
       beforeSSR: ({ state, actions }) => async () => {
         await Promise.all(
-          state.theme.templates.map(slug =>
+          state.theme.templates.map((slug) =>
             actions.source.fetch(`/wp_template_part/${slug}`)
           )
         );
-      }
-    }
+      },
+    },
   },
   libraries: {
     html2react: {
@@ -63,10 +64,11 @@ const frontityOrg: FrontityOrg = {
         dropdown,
         horizontalSeparator,
         links,
-        specialIcons
-      ]
-    }
-  }
+        scrollingSection,
+        specialIcons,
+      ],
+    },
+  },
 };
 
 export default frontityOrg;
