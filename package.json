@@ -37,6 +37,8 @@
     "frontity": "^1.5.2",
     "husky": "^4.2.3",
     "lint-staged": "10.0.8",
-    "prettier": "^2.0.1"
+    "prettier": "^2.0.1",
+    "react-swipeable-views": "^0.13.9",
+    "use-media": "^1.4.0"
   }
 }
