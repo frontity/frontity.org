@@ -118,6 +118,11 @@ export const terminal: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
         margin-left: 10px;
       }
 
+      /* Adjust the opacity of the font in the terminal */
+      span.has-inline-color {
+        opacity: 0.8;
+      }
+
       ol li::before {
         content: counter(counter) " ";
         color: ${addAlpha(state.theme.colors.white, 0.15)};

@@ -304,7 +304,7 @@ const syntaxHighlighting = (
     word-break: normal;
     word-wrap: normal;
     line-height: 1.65;
-    color: ${colors.wall};
+    color: ${addAlpha(colors.wall, 0.8)};
 
     -moz-tab-size: 4;
     -o-tab-size: 4;
@@ -344,7 +344,7 @@ const syntaxHighlighting = (
   .token.number,
   .token.constant,
   .token.symbol {
-    color: ${colors.red};
+    color: ${addAlpha(colors.red, 0.8)};
   }
 
   .token.selector,
@@ -353,7 +353,7 @@ const syntaxHighlighting = (
   .token.char,
   .token.builtin,
   .token.inserted {
-    color: ${colors.grass};
+    color: ${addAlpha(colors.grass, 0.8)};
   }
 
   .token.operator,
@@ -362,18 +362,18 @@ const syntaxHighlighting = (
   .language-css .token.string,
   .style .token.string,
   .token.variable {
-    color: ${colors.orange};
+    color: ${addAlpha(colors.orange, 0.8)};
   }
 
   .token.atrule,
   .token.attr-value,
   .token.keyword {
-    color: ${colors.red};
+    color: ${addAlpha(colors.red, 0.8)};
   }
 
   .token.regex,
   .token.important {
-    color: ${colors.turqoise};
+    color: ${addAlpha(colors.turqoise, 0.8)};
   }
 
   .token.important,
