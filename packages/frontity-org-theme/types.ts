@@ -4,6 +4,14 @@ import Source from "@frontity/source/types";
 import { Package } from "frontity/types";
 import { ReactType } from "react";
 
+type PostEntityWithACF = {
+  acf: {
+    position?: string;
+    top?: string;
+    "background-trangles"?: string;
+  };
+};
+
 interface FrontityOrg extends Package {
   name: "frontity-org-theme";
   roots: {
@@ -26,7 +34,9 @@ interface FrontityOrg extends Package {
       };
       templates: string[];
     };
-    source?: Source["state"]["source"];
+    source?: Source["state"]["source"] & {
+      page: Record<string, PostEntityWithACF>;
+    };
     router?: Router["state"]["router"];
   };
   actions: {
