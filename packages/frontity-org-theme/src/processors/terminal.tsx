@@ -60,7 +60,7 @@ export const terminal: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
 
     node.props.css = css`
       ${node.props.css}
-      font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+      font-family: Courier, monospace;
       font-size: 0.78rem;
       line-height: 1.65;
       background: ${state.theme.colors.voidblu};

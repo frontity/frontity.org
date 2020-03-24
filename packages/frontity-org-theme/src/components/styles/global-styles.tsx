@@ -296,7 +296,7 @@ const syntaxHighlighting = (
 
   code[class*="language-"],
   pre[class*="language-"] {
-    font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+    font-family: Courier, monospace;
     font-size: 0.78rem;
     text-align: left;
     white-space: pre;
