@@ -1,6 +1,7 @@
-import React from "react";
-import { css, styled } from "frontity";
 import { Processor } from "@frontity/html2react/types";
+import { css, styled } from "frontity";
+import React from "react";
+
 import FrontityOrg from "../../types";
 import { addAlpha } from "../utils";
 
@@ -32,7 +33,7 @@ const Top = ({ colors }) => (
   </div>
 );
 
-const terminal: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
+export const terminal: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
   name: "terminal",
   test: ({ node }) =>
     node.type === "element" &&
@@ -100,13 +101,11 @@ const terminal: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
     const top: any = {
       type: "element",
       component: Top,
-      props: { colors: state.theme.colors }
+      props: { colors: state.theme.colors },
     };
 
     node.children.unshift(top);
 
     return node;
-  }
+  },
 };
-
-export default terminal;
