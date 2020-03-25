@@ -12,7 +12,7 @@ export const scrollingSection: Processor<
   name: "scrolling-section",
   test: ({ node }) =>
     node.type === "element" &&
-    node.props?.className?.split(" ").includes("frontity-features"),
+    node.props?.className?.split(" ").includes("carrousel-bar"),
   processor: ({ node, state }) => {
     if (node.type !== "element") return node;
 
@@ -23,7 +23,7 @@ export const scrollingSection: Processor<
       ${node.props.css};
 
       /* This is the default breakpoint for Gutenberg's columns */
-      @media only screen and (max-width: 600px) {
+      @media only screen and (max-width: 599px) {
         overflow-x: auto;
 
         /* Display the content in a row */
@@ -32,19 +32,29 @@ export const scrollingSection: Processor<
           display: flex;
         }
 
-        /* Make columns block to display the content in a row as well */
+        /* Make columns block to display the content in a row */
         .wp-block-columns {
           flex-direction: row;
           flex-wrap: nowrap;
           flex-shrink: 0;
-          margin-bottom: 0;
+          margin: 0;
         }
         .wp-block-column {
-          flex-shrink: 0;
-          max-width: 300px;
-          padding-right: 26px;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          flex-basis: auto !important; /* Gutenberg's CSS uses 'important'! */
 
-          &:last-child {
+          /* Set the size of the elements inside each column */
+          & > * {
+            flex-shrink: 0;
+            max-width: 300px;
+            margin: 0;
+            padding: 0 26px 0 0;
+          }
+
+          /* Change right padding for the last element */
+          &:last-child > *:last-child {
             padding-right: 16px;
           }
         }
