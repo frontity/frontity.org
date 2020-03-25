@@ -18,27 +18,34 @@ const Footer: React.FC<Connect<FrontityOrg>> = ({ state, libraries }) => {
     h5 {
       color: ${state.theme.colors.primary};
       margin-top: 0;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
+    }
+
+    .wp-block-columns {
+      @media screen and (max-width: 860px) {
+        display: grid;
+        grid-template-rows: 70px repeat(3, 1fr);
+        grid-template-columns: 1fr 1fr;
+
+        .wp-block-column:first-of-type {
+          grid-column-start: 1;
+          grid-column-end: 3;
+        }
+      }
+
+      @media screen and (min-width: 861px) {
+        display: grid;
+        grid-template-columns: auto repeat(5, 15%);
+      }
+    }
+
+    .wp-block-column {
+      margin-bottom: 35px;
     }
   `;
 
   return (
     <StyledDiv>
-      {/* <Logo
-        fill={state.theme.colors.primary}
-        opacity={1}
-        width={40}
-        height={40}
-      />
-      <span
-        css={css`
-          margin-left: 20px;
-          font-weight: 700;
-          font-size: 
-        `}
-      >
-        Frontity
-      </span> */}
       <Html2React html={footer.content.rendered} />
     </StyledDiv>
   );
