@@ -3,6 +3,7 @@ import { Connect } from "frontity/types";
 import React from "react";
 
 import FrontityOrg from "../../types";
+import Header from "./header";
 import Page from "./page";
 import FontFace from "./styles/font-face";
 import globalStyles from "./styles/global-styles";
@@ -17,6 +18,7 @@ const Theme: React.FC<Connect<FrontityOrg>> = ({ state }) => {
       <Global styles={css(gutenbergStyle)} />
       <Global styles={css(gutenbergTheme)} />
       <FontFace />
+      <Header />
       {(data.isPage && <Page />) || (
         <>
           <a href="/homepage">Visit /homepage</a>
