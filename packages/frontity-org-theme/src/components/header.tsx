@@ -82,10 +82,51 @@ const headerStyles = ({ state }: { state: State<FrontityOrg> }) => css`
             display: none;
           }
 
-          /* Tooltip position */
+          /* Tooltip styles */
           &.has-child > .wp-block-navigation__container {
             left: unset;
             right: 0;
+
+            padding: 2px 24px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 14px 0 rgba(31, 56, 197, 0.09),
+              0 2px 4px 0 rgba(31, 56, 197, 0.12);
+
+            /* Arrow */
+            &:after {
+              content: " ";
+              width: 16px;
+              height: 16px;
+              position: absolute;
+              top: 0;
+              right: 12px;
+
+              transform: translate(-50%, -50%) rotate(45deg);
+
+              background-color: white;
+              border-left: 1px solid rgba(31, 56, 197, 0.09);
+              border-top: 1px solid rgba(31, 56, 197, 0.09);
+            }
+
+            li {
+              padding: 16px 0;
+              border-bottom: 1px solid
+                ${addAlpha(state.theme.colors.primary, 0.08)};
+              &:last-child {
+                border-bottom: none;
+              }
+            }
+
+            a {
+              font-family: "IBMPlexSans";
+              color: ${state.theme.colors.primary};
+            }
+
+            /* icons margin */
+            img {
+              margin-right: 12px;
+            }
           }
         }
       }
