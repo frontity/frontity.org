@@ -7,6 +7,7 @@ import { boxShadow } from "./processors/box-shadow";
 import { checklists } from "./processors/checklists";
 import { dropdown } from "./processors/dropdown";
 import { horizontalSeparator } from "./processors/horizontal-separator";
+import { imageFrame } from "./processors/image-frame";
 import { links } from "./processors/links-buttons";
 import { mobileDesktop } from "./processors/mobile-desktop";
 import { paragraph } from "./processors/paragraph";
@@ -17,7 +18,7 @@ import { textColor } from "./processors/text-color";
 const frontityOrg: FrontityOrg = {
   name: "frontity-org-theme",
   roots: {
-    theme: Theme
+    theme: Theme,
   },
   state: {
     theme: {
@@ -32,21 +33,21 @@ const frontityOrg: FrontityOrg = {
         red: "#f76d64",
         turqoise: "#6ac8c9",
         lightgreen: "#8ACB88",
-        white: "#ffffff"
+        white: "#ffffff",
       },
-      templates: ["fixed-header", "header", "footer", "newsletter"]
-    }
+      templates: ["fixed-header", "header", "footer", "newsletter"],
+    },
   },
   actions: {
     theme: {
       beforeSSR: ({ state, actions }) => async () => {
         await Promise.all(
-          state.theme.templates.map(slug =>
+          state.theme.templates.map((slug) =>
             actions.source.fetch(`/wp_template_part/${slug}`)
           )
         );
-      }
-    }
+      },
+    },
   },
   libraries: {
     html2react: {
@@ -56,6 +57,7 @@ const frontityOrg: FrontityOrg = {
         ...borders,
         backgroundColor,
         textColor,
+        imageFrame,
         polygonBackground,
         borderRadius,
         boxShadow,
@@ -63,10 +65,10 @@ const frontityOrg: FrontityOrg = {
         dropdown,
         horizontalSeparator,
         links,
-        specialIcons
-      ]
-    }
-  }
+        specialIcons,
+      ],
+    },
+  },
 };
 
 export default frontityOrg;
