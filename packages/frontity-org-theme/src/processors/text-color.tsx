@@ -21,7 +21,7 @@ export const textColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
       const colorClass = node.props.className
         .split(" ")
         .find(
-          name =>
+          (name) =>
             colorClassRegex.test(name) &&
             !(
               name.endsWith("text-color") ||
@@ -40,7 +40,7 @@ export const textColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
         // Get the opacity class if exists.
         const opacityClass = node.props.className
           .split(" ")
-          .find(name => opacityClassRegex.test(name));
+          .find((name) => opacityClassRegex.test(name));
 
         if (opacityClass) {
           // Get the value from the opacity class.
@@ -68,5 +68,5 @@ export const textColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
     }
 
     return node;
-  }
+  },
 };

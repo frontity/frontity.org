@@ -21,10 +21,10 @@ function createBordersProcessors(obj: {
           css: css`
             ${node.props.css};
             ${style};
-          `
-        }
+          `,
+        },
       };
-    }
+    },
   }));
 }
 
@@ -43,5 +43,5 @@ export const borders = createBordersProcessors({
   `,
   "has-top-border": css`
     border-top: 1px solid rgba(15, 28, 100, 0.12);
-  `
+  `,
 });
