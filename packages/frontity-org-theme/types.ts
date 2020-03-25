@@ -6,10 +6,12 @@ import { ReactType } from "react";
 
 type PostEntityWithACF = {
   acf: {
-    position?: string;
-    top?: string;
-    "background-trangles"?: string;
-  };
+    "background-triangles": {
+      position?: string;
+      top?: string;
+      top_triangle_opacity?: string;
+    };
+  }
 };
 
 interface FrontityOrg extends Package {
