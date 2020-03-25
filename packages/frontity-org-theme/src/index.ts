@@ -7,6 +7,7 @@ import { boxShadow } from "./processors/box-shadow";
 import { checklists } from "./processors/checklists";
 import { dropdown } from "./processors/dropdown";
 import { horizontalSeparator } from "./processors/horizontal-separator";
+import { imageFrame } from "./processors/image-frame";
 import { links } from "./processors/links-buttons";
 import { mobileDesktop } from "./processors/mobile-desktop";
 import { paragraph } from "./processors/paragraph";
@@ -57,6 +58,7 @@ const frontityOrg: FrontityOrg = {
         ...borders,
         backgroundColor,
         textColor,
+        imageFrame,
         polygonBackground,
         borderRadius,
         boxShadow,
