@@ -13,34 +13,57 @@ const Footer: React.FC<Connect<FrontityOrg>> = ({ state, libraries }) => {
   const StyledDiv = styled.div`
     a {
       color: ${addAlpha(state.theme.colors.primary, 0.4)};
+      &:hover {
+        color: ${state.theme.colors.frontity};
+      }
     }
 
     h5 {
       color: ${state.theme.colors.primary};
+      letter-spacing: 1.5px;
+      line-height: 21px;
       margin-top: 0;
-      margin-bottom: 15px;
+      margin-bottom: 9px;
     }
 
-    .wp-block-columns {
-      @media screen and (max-width: 860px) {
+    .footer-links.wp-block-columns {
+      display: grid;
+      grid-template-columns: 1fr repeat(5, auto);
+
+      .wp-block-column {
+        line-height: 24px;
+        margin-bottom: 35px;
+        margin-left: 36px; /* Need this to overwrite the default gutenberg CSS margin*/
+      }
+    }
+
+    /* Small screens - 2 columns */
+    @media screen and (max-width: 800px) {
+      .footer-links.wp-block-columns {
         display: grid;
         grid-template-rows: 70px repeat(3, 1fr);
         grid-template-columns: 1fr 1fr;
 
+        /* Keep the 2nd empty */
         .wp-block-column:first-of-type {
           grid-column-start: 1;
           grid-column-end: 3;
         }
       }
-
-      @media screen and (min-width: 861px) {
-        display: grid;
-        grid-template-columns: auto repeat(5, 15%);
-      }
     }
 
-    .wp-block-column {
-      margin-bottom: 35px;
+    .footer-bottom-text.wp-block-columns {
+      display: grid;
+      grid-template-columns: 170px 1fr auto auto;
+
+      @media screen and (max-width: 700px) {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .wp-block-column {
+        margin-bottom: 15px;
+        margin-left: 36px; /* Need this to overwrite the default gutenberg CSS margin*/
+      }
     }
   `;
 
