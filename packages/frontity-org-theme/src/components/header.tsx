@@ -81,6 +81,12 @@ const headerStyles = ({ state }: { state: State<FrontityOrg> }) => css`
           .wp-block-navigation-link__submenu-icon {
             display: none;
           }
+
+          /* Tooltip position */
+          &.has-child > .wp-block-navigation__container {
+            left: unset;
+            right: 0;
+          }
         }
       }
     }
