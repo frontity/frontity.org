@@ -1,4 +1,4 @@
-import { connect, css,styled } from "frontity";
+import { connect, css, styled } from "frontity";
 import { Connect } from "frontity/types";
 import React, { ReactChild } from "react";
 
@@ -99,10 +99,15 @@ const Triangle = styled.div<{
     height: calc(100% - 170px);
     width: calc(100% - 170px);
     background: gray;
-    opacity: 0.15;
     z-index: -3;
     left: 50%;
     top: 50%;
+
+    ${(props) =>
+      props.topTriangleOpacity &&
+      css`
+        opacity: ${props.topTriangleOpacity};
+      `}
   }
 `;
 
