@@ -1,12 +1,13 @@
-import { connect,styled, css } from "frontity";
+import { connect, css,styled } from "frontity";
 import { Connect } from "frontity/types";
-import React, { ReactChild, ReactElement } from "react";
+import React, { ReactChild } from "react";
+
 import FrontityOrg from "../../types";
 
 const TriangleComp: React.FC<{
-  position?: string
   top?: string;
-  topTriangleOpacity?: string
+  position?: string;
+  topTriangleOpacity?: string;
 }> = ({ position, top, topTriangleOpacity }) => (
   <Triangle
     className={`position-${position}`}
@@ -25,32 +26,33 @@ const BackgroundWithTriangles: React.FC<Connect<
 >> = ({ state, children }) => {
   const data = state.source.get(state.router.link);
   const page = state.source.page[data.id];
-  const {
-    top_triangle_opacity,
-    position,
-    top,
-  } = page?.acf["background-triangles"];
+
+  const { position, top, top_triangle_opacity: topTriangleOpacity } = page?.acf[
+    "background_triangles"
+  ];
 
   return (
     <Container>
-      {position !== "both-sides" && (
+      {position === "none" && null}
+
+      {position === "both-sides" && (
         <TriangleComp
-          topTriangleOpacity={top_triangle_opacity}
+          topTriangleOpacity={topTriangleOpacity}
           position={position}
           top={top}
         />
       )}
 
-      {position === "both-sides" &&
-        ["left", "right"].map(pos => (
+      {position !== "both-sides" &&
+        ["left", "right"].map((pos) => (
           <TriangleComp
-            topTriangleOpacity={top_triangle_opacity}
+            topTriangleOpacity={topTriangleOpacity}
             position={pos}
-            key={pos}
             top={top}
+            key={pos}
           />
-        ))
-      }
+        ))}
+
       {children}
     </Container>
   );
@@ -58,18 +60,11 @@ const BackgroundWithTriangles: React.FC<Connect<
 
 const Container = styled.div`
   background: rgba(193, 197, 222, 0.2);
-  /* position: fixed; */
   width: 100vw;
   z-index: -3;
   height: 1000px;
-  left: 0;
-  top: 0;
+  overflow: hidden;
 `;
-
-// React.FC < ReactElement < {
-//   top?: string;
-//   className?: string | null;
-// } >>
 
 const Triangle = styled.div<{
   className?: string;
@@ -83,22 +78,20 @@ const Triangle = styled.div<{
   z-index: -2;
   width: 750px;
 
-  ${props => {
-    console.log(Object.keys(props));
-    return css``;
-  }}
+  ${(props) => css`
+    &.position-left {
+      transform: translate(-58%, ${props.top ? `${props.top}px` : "-52.5%"})
+        rotate(45deg);
+      transform-origin: left;
+    }
 
-  &.position-left {
-    transform: translate(-58%, -52.5%) rotate(45deg);
-    transform-origin: left;
-  }
-
-  &.position-right {
-    transform: translate(58%, -52.5%) rotate(-45deg);
-    transform-origin: right;
-    position: absolute;
-    right: 0;
-  }
+    &.position-right {
+      transform: translate(58%, ${props.top ? `${props.top}px` : "-52.5%"})
+        rotate(-45deg);
+      transform-origin: right;
+      right: 0;
+    }
+  `}
 
   .inner {
     box-shadow: 0 0 14px 0 rgba(12, 17, 43, 0.03);

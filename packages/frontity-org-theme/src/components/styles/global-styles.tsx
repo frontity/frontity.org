@@ -218,6 +218,7 @@ const documentSetup = (colors: FrontityOrg["state"]["theme"]["colors"]) => css`
     color: ${addAlpha(colors.primary, 0.8)};
     font-size: 16px;
     line-height: 24px;
+    overflow-x: hidden;
   }
   h1,
   h2,
