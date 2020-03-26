@@ -23,5 +23,5 @@ export const polygonBackground: Processor<
     `;
 
     return node;
-  }
+  },
 };

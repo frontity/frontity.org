@@ -21,5 +21,5 @@ export const dropdown = {
       node.component = Dropdown;
     }
     return node;
-  }
+  },
 };

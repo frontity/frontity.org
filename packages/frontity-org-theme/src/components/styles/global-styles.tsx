@@ -285,7 +285,119 @@ const elementBase = (colors: FrontityOrg["state"]["theme"]["colors"]) => css`
   }
 `;
 
+const syntaxHighlighting = (
+  colors: FrontityOrg["state"]["theme"]["colors"]
+) => css`
+  /* This is a modified theme for Prism.js
+  
+  /* PrismJS 1.19.0
+      https://prismjs.com/download.html#themes=prism-dark&languages=markup+clike+javascript+jsx 
+  */
+
+  code[class*="language-"],
+  pre[class*="language-"] {
+    font-family: Courier, monospace;
+    font-size: 0.78rem;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.65;
+    color: ${addAlpha(colors.wall, 0.8)};
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  @media print {
+    code[class*="language-"],
+    pre[class*="language-"] {
+      text-shadow: none;
+    }
+  }
+
+  .token.comment,
+  .token.prolog,
+  .token.doctype,
+  .token.cdata {
+    color: hsl(30, 20%, 50%);
+  }
+
+  .token.punctuation {
+    opacity: 0.7;
+  }
+
+  .token.namespace {
+    opacity: 0.7;
+  }
+
+  .token.property,
+  .token.tag,
+  .token.boolean,
+  .token.number,
+  .token.constant,
+  .token.symbol {
+    color: ${addAlpha(colors.red, 0.8)};
+  }
+
+  .token.selector,
+  .token.attr-name,
+  .token.string,
+  .token.char,
+  .token.builtin,
+  .token.inserted {
+    color: ${addAlpha(colors.grass, 0.8)};
+  }
+
+  .token.operator,
+  .token.entity,
+  .token.url,
+  .language-css .token.string,
+  .style .token.string,
+  .token.variable {
+    color: ${addAlpha(colors.orange, 0.8)};
+  }
+
+  .token.atrule,
+  .token.attr-value,
+  .token.keyword {
+    color: ${addAlpha(colors.red, 0.8)};
+  }
+
+  .token.regex,
+  .token.important {
+    color: ${addAlpha(colors.turqoise, 0.8)};
+  }
+
+  .token.important,
+  .token.bold {
+    font-weight: bold;
+  }
+  .token.italic {
+    font-style: italic;
+  }
+
+  .token.entity {
+    cursor: help;
+  }
+
+  .token.deleted {
+    color: red;
+  }
+`;
 const globalStyle = (colors: FrontityOrg["state"]["theme"]["colors"]) =>
-  css([cssReset, documentSetup(colors), elementBase(colors)]);
+  css([
+    cssReset,
+    documentSetup(colors),
+    elementBase(colors),
+    syntaxHighlighting(colors),
+  ]);
 
 export default globalStyle;
