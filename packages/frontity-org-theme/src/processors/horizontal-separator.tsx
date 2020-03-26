@@ -17,11 +17,11 @@ export const horizontalSeparator: Processor<
   processor: ({ node, state }) => {
     if (node.type === "element") {
       node.props.css = css`
-        ${node.props.css}
-        border-bottom-color: ${addAlpha(state.theme.colors.primary, 0.12)};
+        border-color: ${addAlpha(state.theme.colors.primary, 0.12)};
+        max-width: 1080px;
       `;
     }
 
     return node;
-  }
+  },
 };
