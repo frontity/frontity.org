@@ -6,28 +6,58 @@ import FrontityOrg from "../../types";
 import { addAlpha } from "../utils";
 
 const burgerMenu = ({ color }: { color: string }) => css`
-  content: " ";
-  box-sizing: border-box;
-  margin: 6px 3px;
-  width: 18px;
-  height: 12px;
-  background: linear-gradient(
-    to bottom,
-    ${color} 0px,
-    ${color} 2px,
-    transparent 2px,
-    transparent 5px,
-    ${color} 5px,
-    ${color} 7px,
-    transparent 7px,
-    transparent 10px,
-    ${color} 10px,
-    ${color} 12px
-  );
+  @media only screen and (min-width: 866px) {
+    display: none;
+  }
+
+  cursor: pointer;
+
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  width: 24px;
+  height: 24px;
+
+  &:after {
+    content: " ";
+    display: block;
+    box-sizing: border-box;
+    margin: 6px 3px;
+    width: 18px;
+    height: 12px;
+    background: linear-gradient(
+      to bottom,
+      ${color} 0px,
+      ${color} 2px,
+      transparent 2px,
+      transparent 5px,
+      ${color} 5px,
+      ${color} 7px,
+      transparent 7px,
+      transparent 10px,
+      ${color} 10px,
+      ${color} 12px
+    );
+  }
 `;
 
-const headerStyles = ({ state }: { state: State<FrontityOrg> }) => css`
+const headerStyles = ({
+  state,
+  isMenuOpen,
+}: {
+  state: State<FrontityOrg>;
+  isMenuOpen;
+}) => css`
   font-family: Poppins;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  & > * {
+    flex-grow: 0;
+    flex-basis: auto;
+  }
 
   & > div.wp-block-group {
     padding: 48px 0 !important; /* TODO: !important should not be needed */
@@ -156,10 +186,12 @@ const headerStyles = ({ state }: { state: State<FrontityOrg> }) => css`
 
   /* Mobile view */
   @media only screen and (max-width: 865px) {
+    margin: 0 16px;
+    border-bottom: 1px solid ${addAlpha(state.theme.colors.primary, 0.08)};
+
     & > div.wp-block-group {
-      margin: 0 16px !important;
+      margin: 0 !important;
       padding: 24px 0 !important; /* TODO: !important should not be needed */
-      border-bottom: 1px solid ${addAlpha(state.theme.colors.primary, 0.08)};
 
       figure {
         img {
@@ -176,7 +208,7 @@ const headerStyles = ({ state }: { state: State<FrontityOrg> }) => css`
         }
 
         .frontity-nav {
-          display: none;
+          display: ${isMenuOpen ? "fixed" : "none"};
         }
       }
     }
@@ -188,9 +220,15 @@ const Header: React.FC<Connect<FrontityOrg>> = ({ state, libraries }) => {
   const header = state.source["wp_template_part"][data.id];
   const Html2React = libraries.html2react.Component;
 
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
   return (
-    <div css={headerStyles({ state })}>
+    <div css={headerStyles({ state, isMenuOpen })}>
       <Html2React html={header.content.rendered} />
+      <button
+        css={burgerMenu({ color: state.theme.colors.frontity })}
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+      />
     </div>
   );
 };
