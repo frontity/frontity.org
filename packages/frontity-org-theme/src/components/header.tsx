@@ -5,6 +5,27 @@ import React from "react";
 import FrontityOrg from "../../types";
 import { addAlpha } from "../utils";
 
+const burgerMenu = ({ color }: { color: string }) => css`
+  content: " ";
+  box-sizing: border-box;
+  margin: 6px 3px;
+  width: 18px;
+  height: 12px;
+  background: linear-gradient(
+    to bottom,
+    ${color} 0px,
+    ${color} 2px,
+    transparent 2px,
+    transparent 5px,
+    ${color} 5px,
+    ${color} 7px,
+    transparent 7px,
+    transparent 10px,
+    ${color} 10px,
+    ${color} 12px
+  );
+`;
+
 const headerStyles = ({ state }: { state: State<FrontityOrg> }) => css`
   font-family: Poppins;
 
@@ -128,6 +149,34 @@ const headerStyles = ({ state }: { state: State<FrontityOrg> }) => css`
               margin-right: 12px;
             }
           }
+        }
+      }
+    }
+  }
+
+  /* Mobile view */
+  @media only screen and (max-width: 865px) {
+    & > div.wp-block-group {
+      margin: 0 16px !important;
+      padding: 24px 0 !important; /* TODO: !important should not be needed */
+      border-bottom: 1px solid ${addAlpha(state.theme.colors.primary, 0.08)};
+
+      figure {
+        img {
+          height: 24px;
+          width: auto;
+        }
+      }
+
+      & > div.wp-block-group__inner-container {
+        cursor: pointer;
+
+        &:after {
+          ${burgerMenu({ color: state.theme.colors.frontity })};
+        }
+
+        .frontity-nav {
+          display: none;
         }
       }
     }
