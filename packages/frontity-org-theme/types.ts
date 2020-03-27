@@ -35,6 +35,7 @@ interface FrontityOrg extends Package {
   libraries: {
     html2react?: {
       processors: Html2React["libraries"]["html2react"]["processors"];
+      Component: Html2React["libraries"]["html2react"]["Component"];
     };
   };
 }
