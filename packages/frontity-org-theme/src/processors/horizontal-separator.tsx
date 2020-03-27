@@ -23,5 +23,5 @@ export const horizontalSeparator: Processor<
     }
 
     return node;
-  }
+  },
 };

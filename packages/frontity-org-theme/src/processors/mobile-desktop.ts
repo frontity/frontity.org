@@ -16,9 +16,9 @@ const createProcessors = (options: {
         css: css`
           ${node.props.css}
           ${style}
-        `
-      }
-    })
+        `,
+      },
+    }),
   }));
 };
 
@@ -32,5 +32,5 @@ export const mobileDesktop = createProcessors({
     @media only screen and (max-width: 768px) {
       display: none;
     }
-  `
+  `,
 });
