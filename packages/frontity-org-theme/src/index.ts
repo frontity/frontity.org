@@ -1,3 +1,5 @@
+import "./prism";
+
 import FrontityOrg from "../types";
 import Theme from "./components";
 import { backgroundColor } from "./processors/background-color";
@@ -14,6 +16,7 @@ import { paragraph } from "./processors/paragraph";
 import { polygonBackground } from "./processors/polygon-background";
 import { scrollingSection } from "./processors/scrolling-section";
 import { specialIcons } from "./processors/special-icons";
+import { terminal } from "./processors/terminal";
 import { textColor } from "./processors/text-color";
 
 const frontityOrg: FrontityOrg = {
@@ -57,6 +60,7 @@ const frontityOrg: FrontityOrg = {
         ...mobileDesktop,
         ...borders,
         backgroundColor,
+        terminal,
         textColor,
         imageFrame,
         polygonBackground,

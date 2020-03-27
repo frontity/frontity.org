@@ -21,7 +21,7 @@ export const specialIcons: Processor<
       const classNames = node.props.className.split(" ");
 
       const hasBackground = classNames.includes("has-background");
-      const hasBorderRadius = classNames.some(c => borderRadiusRegex.test(c));
+      const hasBorderRadius = classNames.some((c) => borderRadiusRegex.test(c));
 
       const defaultBgColor = addAlpha(state.theme.colors.primary, 0.08);
 
@@ -65,5 +65,5 @@ export const specialIcons: Processor<
     }
 
     return node;
-  }
+  },
 };

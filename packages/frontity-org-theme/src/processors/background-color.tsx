@@ -22,7 +22,7 @@ export const backgroundColor: Processor<
       // Get the class with the color name.
       const colorClass = node.props.className
         .split(" ")
-        .find(name => colorClassRegex.test(name));
+        .find((name) => colorClassRegex.test(name));
 
       // Get the color name from that class.
       if (colorClass) {
@@ -35,7 +35,7 @@ export const backgroundColor: Processor<
         // Get the opacity class if exists.
         const opacityClass = node.props.className
           .split(" ")
-          .find(name => opacityClassRegex.test(name));
+          .find((name) => opacityClassRegex.test(name));
 
         if (opacityClass) {
           // Get the value from the opacity class.
@@ -60,5 +60,5 @@ export const backgroundColor: Processor<
     }
 
     return node;
-  }
+  },
 };
