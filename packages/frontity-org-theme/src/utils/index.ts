@@ -10,7 +10,7 @@ export const addAlpha = (hex: string, alpha: number) => {
 
   return `rgba(${match
     .slice(1)
-    .map((value) => Number(`0x${value}`))
+    .map(value => Number(`0x${value}`))
     .concat(alpha)
     .join(", ")})`;
 };
