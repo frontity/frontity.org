@@ -49,15 +49,6 @@ const headerStyles = ({
   isMenuOpen;
 }) => css`
   font-family: Poppins;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-
-  & > * {
-    flex-grow: 0;
-    flex-basis: auto;
-  }
 
   & > div.wp-block-group {
     padding: 48px 0 !important; /* TODO: !important should not be needed */
@@ -186,6 +177,11 @@ const headerStyles = ({
 
   /* Mobile view */
   @media only screen and (max-width: 865px) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
     margin: 0 16px;
     border-bottom: 1px solid ${addAlpha(state.theme.colors.primary, 0.08)};
 
