@@ -15,6 +15,7 @@ import { mobileDesktop } from "./processors/mobile-desktop";
 import { paragraph } from "./processors/paragraph";
 import { polygonBackground } from "./processors/polygon-background";
 import { specialIcons } from "./processors/special-icons";
+import { switchElement } from "./processors/switch";
 import { terminal } from "./processors/terminal";
 import { textColor } from "./processors/text-color";
 
@@ -70,6 +71,7 @@ const frontityOrg: FrontityOrg = {
         horizontalSeparator,
         links,
         specialIcons,
+        switchElement,
       ],
     },
   },
