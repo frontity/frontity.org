@@ -204,7 +204,8 @@ const headerStyles = ({
         }
 
         .frontity-nav {
-          display: ${isMenuOpen ? "fixed" : "none"};
+          position: fixed;
+          display: ${isMenuOpen ? "block" : "none"};
         }
       }
     }
