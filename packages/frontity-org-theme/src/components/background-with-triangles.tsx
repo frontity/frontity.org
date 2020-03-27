@@ -6,7 +6,7 @@ import FrontityOrg from "../../types";
 
 const TriangleComp: React.FC<{
   top?: string;
-  position?: string;
+  position: string;
   topTriangleOpacity?: string;
 }> = ({ position, top, topTriangleOpacity }) => (
   <Triangle
@@ -33,15 +33,13 @@ const BackgroundWithTriangles: React.FC<Connect<
 
   return (
     <Container>
-      {position === "none" && null}
-
-      {position === "both-sides" && (
+      {position !== "both-sides" && position !== "none" ? (
         <TriangleComp
           topTriangleOpacity={topTriangleOpacity}
           position={position}
           top={top}
         />
-      )}
+      ) : null}
 
       {position !== "both-sides" &&
         ["left", "right"].map((pos) => (
@@ -67,7 +65,6 @@ const Container = styled.div`
 `;
 
 const Triangle = styled.div<{
-  className?: string;
   top?: string;
   topTriangleOpacity?: string;
 }>`
