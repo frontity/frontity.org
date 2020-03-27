@@ -16,7 +16,7 @@ export const imageFrame: Processor<React.HTMLProps<HTMLElement>> = {
     const topFrame: any = {
       type: "element",
       component: TopBar,
-      props: {}
+      props: {},
       // we need to pass empty props, because other processors might
       // expect `.props` to exist
     };
@@ -49,5 +49,5 @@ export const imageFrame: Processor<React.HTMLProps<HTMLElement>> = {
     `;
 
     return node;
-  }
+  },
 };
