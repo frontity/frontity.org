@@ -1,5 +1,5 @@
-import React from "react";
 import { css, styled } from "frontity";
+import React from "react";
 
 const Dot = styled.span`
   display: inline-block;
