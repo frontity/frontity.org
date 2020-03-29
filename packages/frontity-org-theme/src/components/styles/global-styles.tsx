@@ -235,7 +235,6 @@ const documentSetup = (colors: FrontityOrg["state"]["theme"]["colors"]) => css`
   div#root > div > div {
     max-width: 1080px;
     margin: auto;
-    padding: 120px 0;
   }
 `;
 

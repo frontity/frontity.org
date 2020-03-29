@@ -1,111 +1,69 @@
-import { connect, css, styled } from "frontity";
+import { connect, styled } from "frontity";
 import { Connect } from "frontity/types";
-import React, { ReactChild } from "react";
+import React from "react";
 
 import FrontityOrg from "../../types";
 
-const TriangleComp: React.FC<{
-  top?: string;
+interface Props {
+  top: number;
+  topTriangleOpacity: number;
   position: string;
-  topTriangleOpacity?: string;
-}> = ({ position, top, topTriangleOpacity }) => (
-  <Triangle
-    className={`position-${position}`}
-    top={top}
-    topTriangleOpacity={topTriangleOpacity}
-  >
-    <Triangle className="inner" />
-  </Triangle>
-);
-
-const BackgroundWithTriangles: React.FC<Connect<
-  FrontityOrg,
-  {
-    children: ReactChild;
-  }
->> = ({ state, children }) => {
-  const data = state.source.get(state.router.link);
-  const page = state.source.page[data.id];
-
-  const { position, top, top_triangle_opacity: topTriangleOpacity } = page?.acf[
-    "background_triangles"
-  ];
-
+}
+const BackgroundTriangleComponent: React.FC<Connect<FrontityOrg, Props>> = ({
+  top,
+  topTriangleOpacity,
+  position,
+}) => {
   return (
-    <Container>
-      {position !== "both-sides" && position !== "none" ? (
-        <TriangleComp
-          topTriangleOpacity={topTriangleOpacity}
-          position={position}
-          top={top}
-        />
-      ) : null}
-
-      {position !== "both-sides" &&
-        ["left", "right"].map((pos) => (
-          <TriangleComp
-            topTriangleOpacity={topTriangleOpacity}
-            position={pos}
-            top={top}
-            key={pos}
-          />
-        ))}
-
-      {children}
-    </Container>
+    <TrianglesContainer top={top} position={position}>
+      <Triangle1 position={position} />
+      <Triangle2 position={position} opacity={topTriangleOpacity} />
+    </TrianglesContainer>
   );
 };
 
-const Container = styled.div`
-  background: rgba(193, 197, 222, 0.2);
-  width: 100vw;
-  z-index: -3;
-  height: 1000px;
-  overflow: hidden;
-`;
-
-const Triangle = styled.div<{
-  top?: string;
-  topTriangleOpacity?: string;
-}>`
-  box-shadow: 0 0 14px 0 rgba(12, 17, 43, 0.03);
-  background: #fcfcfd;
+const TrianglesContainer = styled.div<{ top: number; position: string }>`
   position: absolute;
-  height: 750px;
-  z-index: -2;
-  width: 750px;
-
-  ${(props) => css`
-    &.position-left {
-      transform: translate(-58%, ${props.top ? `${props.top}px` : "-52.5%"})
-        rotate(45deg);
-      transform-origin: left;
-    }
-
-    &.position-right {
-      transform: translate(58%, ${props.top ? `${props.top}px` : "-52.5%"})
-        rotate(-45deg);
-      transform-origin: right;
-      right: 0;
-    }
-  `}
-
-  .inner {
-    box-shadow: 0 0 14px 0 rgba(12, 17, 43, 0.03);
-    transform: translate(-50%, -50%);
-    height: calc(100% - 170px);
-    width: calc(100% - 170px);
-    background: gray;
-    z-index: -3;
-    left: 50%;
-    top: 50%;
-
-    ${(props) =>
-      props.topTriangleOpacity &&
-      css`
-        opacity: ${props.topTriangleOpacity};
-      `}
-  }
+  top: calc(0px + ${({ top }) => (top ? top : 0)}px);
+  display: block;
+  width: 0px;
+  align-items: center;
+  ${({ position }) => position}: 0px;
+`;
+const Triangle1 = styled.div<{ position: string }>`
+  position: absolute;
+  width: 818px;
+  height: 818px;
+  z-index: 1000;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.8) 100%
+  );
+  ${({ position }) => position}: 0px;
+  ${({ position }) =>
+    position === "left" && "transform: translate(-660px,-200px) rotate(45deg);"}
+  ${({ position }) =>
+    position === "right" && "transform: translate(660px,-200px) rotate(45deg);"}
+`;
+const Triangle2 = styled.div<{ position: string; opacity: number }>`
+  position: absolute;
+  width: 818px;
+  height: 818px;
+  z-index: 2000;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, ${({ opacity }) => opacity}) 100%
+  );
+  box-shadow: 0 0 14px 0 rgba(12, 17, 43, 0.03);
+  ${({ position }) => position}: 0px;
+  ${({ position }) =>
+    position === "left" &&
+    "transform: translate(-660px,-200px) rotate(45deg) scale(0.8);"}
+  ${({ position }) =>
+    position === "right" &&
+    "transform: translate(660px,-200px) rotate(45deg) scale(0.8);"}
 `;
 
-export default connect(BackgroundWithTriangles);
+export default connect(BackgroundTriangleComponent);

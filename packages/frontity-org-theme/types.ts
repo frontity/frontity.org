@@ -8,8 +8,8 @@ type PostEntityWithACF = {
   acf: {
     background_triangles: {
       position?: string;
-      top?: string;
-      top_triangle_opacity?: string;
+      top?: number;
+      top_triangle_opacity?: number;
     };
   };
 };
