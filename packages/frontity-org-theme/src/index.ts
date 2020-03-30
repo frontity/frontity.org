@@ -1,5 +1,7 @@
 import "./prism";
 
+import iframe from "@frontity/html2react/processors/iframe";
+
 import FrontityOrg from "../types";
 import Theme from "./components";
 import { backgroundColor } from "./processors/background-color";
@@ -56,6 +58,7 @@ const frontityOrg: FrontityOrg = {
   libraries: {
     html2react: {
       processors: [
+        iframe,
         ...paragraph,
         ...mobileDesktop,
         ...borders,
