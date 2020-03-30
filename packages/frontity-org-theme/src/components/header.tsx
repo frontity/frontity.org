@@ -1,4 +1,4 @@
-import { connect, css } from "frontity";
+import { connect, css, Head } from "frontity";
 import { Connect, State } from "frontity/types";
 import React from "react";
 
@@ -50,16 +50,16 @@ const headerStyles = ({
 }) => css`
   font-family: Poppins;
 
-  & > div.wp-block-group {
+  > div.wp-block-group {
     padding: 48px 0 !important; /* TODO: !important should not be needed */
 
-    & > div.wp-block-group__inner-container {
+    > div.wp-block-group__inner-container {
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
 
-      & > * {
+      > * {
         flex-grow: 0;
         flex-basis: auto;
       }
@@ -68,7 +68,7 @@ const headerStyles = ({
       figure {
         margin: 0;
 
-        & > img {
+        > img {
           display: block;
         }
       }
@@ -112,7 +112,7 @@ const headerStyles = ({
       /* Frontity Navbar - icons */
       nav.frontity-nav-icons {
         /* Hide text for labels on Desktop */
-        & > ul > li > a > span.wp-block-navigation-link__label {
+        > ul > li > a > span.wp-block-navigation-link__label {
           font-size: 0;
           vertical-align: text-bottom;
         }
@@ -183,9 +183,10 @@ const headerStyles = ({
     justify-content: space-between;
 
     margin: 0 16px;
-    border-bottom: 1px solid ${addAlpha(state.theme.colors.primary, 0.08)};
+    border-bottom: 1px solid
+      ${isMenuOpen ? "transparent" : addAlpha(state.theme.colors.primary, 0.08)};
 
-    & > div.wp-block-group {
+    > div.wp-block-group {
       margin: 0 !important;
       padding: 24px 0 !important; /* TODO: !important should not be needed */
 
@@ -196,7 +197,7 @@ const headerStyles = ({
         }
       }
 
-      & > div.wp-block-group__inner-container {
+      > div.wp-block-group__inner-container {
         cursor: pointer;
 
         &:after {
@@ -205,7 +206,64 @@ const headerStyles = ({
 
         .frontity-nav {
           position: fixed;
+          z-index: 10;
+          top: 73px;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          display: block;
+          padding: 0 16px 16px 16px;
+          background-color: ${addAlpha(state.theme.colors.wall, 0.9)};
           display: ${isMenuOpen ? "block" : "none"};
+
+          > div.wp-block-group__inner-container {
+            overflow-y: auto;
+            padding: 0 16px;
+            border-radius: 12px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 14px 0 rgba(31, 56, 197, 0.09),
+              0 2px 4px 0 rgba(31, 56, 197, 0.12);
+          }
+
+          .wp-block-group__inner-container {
+            flex-direction: column;
+            align-items: stretch;
+          }
+
+          .wp-block-navigation-link {
+            border-top: 1px solid ${addAlpha(state.theme.colors.primary, 0.08)};
+            padding: 24px 0;
+            font-size: 14px;
+            line-height: 21px;
+            a {
+              color: ${state.theme.colors.frontity};
+            }
+          }
+
+          /* Frontity Navbar - links */
+          nav.frontity-nav-links {
+            .wp-block-navigation-link {
+              margin-left: 0;
+
+              :first-child {
+                border-top: none;
+              }
+            }
+          }
+
+          /* Frontity Navbar - separator */
+          .wp-block-separator {
+            display: none;
+          }
+
+          /* Frontity Navbar - icons */
+          nav.frontity-nav-icons {
+            /* Show text for labels on Desktop */
+            > ul > li > a > span.wp-block-navigation-link__label {
+              font-size: unset;
+              vertical-align: text-bottom;
+            }
+          }
         }
       }
     }
@@ -221,6 +279,11 @@ const Header: React.FC<Connect<FrontityOrg>> = ({ state, libraries }) => {
 
   return (
     <div css={headerStyles({ state, isMenuOpen })}>
+      {isMenuOpen && (
+        <Head>
+          <style type="text/css">{`body { overflow-y: hidden; }`}</style>
+        </Head>
+      )}
       <Html2React html={header.content.rendered} />
       <button
         css={burgerMenu({ color: state.theme.colors.frontity })}
