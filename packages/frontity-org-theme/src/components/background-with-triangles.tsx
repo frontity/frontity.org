@@ -1,6 +1,6 @@
 import { connect, css, styled } from "frontity";
 import { Connect } from "frontity/types";
-import React, { ReactChild } from "react";
+import React from "react";
 
 import FrontityOrg from "../../types";
 
@@ -20,10 +20,8 @@ const TriangleComp: React.FC<{
 
 const BackgroundWithTriangles: React.FC<Connect<
   FrontityOrg,
-  {
-    children: ReactChild;
-  }
->> = ({ state, children }) => {
+  { height?: string }
+>> = ({ state, height }) => {
   const data = state.source.get(state.router.link);
   const page = state.source.page[data.id];
 
@@ -32,7 +30,7 @@ const BackgroundWithTriangles: React.FC<Connect<
   ];
 
   return (
-    <Container>
+    <Container height={height}>
       {position !== "both-sides" && position !== "none" ? (
         <TriangleComp
           topTriangleOpacity={topTriangleOpacity}
@@ -50,18 +48,22 @@ const BackgroundWithTriangles: React.FC<Connect<
             key={pos}
           />
         ))}
-
-      {children}
     </Container>
   );
 };
 
-const Container = styled.div`
+const Container = styled.div<{ height?: string }>`
   background: rgba(193, 197, 222, 0.2);
   width: 100vw;
   z-index: -3;
-  height: 1000px;
   overflow: hidden;
+  position: absolute;
+
+  ${(props) =>
+    props.height &&
+    css`
+      height: ${props.height};
+    `}
 `;
 
 const Triangle = styled.div<{
@@ -74,16 +76,21 @@ const Triangle = styled.div<{
   height: 750px;
   z-index: -2;
   width: 750px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.8) 100%
+  );
 
   ${(props) => css`
     &.position-left {
-      transform: translate(-58%, ${props.top ? `${props.top}px` : "-52.5%"})
+      transform: translate(-400px, ${props.top ? `${props.top}px` : "-52.5%"})
         rotate(45deg);
       transform-origin: left;
     }
 
     &.position-right {
-      transform: translate(58%, ${props.top ? `${props.top}px` : "-52.5%"})
+      transform: translate(400px, ${props.top ? `${props.top}px` : "-52.5%"})
         rotate(-45deg);
       transform-origin: right;
       right: 0;
@@ -99,12 +106,12 @@ const Triangle = styled.div<{
     z-index: -3;
     left: 50%;
     top: 50%;
-
-    ${(props) =>
-      props.topTriangleOpacity &&
-      css`
-        opacity: ${props.topTriangleOpacity};
-      `}
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, ${({ topTriangleOpacity }) => topTriangleOpacity})
+        100%
+    );
   }
 `;
 

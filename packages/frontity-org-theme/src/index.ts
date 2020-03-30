@@ -8,7 +8,6 @@ import { borders } from "./processors/borders";
 import { boxShadow } from "./processors/box-shadow";
 import { checklists } from "./processors/checklists";
 import { dropdown } from "./processors/dropdown";
-import hero from "./processors/hero";
 import { horizontalSeparator } from "./processors/horizontal-separator";
 import { imageFrame } from "./processors/image-frame";
 import { links } from "./processors/links-buttons";
@@ -71,7 +70,6 @@ const frontityOrg: FrontityOrg = {
         horizontalSeparator,
         links,
         specialIcons,
-        hero,
       ],
     },
   },

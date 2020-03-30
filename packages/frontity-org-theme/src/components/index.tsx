@@ -3,7 +3,6 @@ import { Connect } from "frontity/types";
 import React from "react";
 
 import FrontityOrg from "../../types";
-// import BackgroundWithTriangles from "../components/background-with-triangles";
 import Page from "./page";
 import FontFace from "./styles/font-face";
 import globalStyles from "./styles/global-styles";
@@ -18,9 +17,6 @@ const Theme: React.FC<Connect<FrontityOrg>> = ({ state }) => {
       <Global styles={css(gutenbergStyle)} />
       <Global styles={css(gutenbergTheme)} />
       <FontFace />
-      {/* <BackgroundWithTriangles>
-        <h1>This is how it is going to be</h1>
-      </BackgroundWithTriangles> */}
 
       {(data.isPage && <Page />) || (
         <>
