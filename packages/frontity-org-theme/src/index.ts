@@ -16,6 +16,7 @@ import { paragraph } from "./processors/paragraph";
 import { polygonBackground } from "./processors/polygon-background";
 import { scrollingSection } from "./processors/scrolling-section";
 import { specialIcons } from "./processors/special-icons";
+import { switchElement } from "./processors/switch";
 import { terminal } from "./processors/terminal";
 import { textColor } from "./processors/text-color";
 
@@ -72,6 +73,7 @@ const frontityOrg: FrontityOrg = {
         links,
         scrollingSection,
         specialIcons,
+        // switchElement
       ],
     },
   },
