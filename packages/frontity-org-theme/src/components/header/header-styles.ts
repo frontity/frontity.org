@@ -4,6 +4,52 @@ import { State } from "frontity/types";
 import FrontityOrg from "../../../types";
 import { addAlpha } from "../../utils";
 
+const tooltipStyles = ({ state }: { state: State<FrontityOrg> }) => css`
+  left: unset;
+  right: 0;
+
+  padding: 2px 24px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px 0 rgba(31, 56, 197, 0.09),
+    0 2px 4px 0 rgba(31, 56, 197, 0.12);
+
+  /* Arrow */
+  :after {
+    content: " ";
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 0;
+    right: 12px;
+
+    transform: translate(-50%, -50%) rotate(45deg);
+
+    background-color: white;
+    border-left: 1px solid rgba(31, 56, 197, 0.09);
+    border-top: 1px solid rgba(31, 56, 197, 0.09);
+  }
+
+  .wp-block-navigation-link {
+    color: ${state.theme.colors.primary};
+    padding: 16px 0;
+    border-bottom: 1px solid ${addAlpha(state.theme.colors.primary, 0.08)};
+    :last-child {
+      border-bottom: none;
+    }
+  }
+
+  .wp-block-navigation-link__content {
+    padding: 0;
+    font-family: "IBMPlexSans";
+  }
+
+  /* icons margin */
+  .wp-block-navigation-link__label img {
+    margin-right: 12px;
+  }
+`;
+
 export const generalStyles = ({ state }: { state: State<FrontityOrg> }) => css`
   font-family: Poppins;
 
@@ -26,6 +72,18 @@ export const generalStyles = ({ state }: { state: State<FrontityOrg> }) => css`
       flex-basis: auto;
     }
   }
+
+  /* General styles for nav blocks */
+  .wp-block-navigation {
+    width: auto;
+    .wp-block-navigation-link__content {
+      padding: 0;
+      :hover {
+        color: ${state.theme.colors.frontity};
+        opacity: 1;
+      }
+    }
+  }
 `;
 
 export const desktopStyles = ({ state }: { state: State<FrontityOrg> }) =>
@@ -36,27 +94,15 @@ export const desktopStyles = ({ state }: { state: State<FrontityOrg> }) =>
     }
 
     /* Turn inner containers into flex rows */
-    .wp-block-group__inner-container {
+    .wp-block-group__inner-container,
+    .wp-block-navigation__container {
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
     }
 
-    /* General styles for nav blocks */
-    .wp-block-navigation {
-      width: auto;
-    }
-
-    .wp-block-navigation-link__content {
-      padding: 0;
-      a:hover {
-        color: ${state.theme.colors.frontity};
-        opacity: 1;
-      }
-    }
-
     /* Frontity Navbar - links */
-    nav.frontity-nav-links {
+    .frontity-nav-links {
       .wp-block-navigation-link {
         margin-left: 40px;
       }
@@ -72,65 +118,34 @@ export const desktopStyles = ({ state }: { state: State<FrontityOrg> }) =>
     }
 
     /* Frontity Navbar - icons */
-    nav.frontity-nav-icons {
+    .frontity-nav-icons {
+      .wp-block-navigation-link {
+        margin-right: 16px;
+      }
+    }
+
+    /* Frontity Navbar - icons */
+    .frontity-nav-icons {
       /* Hide text for labels on Desktop */
-      > ul > li > a > span.wp-block-navigation-link__label {
+      > .wp-block-navigation__container
+        > .wp-block-navigation-link
+        > .wp-block-navigation-link__content
+        > .wp-block-navigation-link__label {
         font-size: 0;
         vertical-align: text-bottom;
       }
 
       .wp-block-navigation-link {
-        padding-right: 16px;
+        margin-right: 16px;
 
+        /* Hide arrow icon for submenu */
         .wp-block-navigation-link__submenu-icon {
           display: none;
         }
 
         /* Tooltip styles */
-        &.has-child > .wp-block-navigation__container {
-          left: unset;
-          right: 0;
-
-          padding: 2px 24px;
-          border: none;
-          border-radius: 8px;
-          box-shadow: 0 4px 14px 0 rgba(31, 56, 197, 0.09),
-            0 2px 4px 0 rgba(31, 56, 197, 0.12);
-
-          /* Arrow */
-          &:after {
-            content: " ";
-            width: 16px;
-            height: 16px;
-            position: absolute;
-            top: 0;
-            right: 12px;
-
-            transform: translate(-50%, -50%) rotate(45deg);
-
-            background-color: white;
-            border-left: 1px solid rgba(31, 56, 197, 0.09);
-            border-top: 1px solid rgba(31, 56, 197, 0.09);
-          }
-
-          li {
-            padding: 16px 0;
-            border-bottom: 1px solid
-              ${addAlpha(state.theme.colors.primary, 0.08)};
-            &:last-child {
-              border-bottom: none;
-            }
-          }
-
-          a {
-            font-family: "IBMPlexSans";
-            color: ${state.theme.colors.primary};
-          }
-
-          /* icons margin */
-          img {
-            margin-right: 12px;
-          }
+        .has-child > .wp-block-navigation__container {
+          ${tooltipStyles({ state })};
         }
       }
     }
@@ -160,32 +175,38 @@ export const mobileStyles = ({
     padding: 24px 0 !important; /* TODO: !important should not be needed */
   }
 
-  /* All other groups */
-  .wp-block-group__inner-container {
+  /* Turn inner containers into flex columns */
+  .wp-block-group__inner-container,
+  .wp-block-navigation__container {
     flex-direction: column;
     align-items: stretch;
   }
 
-  /* Logo */
+  /* Make logo smaller */
   .wp-block-image img {
     height: 24px;
-    width: auto;
   }
 
   /* Navbar container */
   .frontity-nav {
+    /* Hide when the menu is closed */
     display: ${isMenuOpen ? "block" : "none"};
+    /* Fixed and filling the space below the navbar */
     position: fixed;
-    z-index: 10;
     top: 73px;
     left: 0;
     right: 0;
     bottom: 0;
-    display: block;
+    /* Above other elements */
+    z-index: 10;
     padding: 0 16px 16px 16px;
     background-color: ${addAlpha(state.theme.colors.wall, 0.9)};
 
     > .wp-block-group__inner-container {
+      /* Place to the right and with a max width (for tablet view) */
+      margin-left: auto;
+      max-width: 400px;
+      max-height: 100%;
       overflow-y: auto;
       padding: 0 16px;
       border-radius: 12px;
@@ -197,13 +218,11 @@ export const mobileStyles = ({
 
   /* Link block */
   .wp-block-navigation-link {
+    color: ${state.theme.colors.frontity};
     border-top: 1px solid ${addAlpha(state.theme.colors.primary, 0.08)};
     padding: 24px 8px;
     font-size: 14px;
     line-height: 21px;
-    a {
-      color: ${state.theme.colors.frontity};
-    }
   }
 
   /* Frontity Navbar - links */
@@ -220,14 +239,5 @@ export const mobileStyles = ({
   /* Frontity Navbar - separator */
   .wp-block-separator {
     display: none;
-  }
-
-  /* Frontity Navbar - icons */
-  .frontity-nav-icons {
-    /* Show text for labels on Desktop */
-    > ul > li > a > span.wp-block-navigation-link__label {
-      font-size: unset;
-      vertical-align: text-bottom;
-    }
   }
 `;
