@@ -4,7 +4,7 @@ import React from "react";
 
 import FrontityOrg from "../../../types";
 import HeaderButton from "./header-button";
-import { generalStyles, onDesktop, onMobile } from "./header-styles";
+import { desktopStyles, generalStyles, mobileStyles } from "./header-styles";
 
 const Header: React.FC<Connect<FrontityOrg>> = ({ state, libraries }) => {
   // Get the header template.
@@ -19,14 +19,12 @@ const Header: React.FC<Connect<FrontityOrg>> = ({ state, libraries }) => {
 
   // Generate styles.
   const styles = css`
-    ${generalStyles({ state })}
-
+    ${generalStyles({ state })};
     @media only screen and (min-width: 866px) {
-      ${onDesktop({ state })}
+      ${desktopStyles({ state })};
     }
-
     @media only screen and (max-width: 865px) {
-      ${onMobile({ state, isMenuOpen })}
+      ${mobileStyles({ state, isMenuOpen })};
     }
   `;
 
