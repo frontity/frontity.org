@@ -83,6 +83,10 @@ export const generalStyles = ({ state }: { state: State<FrontityOrg> }) => css`
         opacity: 1;
       }
     }
+    /* Hide arrow icon for submenu */
+    .wp-block-navigation-link__submenu-icon {
+      display: none;
+    }
   }
 `;
 
@@ -137,11 +141,6 @@ export const desktopStyles = ({ state }: { state: State<FrontityOrg> }) =>
 
       .wp-block-navigation-link {
         margin-right: 16px;
-
-        /* Hide arrow icon for submenu */
-        .wp-block-navigation-link__submenu-icon {
-          display: none;
-        }
 
         /* Tooltip styles */
         .has-child > .wp-block-navigation__container {
@@ -208,7 +207,7 @@ export const mobileStyles = ({
       max-width: 400px;
       max-height: 100%;
       overflow-y: auto;
-      padding: 0 16px;
+      padding: 0 16px 12px 26px;
       border-radius: 12px;
       background-color: #ffffff;
       box-shadow: 0 4px 14px 0 rgba(31, 56, 197, 0.09),
@@ -218,11 +217,23 @@ export const mobileStyles = ({
 
   /* Link block */
   .wp-block-navigation-link {
+    flex-direction: column;
     color: ${state.theme.colors.frontity};
     border-top: 1px solid ${addAlpha(state.theme.colors.primary, 0.08)};
-    padding: 24px 8px;
     font-size: 14px;
     line-height: 21px;
+    .wp-block-navigation-link__content {
+      padding: 24px 8px;
+    }
+    .wp-block-navigation-link__label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      img {
+        margin-right: 12px;
+      }
+    }
   }
 
   /* Frontity Navbar - links */
@@ -239,5 +250,31 @@ export const mobileStyles = ({
   /* Frontity Navbar - separator */
   .wp-block-separator {
     display: none;
+  }
+
+  /* Frontity Navbar - icons submenu */
+  .frontity-nav-icons
+    .wp-block-navigation-link.has-child
+    > .wp-block-navigation__container {
+    max-width: none;
+    position: static;
+    visibility: visible;
+    opacity: 1;
+    border: none;
+    margin-left: 36px;
+
+    .wp-block-navigation-link {
+      font-family: "IBMPlexSans";
+      font-size: 16px;
+      letter-spacing: 0;
+      line-height: 20px;
+      a {
+        color: ${state.theme.colors.primary};
+      }
+    }
+
+    .wp-block-navigation-link__content {
+      padding: 12px 0;
+    }
   }
 `;
