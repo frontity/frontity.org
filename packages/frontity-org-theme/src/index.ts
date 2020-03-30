@@ -71,7 +71,7 @@ const frontityOrg: FrontityOrg = {
         horizontalSeparator,
         links,
         specialIcons,
-        switchElement,
+        // switchElement,
       ],
     },
   },
