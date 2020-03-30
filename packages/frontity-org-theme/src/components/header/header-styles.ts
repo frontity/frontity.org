@@ -6,13 +6,15 @@ import { addAlpha } from "../../utils";
 
 const tooltipStyles = ({ state }: { state: State<FrontityOrg> }) => css`
   left: unset;
-  right: 0;
+  right: -12px;
 
   padding: 2px 24px;
   border: none;
   border-radius: 8px;
   box-shadow: 0 4px 14px 0 rgba(31, 56, 197, 0.09),
     0 2px 4px 0 rgba(31, 56, 197, 0.12);
+
+  align-items: stretch;
 
   /* Arrow */
   :after {
@@ -21,7 +23,7 @@ const tooltipStyles = ({ state }: { state: State<FrontityOrg> }) => css`
     height: 16px;
     position: absolute;
     top: 0;
-    right: 12px;
+    right: 9px;
 
     transform: translate(-50%, -50%) rotate(45deg);
 
@@ -33,6 +35,7 @@ const tooltipStyles = ({ state }: { state: State<FrontityOrg> }) => css`
   .wp-block-navigation-link {
     color: ${state.theme.colors.primary};
     padding: 16px 0;
+    margin: 0;
     border-bottom: 1px solid ${addAlpha(state.theme.colors.primary, 0.08)};
     :last-child {
       border-bottom: none;
@@ -76,16 +79,18 @@ export const generalStyles = ({ state }: { state: State<FrontityOrg> }) => css`
   /* General styles for nav blocks */
   .wp-block-navigation {
     width: auto;
-    .wp-block-navigation-link__content {
-      padding: 0;
-      :hover {
-        color: ${state.theme.colors.frontity};
-        opacity: 1;
+
+    .wp-block-navigation-link {
+      .wp-block-navigation-link__content {
+        :hover {
+          color: ${state.theme.colors.frontity};
+          opacity: 1;
+        }
       }
-    }
-    /* Hide arrow icon for submenu */
-    .wp-block-navigation-link__submenu-icon {
-      display: none;
+      /* Hide arrow icon for submenu */
+      .wp-block-navigation-link__submenu-icon {
+        display: none;
+      }
     }
   }
 `;
@@ -109,6 +114,9 @@ export const desktopStyles = ({ state }: { state: State<FrontityOrg> }) =>
     .frontity-nav-links {
       .wp-block-navigation-link {
         margin-left: 40px;
+        .wp-block-navigation-link__content {
+          padding: 0;
+        }
       }
     }
 
@@ -143,7 +151,7 @@ export const desktopStyles = ({ state }: { state: State<FrontityOrg> }) =>
         margin-right: 16px;
 
         /* Tooltip styles */
-        .has-child > .wp-block-navigation__container {
+        &.has-child > .wp-block-navigation__container {
           ${tooltipStyles({ state })};
         }
       }
