@@ -1,5 +1,5 @@
 import { Node, Processor } from "@frontity/html2react/types";
-import { connect, css, styled } from "frontity";
+import { css, styled } from "frontity";
 import React from "react";
 
 import FrontityOrg from "../../types";
