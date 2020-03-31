@@ -112,36 +112,42 @@ export const desktopStyles = ({ state }: { state: State<FrontityOrg> }) =>
     }
 
     /* Frontity Navbar - links */
-    .frontity-nav-links {
+    .wp-block-navigation {
       .wp-block-navigation-link {
-        margin-left: 40px;
+        align-items: center;
+
+        /* Margins for links with only text */
+        &:not(.is-link-with-icon) {
+          margin-left: 40px;
+        }
+
+        /* Margins for links with icons */
+        &.is-link-with-icon {
+          margin-right: 16px;
+          /* Tooltip styles */
+          &.has-child > .wp-block-navigation__container {
+            ${tooltipStyles({ state })};
+          }
+        }
+
         .wp-block-navigation-link__content {
           padding: 0;
         }
       }
-    }
 
-    /* Frontity Navbar - separator */
-    .wp-block-separator {
-      margin: 0 24px;
-      width: 1px;
-      height: 20px;
-      background-color: ${addAlpha(state.theme.colors.primary, 0.12)};
-      border: none;
-    }
-
-    /* Frontity Navbar - icons */
-    .frontity-nav-icons {
-      .wp-block-navigation-link {
-        margin-right: 16px;
+      /* Separator between links */
+      .wp-block-navigation-link:not(.is-link-with-icon)
+        + .is-link-with-icon::before {
+        content: " ";
+        margin: 0 24px;
+        width: 1px;
+        height: 20px;
+        background-color: ${addAlpha(state.theme.colors.primary, 0.12)};
+        border: none;
       }
-    }
 
-    /* Frontity Navbar - icons */
-    .frontity-nav-icons {
-      /* Hide text for labels on Desktop */
-      > .wp-block-navigation__container
-        > .wp-block-navigation-link
+      /* Style links with icons */
+      .wp-block-navigation-link.is-link-with-icon
         > .wp-block-navigation-link__content
         > .wp-block-navigation-link__label {
         font-size: 0;
@@ -152,15 +158,6 @@ export const desktopStyles = ({ state }: { state: State<FrontityOrg> }) =>
           img {
             filter: saturate(2.6) hue-rotate(5deg);
           }
-        }
-      }
-
-      .wp-block-navigation-link {
-        margin-right: 16px;
-
-        /* Tooltip styles */
-        &.has-child > .wp-block-navigation__container {
-          ${tooltipStyles({ state })};
         }
       }
     }
@@ -203,7 +200,7 @@ export const mobileStyles = ({
   }
 
   /* Navbar container */
-  .frontity-nav {
+  .wp-block-navigation {
     /* Hide when the menu is closed */
     display: ${isMenuOpen ? "block" : "none"};
     /* Fixed and filling the space below the navbar */
@@ -217,22 +214,32 @@ export const mobileStyles = ({
     padding: 0 16px 16px 16px;
     background-color: ${addAlpha(state.theme.colors.wall, 0.9)};
 
-    > .wp-block-group__inner-container {
+    > .wp-block-navigation__container {
       /* Place to the right and with a max width (for tablet view) */
       margin-left: auto;
       max-width: 400px;
       max-height: 100%;
       overflow-y: auto;
-      padding: 0 16px 12px 26px;
+      padding: 0 16px 12px 16px;
       border-radius: 12px;
       background-color: #ffffff;
       box-shadow: 0 4px 14px 0 rgba(31, 56, 197, 0.09),
         0 2px 4px 0 rgba(31, 56, 197, 0.12);
-    }
-  }
 
-  /* Link block */
-  .wp-block-navigation {
+      /* Arrows at the end of the links */
+      > .wp-block-navigation-link > .wp-block-navigation-link__content:after {
+        content: " ";
+        width: 6px;
+        height: 6px;
+        border-top: 2px solid ${addAlpha(state.theme.colors.frontity, 0.4)};
+        border-right: 2px solid ${addAlpha(state.theme.colors.frontity, 0.4)};
+        transform: translate(-50%, -50%) rotate(45deg) scale(1.2);
+        position: absolute;
+        top: calc(45% + 2px);
+        right: 8px;
+      }
+    }
+
     .wp-block-navigation-link {
       flex-direction: column;
       color: ${state.theme.colors.frontity};
@@ -253,75 +260,36 @@ export const mobileStyles = ({
         }
       }
     }
-  }
 
-  /* Arrows at the end of the links */
-  .wp-block-navigation {
-    > .wp-block-navigation__container
-      > .wp-block-navigation-link
-      > .wp-block-navigation-link__content:after {
-      content: " ";
-      width: 6px;
-      height: 6px;
-      border-top: 2px solid ${addAlpha(state.theme.colors.frontity, 0.4)};
-      border-right: 2px solid ${addAlpha(state.theme.colors.frontity, 0.4)};
-      transform: translate(-50%, -50%) rotate(45deg) scale(1.2);
-      position: absolute;
-      top: calc(45% + 2px);
-      right: 8px;
-    }
-  }
-
-  /* Frontity Navbar - links */
-  .frontity-nav-links {
-    .wp-block-navigation-link {
-      margin-left: 0;
-
-      :first-child {
-        border-top: none;
-      }
-    }
-  }
-
-  /* Frontity Navbar - separator */
-  .wp-block-separator {
-    display: none;
-  }
-
-  /* Frontity Navbar - root icons */
-  .frontity-nav-icons {
-    > .wp-block-navigation__container
-      > .wp-block-navigation-link
+    .wp-block-navigation-link.is-link-with-icon
       > .wp-block-navigation-link__content
       > .wp-block-navigation-link__label
       img {
       filter: saturate(2.3) hue-rotate(5deg);
     }
-  }
 
-  /* Frontity Navbar - icons submenu */
-  .frontity-nav-icons
-    .wp-block-navigation-link.has-child
-    > .wp-block-navigation__container {
-    max-width: none;
-    position: static;
-    visibility: visible;
-    opacity: 1;
-    border: none;
-    margin-left: 36px;
+    /* Submenu */
+    .wp-block-navigation-link.has-child > .wp-block-navigation__container {
+      max-width: none;
+      position: static;
+      visibility: visible;
+      opacity: 1;
+      border: none;
+      margin-left: 36px;
 
-    .wp-block-navigation-link {
-      font-family: "IBMPlexSans";
-      font-size: 16px;
-      letter-spacing: 0;
-      line-height: 20px;
-      a {
-        color: ${state.theme.colors.primary};
+      .wp-block-navigation-link {
+        font-family: "IBMPlexSans";
+        font-size: 16px;
+        letter-spacing: 0;
+        line-height: 20px;
+        a {
+          color: ${state.theme.colors.primary};
+        }
       }
-    }
 
-    .wp-block-navigation-link__content {
-      padding: 12px 0;
+      .wp-block-navigation-link__content {
+        padding: 12px 0;
+      }
     }
   }
 `;
