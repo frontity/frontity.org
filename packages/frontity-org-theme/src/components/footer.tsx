@@ -26,9 +26,14 @@ const Footer: React.FC<Connect<FrontityOrg>> = ({ state, libraries }) => {
       margin-bottom: 9px;
     }
 
-    & > .footer-links.wp-block-columns {
-      padding-top: 25px;
-      padding-bottom: 25px;
+    & .wp-block-group {
+      max-width: 1080px;
+    }
+
+    & .footer-links.wp-block-columns {
+      padding-top: 80px;
+      padding-bottom: 80px;
+      margin-bottom: 0;
     }
 
     .footer-links.wp-block-columns {
@@ -60,6 +65,8 @@ const Footer: React.FC<Connect<FrontityOrg>> = ({ state, libraries }) => {
     .footer-bottom-text.wp-block-columns {
       display: grid;
       grid-template-columns: 170px 1fr auto auto;
+
+      margin-top: 20px;
 
       @media screen and (max-width: 700px) {
         grid-template-columns: 1fr 1fr;
