@@ -231,10 +231,9 @@ const documentSetup = (colors: FrontityOrg["state"]["theme"]["colors"]) => css`
   img {
     max-width: 100%;
   }
-  div#root > div > div {
+  div#root > div.wp-block-group > div {
     max-width: 1080px;
     margin: auto;
-    padding: 120px 0;
   }
 `;
 
