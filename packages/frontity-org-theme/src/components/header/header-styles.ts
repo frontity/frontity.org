@@ -88,10 +88,6 @@ export const generalStyles = ({ state }: { state: State<FrontityOrg> }) => css`
           opacity: 1;
         }
       }
-      /* Hide arrow icon for submenu */
-      .wp-block-navigation-link__submenu-icon {
-        display: none;
-      }
     }
   }
 `;
@@ -215,7 +211,7 @@ export const mobileStyles = ({
     background-color: ${addAlpha(state.theme.colors.wall, 0.9)};
 
     > .wp-block-navigation__container {
-      /* Place to the right and with a max width (for tablet view) */
+      /* Move right and set a max-width (for tablet view) */
       margin-left: auto;
       max-width: 400px;
       max-height: 100%;
