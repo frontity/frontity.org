@@ -241,6 +241,7 @@ export const mobileStyles = ({
       line-height: 21px;
       .wp-block-navigation-link__content {
         padding: 24px 8px;
+        width: auto;
       }
       .wp-block-navigation-link__label {
         display: flex;
@@ -253,6 +254,24 @@ export const mobileStyles = ({
       }
     }
   }
+
+  /* Arrows at the end of the links */
+  .wp-block-navigation {
+    > .wp-block-navigation__container
+      > .wp-block-navigation-link
+      > .wp-block-navigation-link__content:after {
+      content: " ";
+      width: 6px;
+      height: 6px;
+      border-top: 2px solid ${addAlpha(state.theme.colors.frontity, 0.4)};
+      border-right: 2px solid ${addAlpha(state.theme.colors.frontity, 0.4)};
+      transform: translate(-50%, -50%) rotate(45deg) scale(1.2);
+      position: absolute;
+      top: calc(45% + 2px);
+      right: 8px;
+    }
+  }
+
   /* Frontity Navbar - links */
   .frontity-nav-links {
     .wp-block-navigation-link {
