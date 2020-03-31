@@ -146,6 +146,13 @@ export const desktopStyles = ({ state }: { state: State<FrontityOrg> }) =>
         > .wp-block-navigation-link__label {
         font-size: 0;
         vertical-align: text-bottom;
+
+        /* Change icon color on hover */
+        &:hover {
+          img {
+            filter: saturate(2.6) hue-rotate(5deg);
+          }
+        }
       }
 
       .wp-block-navigation-link {
@@ -260,6 +267,17 @@ export const mobileStyles = ({
   /* Frontity Navbar - separator */
   .wp-block-separator {
     display: none;
+  }
+
+  /* Frontity Navbar - root icons */
+  .frontity-nav-icons {
+    > .wp-block-navigation__container
+      > .wp-block-navigation-link
+      > .wp-block-navigation-link__content
+      > .wp-block-navigation-link__label
+      img {
+      filter: saturate(2.3) hue-rotate(5deg);
+    }
   }
 
   /* Frontity Navbar - icons submenu */
