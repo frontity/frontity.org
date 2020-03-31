@@ -26,39 +26,22 @@ const Footer: React.FC<Connect<FrontityOrg>> = ({ state, libraries }) => {
       margin-bottom: 9px;
     }
 
-    & .wp-block-group {
+    & .wp-block-group__inner-container {
       max-width: 1080px;
-    }
-
-    & .footer-links.wp-block-columns {
-      padding-top: 80px;
-      padding-bottom: 80px;
-      margin-bottom: 0;
+      margin: auto;
     }
 
     .footer-links.wp-block-columns {
+      padding-top: 80px;
+      padding-bottom: 80px;
+      margin-bottom: 0;
+
       display: grid;
       grid-template-columns: 1fr repeat(5, auto);
 
       .wp-block-column {
         line-height: 24px;
         margin-bottom: 35px;
-        margin-left: 36px; /* Need this to overwrite the default gutenberg CSS margin*/
-      }
-    }
-
-    /* Small screens - 2 columns */
-    @media screen and (max-width: 800px) {
-      .footer-links.wp-block-columns {
-        display: grid;
-        grid-template-rows: 70px repeat(3, auto);
-        grid-template-columns: 1fr 1fr;
-
-        /* Keep the 2nd empty */
-        .wp-block-column:first-of-type {
-          grid-column-start: 1;
-          grid-column-end: 3;
-        }
       }
     }
 
@@ -74,7 +57,24 @@ const Footer: React.FC<Connect<FrontityOrg>> = ({ state, libraries }) => {
 
       .wp-block-column {
         margin-bottom: 15px;
-        margin-left: 36px; /* Need this to overwrite the default gutenberg CSS margin*/
+      }
+    }
+
+    /* Small screens - 2 columns */
+    @media screen and (max-width: 800px) {
+      .footer-links.wp-block-columns {
+        display: grid;
+        grid-template-rows: 70px repeat(3, auto);
+        grid-template-columns: 1fr 1fr;
+
+        padding-top: 25px;
+        padding-bottom: 0px;
+
+        /* Keep the 2nd cell empty */
+        .wp-block-column:first-of-type {
+          grid-column-start: 1;
+          grid-column-end: 3;
+        }
       }
     }
   `;
