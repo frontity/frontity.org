@@ -82,6 +82,7 @@ export const generalStyles = ({ state }: { state: State<FrontityOrg> }) => css`
 
     .wp-block-navigation-link {
       .wp-block-navigation-link__content {
+        padding: 0;
         :hover {
           color: ${state.theme.colors.frontity};
           opacity: 1;
@@ -224,26 +225,27 @@ export const mobileStyles = ({
   }
 
   /* Link block */
-  .wp-block-navigation-link {
-    flex-direction: column;
-    color: ${state.theme.colors.frontity};
-    border-top: 1px solid ${addAlpha(state.theme.colors.primary, 0.08)};
-    font-size: 14px;
-    line-height: 21px;
-    .wp-block-navigation-link__content {
-      padding: 24px 8px;
-    }
-    .wp-block-navigation-link__label {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+  .wp-block-navigation {
+    .wp-block-navigation-link {
+      flex-direction: column;
+      color: ${state.theme.colors.frontity};
+      border-top: 1px solid ${addAlpha(state.theme.colors.primary, 0.08)};
+      font-size: 14px;
+      line-height: 21px;
+      .wp-block-navigation-link__content {
+        padding: 24px 8px;
+      }
+      .wp-block-navigation-link__label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
-      img {
-        margin-right: 12px;
+        img {
+          margin-right: 12px;
+        }
       }
     }
   }
-
   /* Frontity Navbar - links */
   .frontity-nav-links {
     .wp-block-navigation-link {
