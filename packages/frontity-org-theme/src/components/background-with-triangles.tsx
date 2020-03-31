@@ -30,7 +30,7 @@ const BackgroundWithTriangles: React.FC<Connect<
   ];
 
   return (
-    <Container height={height}>
+    <Container height={height} className="">
       {position !== "both-sides" && position !== "none" ? (
         <TriangleComp
           topTriangleOpacity={topTriangleOpacity}
@@ -39,7 +39,7 @@ const BackgroundWithTriangles: React.FC<Connect<
         />
       ) : null}
 
-      {position !== "both-sides" &&
+      {position === "both-sides" &&
         ["left", "right"].map((pos) => (
           <TriangleComp
             topTriangleOpacity={topTriangleOpacity}
@@ -71,6 +71,7 @@ const Triangle = styled.div<{
   topTriangleOpacity?: string;
 }>`
   box-shadow: 0 0 14px 0 rgba(12, 17, 43, 0.03);
+  top: 0;
   background: #fcfcfd;
   position: absolute;
   height: 750px;
@@ -84,18 +85,28 @@ const Triangle = styled.div<{
 
   ${(props) => css`
     &.position-left {
-      transform: translate(-400px, ${props.top ? `${props.top}px` : "-52.5%"})
+      transform: translate(
+          -400px,
+          calc(${props.top ? `${props.top}px` : "0px"} - 35%)
+        )
         rotate(45deg);
       transform-origin: left;
     }
 
     &.position-right {
-      transform: translate(400px, ${props.top ? `${props.top}px` : "-52.5%"})
+      transform: translate(
+          400px,
+          calc(${props.top ? `${props.top}px` : "0px"} - 35%)
+        )
         rotate(-45deg);
       transform-origin: right;
       right: 0;
     }
   `}
+
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
 
   .inner {
     box-shadow: 0 0 14px 0 rgba(12, 17, 43, 0.03);
