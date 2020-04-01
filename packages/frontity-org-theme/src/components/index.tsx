@@ -18,6 +18,7 @@ const Theme: React.FC<Connect<FrontityOrg>> = ({ state }) => {
       <Global styles={css(gutenbergStyle)} />
       <Global styles={css(gutenbergTheme)} />
       <FontFace />
+
       {(data.isPage && <Page />) || (
         <>
           <a href="/homepage">Visit /homepage</a>
