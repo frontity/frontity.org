@@ -7,6 +7,7 @@ import { addAlpha } from "../../utils";
 const tooltipStyles = ({ state }: { state: State<FrontityOrg> }) => css`
   left: unset;
   right: -12px;
+  top: calc(100% + 16px);
 
   padding: 2px 24px;
   border: none;
@@ -56,6 +57,10 @@ const tooltipStyles = ({ state }: { state: State<FrontityOrg> }) => css`
 export const generalStyles = ({ state }: { state: State<FrontityOrg> }) => css`
   font-family: Poppins;
 
+  > .wp-block-group {
+    padding: 0;
+  }
+
   /* Remove margins from the logo */
   .wp-block-image {
     margin: 0;
@@ -81,6 +86,7 @@ export const generalStyles = ({ state }: { state: State<FrontityOrg> }) => css`
     width: auto;
 
     .wp-block-navigation-link {
+      min-height: fit-content;
       .wp-block-navigation-link__content {
         padding: 0;
         :hover {
@@ -94,11 +100,6 @@ export const generalStyles = ({ state }: { state: State<FrontityOrg> }) => css`
 
 export const desktopStyles = ({ state }: { state: State<FrontityOrg> }) =>
   css`
-    /* Fix section margin */
-    > .wp-block-group {
-      padding: 48px 0 !important; /* TODO: !important should not be needed */
-    }
-
     /* Turn inner containers into flex rows */
     .wp-block-group__inner-container,
     .wp-block-navigation__container {

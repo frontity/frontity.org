@@ -20,6 +20,13 @@ export const Header = connect<React.FC<Connect<FrontityOrg>>>(
 
     // Generate styles.
     const styles = css`
+      /* Fix section margin */
+      > .wp-block-group > .wp-block-group__inner-container {
+        margin: auto;
+        padding: 48px 0;
+        max-width: 1080px;
+      }
+
       ${generalStyles({ state })};
       @media only screen and (min-width: 866px) {
         ${desktopStyles({ state })};
@@ -63,24 +70,27 @@ export const FixedHeader = connect<React.FC<Connect<FrontityOrg>>>(
 
     // Generate styles.
     const styles = css`
-      ${generalStyles({ state })};
-      ${desktopStyles({ state })};
-
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
 
-      > .wp-block-group {
-        margin: 0 0 0 0 !important;
-        padding: 0 0 0 0 !important;
-        width: 100%;
-        max-width: unset !important;
-        > .wp-block-group__inner-container {
-          margin: 0 auto;
-          max-width: 1080px;
-        }
+      z-index: 10;
+
+      /* Fix section margin */
+      > .wp-block-group > .wp-block-group__inner-container {
+        margin: auto;
+        padding: 20px 0;
+        max-width: 1080px;
       }
+
+      /* Fix button margin */
+      .wp-block-buttons .wp-block-button {
+        margin: 0;
+      }
+
+      ${generalStyles({ state })};
+      ${desktopStyles({ state })};
     `;
 
     return (
