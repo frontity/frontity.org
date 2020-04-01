@@ -86,15 +86,17 @@ export const headlessFlow: Processor<
     node.props.css = css`
       flex-wrap: nowrap;
 
-      /* This is to override a default gutenberg style for desktiop columns */
+      /* This is to override a default gutenberg style for desktop columns */
       .wp-block-column {
         margin-left: 0px;
       }
 
+      /* Make a single column on small screens */
       @media screen and (max-width: 750px) {
         flex-direction: column;
       }
 
+      /* Override the default column layout inside the container */
       @media screen and (max-width: 750px) {
         .wp-block-group__inner-container {
           display: grid;
