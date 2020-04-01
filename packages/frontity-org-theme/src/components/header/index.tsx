@@ -1,10 +1,10 @@
-import { connect, css, Head } from "frontity";
+import { connect, Head } from "frontity";
 import { Connect } from "frontity/types";
 import React from "react";
 
 import FrontityOrg from "../../../types";
 import HeaderButton from "./header-button";
-import { desktopStyles, generalStyles, mobileStyles } from "./header-styles";
+import { fixedHeaderStyles, headerStyles } from "./header-styles";
 
 export const Header = connect<React.FC<Connect<FrontityOrg>>>(
   ({ state, libraries }) => {
@@ -19,22 +19,7 @@ export const Header = connect<React.FC<Connect<FrontityOrg>>>(
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
     // Generate styles.
-    const styles = css`
-      /* Fix section margin */
-      > .wp-block-group > .wp-block-group__inner-container {
-        margin: auto;
-        padding: 48px 0;
-        max-width: 1080px;
-      }
-
-      ${generalStyles({ state })};
-      @media only screen and (min-width: 866px) {
-        ${desktopStyles({ state })};
-      }
-      @media only screen and (max-width: 865px) {
-        ${mobileStyles({ state, isMenuOpen })};
-      }
-    `;
+    const styles = headerStyles({ state, isMenuOpen });
 
     return (
       <div css={styles}>
@@ -68,46 +53,10 @@ export const FixedHeader = connect<React.FC<Connect<FrontityOrg>>>(
     // Store if the menu is open (for the mobile view).
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-    // Generate styles.
-    const styles = css`
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-
-      z-index: 10;
-
-      /* Fix section margin */
-      > .wp-block-group > .wp-block-group__inner-container {
-        margin: auto;
-        padding: 20px 0;
-        max-width: 1080px;
-      }
-
-      /* Fix button margin */
-      .wp-block-buttons .wp-block-button {
-        margin: 0;
-      }
-
-      ${generalStyles({ state })};
-      ${desktopStyles({ state })};
-    `;
-
     return (
-      <div css={styles}>
+      <div css={fixedHeaderStyles({ state })}>
         {/* Render the template */}
         <Html2React html={header.content.rendered} />
-        {/* Render the menu button (only on mobile).*/}
-        <HeaderButton
-          color={state.theme.colors.frontity}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        />
-        {/* Make body unscrollabe when menu is open (only on mobile). */}
-        {isMenuOpen && (
-          <Head>
-            <style>{`body { overflow-y: hidden; }`}</style>
-          </Head>
-        )}
       </div>
     );
   }

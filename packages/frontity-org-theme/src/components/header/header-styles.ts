@@ -110,6 +110,9 @@ export const desktopStyles = ({ state }: { state: State<FrontityOrg> }) =>
 
     /* Frontity Navbar - links */
     .wp-block-navigation {
+      /* Final padding at the right of the navbar */
+      padding-right: 8px;
+
       .wp-block-navigation-link {
         align-items: center;
 
@@ -120,7 +123,7 @@ export const desktopStyles = ({ state }: { state: State<FrontityOrg> }) =>
 
         /* Margins for links with icons */
         &.is-link-with-icon {
-          margin-right: 16px;
+          margin-left: 16px;
           /* Tooltip styles */
           &.has-child > .wp-block-navigation__container {
             ${tooltipStyles({ state })};
@@ -133,14 +136,16 @@ export const desktopStyles = ({ state }: { state: State<FrontityOrg> }) =>
       }
 
       /* Separator between links */
-      .wp-block-navigation-link:not(.is-link-with-icon)
-        + .is-link-with-icon::before {
-        content: " ";
-        margin: 0 24px;
-        width: 1px;
-        height: 20px;
-        background-color: ${addAlpha(state.theme.colors.primary, 0.12)};
-        border: none;
+      .wp-block-navigation-link:not(.is-link-with-icon) + .is-link-with-icon {
+        margin-left: 0;
+        &::before {
+          content: " ";
+          margin: 0 24px;
+          width: 1px;
+          height: 20px;
+          background-color: ${addAlpha(state.theme.colors.primary, 0.12)};
+          border: none;
+        }
       }
 
       /* Style links with icons */
@@ -289,4 +294,58 @@ export const mobileStyles = ({
       }
     }
   }
+`;
+
+export const headerStyles = ({
+  state,
+  isMenuOpen,
+}: {
+  state: State<FrontityOrg>;
+  isMenuOpen;
+}) => css`
+  /* Fix section margin */
+  > .wp-block-group > .wp-block-group__inner-container {
+    margin: auto;
+    padding: 48px 0;
+    max-width: 1080px;
+  }
+
+  ${generalStyles({ state })};
+  @media only screen and (min-width: 866px) {
+    ${desktopStyles({ state })};
+  }
+  @media only screen and (max-width: 865px) {
+    ${mobileStyles({ state, isMenuOpen })};
+  }
+`;
+
+export const fixedHeaderStyles = ({
+  state,
+}: {
+  state: State<FrontityOrg>;
+}) => css`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  z-index: 10;
+
+  /* Fix section margin */
+  > .wp-block-group > .wp-block-group__inner-container {
+    margin: auto;
+    padding: 20px 0;
+    max-width: 1080px;
+  }
+
+  /* Fix button margins */
+  .wp-block-buttons {
+    margin-left: 32px;
+    .wp-block-button {
+      margin: 0;
+    }
+  }
+
+  ${generalStyles({ state })};
+  ${desktopStyles({ state })};
 `;
