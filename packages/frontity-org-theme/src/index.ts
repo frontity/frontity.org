@@ -14,6 +14,7 @@ import { horizontalSeparator } from "./processors/horizontal-separator";
 import { imageFrame } from "./processors/image-frame";
 import { links } from "./processors/links-buttons";
 import { mobileDesktop } from "./processors/mobile-desktop";
+import { newsletter } from "./processors/newsletter";
 import { paragraph } from "./processors/paragraph";
 import { polygonBackground } from "./processors/polygon-background";
 import { scrollingSection } from "./processors/scrolling-section";
@@ -69,6 +70,7 @@ const frontityOrg: FrontityOrg = {
         imageFrame,
         polygonBackground,
         borderRadius,
+        newsletter,
         boxShadow,
         checklists,
         dropdown,
