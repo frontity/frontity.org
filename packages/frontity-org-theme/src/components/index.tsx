@@ -3,7 +3,7 @@ import { Connect } from "frontity/types";
 import React from "react";
 
 import FrontityOrg from "../../types";
-import Header, { FixedHeader } from "./header";
+import { FixedHeader, Header } from "./headers";
 import Page from "./page";
 import FontFace from "./styles/font-face";
 import globalStyles from "./styles/global-styles";

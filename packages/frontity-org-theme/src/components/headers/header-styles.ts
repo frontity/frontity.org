@@ -322,8 +322,10 @@ export const headerStyles = ({
 
 export const fixedHeaderStyles = ({
   state,
+  isFixedHeaderVisible,
 }: {
   state: State<FrontityOrg>;
+  isFixedHeaderVisible: boolean;
 }) => css`
   ${generalStyles({ state })};
   ${desktopStyles({ state })};
@@ -332,6 +334,11 @@ export const fixedHeaderStyles = ({
   > .wp-block-group > .wp-block-group__inner-container {
     padding: 20px 0;
   }
+
+  /* Hide the fixed bar */
+  transform: translateY(${isFixedHeaderVisible ? "0" : "-150%"});
+  filter: opacity(${isFixedHeaderVisible ? "100%" : "0%"});
+  transition: transform 300ms, filter 300ms;
 
   /* Specific styles */
   position: fixed;
