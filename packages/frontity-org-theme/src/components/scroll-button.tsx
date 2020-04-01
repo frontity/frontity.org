@@ -13,6 +13,9 @@ const ScrollButton: React.FC<Connect<FrontityOrg, any>> = ({ state }) => {
   };
 
   const Button = styled.div`
+    @media only screen and (min-width: 768px) {
+      display: none;
+    }
     position: fixed;
     bottom: 16px;
     right: 16px;
