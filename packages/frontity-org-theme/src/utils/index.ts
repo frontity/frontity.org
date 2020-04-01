@@ -14,3 +14,7 @@ export const addAlpha = (hex: string, alpha: number) => {
     .concat(alpha)
     .join(", ")})`;
 };
+
+export const scrollToTop = () => {
+  window.scrollTo(0, 0);
+};
