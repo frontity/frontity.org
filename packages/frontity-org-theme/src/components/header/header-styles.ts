@@ -59,6 +59,10 @@ export const generalStyles = ({ state }: { state: State<FrontityOrg> }) => css`
 
   > .wp-block-group {
     padding: 0;
+    > .wp-block-group__inner-container {
+      margin: auto;
+      max-width: 1080px;
+    }
   }
 
   /* Remove margins from the logo */
@@ -183,12 +187,6 @@ export const mobileStyles = ({
   border-bottom: 1px solid
     ${isMenuOpen ? "transparent" : addAlpha(state.theme.colors.primary, 0.08)};
 
-  /* Fix section margin */
-  > .wp-block-group {
-    margin: 0 !important;
-    padding: 24px 0 !important; /* TODO: !important should not be needed */
-  }
-
   /* Turn inner containers into flex columns */
   .wp-block-group__inner-container,
   .wp-block-navigation__container {
@@ -303,19 +301,22 @@ export const headerStyles = ({
   state: State<FrontityOrg>;
   isMenuOpen;
 }) => css`
-  /* Fix section margin */
-  > .wp-block-group > .wp-block-group__inner-container {
-    margin: auto;
-    padding: 48px 0;
-    max-width: 1080px;
-  }
-
   ${generalStyles({ state })};
   @media only screen and (min-width: 866px) {
     ${desktopStyles({ state })};
+
+    /* Header padding */
+    > .wp-block-group > .wp-block-group__inner-container {
+      padding: 48px 0;
+    }
   }
   @media only screen and (max-width: 865px) {
     ${mobileStyles({ state, isMenuOpen })};
+
+    /* Header padding */
+    > .wp-block-group > .wp-block-group__inner-container {
+      padding: 24px 0;
+    }
   }
 `;
 
@@ -324,28 +325,26 @@ export const fixedHeaderStyles = ({
 }: {
   state: State<FrontityOrg>;
 }) => css`
+  ${generalStyles({ state })};
+  ${desktopStyles({ state })};
+
+  /* Header padding */
+  > .wp-block-group > .wp-block-group__inner-container {
+    padding: 20px 0;
+  }
+
+  /* Specific styles */
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-
   z-index: 10;
 
-  /* Fix section margin */
-  > .wp-block-group > .wp-block-group__inner-container {
-    margin: auto;
-    padding: 20px 0;
-    max-width: 1080px;
-  }
-
-  /* Fix button margins */
+  /* Button margins */
   .wp-block-buttons {
     margin-left: 32px;
     .wp-block-button {
       margin: 0;
     }
   }
-
-  ${generalStyles({ state })};
-  ${desktopStyles({ state })};
 `;
