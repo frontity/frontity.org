@@ -87,7 +87,7 @@ const Triangle = styled.div<{
     &.position-left {
       transform: translate(
           -400px,
-          calc(${props.top ? `${props.top}px` : "0px"} - 35%)
+          calc(${props.top ? `${props.top}px` : "0px"} - 48%)
         )
         rotate(45deg);
       transform-origin: left;
@@ -96,7 +96,7 @@ const Triangle = styled.div<{
     &.position-right {
       transform: translate(
           400px,
-          calc(${props.top ? `${props.top}px` : "0px"} - 35%)
+          calc(${props.top ? `${props.top}px` : "0px"} - 48%)
         )
         rotate(-45deg);
       transform-origin: right;
