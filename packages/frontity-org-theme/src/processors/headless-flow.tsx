@@ -25,22 +25,23 @@ export const headlessFlow: Processor<
       }
 
       /* Make a single column on small screens */
-      @media screen and (max-width: 750px) {
+      @media screen and (max-width: 700px) {
         flex-direction: column;
       }
 
       /* Override the default column layout inside the container */
-      @media screen and (max-width: 750px) {
+      @media screen and (max-width: 700px) {
         .wp-block-group__inner-container {
           display: grid;
-          grid-template-columns: 1fr 60%;
+          grid-template-columns: 1fr 70%;
           grid-template-rows: 1fr;
-          align-items: center;
+          align-items: start;
           justify-content: left;
 
           p {
             padding-bottom: 27px;
             padding-left: 15px;
+            padding-top: 12px;
             text-align: left;
           }
         }
