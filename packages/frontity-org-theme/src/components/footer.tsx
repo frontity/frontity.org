@@ -18,6 +18,14 @@ const Footer: React.FC<Connect<FrontityOrg>> = ({ state, libraries }) => {
       }
     }
 
+    ul {
+      list-style-type: none;
+    }
+
+    ul li {
+      margin: auto;
+    }
+
     h5 {
       color: ${state.theme.colors.primary};
       letter-spacing: 1.5px;
@@ -37,7 +45,7 @@ const Footer: React.FC<Connect<FrontityOrg>> = ({ state, libraries }) => {
       margin-bottom: 0;
 
       display: grid;
-      grid-template-columns: 1fr repeat(5, auto);
+      grid-template-columns: 0.8fr repeat(5, auto);
 
       .wp-block-column {
         line-height: 24px;
