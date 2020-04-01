@@ -1,5 +1,7 @@
 import "./prism";
 
+import iframe from "@frontity/html2react/processors/iframe";
+
 import FrontityOrg from "../types";
 import Theme from "./components";
 import { backgroundColor } from "./processors/background-color";
@@ -15,6 +17,7 @@ import { mobileDesktop } from "./processors/mobile-desktop";
 import { paragraph } from "./processors/paragraph";
 import { polygonBackground } from "./processors/polygon-background";
 import { scrollingSection } from "./processors/scrolling-section";
+import { section } from "./processors/section";
 import { specialIcons } from "./processors/special-icons";
 // import { switchElement } from "./processors/switch";
 import { switchElement as switchElement2 } from "./processors/switch2";
@@ -58,6 +61,7 @@ const frontityOrg: FrontityOrg = {
   libraries: {
     html2react: {
       processors: [
+        iframe,
         ...paragraph,
         ...mobileDesktop,
         ...borders,
@@ -73,6 +77,7 @@ const frontityOrg: FrontityOrg = {
         horizontalSeparator,
         links,
         scrollingSection,
+        section,
         specialIcons,
         // switchElement
         switchElement2,
