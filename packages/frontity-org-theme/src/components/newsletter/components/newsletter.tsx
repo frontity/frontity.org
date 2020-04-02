@@ -14,25 +14,31 @@ const Newsletter: React.FC<Connect<FrontityOrg>> = ({ state, actions }) => {
 
   return (
     <>
-      <Container>
-        <div>
-          <h4>Join the Frontity newsletter</h4>
-          <p>
-            Stay up-to-date on new releases and features, tutorials, and
-            community news.
-          </p>
-        </div>
-        <form id="newsletter" onSubmit={onSubmit}>
-          <p>Enter your email</p>
+      <Form id="newsletter" onSubmit={onSubmit}>
+        <Box>
+          <Input>Enter your email</Input>
           <SubmitButton />
-        </form>
-      </Container>
+        </Box>
+      </Form>
     </>
   );
 };
 
 export default connect(Newsletter);
 
-const Container = styled.div`
-  margin: 50px auto;
+const Form = styled.form`
+  margin-left: auto;
+  width: 400px;
+`;
+const Box = styled.div`
+  width: 100%;
+  height: 50px;
+  display: flex;
+  border: solid 1px gray;
+  border-radius: 8px;
+`;
+const Input = styled.p`
+  width: 100%;
+  margin: auto;
+  padding-left: 16px;
 `;

@@ -74,6 +74,7 @@ interface FrontityOrg extends Package {
     theme: {
       sendNewsletter: any;
       sendAfterNewsletter: any;
+      setAnswer: any;
     };
   };
   libraries: {

@@ -7,6 +7,7 @@ import Theme from "./components";
 import {
   sendAfterNewsletter,
   sendNewsletter,
+  setAnswer,
 } from "./components/newsletter/store/actions";
 import { newsletterState } from "./components/newsletter/store/state";
 import { backgroundColor } from "./processors/background-color";
@@ -63,6 +64,7 @@ const frontityOrg: FrontityOrg = {
       },
       sendNewsletter,
       sendAfterNewsletter,
+      setAnswer,
     },
   },
   libraries: {

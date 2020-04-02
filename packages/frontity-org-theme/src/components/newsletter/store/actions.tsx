@@ -19,3 +19,7 @@ export const sendAfterNewsletter = ({ state, libraries }) => {
   state.theme.newsletter.sending.afterNewsletter = false;
   state.theme.newsletter.sent.afterNewsletter = true;
 };
+
+export const setAnswer = ({ state, name, answer }) => {
+  state.theme.newsletter.afterNewsletter.answers[name] = answer;
+};
