@@ -18,12 +18,8 @@ const Dot = styled.div<{ color: string; bigger?: boolean }>`
   margin: 6px;
   background: ${({ color }) => color};
 
-  :nth-child(n + 1):nth-child(-n + 2) {
-    @media screen and (max-width: 700px) {
-      display: none;
-    }
-  }
-
+  /* Hide the first 2 dots and 8th through 12 dots on small screens */
+  :nth-child(-n + 2),
   :nth-child(n + 7):nth-child(-n + 12) {
     @media screen and (max-width: 700px) {
       display: none;
@@ -53,6 +49,7 @@ const StyledDots = styled.div<{ column?: boolean }>`
   margin-bottom: 78px;
   z-index: -1;
 
+  /* Adjust the margins and padding for the line with the green dot */
   @media screen and (max-width: 700px) {
     &:nth-child(2n) {
       margin: 0;
