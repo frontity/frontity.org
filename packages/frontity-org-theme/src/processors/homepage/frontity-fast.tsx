@@ -45,8 +45,7 @@ export const fastSection: Processor<
           }
           bottom: 550px;
           left: -36px;
-          animation: ${move} 2s ease infinite;
-          }
+          animation: ${move} 1.6s ease-in-out infinite;
         `,
         className: "frontity-logo-demo",
         fill: addAlpha(state.theme.colors.frontity, 0.2),
