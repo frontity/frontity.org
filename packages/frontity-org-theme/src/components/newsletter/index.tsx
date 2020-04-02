@@ -36,6 +36,7 @@ const Container = styled.div`
     flex-grow: 1;
   }
   margin: 50px auto;
+  -webkit-transition: -webkit-transform 0.5s linear;
 `;
 const FormContainer = styled.div`
   width: 100%;

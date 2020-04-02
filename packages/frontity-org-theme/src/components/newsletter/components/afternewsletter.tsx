@@ -13,7 +13,7 @@ const AfterNewsletter: React.FC<Connect<FrontityOrg>> = ({
 }) => {
   const onSubmit = (e) => {
     e.preventDefault();
-    actions.sendAfterNewsletter();
+    actions.theme.sendAfterNewsletter();
   };
 
   //Styled Components
