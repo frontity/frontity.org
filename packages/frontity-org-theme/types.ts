@@ -35,6 +35,35 @@ interface FrontityOrg extends Package {
         white: string;
       };
       templates: string[];
+      newsletter: {
+        newsletterForm: {
+          email: string;
+          hasAgreed: boolean;
+        };
+        afterNewsletter: {
+          name: string;
+          questions: {
+            [name: string]: {
+              label: string;
+              options: {
+                label: string;
+                value: string;
+              }[];
+            };
+          };
+          answers: {
+            [name: string]: string | undefined;
+          };
+        };
+        sending: {
+          newsletterForm: boolean;
+          afterNewsletter: boolean;
+        };
+        sent: {
+          newsletterForm: boolean;
+          afterNewsletter: boolean;
+        };
+      };
     };
     source?: Source["state"]["source"] & {
       page: Record<string, PostEntityWithACF>;
@@ -42,7 +71,10 @@ interface FrontityOrg extends Package {
     router?: Router["state"]["router"];
   };
   actions: {
-    theme: {};
+    theme: {
+      sendNewsletter: any;
+      sendAfterNewsletter: any;
+    };
   };
   libraries: {
     html2react?: {

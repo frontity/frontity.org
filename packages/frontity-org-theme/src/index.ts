@@ -4,6 +4,11 @@ import iframe from "@frontity/html2react/processors/iframe";
 
 import FrontityOrg from "../types";
 import Theme from "./components";
+import {
+  sendAfterNewsletter,
+  sendNewsletter,
+} from "./components/newsletter/store/actions";
+import { newsletterState } from "./components/newsletter/store/state";
 import { backgroundColor } from "./processors/background-color";
 import { borderRadius } from "./processors/border-radius";
 import { borders } from "./processors/borders";
@@ -44,6 +49,7 @@ const frontityOrg: FrontityOrg = {
         white: "#ffffff",
       },
       templates: ["fixed-header", "header", "footer", "newsletter"],
+      newsletter: newsletterState,
     },
   },
   actions: {
@@ -55,6 +61,8 @@ const frontityOrg: FrontityOrg = {
           )
         );
       },
+      sendNewsletter,
+      sendAfterNewsletter,
     },
   },
   libraries: {
