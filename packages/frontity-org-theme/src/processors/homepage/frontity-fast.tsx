@@ -40,6 +40,9 @@ export const fastSection: Processor<
         css: css`
           position: absolute;
           display: block;
+          @media only screen and (max-width: 769px) {
+            display: none;
+          }
           bottom: 550px;
           left: -36px;
           animation: ${move} 2s ease infinite;
