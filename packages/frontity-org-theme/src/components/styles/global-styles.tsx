@@ -218,6 +218,7 @@ const documentSetup = (colors: FrontityOrg["state"]["theme"]["colors"]) => css`
     color: ${addAlpha(colors.primary, 0.8)};
     font-size: 16px;
     line-height: 24px;
+    overflow-x: hidden;
   }
   h1,
   h2,
@@ -231,10 +232,9 @@ const documentSetup = (colors: FrontityOrg["state"]["theme"]["colors"]) => css`
   img {
     max-width: 100%;
   }
-  div#root > div > div {
+  div#root > div.wp-block-group > div {
     max-width: 1080px;
     margin: auto;
-    padding: 120px 0;
   }
 `;
 
