@@ -1,6 +1,5 @@
 import { css, styled } from "frontity";
 import React from "react";
-import useMedia from "use-media";
 
 import { addAlpha } from "../utils";
 
@@ -18,6 +17,18 @@ const Dot = styled.div<{ color: string; bigger?: boolean }>`
   border-radius: 50%;
   margin: 6px;
   background: ${({ color }) => color};
+
+  :nth-child(n + 1):nth-child(-n + 2) {
+    @media screen and (max-width: 700px) {
+      display: none;
+    }
+  }
+
+  :nth-child(n + 7):nth-child(-n + 12) {
+    @media screen and (max-width: 700px) {
+      display: none;
+    }
+  }
 `;
 
 const StyledDots = styled.div<{ column?: boolean }>`
@@ -42,18 +53,16 @@ const StyledDots = styled.div<{ column?: boolean }>`
   margin-bottom: 78px;
   z-index: -1;
 
-  ${({ column }) =>
-    column &&
-    css`
-      &:nth-child(2n) {
-        margin: 0;
-        margin-top: -35px;
-        padding-right: 70%;
-        margin-bottom: -6px;
-      }
+  @media screen and (max-width: 700px) {
+    &:nth-child(2n) {
+      margin: 0;
+      margin-top: -35px;
+      padding-right: 70%;
+      margin-bottom: -6px;
+    }
 
-      flex-flow: column nowrap;
-    `}
+    flex-flow: column nowrap;
+  }
 `;
 
 const Dots: React.SFC<{ primary: string; grass: string; plain }> = ({
@@ -61,27 +70,6 @@ const Dots: React.SFC<{ primary: string; grass: string; plain }> = ({
   grass,
   plain,
 }) => {
-  const isSmallScreen = useMedia({ maxWidth: "700px" });
-
-  if (isSmallScreen) {
-    return (
-      <StyledDots column={true}>
-        {plain ? (
-          Array.from({ length: 4 }).map((e, i) => (
-            <Dot key={i} color={addAlpha(primary, 0.12)}></Dot>
-          ))
-        ) : (
-          <>
-            <Dot color={addAlpha(grass, 0.2)}></Dot>
-            <Dot color={addAlpha(grass, 0.4)}></Dot>
-            <Dot color={addAlpha(grass, 0.6)}></Dot>
-            <Dot color={grass} bigger></Dot>
-          </>
-        )}
-      </StyledDots>
-    );
-  }
-
   return (
     <StyledDots>
       {plain ? (
@@ -96,8 +84,6 @@ const Dots: React.SFC<{ primary: string; grass: string; plain }> = ({
           <Dot color={addAlpha(grass, 0.4)}></Dot>
           <Dot color={addAlpha(grass, 0.6)}></Dot>
           <Dot color={grass} bigger></Dot>
-          <Dot color={addAlpha(primary, 0.12)}></Dot>
-          <Dot color={addAlpha(primary, 0.12)}></Dot>
           <Dot color={addAlpha(primary, 0.12)}></Dot>
           <Dot color={addAlpha(primary, 0.12)}></Dot>
           <Dot color={addAlpha(primary, 0.12)}></Dot>
