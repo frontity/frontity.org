@@ -1,4 +1,4 @@
-import { Processor } from "@frontity/html2react/types";
+import { Node, Processor } from "@frontity/html2react/types";
 import { css, keyframes } from "frontity";
 import React from "react";
 
@@ -33,7 +33,7 @@ export const fastSection: Processor<
     `;
 
     //Add Logo svg
-    const element: any = {
+    const element: Node<React.HTMLProps<HTMLElement> & { fill: string }> = {
       type: "element",
       component: Logo,
       props: {
