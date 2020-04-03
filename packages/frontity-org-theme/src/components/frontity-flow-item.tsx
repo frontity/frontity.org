@@ -8,7 +8,18 @@ import FrontityOrg from "../../types";
 const FlowItem: React.FC<Connect<
   FrontityOrg,
   { tag: string; tabNumber: number }
->> = ({ tag, children, tabNumber, actions, ...props }) => {
+>> = ({
+  tag,
+  children,
+  tabNumber,
+  actions,
+  // destructuring all the props below so that we don't pass it to the DOM
+  state,
+  libraries,
+  roots,
+  fills,
+  ...props
+}) => {
   const [ref, inView] = useInView({ threshold: 0.8 });
 
   useEffect(() => {
