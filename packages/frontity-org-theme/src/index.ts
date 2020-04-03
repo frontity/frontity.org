@@ -10,6 +10,10 @@ import { borders } from "./processors/borders";
 import { boxShadow } from "./processors/box-shadow";
 import { checklists } from "./processors/checklists";
 import { dropdown } from "./processors/dropdown";
+import { flowButton } from "./processors/frontity-flow-button";
+import { flowButtons } from "./processors/frontity-flow-buttons";
+import { flowItem } from "./processors/frontity-flow-item";
+import { flowItems } from "./processors/frontity-flow-items";
 import { horizontalSeparator } from "./processors/horizontal-separator";
 import { imageFrame } from "./processors/image-frame";
 import { links } from "./processors/links-buttons";
@@ -43,6 +47,7 @@ const frontityOrg: FrontityOrg = {
         white: "#ffffff",
       },
       templates: ["fixed-header", "header", "footer", "newsletter"],
+      tabNumber: 1,
     },
   },
   actions: {
@@ -53,6 +58,9 @@ const frontityOrg: FrontityOrg = {
             actions.source.fetch(`/wp_template_part/${slug}`)
           )
         );
+      },
+      setTabNumber: ({ state }) => (tabNumber) => {
+        state.theme.tabNumber = tabNumber;
       },
     },
   },
@@ -77,6 +85,10 @@ const frontityOrg: FrontityOrg = {
         scrollingSection,
         section,
         specialIcons,
+        flowButtons,
+        flowButton,
+        flowItems,
+        flowItem,
       ],
     },
   },

@@ -35,6 +35,7 @@ interface FrontityOrg extends Package {
         white: string;
       };
       templates: string[];
+      tabNumber: number;
     };
     source?: Source["state"]["source"] & {
       page: Record<string, PostEntityWithACF>;
@@ -42,7 +43,9 @@ interface FrontityOrg extends Package {
     router?: Router["state"]["router"];
   };
   actions: {
-    theme: {};
+    theme: {
+      setTabNumber: (tabNumber: number) => void;
+    };
   };
   libraries: {
     html2react?: {
