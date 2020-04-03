@@ -47,7 +47,7 @@ const frontityOrg: FrontityOrg = {
         white: "#ffffff",
       },
       templates: ["fixed-header", "header", "footer", "newsletter"],
-      tabNumber: 1,
+      tabNumber: 1, // Used in the frontity-flow section of the homepage
     },
   },
   actions: {
@@ -59,7 +59,7 @@ const frontityOrg: FrontityOrg = {
           )
         );
       },
-      setTabNumber: ({ state }) => (tabNumber) => {
+      setTabNumber: ({ state }) => ({ tabNumber }) => {
         state.theme.tabNumber = tabNumber;
       },
     },

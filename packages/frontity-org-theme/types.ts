@@ -1,7 +1,7 @@
 import Html2React from "@frontity/html2react/types";
 import Router from "@frontity/router";
 import Source from "@frontity/source/types";
-import { Package } from "frontity/types";
+import { Action, AsyncAction, Package } from "frontity/types";
 import { ReactType } from "react";
 
 type PostEntityWithACF = {
@@ -44,7 +44,8 @@ interface FrontityOrg extends Package {
   };
   actions: {
     theme: {
-      setTabNumber: (tabNumber: number) => void;
+      beforeSSR: AsyncAction<FrontityOrg>;
+      setTabNumber: Action<FrontityOrg, { tabNumber: number }>;
     };
   };
   libraries: {

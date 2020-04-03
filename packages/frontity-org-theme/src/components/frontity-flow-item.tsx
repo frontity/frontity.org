@@ -5,22 +5,15 @@ import { useInView } from "react-intersection-observer";
 
 import FrontityOrg from "../../types";
 
-const FlowItem: React.FC<Connect<FrontityOrg>> = ({
-  tag,
-  children,
-  tabNumber,
-  actions,
-  libraries, // destructure in order to not pass them to the DOM node.
-  state,
-  roots,
-  fills,
-  ...props
-}) => {
-  const [ref, inView] = useInView({ threshold: 0.95 });
+const FlowItem: React.FC<Connect<
+  FrontityOrg,
+  { tag: string; tabNumber: number }
+>> = ({ tag, children, tabNumber, actions, ...props }) => {
+  const [ref, inView] = useInView({ threshold: 0.8 });
 
   useEffect(() => {
     if (inView) {
-      actions.theme.setTabNumber(tabNumber);
+      actions.theme.setTabNumber({ tabNumber });
     }
   }, [inView]);
 
