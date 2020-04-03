@@ -3,6 +3,7 @@ import { css } from "frontity";
 import React from "react";
 
 import FrontityOrg from "../../types";
+import FlowItem from "../components/frontity-flow-item";
 
 const flowItemRegex = /^frontity-flow-item-(\w+)$/;
 
@@ -40,6 +41,10 @@ export const flowItem: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
         height: auto;
       }
     `;
+
+    node.props.tag = node.component;
+    node.props.tabNumber = parseInt(tabNumber);
+    node.component = FlowItem;
 
     return node;
   },
