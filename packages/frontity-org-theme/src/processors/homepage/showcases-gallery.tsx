@@ -46,13 +46,17 @@ export const showcasesGallery: Processor<
         top: 0%;
         left: 50%;
         ${index === 0
-          ? "transform: translate(calc(-50% - 300px), calc(0% + 60px));"
+          ? `transform: translate(calc(-50% - 300px), calc(0% + 60px));
+          opacity: 0.6;
+          `
           : index === 1
           ? `transform: translate(-50%, 0%);
           z-index: 10;
           `
           : index === 2 &&
-            "transform: translate(calc(-50% + 300px), calc(0% + 60px));"}
+            `transform: translate(calc(-50% + 300px), calc(0% + 60px));
+            opacity: 0.6;
+            `}
       `;
     });
     return node;
