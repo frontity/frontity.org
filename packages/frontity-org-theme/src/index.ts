@@ -16,6 +16,7 @@ import { borders } from "./processors/borders";
 import { boxShadow } from "./processors/box-shadow";
 import { checklists } from "./processors/checklists";
 import { dropdown } from "./processors/dropdown";
+import { fastSection } from "./processors/homepage/frontity-fast";
 import { horizontalSeparator } from "./processors/horizontal-separator";
 import { imageFrame } from "./processors/image-frame";
 import { links } from "./processors/links-buttons";
@@ -83,6 +84,7 @@ const frontityOrg: FrontityOrg = {
         newsletter,
         boxShadow,
         checklists,
+        fastSection,
         dropdown,
         horizontalSeparator,
         links,
