@@ -8,16 +8,29 @@ import Description from "./components/description";
 import Newsletter from "./components/newsletter";
 import Thanks from "./components/thanks";
 
-const NewsletterForm: React.FC<Connect<FrontityOrg>> = ({ state }) => {
+interface Props {
+  title: string;
+  description: string;
+  thanksMessage: string;
+}
+
+const NewsletterForm: React.FC<Connect<FrontityOrg, Props>> = ({
+  state,
+  title,
+  description,
+  thanksMessage,
+}) => {
   return (
     <Container>
-      <Description />
+      <Description title={title} description={description} />
       <FormContainer>
         {!state.theme.newsletter.sent.newsletterForm && <Newsletter />}
         {state.theme.newsletter.sent.newsletterForm &&
           !state.theme.newsletter.sent.afterNewsletter && <AfterNewsletter />}
         {state.theme.newsletter.sent.newsletterForm &&
-          state.theme.newsletter.sent.afterNewsletter && <Thanks />}
+          state.theme.newsletter.sent.afterNewsletter && (
+            <Thanks thanksMessage={thanksMessage} />
+          )}
       </FormContainer>
     </Container>
   );

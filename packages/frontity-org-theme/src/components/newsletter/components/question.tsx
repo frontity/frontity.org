@@ -1,14 +1,10 @@
 import { connect, styled } from "frontity";
 import React from "react";
 
-import { addAlpha } from "../../../utils";
-
 const Question = ({ name, state, actions }) => {
   const { label, options } = state.theme.newsletter.afterNewsletter.questions[
     name
   ];
-  const answer = state.theme.newsletter.afterNewsletter.answers[name];
-
   const Question = styled.label`
     text-transform: uppercase;
     font-size: 14px;
@@ -38,7 +34,10 @@ const Question = ({ name, state, actions }) => {
             name={name}
             value={item.value}
             onChange={(event) =>
-              actions.theme.setAnswer({ name, answer: event.target.value })
+              actions.theme.setAnswer({
+                name,
+                answer: event.target.value,
+              })
             }
           />
           {item.label}

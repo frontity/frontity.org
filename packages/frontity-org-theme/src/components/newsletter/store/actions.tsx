@@ -20,6 +20,14 @@ export const sendAfterNewsletter = ({ state, libraries }) => {
   state.theme.newsletter.sent.afterNewsletter = true;
 };
 
-export const setAnswer = ({ state, name, answer }) => {
+export const setAnswer = ({ state }) => ({ name, answer }) => {
   state.theme.newsletter.afterNewsletter.answers[name] = answer;
+};
+
+export const setNewsletterProp = ({ state }) => ({ name, value }) => {
+  state.theme.newsletter.newsletterForm[name] = value;
+};
+
+export const setAfterNewsletterProp = ({ state }) => ({ name, value }) => {
+  state.theme.newsletter.afterNewsletter[name] = value;
 };

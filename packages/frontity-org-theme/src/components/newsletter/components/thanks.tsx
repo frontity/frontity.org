@@ -4,10 +4,13 @@ import React from "react";
 
 import FrontityOrg from "../../../../types";
 
-const Thanks: React.FC<Connect<FrontityOrg>> = ({ state }) => {
+const Thanks: React.FC<Connect<FrontityOrg, { thanksMessage: string }>> = ({
+  state,
+  thanksMessage,
+}) => {
   return (
     <>
-      <div>This is the thanks message</div>
+      <div>{thanksMessage}</div>
     </>
   );
 };

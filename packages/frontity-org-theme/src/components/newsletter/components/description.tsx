@@ -1,30 +1,30 @@
-import { connect, styled } from "frontity";
+import { connect, css,styled } from "frontity";
 import { Connect } from "frontity/types";
 import React from "react";
 
 import FrontityOrg from "../../../../types";
 import { addAlpha } from "../../../utils";
 
-const Description: React.FC<Connect<FrontityOrg>> = ({ state, actions }) => {
-  const Paragraph = styled.p`
-    font-size: 14px;
-    line-height: 20px;
-    color: ${addAlpha(state.theme.colors.primary, 0.8)};
-  `;
-  const Heading = styled.h4`
-    margin: 0px 0px 8px;
-  `;
-  const Container = styled.div`
-    margin: 0px;
-    width: 100%;
-  `;
+interface Props {
+  title: string;
+  description: string;
+}
+
+const Description: React.FC<Connect<FrontityOrg, Props>> = ({
+  state,
+  title,
+  description,
+}) => {
   return (
     <>
       <Container>
-        <Heading>Join the Frontity newsletter</Heading>
-        <Paragraph>
-          Stay up-to-date on new releases and features, tutorials, and community
-          news.
+        <Heading>{title}</Heading>
+        <Paragraph
+          css={css`
+            color: ${addAlpha(state.theme.colors.primary, 0.8)};
+          `}
+        >
+          {description}
         </Paragraph>
       </Container>
     </>
@@ -32,3 +32,15 @@ const Description: React.FC<Connect<FrontityOrg>> = ({ state, actions }) => {
 };
 
 export default connect(Description);
+
+const Paragraph = styled.p`
+  font-size: 14px;
+  line-height: 20px;
+`;
+const Heading = styled.h4`
+  margin: 0px 0px 8px;
+`;
+const Container = styled.div`
+  margin: 0px;
+  width: 100%;
+`;
