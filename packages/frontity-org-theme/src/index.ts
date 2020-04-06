@@ -14,6 +14,8 @@ import { flowButton } from "./processors/frontity-flow-button";
 import { flowButtons } from "./processors/frontity-flow-buttons";
 import { flowItem } from "./processors/frontity-flow-item";
 import { flowItems } from "./processors/frontity-flow-items";
+import { headlessFlow } from "./processors/headless-flow";
+import { fastSection } from "./processors/homepage/frontity-fast";
 import { horizontalSeparator } from "./processors/horizontal-separator";
 import { imageFrame } from "./processors/image-frame";
 import { links } from "./processors/links-buttons";
@@ -79,6 +81,7 @@ const frontityOrg: FrontityOrg = {
         borderRadius,
         boxShadow,
         checklists,
+        fastSection,
         dropdown,
         horizontalSeparator,
         links,
@@ -89,6 +92,7 @@ const frontityOrg: FrontityOrg = {
         flowButton,
         flowItems,
         flowItem,
+        headlessFlow,
       ],
     },
   },
