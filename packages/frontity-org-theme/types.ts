@@ -78,24 +78,15 @@ interface FrontityOrg extends Package {
       setAnswer: Action<FrontityOrg, { name: string; answer: string }>;
       setNewsletterPropString: Action<
         FrontityOrg,
-        {
-          name: string;
-          value: string;
-        }
+        { name: string; value: string }
       >;
       setNewsletterPropBoolean: Action<
         FrontityOrg,
-        {
-          name: string;
-          value: boolean;
-        }
+        { name: string; value: boolean }
       >;
       setAfterNewsletterProp: Action<
         FrontityOrg,
-        {
-          name: "name";
-          value: string;
-        }
+        { name: "name"; value: string }
       >;
     };
     source?: Source["actions"]["source"];

@@ -1,8 +1,6 @@
-export const test = {
-  name: "Mario",
-};
+import FrontityOrg from "../../types";
 
-export const newsletterState = {
+const state: FrontityOrg["state"]["theme"]["newsletter"] = {
   newsletterForm: {
     email: "",
     hasAgreed: false,
@@ -166,3 +164,5 @@ export const newsletterState = {
     afterNewsletter: false,
   },
 };
+
+export default state;
