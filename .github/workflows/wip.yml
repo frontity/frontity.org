@@ -1,4 +1,4 @@
-name: WIP
+name: PRs
 
 on:
   pull_request:
@@ -10,4 +10,13 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: wip/action@v1.0.0
+      - name: Work in Progress
+      uses: wip/action@v1.0.0
+
+  tasks:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Task List 
+      uses: WeeverApps/gha-task-list-zero@v1.0
