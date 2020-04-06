@@ -1,3 +1,5 @@
+import "./prism";
+
 import iframe from "@frontity/html2react/processors/iframe";
 
 import FrontityOrg from "../types";
