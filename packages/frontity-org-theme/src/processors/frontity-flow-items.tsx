@@ -23,6 +23,10 @@ const Dots: React.FC<Connect<FrontityOrg>> = connect(({ state }) => (
       width: 100%;
       display: flex;
       justify-content: center;
+
+      @media screen and (min-width: 701px) {
+        display: none;
+      }
     `}
   >
     {Array.from({ length: 4 }, (_, i) => (
