@@ -11,6 +11,7 @@ import { boxShadow } from "./processors/box-shadow";
 import { checklists } from "./processors/checklists";
 import { dropdown } from "./processors/dropdown";
 import { headlessFlow } from "./processors/headless-flow";
+import { fastSection } from "./processors/homepage/frontity-fast";
 import { horizontalSeparator } from "./processors/horizontal-separator";
 import { imageFrame } from "./processors/image-frame";
 import { links } from "./processors/links-buttons";
@@ -72,6 +73,7 @@ const frontityOrg: FrontityOrg = {
         borderRadius,
         boxShadow,
         checklists,
+        fastSection,
         dropdown,
         horizontalSeparator,
         links,
