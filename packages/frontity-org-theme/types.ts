@@ -76,16 +76,19 @@ interface FrontityOrg extends Package {
       sendNewsletter: Action<FrontityOrg>;
       sendAfterNewsletter: Action<FrontityOrg>;
       setAnswer: Action<FrontityOrg, { name: string; answer: string }>;
-      setNewsletterProp: Action<
+      setNewsletterPropString: Action<
         FrontityOrg,
-        | {
-            name: "email";
-            value: string;
-          }
-        | {
-            name: "hasAgreed";
-            value: boolean;
-          }
+        {
+          name: string;
+          value: string;
+        }
+      >;
+      setNewsletterPropBoolean: Action<
+        FrontityOrg,
+        {
+          name: string;
+          value: boolean;
+        }
       >;
       setAfterNewsletterProp: Action<
         FrontityOrg,

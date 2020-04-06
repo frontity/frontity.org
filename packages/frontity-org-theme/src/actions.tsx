@@ -34,7 +34,11 @@ const actions: FrontityOrg["actions"]["theme"] = {
     state.theme.newsletter.afterNewsletter.answers[name] = answer;
   },
 
-  setNewsletterProp: ({ state }) => ({ name, value }) => {
+  setNewsletterPropString: ({ state }) => ({ name, value }) => {
+    state.theme.newsletter.newsletterForm[name] = value;
+  },
+
+  setNewsletterPropBoolean: ({ state }) => ({ name, value }) => {
     state.theme.newsletter.newsletterForm[name] = value;
   },
 

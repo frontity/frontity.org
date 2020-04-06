@@ -30,7 +30,7 @@ const Newsletter: React.FC<Connect<FrontityOrg>> = ({ state, actions }) => {
             type="email"
             required
             onChange={(e) => {
-              actions.theme.setNewsletterProp({
+              actions.theme.setNewsletterPropString({
                 name: "email",
                 value: e.target.value,
               });
@@ -47,7 +47,7 @@ const Newsletter: React.FC<Connect<FrontityOrg>> = ({ state, actions }) => {
               required
               checked={state.theme.newsletter.newsletterForm.hasAgreed}
               onChange={(e) => {
-                actions.theme.setNewsletterProp({
+                actions.theme.setNewsletterPropBoolean({
                   name: "hasAgreed",
                   value: e.target.checked,
                 });
