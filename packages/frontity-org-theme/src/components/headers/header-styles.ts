@@ -17,6 +17,8 @@ const tooltipStyles = ({ state }: { state: State<FrontityOrg> }) => css`
 
   align-items: stretch;
 
+  transition: opacity 0.1s linear 0.5s, visibility 0.1s linear 0.5s;
+
   /* Arrow */
   :after {
     content: " ";
