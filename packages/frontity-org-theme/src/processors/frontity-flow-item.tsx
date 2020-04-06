@@ -25,6 +25,8 @@ export const flowItem: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
 
     if (state.theme.tabNumber !== parseInt(tabNumber)) {
       node.props.css = css`
+        ${node.props.css};
+
         @media screen and (min-width: 701px) {
           display: none;
         }

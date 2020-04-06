@@ -16,6 +16,8 @@ export const flowButtons: Processor<
     if (node.type !== "element") return node;
 
     node.props.css = css`
+      ${node.props.css};
+
       @media screen and (max-width: 700px) {
         display: none;
       }
