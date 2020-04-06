@@ -10,4 +10,4 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: luisherranz/wip-action@starts-with-wip
+      - uses: wip/action@v1.0.0
