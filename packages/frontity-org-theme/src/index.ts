@@ -10,6 +10,7 @@ import { borders } from "./processors/borders";
 import { boxShadow } from "./processors/box-shadow";
 import { checklists } from "./processors/checklists";
 import { dropdown } from "./processors/dropdown";
+import { headlessFlow } from "./processors/headless-flow";
 import { fastSection } from "./processors/homepage/frontity-fast";
 import { horizontalSeparator } from "./processors/horizontal-separator";
 import { imageFrame } from "./processors/image-frame";
@@ -86,6 +87,7 @@ const frontityOrg: FrontityOrg = {
         scrollingSection,
         section,
         specialIcons,
+        headlessFlow,
       ],
     },
   },
