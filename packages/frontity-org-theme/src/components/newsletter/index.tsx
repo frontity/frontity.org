@@ -3,10 +3,10 @@ import { Connect } from "frontity/types";
 import React from "react";
 
 import FrontityOrg from "../../../types";
-import AfterNewsletter from "./components/afternewsletter";
-import Description from "./components/description";
-import Newsletter from "./components/newsletter";
-import Thanks from "./components/thanks";
+import AfterNewsletter from "./afternewsletter";
+import Description from "./description";
+import Newsletter from "./newsletter";
+import Thanks from "./thanks";
 
 interface Props {
   title: string;

@@ -1,17 +1,14 @@
-import "./prism";
-
 import iframe from "@frontity/html2react/processors/iframe";
 
 import FrontityOrg from "../types";
-import Theme from "./components";
 import {
   sendAfterNewsletter,
   sendNewsletter,
   setAfterNewsletterProp,
   setAnswer,
   setNewsletterProp,
-} from "./components/newsletter/store/actions";
-import { newsletterState } from "./components/newsletter/store/state";
+} from "./actions";
+import Theme from "./components";
 import { backgroundColor } from "./processors/background-color";
 import { borderRadius } from "./processors/border-radius";
 import { borders } from "./processors/borders";
@@ -31,6 +28,7 @@ import { section } from "./processors/section";
 import { specialIcons } from "./processors/special-icons";
 import { terminal } from "./processors/terminal";
 import { textColor } from "./processors/text-color";
+import { newsletterState } from "./state";
 
 const frontityOrg: FrontityOrg = {
   name: "frontity-org-theme",

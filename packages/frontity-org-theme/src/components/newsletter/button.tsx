@@ -2,8 +2,8 @@ import { connect, styled } from "frontity";
 import { Connect } from "frontity/types";
 import React from "react";
 
-import FrontityOrg from "../../../../types";
-import Logo from "../../logo";
+import FrontityOrg from "../../../types";
+import Logo from "../logo";
 
 const SubmitButton: React.FC<Connect<FrontityOrg>> = ({ state }) => {
   // Styled Components
