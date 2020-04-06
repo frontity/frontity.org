@@ -56,13 +56,6 @@ const frontityOrg: FrontityOrg = {
   },
   actions: {
     theme: {
-      beforeSSR: ({ state, actions }) => async () => {
-        await Promise.all(
-          state.theme.templates.map((slug) =>
-            actions.source.fetch(`/wp_template_part/${slug}`)
-          )
-        );
-      },
       sendNewsletter,
       sendAfterNewsletter,
       setAnswer,

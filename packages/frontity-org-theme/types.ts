@@ -95,6 +95,7 @@ interface FrontityOrg extends Package {
         }
       >;
     };
+    source: Source["actions"]["source"];
   };
   libraries: {
     html2react?: {
