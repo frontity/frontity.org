@@ -1,13 +1,7 @@
 import iframe from "@frontity/html2react/processors/iframe";
 
 import FrontityOrg from "../types";
-import {
-  sendAfterNewsletter,
-  sendNewsletter,
-  setAfterNewsletterProp,
-  setAnswer,
-  setNewsletterProp,
-} from "./actions";
+import actions from "./actions";
 import Theme from "./components";
 import { backgroundColor } from "./processors/background-color";
 import { borderRadius } from "./processors/border-radius";
@@ -55,13 +49,7 @@ const frontityOrg: FrontityOrg = {
     },
   },
   actions: {
-    theme: {
-      sendNewsletter,
-      sendAfterNewsletter,
-      setAnswer,
-      setNewsletterProp,
-      setAfterNewsletterProp,
-    },
+    theme: actions,
   },
   libraries: {
     html2react: {
