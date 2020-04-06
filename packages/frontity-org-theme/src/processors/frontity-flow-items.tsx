@@ -18,11 +18,11 @@ const Dot = styled.div<{ active: boolean; color: string }>`
 const Dots: React.FC<Connect<FrontityOrg>> = connect(({ state }) => (
   <span
     css={css`
-      position: absolute;
-      bottom: 20px;
       width: 100%;
       display: flex;
       justify-content: center;
+
+      padding: 20px;
 
       @media screen and (min-width: 701px) {
         display: none;
@@ -62,10 +62,7 @@ export const flowItems: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
 
           overflow-x: scroll;
           scroll-snap-type: x mandatory;
-          scroll-padding: 0.5rem;
           -webkit-overflow-scrolling: touch;
-
-          padding: 0.5rem;
         }
       }
     `;
