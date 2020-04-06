@@ -19,8 +19,8 @@ const Dot = styled.div<{ color: string; bigger?: boolean }>`
   background: ${({ color }) => color};
 
   /* Hide the first 2 dots and 8th through 12 dots on small screens */
-  :nth-child(-n + 2),
-  :nth-child(n + 7):nth-child(-n + 12) {
+  :nth-of-type(-n + 2),
+  :nth-of-type(n + 7):nth-of-type(-n + 12) {
     @media screen and (max-width: 700px) {
       display: none;
     }
@@ -28,12 +28,12 @@ const Dot = styled.div<{ color: string; bigger?: boolean }>`
 `;
 
 const StyledDots = styled.div<{ column?: boolean }>`
-  &:nth-child(2n) {
+  &:nth-of-type(2n) {
     margin-left: -85px;
     margin-right: -100px;
   }
 
-  &:nth-child(4n) {
+  &:nth-of-type(4n) {
     margin-left: -100px;
     margin-right: -85px;
   }
@@ -51,7 +51,7 @@ const StyledDots = styled.div<{ column?: boolean }>`
 
   /* Adjust the margins and padding for the line with the green dot */
   @media screen and (max-width: 700px) {
-    &:nth-child(2n) {
+    &:nth-of-type(2n) {
       margin: 0;
       margin-top: -35px;
       padding-right: 70%;
