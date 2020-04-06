@@ -3,6 +3,7 @@ import { Connect } from "frontity/types";
 import React from "react";
 
 import FrontityOrg from "../../types";
+import Footer from "./footer";
 import { FixedHeader, Header } from "./headers";
 import Page from "./page";
 import FontFace from "./styles/font-face";
@@ -27,6 +28,7 @@ const Theme: React.FC<Connect<FrontityOrg>> = ({ state }) => {
           <a href="/common-styles/">Visit /common-styles/</a>
         </>
       )}
+      <Footer />
     </>
   );
 };
