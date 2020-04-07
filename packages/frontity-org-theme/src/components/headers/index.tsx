@@ -41,6 +41,7 @@ export const Header = connect<React.FC<Connect<FrontityOrg>>>(
         <HeaderButton
           color={state.theme.colors.frontity}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          isMenuOpen={isMenuOpen}
         />
         {/* Make body unscrollabe when menu is open (only on mobile). */}
         {isMenuOpen && (
