@@ -1,4 +1,4 @@
-import { Processor } from "@frontity/html2react/types";
+import { Node, Processor } from "@frontity/html2react/types";
 import React from "react";
 
 import FrontityOrg from "../../types";
@@ -27,10 +27,13 @@ export const flowButton: Processor<
       .find((name) => flowButtonRegex.test(name))
       .match(flowButtonRegex);
 
-    node.props.tag = node.component;
-    node.props.tabNumber = parseInt(tabNumber);
-    node.component = FlowButton;
-
-    return node;
+    return {
+      type: "element",
+      component: FlowButton,
+      props: {
+        tabNumber: parseInt(tabNumber),
+        text: (node.children[0] as any).children[0]?.content,
+      },
+    };
   },
 };
