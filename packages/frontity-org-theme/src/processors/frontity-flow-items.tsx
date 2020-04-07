@@ -6,7 +6,7 @@ import React from "react";
 import FrontityOrg from "../../types";
 import { addAlpha } from "../utils";
 
-export const FLOW_SECTION_BREAKPOINT = 750;
+export const FLOW_SECTION_BREAKPOINT = 800;
 
 const Dot = styled.div<{ active: boolean; color: string }>`
   border-radius: 50%;

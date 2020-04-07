@@ -5,6 +5,8 @@ import React from "react";
 import FrontityOrg from "../../types";
 import { FLOW_SECTION_BREAKPOINT } from "./frontity-flow-items";
 
+const FLOW_SECTION_WIDTH = FLOW_SECTION_BREAKPOINT - 50;
+
 const SlidingButton = styled.div`
   z-index: 10;
   position: absolute;
@@ -12,6 +14,9 @@ const SlidingButton = styled.div`
   top: 0;
 
   margin: 6px;
+  margin-right: 20px;
+  margin-left: 20px;
+
   height: 52px;
   width: 158px;
   border-radius: 12px;
@@ -31,14 +36,14 @@ const SlidingButton = styled.div`
         `
       : activeTab === 2
       ? css`
-          transform: translateX(calc(100% + 12px));
+          transform: translateX(${FLOW_SECTION_WIDTH / 4}px);
         `
       : activeTab === 3
       ? css`
-          transform: translateX(calc(200% + 24px));
+          transform: translateX(${FLOW_SECTION_WIDTH / 2}px);
         `
       : css`
-          transform: translateX(calc(300% + 36px));
+          transform: translateX(${FLOW_SECTION_WIDTH * (3 / 4)}px);
         `};
 
   font-size: 16px;
@@ -68,7 +73,7 @@ export const flowButtons: Processor<
       z-index: 10;
 
       position: relative;
-      width: ${FLOW_SECTION_BREAKPOINT}px;
+      width: ${FLOW_SECTION_WIDTH}px;
 
       margin: 0 auto;
 
