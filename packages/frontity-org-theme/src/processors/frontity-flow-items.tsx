@@ -26,7 +26,7 @@ const Dots: React.FC<Connect<FrontityOrg>> = connect(({ state }) => (
 
       padding: 20px;
 
-      @media screen and (min-width: ${FLOW_SECTION_BREAKPOINT}px) {
+      @media screen and (min-width: ${FLOW_SECTION_BREAKPOINT + 1}px) {
         display: none;
       }
     `}

@@ -68,7 +68,7 @@ export const flowButtons: Processor<
       z-index: 10;
 
       position: relative;
-      width: 750px;
+      width: ${FLOW_SECTION_BREAKPOINT}px;
 
       margin: 0 auto;
 

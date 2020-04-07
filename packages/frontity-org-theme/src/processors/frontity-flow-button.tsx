@@ -1,4 +1,4 @@
-import { Node, Processor } from "@frontity/html2react/types";
+import { Processor } from "@frontity/html2react/types";
 import React from "react";
 
 import FrontityOrg from "../../types";
