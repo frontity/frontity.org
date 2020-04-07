@@ -12,7 +12,6 @@ const StyledButton = styled.button`
   margin: 6px;
   height: 52px;
   width: 158px;
-  padding: 12px 16px;
   border-radius: 12px;
   border: 0;
 

@@ -4,6 +4,7 @@ import React from "react";
 
 import FrontityOrg from "../../types";
 import FlowItem from "../components/frontity-flow-item";
+import { FLOW_SECTION_BREAKPOINT } from "./frontity-flow-items";
 
 const flowItemRegex = /^frontity-flow-item-(\w+)$/;
 
@@ -27,7 +28,7 @@ export const flowItem: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
       node.props.css = css`
         ${node.props.css};
 
-        @media screen and (min-width: 701px) {
+        @media screen and (min-width: ${FLOW_SECTION_BREAKPOINT}px) {
           display: none;
         }
       `;
@@ -36,7 +37,7 @@ export const flowItem: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
     node.props.css = css`
       ${node.props.css};
 
-      @media screen and (max-width: 700px) {
+      @media screen and (max-width: ${FLOW_SECTION_BREAKPOINT}px) {
         scroll-snap-align: start;
 
         width: 100%;

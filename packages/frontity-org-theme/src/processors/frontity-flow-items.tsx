@@ -6,6 +6,8 @@ import React from "react";
 import FrontityOrg from "../../types";
 import { addAlpha } from "../utils";
 
+export const FLOW_SECTION_BREAKPOINT = 750;
+
 const Dot = styled.div<{ active: boolean; color: string }>`
   border-radius: 50%;
   width: 8px;
@@ -24,7 +26,7 @@ const Dots: React.FC<Connect<FrontityOrg>> = connect(({ state }) => (
 
       padding: 20px;
 
-      @media screen and (min-width: 701px) {
+      @media screen and (min-width: ${FLOW_SECTION_BREAKPOINT}px) {
         display: none;
       }
     `}
@@ -54,7 +56,7 @@ export const flowItems: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
       position: relative;
 
       & > .wp-block-group__inner-container {
-        @media screen and (max-width: 700px) {
+        @media screen and (max-width: ${FLOW_SECTION_BREAKPOINT}px) {
           display: grid;
           grid-auto-flow: column;
           grid-auto-columns: 100%;
