@@ -60,7 +60,7 @@ export const flowButtons: Processor<
   React.HTMLProps<HTMLElement>,
   FrontityOrg
 > = {
-  name: "flow-button",
+  name: "flow-buttons",
   test: ({ node }) =>
     node.type === "element" &&
     node.props?.className?.split(" ").includes("frontity-flow-buttons"),
@@ -76,6 +76,7 @@ export const flowButtons: Processor<
       width: ${FLOW_SECTION_WIDTH}px;
 
       margin: 0 auto;
+      margin-bottom: 24px;
 
       display: flex;
       flex-flow: row nowrap;

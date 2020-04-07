@@ -43,6 +43,10 @@ export const flowItem: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
         width: 100%;
         height: auto;
       }
+
+      a {
+        margin-left: -18px;
+      }
     `;
 
     node.props.tag = node.component;
