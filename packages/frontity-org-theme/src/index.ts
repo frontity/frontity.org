@@ -12,6 +12,7 @@ import { checklists } from "./processors/checklists";
 import { dropdown } from "./processors/dropdown";
 import { headlessFlow } from "./processors/headless-flow";
 import { fastSection } from "./processors/homepage/frontity-fast";
+import { homepageHeroAnimation } from "./processors/homepage/hero-animation";
 import { horizontalSeparator } from "./processors/horizontal-separator";
 import { imageFrame } from "./processors/image-frame";
 import { links } from "./processors/links-buttons";
@@ -45,6 +46,8 @@ const frontityOrg: FrontityOrg = {
         white: "#ffffff",
       },
       templates: ["fixed-header", "header", "footer", "newsletter"],
+      isHeroTerminalVisible: true,
+      isHeroBlogVisible: false,
     },
   },
   actions: {
@@ -55,6 +58,18 @@ const frontityOrg: FrontityOrg = {
             actions.source.fetch(`/wp_template_part/${slug}`)
           )
         );
+      },
+      showHeroTerminal: ({ state }) => {
+        state.theme.isHeroTerminalVisible = true;
+      },
+      hideHeroTerminal: ({ state }) => {
+        state.theme.isHeroTerminalVisible = false;
+      },
+      showHeroBlog: ({ state }) => {
+        state.theme.isHeroBlogVisible = true;
+      },
+      hideHeroBlog: ({ state }) => {
+        state.theme.isHeroBlogVisible = false;
       },
     },
   },
@@ -76,6 +91,7 @@ const frontityOrg: FrontityOrg = {
         fastSection,
         dropdown,
         horizontalSeparator,
+        homepageHeroAnimation,
         links,
         scrollingSection,
         section,
