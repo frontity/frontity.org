@@ -1,4 +1,4 @@
-import { connect,css, styled } from "frontity";
+import { connect, css, styled } from "frontity";
 import { Connect } from "frontity/types";
 import React from "react";
 import ClipLoader from "react-spinners/ClipLoader";
@@ -12,8 +12,8 @@ const HeroAnimation: React.FC<Connect<FrontityOrg>> = ({ state, actions }) => {
 
   return (
     <Container>
+      {/* This <div> should use the terminal processor */}
       <Terminal
-        className="terminal"
         css={css`
           ${!isHeroTerminalVisible
             ? `transform: translateY(150px); 
@@ -33,27 +33,29 @@ const HeroAnimation: React.FC<Connect<FrontityOrg>> = ({ state, actions }) => {
             <Arrow color="white" />
           </IconContainer>
         </Button>
-        <Typist
-          avgTypingDelay={60}
-          cursor={{
-            show: false,
-          }}
-          onTypingDone={() => {
-            actions.theme.hideHeroTerminal();
-            actions.theme.showHeroBlog();
-            return;
-          }}
-        >
-          <ol>
+
+        <ol>
+          <Typist
+            avgTypingDelay={60}
+            cursor={{
+              show: false,
+            }}
+            onTypingDone={() => {
+              actions.theme.hideHeroTerminal();
+              actions.theme.showHeroBlog();
+              return;
+            }}
+          >
             <li>npx frontity create my-app</li>
             <Typist.Delay ms={1000} />
             <li>cd my-app</li>
             <Typist.Delay ms={1000} />
             <li>npx frontity dev</li>
-          </ol>
-        </Typist>
+          </Typist>
+        </ol>
       </Terminal>
       <AnimationContainer>
+        {/* This <div> should use the image-frame.tsx (has-browser-window) processor */}
         <ClipLoader size={50} color={"blue"} />
         Setting up Frontity...
         <ImgContainer
@@ -67,7 +69,7 @@ const HeroAnimation: React.FC<Connect<FrontityOrg>> = ({ state, actions }) => {
         >
           <img
             alt="Frontity blog homepage"
-            src="https://wp.frontity.org/wp-content/uploads/2020/02/twitter-twenty-twenty-frontity-theme.png"
+            src="https://wp.frontity.org/wp-content/uploads/2020/04/BlogHeroAsset.svg"
           />
         </ImgContainer>
       </AnimationContainer>
