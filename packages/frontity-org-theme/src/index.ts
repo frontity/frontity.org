@@ -45,16 +45,23 @@ const frontityOrg: FrontityOrg = {
         white: "#ffffff",
       },
       templates: ["fixed-header", "header", "footer", "newsletter"],
+      isFixedHeaderVisible: false,
     },
   },
   actions: {
     theme: {
-      beforeSSR: ({ state, actions }) => async () => {
+      beforeSSR: async ({ state, actions }) => {
         await Promise.all(
           state.theme.templates.map((slug) =>
             actions.source.fetch(`/wp_template_part/${slug}`)
           )
         );
+      },
+      showFixedHeader: ({ state }) => {
+        state.theme.isFixedHeaderVisible = true;
+      },
+      hideFixedHeader: ({ state }) => {
+        state.theme.isFixedHeaderVisible = false;
       },
     },
   },
