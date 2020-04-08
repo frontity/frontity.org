@@ -53,6 +53,12 @@ const tooltipStyles = ({ state }: { state: State<FrontityOrg> }) => css`
   /* icons margin */
   .wp-block-navigation-link__label img {
     margin-right: 12px;
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    position: relative;
+    top: 3px;
+    vertical-align: top;
   }
 `;
 
