@@ -15,6 +15,7 @@ const FlowItem: React.FC<Connect<
   actions,
   // destructuring all the props below so that we don't pass it to the DOM
   state,
+  className,
   libraries,
   roots,
   fills,
@@ -28,7 +29,12 @@ const FlowItem: React.FC<Connect<
     }
   }, [inView]);
 
-  const El = createElement(tag, { ...props, ref }, children);
+  const cls =
+    state.theme.tabNumber !== tabNumber
+      ? className
+      : className.concat(" visible");
+
+  const El = createElement(tag, { ...props, ref, className: cls }, children);
 
   return El;
 };
