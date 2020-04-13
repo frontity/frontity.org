@@ -6,6 +6,7 @@ import FrontityOrg from "../../types";
 import Footer from "./footer";
 import { FixedHeader, Header } from "./headers";
 import Page from "./page";
+import ScrollButton from "./scroll-button";
 import FontFace from "./styles/font-face";
 import globalStyles from "./styles/global-styles";
 import gutenbergStyle from "./styles/gutenberg/style.css";
@@ -29,6 +30,7 @@ const Theme: React.FC<Connect<FrontityOrg>> = ({ state }) => {
         </>
       )}
       <Footer />
+      <ScrollButton />
     </>
   );
 };
