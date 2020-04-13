@@ -5,7 +5,11 @@ import React from "react";
 import FrontityOrg from "../../types";
 import { addAlpha } from "../utils";
 
-const StyledButton = styled.button`
+const StyledButton = styled.button<{
+  colors: { primary: string; frontity: string; grass: string };
+  number: number;
+  active: boolean;
+}>`
   z-index: 20;
   position: relative;
 
@@ -70,7 +74,7 @@ const StyledButton = styled.button`
 
 const FlowButton: React.FC<Connect<
   FrontityOrg,
-  { tabNumber: number; text: string; active: boolean }
+  { tabNumber: number; text: string; active: boolean; roots: any; fills: any }
 >> = ({
   tabNumber,
   actions,
@@ -81,16 +85,14 @@ const FlowButton: React.FC<Connect<
   roots,
   fills,
 }) => {
-  const { tabNumber: activeTab, colors } = state.theme;
-  const transitionsTable = { 1: 2, 2: 3, 3: 4, 4: 3 };
+  const { flowSectionActiveTab, colors } = state.theme;
 
   return (
     <StyledButton
       number={tabNumber}
       colors={colors}
-      active={activeTab === tabNumber}
-      following={tabNumber === transitionsTable[activeTab]}
-      onClick={() => actions.theme.setTabNumber({ tabNumber })}
+      active={flowSectionActiveTab === tabNumber}
+      onClick={() => actions.theme.setFlowSectionActiveTab({ tabNumber })}
     >
       {text}
     </StyledButton>

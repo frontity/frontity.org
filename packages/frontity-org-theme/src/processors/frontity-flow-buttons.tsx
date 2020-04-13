@@ -7,7 +7,10 @@ import { FLOW_SECTION_BREAKPOINT } from "./frontity-flow-items";
 
 const FLOW_SECTION_WIDTH = FLOW_SECTION_BREAKPOINT - 50;
 
-const SlidingButton = styled.div`
+const SlidingButton = styled.div<{
+  frontity: string;
+  activeTab: number;
+}>`
   z-index: 10;
   position: absolute;
   left: 0;
@@ -93,7 +96,7 @@ export const flowButtons: Processor<
       type: "element",
       component: SlidingButton,
       props: {
-        activeTab: state.theme.tabNumber,
+        activeTab: state.theme.flowSectionActiveTab,
         frontity: state.theme.colors.frontity,
       },
     };

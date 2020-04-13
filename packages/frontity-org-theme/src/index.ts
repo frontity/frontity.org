@@ -50,7 +50,7 @@ const frontityOrg: FrontityOrg = {
         white: "#ffffff",
       },
       templates: ["fixed-header", "header", "footer", "newsletter"],
-      tabNumber: 1, // Used in the frontity-flow section of the homepage
+      flowSectionActiveTab: 1, // Used in the frontity-flow section of the homepage
       isFixedHeaderVisible: false,
     },
   },
@@ -63,8 +63,8 @@ const frontityOrg: FrontityOrg = {
           )
         );
       },
-      setTabNumber: ({ state }) => ({ tabNumber }) => {
-        state.theme.tabNumber = tabNumber;
+      setFlowSectionActiveTab: ({ state }) => ({ tabNumber }) => {
+        state.theme.flowSectionActiveTab = tabNumber;
       },
       showFixedHeader: ({ state }) => {
         state.theme.isFixedHeaderVisible = true;

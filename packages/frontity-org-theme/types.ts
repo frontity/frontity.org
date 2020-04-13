@@ -35,7 +35,7 @@ interface FrontityOrg extends Package {
         white: string;
       };
       templates: string[];
-      tabNumber: number;
+      flowSectionActiveTab: number;
       isFixedHeaderVisible: boolean;
     };
     source?: Source["state"]["source"] & {
@@ -47,7 +47,7 @@ interface FrontityOrg extends Package {
     source?: Source["actions"]["source"];
     theme: {
       beforeSSR: AsyncAction<FrontityOrg>;
-      setTabNumber: Action<FrontityOrg, { tabNumber: number }>;
+      setFlowSectionActiveTab: Action<FrontityOrg, { tabNumber: number }>;
       showFixedHeader: Action<FrontityOrg>;
       hideFixedHeader: Action<FrontityOrg>;
     };

@@ -9,7 +9,7 @@ import { FLOW_SECTION_BREAKPOINT } from "../processors/frontity-flow-items";
 
 const FlowItem: React.FC<Connect<
   FrontityOrg,
-  { tag: string; tabNumber: number }
+  { tag: string; tabNumber: number; roots: any; fills: any }
 >> = ({
   tag,
   children,
@@ -28,7 +28,7 @@ const FlowItem: React.FC<Connect<
 
   useEffect(() => {
     if (inView && isMobile) {
-      actions.theme.setTabNumber({ tabNumber });
+      actions.theme.setFlowSectionActiveTab({ tabNumber });
     }
   }, [inView, isMobile]);
 

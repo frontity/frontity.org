@@ -13,7 +13,10 @@ export const flowItem: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
   test: ({ node }) =>
     node.type === "element" &&
     node.props?.className?.split(" ").some((name) => flowItemRegex.test(name)),
-  processor: ({ node }) => {
+
+  // TODO: The `any` is a workaround until we have better types for processors
+  // because TS complains when I add new props like `tag` & `tabNumber` below.
+  processor: ({ node }: any) => {
     if (node.type !== "element") {
       return node;
     }

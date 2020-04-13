@@ -34,7 +34,7 @@ const Dots: React.FC<Connect<FrontityOrg>> = connect(({ state }) => (
     {Array.from({ length: 4 }, (_, i) => (
       <Dot
         key={i}
-        active={state.theme.tabNumber === i + 1}
+        active={state.theme.flowSectionActiveTab === i + 1}
         color={state.theme.colors.primary}
       />
     ))}
@@ -49,7 +49,7 @@ export const flowItems: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
   processor: ({ node, state }) => {
     if (node.type !== "element") return node;
 
-    const { tabNumber } = state.theme;
+    const { flowSectionActiveTab } = state.theme;
 
     node.props.css = css`
       ${node.props.css};
@@ -67,7 +67,9 @@ export const flowItems: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
 
         @media screen and (min-width: ${FLOW_SECTION_BREAKPOINT + 1}px) {
           transform: translateX(
-            calc(-${(tabNumber - 1) * 100}% - ${(tabNumber - 1) * 5}rem)
+            calc(
+              -${(flowSectionActiveTab - 1) * 100}% - ${(flowSectionActiveTab - 1) * 5}rem
+            )
           );
 
           transition: transform 600ms ease-in-out;
