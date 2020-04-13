@@ -13,7 +13,7 @@ export const flowItem: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
   test: ({ node }) =>
     node.type === "element" &&
     node.props?.className?.split(" ").some((name) => flowItemRegex.test(name)),
-  processor: ({ node, state }) => {
+  processor: ({ node }) => {
     if (node.type !== "element") {
       return node;
     }
