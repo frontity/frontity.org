@@ -63,11 +63,11 @@ export const flowItems: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
         display: grid;
         grid-auto-flow: column;
         grid-auto-columns: 100%;
-        grid-gap: 0.5rem;
+        grid-gap: 5rem;
 
         @media screen and (min-width: ${FLOW_SECTION_BREAKPOINT + 1}px) {
           transform: translateX(
-            calc(-${(tabNumber - 1) * 100}% - ${(tabNumber - 1) * 0.5}rem)
+            calc(-${(tabNumber - 1) * 100}% - ${(tabNumber - 1) * 5}rem)
           );
 
           transition: transform 600ms ease-in-out;
