@@ -4,6 +4,7 @@ import React from "react";
 
 import FrontityOrg from "../../types";
 import Footer from "./footer";
+import { FixedHeader, Header } from "./headers";
 import Page from "./page";
 import ScrollButton from "./scroll-button";
 import FontFace from "./styles/font-face";
@@ -19,7 +20,8 @@ const Theme: React.FC<Connect<FrontityOrg>> = ({ state }) => {
       <Global styles={css(gutenbergStyle)} />
       <Global styles={css(gutenbergTheme)} />
       <FontFace />
-
+      <Header />
+      <FixedHeader />
       {(data.isPage && <Page />) || (
         <>
           <a href="/homepage">Visit /homepage</a>
