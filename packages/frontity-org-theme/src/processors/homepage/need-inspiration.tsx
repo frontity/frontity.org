@@ -20,9 +20,7 @@ export const needInspirationSection: Processor<
     //Style the section
     node.props.css = css`
       ${node.props.css};
-      > div {
-        padding: 100px 0px 0px;
-      }
+      overflow: hidden;
       .wp-block-buttons {
         margin-top: 20px;
       }
