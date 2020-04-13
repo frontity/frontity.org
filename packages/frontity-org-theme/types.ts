@@ -1,7 +1,7 @@
 import Html2React from "@frontity/html2react/types";
 import Router from "@frontity/router";
 import Source from "@frontity/source/types";
-import { Package } from "frontity/types";
+import { Action, AsyncAction, Package } from "frontity/types";
 import { ReactType } from "react";
 
 type PostEntityWithACF = {
@@ -35,6 +35,7 @@ interface FrontityOrg extends Package {
         white: string;
       };
       templates: string[];
+      isFixedHeaderVisible: boolean;
     };
     source?: Source["state"]["source"] & {
       page: Record<string, PostEntityWithACF>;
@@ -42,12 +43,15 @@ interface FrontityOrg extends Package {
     router?: Router["state"]["router"];
   };
   actions: {
-    theme: {};
+    source?: Source["actions"]["source"];
+    theme: {
+      beforeSSR: AsyncAction<FrontityOrg>;
+      showFixedHeader: Action<FrontityOrg>;
+      hideFixedHeader: Action<FrontityOrg>;
+    };
   };
   libraries: {
-    html2react?: {
-      processors: Html2React["libraries"]["html2react"]["processors"];
-    };
+    html2react?: Partial<Html2React["libraries"]["html2react"]>;
   };
 }
 

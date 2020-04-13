@@ -10,6 +10,7 @@ import { borders } from "./processors/borders";
 import { boxShadow } from "./processors/box-shadow";
 import { checklists } from "./processors/checklists";
 import { dropdown } from "./processors/dropdown";
+import { headlessFlow } from "./processors/headless-flow";
 import { fastSection } from "./processors/homepage/frontity-fast";
 import { needInspirationSection } from "./processors/homepage/need-inspiration";
 import { showcasesGallery } from "./processors/homepage/showcases-gallery";
@@ -46,16 +47,23 @@ const frontityOrg: FrontityOrg = {
         white: "#ffffff",
       },
       templates: ["fixed-header", "header", "footer", "newsletter"],
+      isFixedHeaderVisible: false,
     },
   },
   actions: {
     theme: {
-      beforeSSR: ({ state, actions }) => async () => {
+      beforeSSR: async ({ state, actions }) => {
         await Promise.all(
           state.theme.templates.map((slug) =>
             actions.source.fetch(`/wp_template_part/${slug}`)
           )
         );
+      },
+      showFixedHeader: ({ state }) => {
+        state.theme.isFixedHeaderVisible = true;
+      },
+      hideFixedHeader: ({ state }) => {
+        state.theme.isFixedHeaderVisible = false;
       },
     },
   },
@@ -83,6 +91,7 @@ const frontityOrg: FrontityOrg = {
         scrollingSection,
         section,
         specialIcons,
+        headlessFlow,
       ],
     },
   },

@@ -58,6 +58,7 @@ const Container = styled.div<{ height?: string }>`
   z-index: -3;
   overflow: hidden;
   position: absolute;
+  top: 0;
 
   ${(props) =>
     props.height &&
