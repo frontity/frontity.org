@@ -76,7 +76,7 @@ const FlowButton: React.FC<Connect<
   actions,
   text,
   state,
-  // destructuring all the props below so that we don't pass it to the DOM
+  // destructuring all the props below so that we don't pass them to the DOM
   libraries,
   roots,
   fills,

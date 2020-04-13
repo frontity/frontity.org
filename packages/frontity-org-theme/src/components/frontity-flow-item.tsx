@@ -15,7 +15,7 @@ const FlowItem: React.FC<Connect<
   children,
   tabNumber,
   actions,
-  // destructuring all the props below so that we don't pass it to the DOM
+  // destructuring all the props below so that we don't pass them to the DOM
   state,
   libraries,
   roots,
