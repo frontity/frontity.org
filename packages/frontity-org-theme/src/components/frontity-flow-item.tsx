@@ -2,8 +2,10 @@ import { connect } from "frontity";
 import { Connect } from "frontity/types";
 import React, { createElement, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
+import { useMedia } from "use-media";
 
 import FrontityOrg from "../../types";
+import { FLOW_SECTION_BREAKPOINT } from "../processors/frontity-flow-items";
 
 const FlowItem: React.FC<Connect<
   FrontityOrg,
@@ -15,26 +17,22 @@ const FlowItem: React.FC<Connect<
   actions,
   // destructuring all the props below so that we don't pass it to the DOM
   state,
-  className,
   libraries,
   roots,
   fills,
   ...props
 }) => {
+  const isMobile = useMedia({ maxWidth: FLOW_SECTION_BREAKPOINT });
+
   const [ref, inView] = useInView({ threshold: 0.8 });
 
   useEffect(() => {
-    if (inView) {
+    if (inView && isMobile) {
       actions.theme.setTabNumber({ tabNumber });
     }
-  }, [inView]);
+  }, [inView, isMobile]);
 
-  const cls =
-    state.theme.tabNumber !== tabNumber
-      ? className
-      : className.concat(" visible");
-
-  const El = createElement(tag, { ...props, ref, className: cls }, children);
+  const El = createElement(tag, { ...props, ref }, children);
 
   return El;
 };

@@ -1,5 +1,5 @@
 import { Processor } from "@frontity/html2react/types";
-import { css, keyframes } from "frontity";
+import { css } from "frontity";
 import React from "react";
 
 import FrontityOrg from "../../types";
@@ -7,24 +7,6 @@ import FlowItem from "../components/frontity-flow-item";
 import { FLOW_SECTION_BREAKPOINT } from "./frontity-flow-items";
 
 const flowItemRegex = /^frontity-flow-item-(\w+)$/;
-
-const fadeIn = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-`;
-
-const fadeOut = keyframes`
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-`;
 
 export const flowItem: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
   name: "flow-item",
@@ -42,16 +24,6 @@ export const flowItem: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
       .find((name) => flowItemRegex.test(name))
       .match(flowItemRegex);
 
-    if (state.theme.tabNumber !== parseInt(tabNumber)) {
-      node.props.css = css`
-        ${node.props.css};
-
-        @media screen and (min-width: ${FLOW_SECTION_BREAKPOINT}px) {
-          display: none;
-        }
-      `;
-    }
-
     node.props.css = css`
       ${node.props.css};
 
@@ -60,12 +32,6 @@ export const flowItem: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
 
         width: 100%;
         height: auto;
-      }
-
-      animation: ${fadeIn} 500ms ease-in-out 500ms;
-
-      &.visible {
-        animation: ${fadeOut} 300ms ease-in-out;
       }
 
       a {

@@ -46,22 +46,34 @@ export const flowItems: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
   test: ({ node }) =>
     node.type === "element" &&
     node.props?.className?.split(" ").includes("frontity-flow-all-items"),
-  processor: ({ node }) => {
+  processor: ({ node, state }) => {
     if (node.type !== "element") return node;
+
+    const { tabNumber } = state.theme;
 
     node.props.css = css`
       ${node.props.css};
 
-      /* This is so that w can position the "dots" absolutely on mobile */
+      /* This is so that we can position the "dots" absolutely on mobile */
       position: relative;
 
-      & > .wp-block-group__inner-container {
-        @media screen and (max-width: ${FLOW_SECTION_BREAKPOINT}px) {
-          display: grid;
-          grid-auto-flow: column;
-          grid-auto-columns: 100%;
-          grid-gap: 0.5rem;
+      overflow-x: hidden;
 
+      & > .wp-block-group__inner-container {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 100%;
+        grid-gap: 0.5rem;
+
+        @media screen and (min-width: ${FLOW_SECTION_BREAKPOINT + 1}px) {
+          transform: translateX(
+            calc(-${(tabNumber - 1) * 100}% - ${(tabNumber - 1) * 0.5}rem)
+          );
+
+          transition: transform 600ms ease-in-out;
+        }
+
+        @media screen and (max-width: ${FLOW_SECTION_BREAKPOINT}px) {
           overflow-x: scroll;
           scroll-snap-type: x mandatory;
           -webkit-overflow-scrolling: touch;
