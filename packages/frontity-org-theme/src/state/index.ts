@@ -16,6 +16,12 @@ const state: FrontityOrg["state"]["theme"] = {
     white: "#ffffff",
   },
   templates: ["fixed-header", "header", "footer", "newsletter"],
+  flowSectionActiveTab: 1, // Used in the frontity-flow section of the homepage
+  isFixedHeaderVisible: false,
+  zIndices: {
+    navBar: 100,
+    flowSectionButtons: 10,
+  },
   newsletter,
 };
 

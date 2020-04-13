@@ -11,6 +11,11 @@ import { borders } from "./processors/borders";
 import { boxShadow } from "./processors/box-shadow";
 import { checklists } from "./processors/checklists";
 import { dropdown } from "./processors/dropdown";
+import { flowButton } from "./processors/frontity-flow-button";
+import { flowButtons } from "./processors/frontity-flow-buttons";
+import { flowItem } from "./processors/frontity-flow-item";
+import { flowItems } from "./processors/frontity-flow-items";
+import { headlessFlow } from "./processors/headless-flow";
 import { fastSection } from "./processors/homepage/frontity-fast";
 import { horizontalSeparator } from "./processors/horizontal-separator";
 import { imageFrame } from "./processors/image-frame";
@@ -19,6 +24,7 @@ import { mobileDesktop } from "./processors/mobile-desktop";
 import { newsletter } from "./processors/newsletter";
 import { paragraph } from "./processors/paragraph";
 import { polygonBackground } from "./processors/polygon-background";
+import { reactMadeEasy } from "./processors/react-made-easy";
 import { scrollingSection } from "./processors/scrolling-section";
 import { section } from "./processors/section";
 import { specialIcons } from "./processors/special-icons";
@@ -60,6 +66,12 @@ const frontityOrg: FrontityOrg = {
         scrollingSection,
         section,
         specialIcons,
+        flowButtons,
+        flowButton,
+        flowItems,
+        flowItem,
+        reactMadeEasy,
+        headlessFlow,
       ],
     },
   },

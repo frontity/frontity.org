@@ -8,6 +8,15 @@ const actions: FrontityOrg["actions"]["theme"] = {
       )
     );
   },
+  setFlowSectionActiveTab: ({ state }) => ({ tabNumber }) => {
+    state.theme.flowSectionActiveTab = tabNumber;
+  },
+  showFixedHeader: ({ state }) => {
+    state.theme.isFixedHeaderVisible = true;
+  },
+  hideFixedHeader: ({ state }) => {
+    state.theme.isFixedHeaderVisible = false;
+  },
   sendNewsletter: ({ state, libraries }) => {
     state.theme.newsletter.sending.newsletterForm = true;
     //   libraries.dataLayer.push({

@@ -35,6 +35,12 @@ interface FrontityOrg extends Package {
         white: string;
       };
       templates: string[];
+      flowSectionActiveTab: number;
+      isFixedHeaderVisible: boolean;
+      zIndices: {
+        navBar: number;
+        flowSectionButtons: number;
+      };
       newsletter: {
         newsletterForm: {
           email: string;
@@ -73,6 +79,9 @@ interface FrontityOrg extends Package {
   actions: {
     theme: {
       beforeSSR: AsyncAction<FrontityOrg>;
+      setFlowSectionActiveTab: Action<FrontityOrg, { tabNumber: number }>;
+      showFixedHeader: Action<FrontityOrg>;
+      hideFixedHeader: Action<FrontityOrg>;
       sendNewsletter: Action<FrontityOrg>;
       sendAfterNewsletter: Action<FrontityOrg>;
       setAnswer: Action<FrontityOrg, { name: string; answer: string }>;
@@ -92,9 +101,7 @@ interface FrontityOrg extends Package {
     source?: Source["actions"]["source"];
   };
   libraries: {
-    html2react?: {
-      processors: Html2React["libraries"]["html2react"]["processors"];
-    };
+    html2react?: Partial<Html2React["libraries"]["html2react"]>;
   };
 }
 
