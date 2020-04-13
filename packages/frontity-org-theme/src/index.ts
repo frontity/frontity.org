@@ -10,6 +10,10 @@ import { borders } from "./processors/borders";
 import { boxShadow } from "./processors/box-shadow";
 import { checklists } from "./processors/checklists";
 import { dropdown } from "./processors/dropdown";
+import { flowButton } from "./processors/frontity-flow-button";
+import { flowButtons } from "./processors/frontity-flow-buttons";
+import { flowItem } from "./processors/frontity-flow-item";
+import { flowItems } from "./processors/frontity-flow-items";
 import { headlessFlow } from "./processors/headless-flow";
 import { fastSection } from "./processors/homepage/frontity-fast";
 import { horizontalSeparator } from "./processors/horizontal-separator";
@@ -18,6 +22,7 @@ import { links } from "./processors/links-buttons";
 import { mobileDesktop } from "./processors/mobile-desktop";
 import { paragraph } from "./processors/paragraph";
 import { polygonBackground } from "./processors/polygon-background";
+import { reactMadeEasy } from "./processors/react-made-easy";
 import { scrollingSection } from "./processors/scrolling-section";
 import { section } from "./processors/section";
 import { specialIcons } from "./processors/special-icons";
@@ -45,7 +50,12 @@ const frontityOrg: FrontityOrg = {
         white: "#ffffff",
       },
       templates: ["fixed-header", "header", "footer", "newsletter"],
+      flowSectionActiveTab: 1, // Used in the frontity-flow section of the homepage
       isFixedHeaderVisible: false,
+      zIndices: {
+        navBar: 100,
+        flowSectionButtons: 10,
+      },
     },
   },
   actions: {
@@ -56,6 +66,9 @@ const frontityOrg: FrontityOrg = {
             actions.source.fetch(`/wp_template_part/${slug}`)
           )
         );
+      },
+      setFlowSectionActiveTab: ({ state }) => ({ tabNumber }) => {
+        state.theme.flowSectionActiveTab = tabNumber;
       },
       showFixedHeader: ({ state }) => {
         state.theme.isFixedHeaderVisible = true;
@@ -87,6 +100,11 @@ const frontityOrg: FrontityOrg = {
         scrollingSection,
         section,
         specialIcons,
+        flowButtons,
+        flowButton,
+        flowItems,
+        flowItem,
+        reactMadeEasy,
         headlessFlow,
       ],
     },
