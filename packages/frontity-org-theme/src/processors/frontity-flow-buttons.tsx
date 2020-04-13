@@ -73,7 +73,7 @@ export const flowButtons: Processor<
     node.props.css = css`
       ${node.props.css};
 
-      z-index: 10;
+      z-index: ${state.theme.zIndices.flowSectionButtons};
 
       position: relative;
       width: ${FLOW_SECTION_WIDTH}px;

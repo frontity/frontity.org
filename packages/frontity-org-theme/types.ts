@@ -37,6 +37,10 @@ interface FrontityOrg extends Package {
       templates: string[];
       flowSectionActiveTab: number;
       isFixedHeaderVisible: boolean;
+      zIndices: {
+        navBar: number;
+        flowSectionButtons: number;
+      };
     };
     source?: Source["state"]["source"] & {
       page: Record<string, PostEntityWithACF>;

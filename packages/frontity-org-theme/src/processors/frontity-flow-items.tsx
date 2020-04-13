@@ -79,6 +79,8 @@ export const flowItems: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
           overflow-x: scroll;
           scroll-snap-type: x mandatory;
           -webkit-overflow-scrolling: touch;
+
+          grid-gap: 0.5rem;
         }
       }
     `;
