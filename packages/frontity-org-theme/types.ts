@@ -36,6 +36,7 @@ interface FrontityOrg extends Package {
       };
       templates: string[];
       tabNumber: number;
+      isFixedHeaderVisible: boolean;
     };
     source?: Source["state"]["source"] & {
       page: Record<string, PostEntityWithACF>;
@@ -43,16 +44,16 @@ interface FrontityOrg extends Package {
     router?: Router["state"]["router"];
   };
   actions: {
+    source?: Source["actions"]["source"];
     theme: {
       beforeSSR: AsyncAction<FrontityOrg>;
       setTabNumber: Action<FrontityOrg, { tabNumber: number }>;
+      showFixedHeader: Action<FrontityOrg>;
+      hideFixedHeader: Action<FrontityOrg>;
     };
   };
   libraries: {
-    html2react?: {
-      processors: Html2React["libraries"]["html2react"]["processors"];
-      Component: Html2React["libraries"]["html2react"]["Component"];
-    };
+    html2react?: Partial<Html2React["libraries"]["html2react"]>;
   };
 }
 

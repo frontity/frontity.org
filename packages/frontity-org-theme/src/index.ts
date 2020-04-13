@@ -51,11 +51,12 @@ const frontityOrg: FrontityOrg = {
       },
       templates: ["fixed-header", "header", "footer", "newsletter"],
       tabNumber: 1, // Used in the frontity-flow section of the homepage
+      isFixedHeaderVisible: false,
     },
   },
   actions: {
     theme: {
-      beforeSSR: ({ state, actions }) => async () => {
+      beforeSSR: async ({ state, actions }) => {
         await Promise.all(
           state.theme.templates.map((slug) =>
             actions.source.fetch(`/wp_template_part/${slug}`)
@@ -64,6 +65,12 @@ const frontityOrg: FrontityOrg = {
       },
       setTabNumber: ({ state }) => ({ tabNumber }) => {
         state.theme.tabNumber = tabNumber;
+      },
+      showFixedHeader: ({ state }) => {
+        state.theme.isFixedHeaderVisible = true;
+      },
+      hideFixedHeader: ({ state }) => {
+        state.theme.isFixedHeaderVisible = false;
       },
     },
   },
