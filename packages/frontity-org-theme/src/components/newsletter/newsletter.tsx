@@ -76,9 +76,11 @@ const Box = styled.div`
   width: 100%;
   height: 50px;
   display: flex;
-  border: solid 1px gray;
+  border: 1px solid rgba(12, 17, 43, 0.08);
   border-radius: 8px;
+  box-shadow: 0 1px 4px 0 rgba(12, 17, 43, 0.12);
 `;
+
 const Input = styled.input`
   width: 100%;
   padding-left: 16px;
