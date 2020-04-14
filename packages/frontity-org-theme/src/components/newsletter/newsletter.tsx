@@ -101,4 +101,12 @@ const Checkbox = styled.div`
   font-size: 14px;
   line-height: 20px;
   margin-top: 12px;
+
+  & > label > input {
+    margin-left: 4px;
+  }
+
+  & > label > span {
+    margin-left: 8px;
+  }
 `;

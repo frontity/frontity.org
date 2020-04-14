@@ -23,7 +23,8 @@ const AfterNewsletter: React.FC<Connect<FrontityOrg>> = ({
     @media only screen and (max-width: 769px) {
       margin-left: 0px;
     }
-    padding: 0px 40px;
+    padding: 10px 40px;
+    padding-bottom: 20px;
     background: ${state.theme.colors.white};
     border-radius: 8px;
     box-shadow: 0 4px 14px 0 rgba(31, 56, 197, 0.09),
@@ -97,7 +98,7 @@ const AfterNewsletter: React.FC<Connect<FrontityOrg>> = ({
             <Question key={name} name={name} />
           )
         )}
-        <SubmitButton />
+        <SubmitButton>SUBMIT</SubmitButton>
       </Form>
     </>
   );
