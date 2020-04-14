@@ -17,12 +17,16 @@ const actions: FrontityOrg["actions"]["theme"] = {
   hideFixedHeader: ({ state }) => {
     state.theme.isFixedHeaderVisible = false;
   },
-  sendNewsletter: ({ state, libraries }) => {
+  sendNewsletter: ({ state, libraries, actions }) => {
     state.theme.newsletter.sending.newsletterForm = true;
-    //   libraries.dataLayer.push({
-    //     event: "newsletter",
-    //     ...state.newsletter,
-    //   });
+
+    // :TODO: This is to be fixed once GTM PR is merged
+    // actions.analytics.sendEvent({
+    //   category: "some-category",
+    //   action: 'action',
+    //   label: 'label',
+    // });
+
     state.theme.newsletter.sending.newsletterForm = false;
     state.theme.newsletter.sent.newsletterForm = true;
   },
@@ -30,10 +34,12 @@ const actions: FrontityOrg["actions"]["theme"] = {
   sendAfterNewsletter: ({ state, libraries }) => {
     const { name, answers } = state.theme.newsletter.afterNewsletter;
     state.theme.newsletter.sending.afterNewsletter = true;
-    // libraries.dataLayer.push({
-    //   event: "after-newsletter",
-    //   name,
-    //   answers,
+
+    // :TODO: This is to be fixed once GTM PR is merged
+    // actions.analytics.sendEvent({
+    //   category: "some-category",
+    //   action: 'action',
+    //   label: 'label',
     // });
     state.theme.newsletter.sending.afterNewsletter = false;
     state.theme.newsletter.sent.afterNewsletter = true;

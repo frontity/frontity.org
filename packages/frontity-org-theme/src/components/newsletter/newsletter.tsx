@@ -18,7 +18,7 @@ const Newsletter: React.FC<Connect<FrontityOrg>> = ({ state, actions }) => {
         <Box
           css={css`
             &:focus-within {
-              border: 1px solid ${state.theme.colors.frontity};
+              box-shadow: 0 1px 4px 0 rgba(12, 17, 43, 0.01);
             }
             & > input::placeholder {
               color: ${addAlpha(state.theme.colors.primary, 0.2)};
@@ -29,6 +29,7 @@ const Newsletter: React.FC<Connect<FrontityOrg>> = ({ state, actions }) => {
             placeholder="Enter your email"
             type="email"
             required
+            primary={state.theme.colors.primary}
             onChange={(e) => {
               actions.theme.setNewsletterPropString({
                 name: "email",
@@ -75,19 +76,22 @@ const Form = styled.form`
 const Box = styled.div`
   width: 100%;
   height: 50px;
+  padding: 3px;
   display: flex;
   border: 1px solid rgba(12, 17, 43, 0.08);
   border-radius: 8px;
   box-shadow: 0 1px 4px 0 rgba(12, 17, 43, 0.12);
 `;
 
-const Input = styled.input`
+const Input = styled.input<{ primary: string }>`
   width: 100%;
   padding-left: 16px;
+  padding-right: 6px;
   border: none;
   background: transparent;
   font-size: 16px;
   line-height: 24px;
+  color: ${({ primary }) => addAlpha(primary, 0.8)};
   &:focus {
     outline: none;
   }
