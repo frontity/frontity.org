@@ -1,16 +1,57 @@
+/* Hero section */
+
 /* How Frontity works section */
 .wp-block-group.how-frontity-works {
   @media only screen and (min-width: 769px) {
     padding: 100px 0px 124px;
   }
+  @media only screen and (max-width: 769px) {
+    padding: 80px 0px 100px;
+  }
 }
 
-/* WP and React made easy section*/
+/* WP and React made easy section */
 .wp-block-group.wp-react-made-easy {
   @media only screen and (min-width: 769px) {
     padding: 100px 0px 136px;
+    clip-path: polygon(0 0, 100% 40px, 100% 100%, 0 calc(100% - 72px));
+  }
+  @media only screen and (max-width: 769px) {
+    padding: 90px 0px 48px;
+    clip-path: polygon(0 0, 100% 24px, 100% 100%, 0 calc(100% - 24px));
   }
 }
+
+/* Wrapping section */
+.wp-block-group.wrapping-section {
+  @media only screen and (min-width: 769px) {
+    padding: 80px 0px 170px;
+    clip-path: polygon(
+      100% 0,
+      100% calc(100% - 50px),
+      50% 100%,
+      0 calc(100% - 50px),
+      0 0
+    );
+  }
+  @media only screen and (max-width: 769px) {
+    clip-path: polygon(
+      100% 0,
+      100% calc(100% - 28px),
+      50% 100%,
+      0 calc(100% - 28px),
+      0 0
+    );
+  }
+}
+
+/* Keep editing your content section */
+
+/* As fast a Static Site Generator section */
+
+/* Why WP and why React section */
+
+/* Why Frontity section */
 
 /* Need inspiration section */
 .wp-block-group.need-inspiration-section {
@@ -18,7 +59,7 @@
     0 0,
     100% 48px,
     100% calc(100% - 50px),
-    0 calc(100% - 44px)
+    0 calc(100% - 94px)
   );
   @media only screen and (min-width: 769px) {
     padding: 100px 0px 0px;
@@ -27,3 +68,9 @@
     padding: 60px 0px 0px;
   }
 }
+
+/* Get Help section */
+
+/* What people are saying section */
+
+/* Closing section */
