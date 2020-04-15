@@ -7,27 +7,33 @@ const homePageStyles = (colors: FrontityOrg["state"]["theme"]["colors"]) => css`
   .hero-homepage {
     background-color: rgb(242, 243, 252);
     position: relative;
-    clip-path: polygon(
-      /* left top */ 0 0,
-      /* right top */ 100% 0,
-      /* right bottom */ 100% 92%,
-      /* left bottom */ 0% 100%
-    );
-  }
+    clip-path: polygon(0 0, 100% 0, 100% 92%, 0% 100%);
 
-  .hero-homepage:after {
-    content: "";
-    display: block;
-    position: absolute;
-    background-color: rgb(236, 237, 246);
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      background-color: rgb(236, 237, 246);
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
 
-    clip-path: polygon(0 100%, 100% 85%, 100% 92%);
+      clip-path: polygon(0 100%, 100% 85%, 100% 92%);
+    }
+
+    .hero-text {
+      margin-bottom: 35px;
+      font-size: 20px;
+      line-height: 32px;
+    }
+
+    .get-started-button {
+      margin-right: 24px;
+      margin-left: 2px;
+    }
   }
 
   /* How Frontity works section */
