@@ -35,7 +35,12 @@ interface FrontityOrg extends Package {
         white: string;
       };
       templates: string[];
+      flowSectionActiveTab: number;
       isFixedHeaderVisible: boolean;
+      zIndices: {
+        navBar: number;
+        flowSectionButtons: number;
+      };
     };
     source?: Source["state"]["source"] & {
       page: Record<string, PostEntityWithACF>;
@@ -46,6 +51,7 @@ interface FrontityOrg extends Package {
     source?: Source["actions"]["source"];
     theme: {
       beforeSSR: AsyncAction<FrontityOrg>;
+      setFlowSectionActiveTab: Action<FrontityOrg, { tabNumber: number }>;
       showFixedHeader: Action<FrontityOrg>;
       hideFixedHeader: Action<FrontityOrg>;
     };
