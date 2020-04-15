@@ -1,0 +1,29 @@
+/* How Frontity works section */
+.wp-block-group.how-frontity-works {
+  @media only screen and (min-width: 769px) {
+    padding: 100px 0px 124px;
+  }
+}
+
+/* WP and React made easy section*/
+.wp-block-group.wp-react-made-easy {
+  @media only screen and (min-width: 769px) {
+    padding: 100px 0px 136px;
+  }
+}
+
+/* Need inspiration section */
+.wp-block-group.need-inspiration-section {
+  clip-path: polygon(
+    0 0,
+    100% 48px,
+    100% calc(100% - 50px),
+    0 calc(100% - 44px)
+  );
+  @media only screen and (min-width: 769px) {
+    padding: 100px 0px 0px;
+  }
+  @media only screen and (max-width: 769px) {
+    padding: 60px 0px 0px;
+  }
+}
