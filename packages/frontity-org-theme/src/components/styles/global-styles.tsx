@@ -397,6 +397,7 @@ const syntaxHighlighting = (
     color: red;
   }
 `;
+
 const globalStyle = (colors: FrontityOrg["state"]["theme"]["colors"]) =>
   css([
     cssReset,

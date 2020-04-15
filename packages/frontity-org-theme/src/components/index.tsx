@@ -11,7 +11,7 @@ import FontFace from "./styles/font-face";
 import globalStyles from "./styles/global-styles";
 import gutenbergStyle from "./styles/gutenberg/style.css";
 import gutenbergTheme from "./styles/gutenberg/theme.css";
-import homepageStyles from "./styles/homepage.css";
+import homepageStyles from "./styles/homepage";
 
 const Theme: React.FC<Connect<FrontityOrg>> = ({ state }) => {
   const data = state.source.get(state.router.link);
@@ -24,9 +24,13 @@ const Theme: React.FC<Connect<FrontityOrg>> = ({ state }) => {
       <FontFace />
       <Header />
       <FixedHeader />
-      {/* We have to change to isHome once isHome is true */}
-      {data.isPage && <Global styles={css(homepageStyles)} />}
-      {(data.isPage && <Page />) || (
+
+      {(data.isPage && (
+        <>
+          <Global styles={homepageStyles(state.theme.colors)} />
+          <Page />
+        </>
+      )) || (
         <>
           <a href="/homepage">Visit /homepage</a>
           <br />

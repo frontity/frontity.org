@@ -1,0 +1,152 @@
+import { css } from "frontity";
+
+import FrontityOrg from "../../../types";
+
+const homePageStyles = (colors: FrontityOrg["state"]["theme"]["colors"]) => css`
+  /* Hero section */
+  .hero-homepage {
+    background-color: rgb(242, 243, 252);
+    position: relative;
+    clip-path: polygon(
+      /* left top */ 0 0,
+      /* right top */ 100% 0,
+      /* right bottom */ 100% 92%,
+      /* left bottom */ 0% 100%
+    );
+  }
+
+  .hero-homepage:after {
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: rgb(236, 237, 246);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+
+    clip-path: polygon(0 100%, 100% 85%, 100% 92%);
+  }
+
+  /* How Frontity works section */
+  @media only screen and (min-width: 769px) {
+    .wp-block-group.how-frontity-works {
+      padding: 100px 0px 124px;
+    }
+  }
+  @media only screen and (max-width: 769px) {
+    .wp-block-group.how-frontity-works {
+      padding: 80px 0px 100px;
+    }
+  }
+
+  /* WP and React made easy section */
+  @media only screen and (min-width: 769px) {
+    .wp-block-group.wp-react-made-easy {
+      padding: 100px 0px 136px;
+      clip-path: polygon(0 0, 100% 40px, 100% 100%, 0 calc(100% - 72px));
+    }
+  }
+  @media only screen and (max-width: 769px) {
+    .wp-block-group.wp-react-made-easy {
+      padding: 90px 0px 48px;
+      clip-path: polygon(0 0, 100% 24px, 100% 100%, 0 calc(100% - 24px));
+    }
+  }
+
+  /* Wrapping section */
+
+  @media only screen and (min-width: 769px) {
+    .wp-block-group.wrapping-section {
+      padding: 60px 0px 120px;
+      clip-path: polygon(
+        100% 0,
+        100% calc(100% - 50px),
+        50% 100%,
+        0 calc(100% - 50px),
+        0 0
+      );
+    }
+  }
+  @media only screen and (max-width: 769px) {
+    .wp-block-group.wrapping-section {
+      padding: 80px 0px 170px;
+      clip-path: polygon(
+        100% 0,
+        100% calc(100% - 28px),
+        50% 100%,
+        0 calc(100% - 28px),
+        0 0
+      );
+    }
+  }
+
+  /* Keep editing your content section */
+
+  /* As fast a Static Site Generator section */
+
+  /* Why WP and why React section */
+
+  /* Why Frontity section */
+  @media only screen and (min-width: 769px) {
+    .wp-block-group.why-frontity {
+      padding: 120px 0px 84px;
+    }
+  }
+  @media only screen and (max-width: 769px) {
+    .wp-block-group.why-frontity {
+      padding: 100px 0px 120px;
+    }
+  }
+
+  /* Need inspiration section */
+  .wp-block-group.need-inspiration-section {
+    clip-path: polygon(
+      0 0,
+      100% 48px,
+      100% calc(100% - 50px),
+      0 calc(100% - 94px)
+    );
+  }
+
+  @media only screen and (min-width: 769px) {
+    .wp-block-group.need-inspiration-section {
+      padding: 100px 0px 0px;
+    }
+  }
+  @media only screen and (max-width: 769px) {
+    .wp-block-group.need-inspiration-section {
+      padding: 60px 0px 0px;
+    }
+  }
+
+  /* Get Help section */
+  @media only screen and (min-width: 769px) {
+    .wp-block-group.faq-section {
+      padding: 160px 0px 108px;
+    }
+  }
+  @media only screen and (max-width: 769px) {
+    .wp-block-group.faq-section {
+      padding: 120px 0px 40px;
+    }
+  }
+
+  /* What people are saying section */
+  @media only screen and (min-width: 769px) {
+    .wp-block-group.faq-section {
+      padding: 160px 0px 108px;
+    }
+  }
+  @media only screen and (max-width: 769px) {
+    .wp-block-group.faq-section {
+      padding: 120px 0px 40px;
+    }
+  }
+
+  /* Closing section */
+`;
+
+export default homePageStyles;

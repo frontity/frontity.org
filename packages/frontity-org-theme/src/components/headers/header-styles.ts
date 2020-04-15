@@ -65,6 +65,8 @@ const tooltipStyles = ({ state }: { state: State<FrontityOrg> }) => css`
 export const generalStyles = ({ state }: { state: State<FrontityOrg> }) => css`
   font-family: Poppins;
 
+  background-color: rgb(242, 243, 252);
+
   > .wp-block-group {
     padding: 0;
     > .wp-block-group__inner-container {
