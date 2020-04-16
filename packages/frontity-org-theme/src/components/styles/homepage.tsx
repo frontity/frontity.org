@@ -3,6 +3,16 @@ import { css } from "frontity";
 import FrontityOrg from "../../../types";
 
 const homePageStyles = (colors: FrontityOrg["state"]["theme"]["colors"]) => css`
+  @media only screen and (max-width: 769px) {
+    .description {
+      font-size: 16px;
+      letter-spacing: 0;
+      line-height: 24px;
+      opacity: 0.8;
+      margin-bottom: 22px;
+    }
+  }
+
   /* Hero section */
   .hero-homepage {
     background-color: rgb(242, 243, 252);
@@ -34,6 +44,19 @@ const homePageStyles = (colors: FrontityOrg["state"]["theme"]["colors"]) => css`
       margin-right: 24px;
       margin-left: 2px;
     }
+
+    /* The Get Started & Demo buttons */
+    .wp-block-buttons {
+      margin-bottom: 60px;
+    }
+
+    @media only screen and (max-width: 769px) {
+      .hero-title {
+        margin-top: 28px;
+        font-size: 32px;
+        line-height: 40px;
+      }
+    }
   }
 
   /* How Frontity works section */
@@ -44,19 +67,18 @@ const homePageStyles = (colors: FrontityOrg["state"]["theme"]["colors"]) => css`
   }
   @media only screen and (max-width: 769px) {
     .wp-block-group.how-frontity-works {
-      padding: 80px 0px 100px;
+      padding: 80px 0px 40px;
     }
   }
 
   /* WP and React made easy section */
-  @media only screen and (min-width: 769px) {
-    .wp-block-group.wp-react-made-easy {
+  .wp-block-group.wp-react-made-easy {
+    @media only screen and (min-width: 769px) {
       padding: 100px 0px 136px;
       clip-path: polygon(0 0, 100% 40px, 100% 100%, 0 calc(100% - 72px));
     }
-  }
-  @media only screen and (max-width: 769px) {
-    .wp-block-group.wp-react-made-easy {
+
+    @media only screen and (max-width: 769px) {
       padding: 90px 0px 48px;
       clip-path: polygon(0 0, 100% 24px, 100% 100%, 0 calc(100% - 24px));
     }
