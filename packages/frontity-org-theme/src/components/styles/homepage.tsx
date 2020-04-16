@@ -1,9 +1,8 @@
 import { css } from "frontity";
 
 import FrontityOrg from "../../../types";
-import { addAlpha, mixAlpha } from "../../utils";
 
-const homePageStyles = (colors: FrontityOrg["state"]["theme"]["colors"]) => css`
+const homePageStyles = (state: FrontityOrg["state"]["theme"]) => css`
   @media only screen and (max-width: 769px) {
     .description {
       font-size: 16px;
@@ -18,6 +17,7 @@ const homePageStyles = (colors: FrontityOrg["state"]["theme"]["colors"]) => css`
   .hero-homepage {
     background-color: #f2f3fc;
     position: relative;
+    padding-top: ${state.headerHeight}px;
     clip-path: polygon(0 0, 100% 0, 100% 92%, 0% 100%);
 
     &:after {

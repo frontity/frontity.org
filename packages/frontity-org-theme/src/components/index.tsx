@@ -27,7 +27,7 @@ const Theme: React.FC<Connect<FrontityOrg>> = ({ state }) => {
 
       {(data.isPage && (
         <>
-          <Global styles={homepageStyles(state.theme.colors)} />
+          <Global styles={homepageStyles(state.theme)} />
           <Page />
         </>
       )) || (

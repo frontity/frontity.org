@@ -312,6 +312,14 @@ export const headerStyles = ({
   isMenuOpen;
 }) => css`
   ${generalStyles({ state })};
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: ${state.theme.headerHeight};
+  z-index: ${state.theme.zIndices.navBar};
+
   @media only screen and (min-width: 866px) {
     ${desktopStyles({ state })};
 
