@@ -1,6 +1,7 @@
 import { css } from "frontity";
 
 import FrontityOrg from "../../../types";
+import { addAlpha, mixAlpha } from "../../utils";
 
 const homePageStyles = (colors: FrontityOrg["state"]["theme"]["colors"]) => css`
   @media only screen and (max-width: 769px) {
@@ -15,7 +16,7 @@ const homePageStyles = (colors: FrontityOrg["state"]["theme"]["colors"]) => css`
 
   /* Hero section */
   .hero-homepage {
-    background-color: rgb(242, 243, 252);
+    background-color: #f2f3fc;
     position: relative;
     clip-path: polygon(0 0, 100% 0, 100% 92%, 0% 100%);
 
