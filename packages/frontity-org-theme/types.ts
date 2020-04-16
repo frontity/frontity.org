@@ -36,6 +36,8 @@ interface FrontityOrg extends Package {
       };
       templates: string[];
       isFixedHeaderVisible: boolean;
+      heroBlogIsLoading: boolean;
+      heroTerminalPosition: "top" | "bottom";
     };
     source?: Source["state"]["source"] & {
       page: Record<string, PostEntityWithACF>;
@@ -48,6 +50,8 @@ interface FrontityOrg extends Package {
       beforeSSR: AsyncAction<FrontityOrg>;
       showFixedHeader: Action<FrontityOrg>;
       hideFixedHeader: Action<FrontityOrg>;
+      loadHeroBlog: Action<FrontityOrg>;
+      setHeroTerminalPosition: Action<FrontityOrg>;
     };
   };
   libraries: {

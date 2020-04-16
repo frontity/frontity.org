@@ -11,6 +11,7 @@ import { boxShadow } from "./processors/box-shadow";
 import { checklists } from "./processors/checklists";
 import { dropdown } from "./processors/dropdown";
 import { headlessFlow } from "./processors/headless-flow";
+import { homepageHeroAnimation } from "./processors/homepage-hero";
 import { fastSection } from "./processors/homepage/frontity-fast";
 import { horizontalSeparator } from "./processors/horizontal-separator";
 import { imageFrame } from "./processors/image-frame";
@@ -23,6 +24,7 @@ import { section } from "./processors/section";
 import { specialIcons } from "./processors/special-icons";
 import { terminal } from "./processors/terminal";
 import { textColor } from "./processors/text-color";
+import { typingProcessor } from "./processors/typingProcessor";
 
 const frontityOrg: FrontityOrg = {
   name: "frontity-org-theme",
@@ -46,6 +48,8 @@ const frontityOrg: FrontityOrg = {
       },
       templates: ["fixed-header", "header", "footer", "newsletter"],
       isFixedHeaderVisible: false,
+      heroBlogIsLoading: true,
+      heroTerminalPosition: "bottom",
     },
   },
   actions: {
@@ -62,6 +66,14 @@ const frontityOrg: FrontityOrg = {
       },
       hideFixedHeader: ({ state }) => {
         state.theme.isFixedHeaderVisible = false;
+      },
+      loadHeroBlog: ({ state }) => {
+        state.theme.heroBlogIsLoading = !state.theme.heroBlogIsLoading;
+        state.theme.heroTerminalPosition = "bottom";
+      },
+      setHeroTerminalPosition: ({ state }) => {
+        state.theme.heroTerminalPosition =
+          state.theme.heroTerminalPosition === "top" ? "bottom" : "top";
       },
     },
   },
@@ -88,6 +100,8 @@ const frontityOrg: FrontityOrg = {
         section,
         specialIcons,
         headlessFlow,
+        homepageHeroAnimation,
+        typingProcessor,
       ],
     },
   },
