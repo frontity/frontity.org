@@ -48,9 +48,20 @@ const frontityOrg: FrontityOrg = {
         lightgreen: "#8ACB88",
         white: "#ffffff",
       },
+
+      // slugs for the WP templates that are fetched in BeforeSSR
       templates: ["fixed-header", "header", "footer", "newsletter"],
-      flowSectionActiveTab: 1, // Used in the frontity-flow section of the homepage
+
+      // Used in the frontity-flow section of the homepage
+      flowSectionActiveTab: 1,
+
       isFixedHeaderVisible: false,
+
+      // This is the height of the <Header /> element at the top of the page.
+      // We need this in order to add padding-top to the Hero section accordingly
+      headerHeight: 125,
+
+      // List of z-index values used in the site
       zIndices: {
         navBar: 100,
         flowSectionButtons: 10,

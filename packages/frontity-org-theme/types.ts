@@ -37,6 +37,7 @@ interface FrontityOrg extends Package {
       templates: string[];
       flowSectionActiveTab: number;
       isFixedHeaderVisible: boolean;
+      headerHeight: number;
       zIndices: {
         navBar: number;
         flowSectionButtons: number;
