@@ -18,7 +18,7 @@ const HeroAnimation: React.FC<Connect<FrontityOrg>> = ({
               transform: translateY(0);
             `
           : css`
-              transform: translateY(100px);
+              transform: translateY(120px);
             `};
       }
     `}
@@ -44,6 +44,10 @@ const Container = styled.div`
       bottom: 0;
       left: -6em;
       transition: all 1s ease;
+
+      .change-position {
+        visibility: visible;
+      }
     }
   }
 `;

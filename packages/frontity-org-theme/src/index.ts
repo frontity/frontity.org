@@ -15,6 +15,7 @@ import { flowButtons } from "./processors/frontity-flow-buttons";
 import { flowItem } from "./processors/frontity-flow-item";
 import { flowItems } from "./processors/frontity-flow-items";
 import { headlessFlow } from "./processors/headless-flow";
+import { heroBlogImage } from "./processors/hero-blog-image";
 import { homepageHeroAnimation } from "./processors/homepage-hero";
 import { fastSection } from "./processors/homepage/frontity-fast";
 import { needInspirationSection } from "./processors/homepage/need-inspiration";
@@ -124,6 +125,7 @@ const frontityOrg: FrontityOrg = {
         headlessFlow,
         homepageHeroAnimation,
         typingProcessor,
+        heroBlogImage,
       ],
     },
   },
