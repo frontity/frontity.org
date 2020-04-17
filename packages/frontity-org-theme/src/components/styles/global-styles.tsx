@@ -273,8 +273,7 @@ const elementBase = (colors: FrontityOrg["state"]["theme"]["colors"]) => css`
   }
   ul,
   ol {
-    list-style-position: outside;
-    margin-left: 1.3em;
+    list-style-position: inside;
   }
   ul {
     list-style-type: "→ ";
@@ -282,7 +281,6 @@ const elementBase = (colors: FrontityOrg["state"]["theme"]["colors"]) => css`
     & > li {
       margin: 1.125rem 0;
       line-height: 1.5rem;
-      padding-left: 4px;
 
       &::before {
         line-height: 0;

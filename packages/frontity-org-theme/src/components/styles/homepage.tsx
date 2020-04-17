@@ -84,14 +84,35 @@ const homePageStyles = (state: FrontityOrg["state"]["theme"]) => css`
     padding: 100px 0px 136px;
     clip-path: polygon(0 0, 100% 40px, 100% 100%, 0 calc(100% - 72px));
 
+    /* The descrption */
     & > div > p {
       margin-bottom: 52px;
+    }
+
+    /* The 01, 02, 03, 04 numbers on corresponding flow-items */
+    h5 {
+      margin-bottom: 9px;
+    }
+
+    ul {
+      list-style-position: outside;
+      margin-left: 1.3em;
+    }
+
+    /* The Learn More button */
+    a {
+      margin-bottom: 30px;
     }
 
     /* desktop */
     @media only screen and (min-width: 769px) {
       .frontity-flow-all-items > div > * {
-        padding: 50px 68px 20px 68px;
+        padding: 45px 65px 20px 55px;
+      }
+
+      .terminal,
+      pre {
+        width: auto;
       }
     }
 
