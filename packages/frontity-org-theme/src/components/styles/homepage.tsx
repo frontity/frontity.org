@@ -1,6 +1,7 @@
 import { css } from "frontity";
 
 import FrontityOrg from "../../../types";
+import { addAlpha } from "../../utils";
 
 const homePageStyles = (state: FrontityOrg["state"]["theme"]) => css`
   .description {
@@ -94,25 +95,33 @@ const homePageStyles = (state: FrontityOrg["state"]["theme"]) => css`
       margin-bottom: 9px;
     }
 
-    ul {
-      list-style-position: outside;
-      margin-left: 1.3em;
-    }
-
     /* The Learn More button */
     a {
       margin-bottom: 30px;
+    }
+
+    .terminal,
+    pre {
+      width: auto;
+    }
+
+    .terminal ol {
+      margin-left: 8px;
+
+      li {
+        margin-left: 2.4em;
+
+        &:before {
+          margin-right: 1em;
+          margin-left: -2.4em;
+        }
+      }
     }
 
     /* desktop */
     @media only screen and (min-width: 769px) {
       .frontity-flow-all-items > div > * {
         padding: 45px 65px 20px 55px;
-      }
-
-      .terminal,
-      pre {
-        width: auto;
       }
     }
 
@@ -136,6 +145,37 @@ const homePageStyles = (state: FrontityOrg["state"]["theme"]) => css`
 
     .wp-block-button > a {
       margin-left: -1em;
+    }
+
+    .frontity-ssg .wp-block-group .wp-block-columns {
+      ol {
+        list-style-type: decimal;
+        opacity: 0.85;
+      }
+
+      .wp-block-column:nth-child(1) {
+        padding: 0;
+        border: 0;
+        padding-right: 2em;
+        border-right: 1px solid ${addAlpha(state.colors.primary, 0.12)};
+      }
+
+      .wp-block-column:nth-child(2) {
+        margin-top: 2em;
+      }
+
+      strong {
+        font-weight: bold;
+      }
+
+      @media only screen and (max-width: 769px) {
+        .wp-block-column:nth-child(1) {
+          padding: 0;
+          border: 0;
+          margin: 0;
+          border-bottom: 1px solid ${addAlpha(state.colors.primary, 0.12)};
+        }
+      }
     }
 
     @media only screen and (max-width: 769px) {

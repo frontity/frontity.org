@@ -20,6 +20,7 @@ const Footer: React.FC<Connect<FrontityOrg>> = ({ state, libraries }) => {
 
     ul {
       list-style-type: none;
+      margin-left: 0;
     }
 
     ul li {
