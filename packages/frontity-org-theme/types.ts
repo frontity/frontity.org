@@ -41,6 +41,8 @@ interface FrontityOrg extends Package {
         navBar: number;
         flowSectionButtons: number;
       };
+      heroBlogIsLoading: boolean;
+      heroTerminalPosition: "top" | "bottom";
     };
     source?: Source["state"]["source"] & {
       page: Record<string, PostEntityWithACF>;
