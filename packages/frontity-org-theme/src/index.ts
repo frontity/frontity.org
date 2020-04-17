@@ -60,7 +60,7 @@ const frontityOrg: FrontityOrg = {
         navBar: 100,
         flowSectionButtons: 10,
       },
-      heroBlogIsLoading: false,
+      heroBlogIsLoading: true,
       heroTerminalPosition: "top",
     },
   },

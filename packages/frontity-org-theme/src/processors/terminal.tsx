@@ -1,5 +1,5 @@
 import { Processor } from "@frontity/html2react/types";
-import { connect,css, styled } from "frontity";
+import { connect, css, styled } from "frontity";
 import { Connect } from "frontity/types";
 import React from "react";
 
@@ -21,6 +21,7 @@ const Dot = styled("span")<{ colors: { [key: string]: string } }>`
 const Toggle = styled.a`
   position: absolute;
   right: 0.5em;
+  visibility: hidden;
 
   span {
     color: #ffffff94;
@@ -30,7 +31,10 @@ const Toggle = styled.a`
 
 const TogglePosition: React.FC<Connect<FrontityOrg>> = ({ actions, state }) => {
   return (
-    <Toggle onClick={actions.theme.setHeroTerminalPosition}>
+    <Toggle
+      onClick={actions.theme.setHeroTerminalPosition}
+      className="change-position"
+    >
       {state.theme.heroTerminalPosition === "bottom" ? (
         <span>&#8963;</span>
       ) : (
