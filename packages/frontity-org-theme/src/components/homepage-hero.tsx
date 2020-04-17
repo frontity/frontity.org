@@ -1,4 +1,4 @@
-import { connect, css,styled } from "frontity";
+import { connect, css, styled } from "frontity";
 import { Connect } from "frontity/types";
 import React from "react";
 
@@ -15,11 +15,10 @@ const HeroAnimation: React.FC<Connect<FrontityOrg>> = ({
       .terminal {
         ${heroTerminalPosition === "top"
           ? css`
-              clip-path: none;
-              bottom: 0;
+              transform: translateY(0);
             `
           : css`
-              bottom: -5em !important;
+              transform: translateY(100px);
             `};
       }
     `}
@@ -44,11 +43,7 @@ const Container = styled.div`
       z-index: 3;
       bottom: 0;
       left: -6em;
-      clip-path: polygon(0 0, 100% 0%, 100% 92%, 0% 100%);
-    }
-
-    figure {
-      clip-path: polygon(0 0, 100% 0%, 100% 92%, 0% 100%);
+      transition: all 1s ease;
     }
   }
 `;

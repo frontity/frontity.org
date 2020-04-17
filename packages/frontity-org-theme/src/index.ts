@@ -49,7 +49,7 @@ const frontityOrg: FrontityOrg = {
       templates: ["fixed-header", "header", "footer", "newsletter"],
       isFixedHeaderVisible: false,
       heroBlogIsLoading: true,
-      heroTerminalPosition: "bottom",
+      heroTerminalPosition: "top",
     },
   },
   actions: {
@@ -67,9 +67,9 @@ const frontityOrg: FrontityOrg = {
       hideFixedHeader: ({ state }) => {
         state.theme.isFixedHeaderVisible = false;
       },
-      loadHeroBlog: ({ state }) => {
+      loadHeroBlog: ({ state, actions }) => {
         state.theme.heroBlogIsLoading = !state.theme.heroBlogIsLoading;
-        state.theme.heroTerminalPosition = "bottom";
+        actions.theme.setHeroTerminalPosition();
       },
       setHeroTerminalPosition: ({ state }) => {
         state.theme.heroTerminalPosition =

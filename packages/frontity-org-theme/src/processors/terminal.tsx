@@ -1,5 +1,6 @@
 import { Processor } from "@frontity/html2react/types";
-import { css, styled } from "frontity";
+import { connect,css, styled } from "frontity";
+import { Connect } from "frontity/types";
 import React from "react";
 
 import FrontityOrg from "../../types";
@@ -17,6 +18,30 @@ const Dot = styled("span")<{ colors: { [key: string]: string } }>`
   background-color: ${({ colors }) => addAlpha(colors.white, 0.15)};
 `;
 
+const Toggle = styled.a`
+  position: absolute;
+  right: 0.5em;
+
+  span {
+    color: #ffffff94;
+    font-size: 1.5em;
+  }
+`;
+
+const TogglePosition: React.FC<Connect<FrontityOrg>> = ({ actions, state }) => {
+  return (
+    <Toggle onClick={actions.theme.setHeroTerminalPosition}>
+      {state.theme.heroTerminalPosition === "bottom" ? (
+        <span>&#8963;</span>
+      ) : (
+        <span>&#8964;</span>
+      )}
+    </Toggle>
+  );
+};
+
+const ConnectedTogglePosion = connect(TogglePosition);
+
 const Top = ({ colors }) => (
   <div
     css={css`
@@ -25,6 +50,7 @@ const Top = ({ colors }) => (
       border-top-left-radius: inherit;
       border-top-right-radius: inherit;
       border-bottom: 1px solid ${addAlpha(colors.white, 0.07)};
+      position: relative;
     `}
   >
     <Dot
@@ -35,6 +61,8 @@ const Top = ({ colors }) => (
     />
     <Dot colors={colors} />
     <Dot colors={colors} />
+
+    <ConnectedTogglePosion />
   </div>
 );
 
