@@ -4,6 +4,8 @@ import { Connect } from "frontity/types";
 import React from "react";
 
 import FrontityOrg from "../../types";
+import ArrowDown from "../components/icons/arrow-down";
+import Arrow from "../components/icons/arrow-up";
 import { addAlpha } from "../utils";
 
 const TOP_HEIGHT = 24;
@@ -36,9 +38,9 @@ const TogglePosition: React.FC<Connect<FrontityOrg>> = ({ actions, state }) => {
       className="change-position"
     >
       {state.theme.heroTerminalPosition === "bottom" ? (
-        <span>&#8963;</span>
+        <Arrow color="#fff" />
       ) : (
-        <span>&#8964;</span>
+        <ArrowDown color="#fff" />
       )}
     </Toggle>
   );
