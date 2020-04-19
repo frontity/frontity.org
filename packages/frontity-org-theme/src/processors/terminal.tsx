@@ -4,8 +4,7 @@ import { Connect } from "frontity/types";
 import React from "react";
 
 import FrontityOrg from "../../types";
-import ArrowDown from "../components/icons/arrow-down";
-import Arrow from "../components/icons/arrow-up";
+import Arrow from "../components/icons/arrow";
 import { addAlpha } from "../utils";
 
 const TOP_HEIGHT = 24;
@@ -20,10 +19,16 @@ const Dot = styled("span")<{ colors: { [key: string]: string } }>`
   background-color: ${({ colors }) => addAlpha(colors.white, 0.15)};
 `;
 
-const Toggle = styled.a`
+const Toggle = styled.a<{ terminalPosition: string }>`
   position: absolute;
-  right: 0.5em;
+  cursor: pointer;
+  right: 0.8em;
   visibility: hidden;
+  ${(props) =>
+    props.terminalPosition &&
+    css`
+      transform: rotate(${props.terminalPosition === "top" ? "0" : "180"}deg);
+    `}
 
   span {
     color: #ffffff94;
@@ -35,13 +40,10 @@ const TogglePosition: React.FC<Connect<FrontityOrg>> = ({ actions, state }) => {
   return (
     <Toggle
       onClick={actions.theme.setHeroTerminalPosition}
+      terminalPosition={state.theme.heroTerminalPosition}
       className="change-position"
     >
-      {state.theme.heroTerminalPosition === "bottom" ? (
-        <Arrow color="#fff" />
-      ) : (
-        <ArrowDown color="#fff" />
-      )}
+      <Arrow color="#bbb" />
     </Toggle>
   );
 };
