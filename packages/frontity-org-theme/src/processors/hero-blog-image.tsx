@@ -1,10 +1,10 @@
 import { Processor } from "@frontity/html2react/types";
-import { connect, css,styled } from "frontity";
+import { connect, css, styled } from "frontity";
 import { Connect } from "frontity/types";
 import React from "react";
-import { ClipLoader } from "react-spinners";
 
 import FrontityOrg from "../../types";
+import Loading from "../components/loading";
 
 const HeroBlogImageComponent: React.FC<Connect<
   FrontityOrg,
@@ -15,14 +15,20 @@ const HeroBlogImageComponent: React.FC<Connect<
   <Container className={className}>
     {children}
 
-    <Loading
+    <BrowserContainer
       css={css`
         transition: 1s ease-in-out opacity;
         opacity: ${state.theme.heroBlogIsLoading ? 1 : 0};
       `}
     >
-      <ClipLoader size={50} color={"blue"} />
-    </Loading>
+      <LoadingContainer>
+        <Loader>
+          <Loading />
+        </Loader>
+
+        <LoadingText>Setting up Frontity...</LoadingText>
+      </LoadingContainer>
+    </BrowserContainer>
   </Container>
 );
 
@@ -30,12 +36,27 @@ const Container = styled.div`
   position: relative;
 `;
 
-const Loading = styled.div`
+const BrowserContainer = styled.div`
   position: absolute;
   background: #fff;
   height: calc(100% - 30px);
   top: 30px;
   width: 100%;
+`;
+
+const LoadingContainer = styled.div`
+  padding: 2.5em 1.5em;
+  display: flex;
+  align-items: center;
+`;
+
+const Loader = styled.div`
+  position: relative;
+`;
+
+const LoadingText = styled.div`
+  margin-left: 0.5em;
+  font-size: 1em;
 `;
 
 const ConnectedHeroBlogImageComponent = connect(HeroBlogImageComponent);
