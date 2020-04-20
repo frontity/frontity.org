@@ -147,6 +147,7 @@ const homePageStyles = (state: FrontityOrg["state"]["theme"]) => css`
       margin-left: -1em;
     }
 
+    /* As fast a Static Site Generator section */
     .frontity-ssg .wp-block-group .wp-block-columns {
       ol {
         list-style-type: decimal;
@@ -178,6 +179,26 @@ const homePageStyles = (state: FrontityOrg["state"]["theme"]) => css`
       }
     }
 
+    .demo-iframe {
+      margin-bottom: 30px;
+    }
+
+    .why-wp-react {
+      margin-top: 70px;
+
+      ul {
+        margin-left: 0;
+      }
+
+      figure {
+        margin-top: 50px;
+      }
+
+      .wp-block-column {
+        margin-left: 50px;
+      }
+    }
+
     @media only screen and (max-width: 769px) {
       padding: 80px 0px 170px;
       clip-path: polygon(
@@ -190,14 +211,35 @@ const homePageStyles = (state: FrontityOrg["state"]["theme"]) => css`
     }
   }
 
-  /* Keep editing your content section */
-
-  /* As fast a Static Site Generator section */
-
-  /* Why WP and why React section */
-
   /* Why Frontity section */
   .wp-block-group.why-frontity {
+    position: relative;
+
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      background: linear-gradient(180deg, transparent 0%, #fff 70%);
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 60px;
+      width: 100%;
+      transform: translateY(-24px);
+      clip-path: polygon(
+        50% 30px,
+        100% 0,
+        100% 30px,
+        50% calc(30px + 30px),
+        0 30px,
+        0 0
+      );
+    }
+
+    .description {
+      margin-bottom: 60px;
+    }
+
     padding: 120px 0px 84px;
 
     @media only screen and (max-width: 769px) {
