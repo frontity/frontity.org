@@ -22,6 +22,7 @@
     "@changesets/cli": "^2.6.5",
     "@frontity/core": "^1.5.2",
     "@frontity/frontity-org-theme": "file:packages/frontity-org-theme",
+    "@frontity/google-tag-manager": "^0.1.1",
     "@frontity/html2react": "^1.3.2",
     "@frontity/tiny-router": "^1.1.1",
     "@frontity/wp-source": "^1.6.3",
