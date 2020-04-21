@@ -291,7 +291,32 @@ const homePageStyles = (state: FrontityOrg["state"]["theme"]) => css`
     }
   }
 
-  /* Closing section */
+  /* Testimonial section */
+  .wp-block-group.testimonial-homepage {
+    padding: 0;
+    padding-bottom: 110px;
+  }
+
+  .wp-block-group.start-using-frontity {
+    padding: 0;
+    padding-bottom: 100px;
+
+    .wp-block-column {
+      margin-bottom: 20px;
+
+      h2 {
+        margin-top: 12px;
+      }
+
+      p {
+        margin-bottom: 23px;
+      }
+    }
+
+    .enterprise-projects a {
+      margin-left: -1.3em;
+    }
+  }
 `;
 
 export default homePageStyles;
