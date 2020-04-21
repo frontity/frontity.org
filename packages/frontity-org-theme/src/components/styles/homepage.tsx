@@ -214,6 +214,7 @@ const homePageStyles = (state: FrontityOrg["state"]["theme"]) => css`
   /* Why Frontity section */
   .wp-block-group.why-frontity {
     position: relative;
+    padding: 120px 0px 84px;
 
     &:before {
       content: "";
@@ -240,7 +241,9 @@ const homePageStyles = (state: FrontityOrg["state"]["theme"]) => css`
       margin-bottom: 60px;
     }
 
-    padding: 120px 0px 84px;
+    .special-link {
+      margin-top: 60px;
+    }
 
     @media only screen and (max-width: 769px) {
       padding: 100px 0px 120px;
