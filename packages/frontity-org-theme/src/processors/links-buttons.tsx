@@ -17,15 +17,11 @@ export const links: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
     const isButton = node.props?.className
       ?.split(/ /)
       .includes("wp-block-button__link");
-    const isBig = (node as any).parent?.props?.className
-      ?.split(/ /)
-      .includes("button-big");
-    const isButtonText = (node as any).parent?.props?.className
+    const isBig = node.props?.className?.split(/ /).includes("button-big");
+    const isButtonText = node.props?.className
       ?.split(/ /)
       .includes("button-text");
-    const noLogo = (node as any).parent?.props?.className
-      ?.split(/ /)
-      .includes("no-logo");
+    const noLogo = node.props?.className?.split(/ /).includes("no-logo");
     const hasImage = (node as any).children.some(
       (child) => child.type === "element" && child.component === "img"
     );
@@ -54,6 +50,7 @@ export const links: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
           &:hover {
             filter: opacity(0.9);
             cursor: pointer;
+            color: white;
           }
         `;
       }
