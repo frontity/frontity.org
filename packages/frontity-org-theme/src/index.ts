@@ -17,6 +17,8 @@ import { flowItem } from "./processors/frontity-flow-item";
 import { flowItems } from "./processors/frontity-flow-items";
 import { headlessFlow } from "./processors/headless-flow";
 import { fastSection } from "./processors/homepage/frontity-fast";
+import { needInspirationSection } from "./processors/homepage/need-inspiration";
+import { showcasesGallery } from "./processors/homepage/showcases-gallery";
 import { horizontalSeparator } from "./processors/horizontal-separator";
 import { imageFrame } from "./processors/image-frame";
 import { links } from "./processors/links-buttons";
@@ -60,6 +62,8 @@ const frontityOrg: FrontityOrg = {
         boxShadow,
         checklists,
         fastSection,
+        showcasesGallery,
+        needInspirationSection,
         dropdown,
         horizontalSeparator,
         links,
