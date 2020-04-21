@@ -53,8 +53,6 @@ export const terminal: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
       node.props.css = css`
         margin-left: 15px;
         margin-top: 12px;
-
-        overflow: scroll;
       `;
 
       // This class is used by the CSS for Prism.js syntax highlighter
@@ -78,7 +76,7 @@ export const terminal: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
       box-shadow: 0 2px 12px 0 rgba(12, 17, 43, 0.4),
         0 1px 4px 0 rgba(12, 17, 43, 0.39);
       border-radius: 8px;
-      overflow: unset;
+      overflow: auto;
       max-width: 100%;
 
       color: rgba(255, 255, 255, 0.8);
