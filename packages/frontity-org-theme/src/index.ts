@@ -3,6 +3,7 @@ import "./prism";
 import iframe from "@frontity/html2react/processors/iframe";
 
 import FrontityOrg from "../types";
+import actions from "./actions";
 import Theme from "./components";
 import { backgroundColor } from "./processors/background-color";
 import { borderRadius } from "./processors/border-radius";
@@ -22,6 +23,7 @@ import { horizontalSeparator } from "./processors/horizontal-separator";
 import { imageFrame } from "./processors/image-frame";
 import { links } from "./processors/links-buttons";
 import { mobileDesktop } from "./processors/mobile-desktop";
+import { newsletter } from "./processors/newsletter";
 import { paragraph } from "./processors/paragraph";
 import { polygonBackground } from "./processors/polygon-background";
 import { scrollingSection } from "./processors/scrolling-section";
@@ -29,6 +31,7 @@ import { section } from "./processors/section";
 import { specialIcons } from "./processors/special-icons";
 import { terminal } from "./processors/terminal";
 import { textColor } from "./processors/text-color";
+import state from "./state";
 
 const frontityOrg: FrontityOrg = {
   name: "frontity-org-theme",
@@ -36,59 +39,10 @@ const frontityOrg: FrontityOrg = {
     theme: Theme,
   },
   state: {
-    theme: {
-      colors: {
-        frontity: "#1f38c5",
-        primary: "#0f1c64",
-        voidblu: "#0c112b",
-        grass: "#82c315",
-        wall: "#f6f6f9",
-        purple: "#936af4",
-        orange: "#f4c053",
-        red: "#f76d64",
-        turqoise: "#6ac8c9",
-        lightgreen: "#8ACB88",
-        white: "#ffffff",
-      },
-
-      // slugs for the WP templates that are fetched in BeforeSSR
-      templates: ["fixed-header", "header", "footer", "newsletter"],
-
-      // Used in the frontity-flow section of the homepage
-      flowSectionActiveTab: 1,
-
-      isFixedHeaderVisible: false,
-
-      // This is the height of the <Header /> element at the top of the page.
-      // We need this in order to add padding-top to the Hero section accordingly
-      headerHeight: 125,
-
-      // List of z-index values used in the site
-      zIndices: {
-        navBar: 100,
-        flowSectionButtons: 10,
-      },
-    },
+    theme: state,
   },
   actions: {
-    theme: {
-      beforeSSR: async ({ state, actions }) => {
-        await Promise.all(
-          state.theme.templates.map((slug) =>
-            actions.source.fetch(`/wp_template_part/${slug}`)
-          )
-        );
-      },
-      setFlowSectionActiveTab: ({ state }) => ({ tabNumber }) => {
-        state.theme.flowSectionActiveTab = tabNumber;
-      },
-      showFixedHeader: ({ state }) => {
-        state.theme.isFixedHeaderVisible = true;
-      },
-      hideFixedHeader: ({ state }) => {
-        state.theme.isFixedHeaderVisible = false;
-      },
-    },
+    theme: actions,
   },
   libraries: {
     html2react: {
@@ -103,6 +57,7 @@ const frontityOrg: FrontityOrg = {
         imageFrame,
         polygonBackground,
         borderRadius,
+        newsletter,
         boxShadow,
         checklists,
         fastSection,
