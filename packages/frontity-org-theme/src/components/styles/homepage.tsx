@@ -282,6 +282,10 @@ const homePageStyles = (state: FrontityOrg["state"]["theme"]) => css`
       }
     }
 
+    .get-help-heading .special-icon {
+      margin-bottom: 18px;
+    }
+
     @media only screen and (max-width: 769px) {
       padding: 120px 0px 40px;
 
@@ -315,6 +319,20 @@ const homePageStyles = (state: FrontityOrg["state"]["theme"]) => css`
 
     .enterprise-projects a {
       margin-left: -1.3em;
+    }
+  }
+
+  .wp-block-group.accelerated-section {
+    .wp-block-group__inner-container {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 1em;
+      align-items: center;
+
+      figure {
+        margin-top: 32px;
+      }
     }
   }
 `;
