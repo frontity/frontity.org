@@ -1,5 +1,6 @@
+import Analytics from "@frontity/analytics/types";
 import Html2React from "@frontity/html2react/types";
-import Router from "@frontity/router";
+import Router from "@frontity/router/types";
 import Source from "@frontity/source/types";
 import { Action, AsyncAction, Package } from "frontity/types";
 import { ReactType } from "react";
@@ -98,6 +99,7 @@ interface FrontityOrg extends Package {
         { name: "name"; value: string }
       >;
     };
+    analytics?: Analytics["actions"]["analytics"];
     source?: Source["actions"]["source"];
   };
   libraries: {

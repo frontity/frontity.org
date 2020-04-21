@@ -14,6 +14,7 @@ const SubmitButton: React.FC<Connect<FrontityOrg>> = ({ state }) => {
     font-size: 16px;
     padding: 12px 16px;
     border-radius: 8px;
+    border: none;
 
     box-shadow: 0 4px 8px 0 rgba(12, 17, 43, 0.12),
       0 1px 4px 0 rgba(12, 17, 43, 0.16);

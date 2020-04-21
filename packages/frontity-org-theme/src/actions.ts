@@ -17,30 +17,30 @@ const actions: FrontityOrg["actions"]["theme"] = {
   hideFixedHeader: ({ state }) => {
     state.theme.isFixedHeaderVisible = false;
   },
-  sendNewsletter: ({ state, libraries, actions }) => {
+  sendNewsletter: ({ state, actions }) => {
     state.theme.newsletter.sending.newsletterForm = true;
+    const { email } = state.theme.newsletter.newsletterForm;
 
-    // :TODO: This is to be fixed once GTM PR is merged
-    // actions.analytics.sendEvent({
-    //   category: "some-category",
-    //   action: 'action',
-    //   label: 'label',
-    // });
+    actions.analytics.sendEvent({
+      event: "newsletter",
+      payload: { email, role: "undefined" },
+    });
 
     state.theme.newsletter.sending.newsletterForm = false;
     state.theme.newsletter.sent.newsletterForm = true;
   },
 
-  sendAfterNewsletter: ({ state, libraries }) => {
+  sendAfterNewsletter: ({ state, actions }) => {
     const { name, answers } = state.theme.newsletter.afterNewsletter;
     state.theme.newsletter.sending.afterNewsletter = true;
 
-    // :TODO: This is to be fixed once GTM PR is merged
-    // actions.analytics.sendEvent({
-    //   category: "some-category",
-    //   action: 'action',
-    //   label: 'label',
-    // });
+    actions.analytics.sendEvent({
+      event: "after-newsletter",
+      payload: {
+        name,
+        answers,
+      },
+    });
     state.theme.newsletter.sending.afterNewsletter = false;
     state.theme.newsletter.sent.afterNewsletter = true;
   },
