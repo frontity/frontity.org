@@ -269,17 +269,25 @@ const homePageStyles = (state: FrontityOrg["state"]["theme"]) => css`
   .wp-block-group.faq-section {
     padding: 160px 0px 108px;
 
-    @media only screen and (max-width: 769px) {
-      padding: 120px 0px 40px;
+    .dropdown-item {
+      margin-top: 20px;
     }
-  }
 
-  /* What people are saying section */
-  .wp-block-group.faq-section {
-    padding: 160px 0px 108px;
+    .get-help-heading > .wp-block-group__inner-container {
+      display: flex;
+
+      /* Get help on your project heading */
+      .wp-block-group {
+        margin-right: 12px;
+      }
+    }
 
     @media only screen and (max-width: 769px) {
       padding: 120px 0px 40px;
+
+      .wp-block-columns > .wp-block-column {
+        margin-bottom: 80px;
+      }
     }
   }
 
