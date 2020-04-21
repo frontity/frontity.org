@@ -37,7 +37,7 @@ export const flowItem: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
         height: auto;
       }
 
-      a {
+      a.wp-block-button {
         margin-left: -18px;
       }
     `;

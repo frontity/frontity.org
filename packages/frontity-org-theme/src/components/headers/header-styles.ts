@@ -177,6 +177,13 @@ export const desktopStyles = ({ state }: { state: State<FrontityOrg> }) =>
         }
       }
     }
+
+    /* Hide the 'Get Started' button on small screens, otherwise it makes the icons overflow to the next row */
+    .wp-block-buttons {
+      @media screen and (max-width: 940px) {
+        display: none;
+      }
+    }
   `;
 
 /* Mobile view */

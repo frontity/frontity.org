@@ -143,7 +143,7 @@ const homePageStyles = (state: FrontityOrg["state"]["theme"]) => css`
       0 0
     );
 
-    .wp-block-button > a {
+    a.wp-block-button {
       margin-left: -1em;
     }
 
@@ -169,7 +169,7 @@ const homePageStyles = (state: FrontityOrg["state"]["theme"]) => css`
         font-weight: bold;
       }
 
-      @media only screen and (max-width: 769px) {
+      @media only screen and (max-width: 600px) {
         .wp-block-column:nth-child(1) {
           padding: 0;
           border: 0;
@@ -322,16 +322,32 @@ const homePageStyles = (state: FrontityOrg["state"]["theme"]) => css`
     }
   }
 
+  /* Accelerated section  */
   .wp-block-group.accelerated-section {
     .wp-block-group__inner-container {
       position: relative;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-gap: 1em;
+      grid-gap: 1.5em;
       align-items: center;
 
       figure {
         margin-top: 32px;
+      }
+
+      /* mobile */
+      @media screen and (max-width: 599px) {
+        grid-template-rows: 0.3fr 0.3fr 0.3fr 0.3fr;
+        grid-gap: 0;
+        justify-items: center;
+
+        figure {
+          max-width: 60%;
+        }
+      }
+
+      /* desktop */
+      @media screen and (min-width: 600px) {
+        grid-template-columns: repeat(4, 1fr);
       }
     }
   }

@@ -35,6 +35,11 @@ const Footer: React.FC<Connect<FrontityOrg>> = ({ state, libraries }) => {
       margin-bottom: 9px;
     }
 
+    > .wp-block-group {
+      padding-top: 50px;
+      clip-path: polygon(0 0, 50% 30px, 100% 0%, 100% 100%, 0% 100%);
+    }
+
     & .wp-block-group__inner-container {
       max-width: 1080px;
       margin: auto;
