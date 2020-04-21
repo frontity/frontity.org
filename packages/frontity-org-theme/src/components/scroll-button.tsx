@@ -1,4 +1,4 @@
-import { connect, css,styled } from "frontity";
+import { connect, css, styled } from "frontity";
 import { Connect } from "frontity/types";
 import React from "react";
 

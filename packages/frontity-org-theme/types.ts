@@ -1,5 +1,6 @@
+import Analytics from "@frontity/analytics/types";
 import Html2React from "@frontity/html2react/types";
-import Router from "@frontity/router";
+import Router from "@frontity/router/types";
 import Source from "@frontity/source/types";
 import { Action, AsyncAction, Package } from "frontity/types";
 import { ReactType } from "react";
@@ -41,6 +42,35 @@ interface FrontityOrg extends Package {
         navBar: number;
         flowSectionButtons: number;
       };
+      newsletter: {
+        newsletterForm: {
+          email: string;
+          hasAgreed: boolean;
+        };
+        afterNewsletter: {
+          name: string;
+          questions: {
+            [name: string]: {
+              label: string;
+              options: {
+                label: string;
+                value: string;
+              }[];
+            };
+          };
+          answers: {
+            [name: string]: string | undefined;
+          };
+        };
+        sending: {
+          newsletterForm: boolean;
+          afterNewsletter: boolean;
+        };
+        sent: {
+          newsletterForm: boolean;
+          afterNewsletter: boolean;
+        };
+      };
     };
     source?: Source["state"]["source"] & {
       page: Record<string, PostEntityWithACF>;
@@ -48,13 +78,29 @@ interface FrontityOrg extends Package {
     router?: Router["state"]["router"];
   };
   actions: {
-    source?: Source["actions"]["source"];
     theme: {
       beforeSSR: AsyncAction<FrontityOrg>;
       setFlowSectionActiveTab: Action<FrontityOrg, { tabNumber: number }>;
       showFixedHeader: Action<FrontityOrg>;
       hideFixedHeader: Action<FrontityOrg>;
+      sendNewsletter: Action<FrontityOrg>;
+      sendAfterNewsletter: Action<FrontityOrg>;
+      setAnswer: Action<FrontityOrg, { name: string; answer: string }>;
+      setNewsletterPropString: Action<
+        FrontityOrg,
+        { name: string; value: string }
+      >;
+      setNewsletterPropBoolean: Action<
+        FrontityOrg,
+        { name: string; value: boolean }
+      >;
+      setAfterNewsletterProp: Action<
+        FrontityOrg,
+        { name: "name"; value: string }
+      >;
     };
+    analytics?: Analytics["actions"]["analytics"];
+    source?: Source["actions"]["source"];
   };
   libraries: {
     html2react?: Partial<Html2React["libraries"]["html2react"]>;
