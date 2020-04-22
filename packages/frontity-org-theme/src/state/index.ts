@@ -33,6 +33,8 @@ const state: FrontityOrg["state"]["theme"] = {
     navBar: 100,
     flowSectionButtons: 10,
   },
+  heroBlogIsLoading: true,
+  heroTerminalPosition: "top",
   newsletter,
 };
 

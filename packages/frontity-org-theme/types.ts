@@ -39,6 +39,8 @@ interface FrontityOrg extends Package {
       flowSectionActiveTab: number;
       isFixedHeaderVisible: boolean;
       headerHeight: number;
+      heroBlogIsLoading: boolean;
+      heroTerminalPosition: "top" | "bottom";
       zIndices: {
         navBar: number;
         flowSectionButtons: number;
@@ -97,8 +99,10 @@ interface FrontityOrg extends Package {
       >;
       setAfterNewsletterProp: Action<
         FrontityOrg,
-        { name: "name"; value: string }
+        { name: string; value: string }
       >;
+      setHeroTerminalPosition: Action<FrontityOrg>;
+      loadHeroBlog: Action<FrontityOrg>;
     };
     analytics?: Analytics["actions"]["analytics"];
     source?: Source["actions"]["source"];
