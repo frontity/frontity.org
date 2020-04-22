@@ -16,7 +16,7 @@ const settings = [
         name: "@frontity/wp-source",
         state: {
           source: {
-            api: "https://app-5e57da64f911c81cbcd5953b.closte.com/wp-json",
+            api: "https://wp.frontity.org/wp-json",
             postTypes: [
               {
                 type: "/blog/wp_template_part",
@@ -103,7 +103,7 @@ const settings = [
         name: "@frontity/wp-source",
         state: {
           source: {
-            api: "https://app-5e57da64f911c81cbcd5953b.closte.com/wp-json",
+            api: "https://wp.frontity.org/wp-json",
             homepage: "/homepage/",
             postsPage: "/blog",
             categoryBase: "/blog/category",
