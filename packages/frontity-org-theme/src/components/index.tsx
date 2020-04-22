@@ -6,6 +6,7 @@ import FrontityOrg from "../../types";
 import Footer from "./footer";
 import { FixedHeader, Header } from "./headers";
 import Page from "./page";
+import PageError from "./page-error";
 import ScrollButton from "./scroll-button";
 import FontFace from "./styles/font-face";
 import globalStyles from "./styles/global-styles";
@@ -30,13 +31,8 @@ const Theme: React.FC<Connect<FrontityOrg>> = ({ state }) => {
           <Global styles={homepageStyles(state.theme)} />
           <Page />
         </>
-      )) || (
-        <>
-          <a href="/homepage">Visit /homepage</a>
-          <br />
-          <a href="/common-styles/">Visit /common-styles/</a>
-        </>
-      )}
+      )) ||
+        (data.isError && <PageError />)}
       <Footer />
       <ScrollButton />
     </>
