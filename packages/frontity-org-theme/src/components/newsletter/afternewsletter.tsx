@@ -98,7 +98,7 @@ const AfterNewsletter: React.FC<Connect<FrontityOrg>> = ({
             <Question key={name} name={name} />
           )
         )}
-        <SubmitButton>SUBMIT</SubmitButton>
+        <SubmitButton>Send</SubmitButton>
       </Form>
     </>
   );

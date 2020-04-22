@@ -5,7 +5,7 @@ import React from "react";
 import FrontityOrg from "../../../types";
 import Logo from "../logo";
 
-const SubmitButton: React.FC<Connect<FrontityOrg>> = ({ state }) => {
+const SubmitButton: React.FC<Connect<FrontityOrg>> = ({ state, children }) => {
   // Styled Components
   const StyledButton = styled.button`
     background-color: ${state.theme.colors.frontity};
@@ -33,7 +33,7 @@ const SubmitButton: React.FC<Connect<FrontityOrg>> = ({ state }) => {
   return (
     <>
       <StyledButton type="submit">
-        <Logo fill={state.theme.colors.white} opacity={1} />
+        <Logo fill={state.theme.colors.white} opacity={1} /> {children}
       </StyledButton>
     </>
   );
