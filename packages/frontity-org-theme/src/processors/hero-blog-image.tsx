@@ -69,8 +69,8 @@ export const heroBlogImage: Processor = {
   test: ({ node }) =>
     node.type === "element" &&
     node.props.className &&
-    node.props.className.split(" ").includes("has-browser-window") &&
-    node.props.className.split(" ").includes("hero-blog-image"),
+    node.props.className?.split(" ").includes("has-browser-window") &&
+    node.props.className?.split(" ").includes("hero-blog-image"),
   processor: ({ node }) => {
     if (node.type === "element") {
       node.component = ConnectedHeroBlogImageComponent;

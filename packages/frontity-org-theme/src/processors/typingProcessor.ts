@@ -8,7 +8,7 @@ export const typingProcessor: Processor = {
   test: ({ node }) =>
     node.type === "element" &&
     node.props.className &&
-    node.props.className.split(" ").includes("typist-terminal"),
+    node.props.className?.split(" ").includes("typist-terminal"),
   processor: ({ node }) => {
     if (node.type === "element") {
       node.component = Typing;
