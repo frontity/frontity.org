@@ -18,7 +18,12 @@ const HeroAnimation: React.FC<Connect<FrontityOrg>> = ({
               transform: translateY(0);
             `
           : css`
-              transform: translateY(120px);
+              @media only screen and (min-width: 768px) {
+                transform: translateY(120px);
+              }
+              @media only screen and (max-width: 768px) {
+                transform: translateY(220px);
+              }
             `};
       }
     `}
@@ -42,7 +47,7 @@ const Container = styled.div`
       position: absolute;
       z-index: 3;
       bottom: 0;
-      left: -6em;
+      left: 0;
       transition: all 1s ease;
 
       .change-position {

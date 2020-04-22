@@ -34,6 +34,9 @@ const HeroBlogImageComponent: React.FC<Connect<
 
 const Container = styled.div`
   position: relative;
+  @media only screen and (min-width: 768px) {
+    transform: translateX(70px);
+  }
 `;
 
 const BrowserContainer = styled.div`
