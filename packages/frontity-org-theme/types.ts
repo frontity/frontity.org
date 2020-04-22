@@ -38,7 +38,7 @@ interface FrontityOrg extends Package {
       templates: string[];
       flowSectionActiveTab: number;
       isFixedHeaderVisible: boolean;
-      heroBlogIsLoading: true;
+      heroBlogIsLoading: boolean;
       heroTerminalPosition: "top" | "bottom";
       zIndices: {
         navBar: number;
@@ -101,6 +101,7 @@ interface FrontityOrg extends Package {
         { name: "name"; value: string }
       >;
       setHeroTerminalPosition: Action<FrontityOrg>;
+      loadHeroBlog: Action<FrontityOrg>;
     };
     analytics?: Analytics["actions"]["analytics"];
     source?: Source["actions"]["source"];

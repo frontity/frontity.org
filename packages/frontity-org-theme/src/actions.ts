@@ -60,6 +60,10 @@ const actions: FrontityOrg["actions"]["theme"] = {
   setAfterNewsletterProp: ({ state }) => ({ name, value }) => {
     state.theme.newsletter.afterNewsletter[name] = value;
   },
+  loadHeroBlog: ({ state, actions }) => {
+    state.theme.heroBlogIsLoading = !state.theme.heroBlogIsLoading;
+    actions.theme.setHeroTerminalPosition();
+  },
   setHeroTerminalPosition: ({ state }) => {
     state.theme.heroTerminalPosition =
       state.theme.heroTerminalPosition === "top" ? "bottom" : "top";
