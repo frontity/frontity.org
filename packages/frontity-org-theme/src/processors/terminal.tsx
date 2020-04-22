@@ -7,8 +7,6 @@ import FrontityOrg from "../../types";
 import Arrow from "../components/icons/arrow";
 import { addAlpha } from "../utils";
 
-const TOP_HEIGHT = 24;
-
 const Dot = styled("span")<{ colors: { [key: string]: string } }>`
   display: inline-block;
   height: 8px;
@@ -89,9 +87,8 @@ export const terminal: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
 
     if (node.component === "code") {
       node.props.css = css`
-        position: absolute;
         margin-left: 15px;
-        margin-top: ${TOP_HEIGHT + 10}px;
+        margin-top: 12px;
       `;
 
       // This class is used by the CSS for Prism.js syntax highlighter
@@ -99,6 +96,7 @@ export const terminal: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
       return node;
     }
 
+    // This should apply to all element with `.wp-block-code` or `.terminal`
     node.props.css = css`
       ${node.props.css}
       display: flex;
@@ -107,15 +105,17 @@ export const terminal: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
       font-size: 0.78rem;
       line-height: 1.65;
       background: ${state.theme.colors.voidblu};
-      height: 310px;
+      height: 330px;
       width: 400px;
       padding: 0;
       border: 0;
       box-shadow: 0 2px 12px 0 rgba(12, 17, 43, 0.4),
         0 1px 4px 0 rgba(12, 17, 43, 0.39);
       border-radius: 8px;
-      overflow: unset;
+      overflow: auto;
       max-width: 100%;
+
+      color: rgba(255, 255, 255, 0.8);
 
       .wp-block-group__inner-container {
         padding-top: 10px;
@@ -160,8 +160,8 @@ export const terminal: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
       }
 
       ol li::before {
-        content: counter(counter) " ";
-        color: ${addAlpha(state.theme.colors.white, 0.15)};
+        content: "$ ";
+        color: ${addAlpha(state.theme.colors.white, 0.7)};
         margin-right: 15px;
         display: inline-block;
         text-align: right;

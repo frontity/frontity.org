@@ -32,7 +32,7 @@ export const flowButton: Processor<
       component: FlowButton,
       props: {
         tabNumber: parseInt(tabNumber),
-        text: (node.children[0] as any).children[0]?.content,
+        text: (node as any).children[1]?.content,
       },
     };
   },

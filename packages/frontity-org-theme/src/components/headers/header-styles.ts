@@ -65,6 +65,8 @@ const tooltipStyles = ({ state }: { state: State<FrontityOrg> }) => css`
 export const generalStyles = ({ state }: { state: State<FrontityOrg> }) => css`
   font-family: Poppins;
 
+  background-color: transparent;
+
   > .wp-block-group {
     padding: 0;
     > .wp-block-group__inner-container {
@@ -173,6 +175,13 @@ export const desktopStyles = ({ state }: { state: State<FrontityOrg> }) =>
             filter: saturate(2.6) hue-rotate(5deg);
           }
         }
+      }
+    }
+
+    /* Hide the 'Get Started' button on small screens, otherwise it makes the icons overflow to the next row */
+    .wp-block-buttons {
+      @media screen and (max-width: 940px) {
+        display: none;
       }
     }
   `;
@@ -310,6 +319,14 @@ export const headerStyles = ({
   isMenuOpen;
 }) => css`
   ${generalStyles({ state })};
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: ${state.theme.headerHeight};
+  z-index: ${state.theme.zIndices.navBar};
+
   @media only screen and (min-width: 866px) {
     ${desktopStyles({ state })};
 

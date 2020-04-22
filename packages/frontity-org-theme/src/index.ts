@@ -28,7 +28,6 @@ import { mobileDesktop } from "./processors/mobile-desktop";
 import { newsletter } from "./processors/newsletter";
 import { paragraph } from "./processors/paragraph";
 import { polygonBackground } from "./processors/polygon-background";
-import { reactMadeEasy } from "./processors/react-made-easy";
 import { scrollingSection } from "./processors/scrolling-section";
 import { section } from "./processors/section";
 import { specialIcons } from "./processors/special-icons";
@@ -77,7 +76,6 @@ const frontityOrg: FrontityOrg = {
         flowButton,
         flowItems,
         flowItem,
-        reactMadeEasy,
         headlessFlow,
         homepageHeroAnimation,
         typingProcessor,

@@ -1,4 +1,4 @@
-import { connect,styled } from "frontity";
+import { connect, styled } from "frontity";
 import { Connect } from "frontity/types";
 import React, { ReactElement } from "react";
 import Typist from "react-typist";

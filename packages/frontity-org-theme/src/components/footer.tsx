@@ -20,6 +20,7 @@ const Footer: React.FC<Connect<FrontityOrg>> = ({ state, libraries }) => {
 
     ul {
       list-style-type: none;
+      margin-left: 0;
     }
 
     ul li {
@@ -32,6 +33,11 @@ const Footer: React.FC<Connect<FrontityOrg>> = ({ state, libraries }) => {
       line-height: 21px;
       margin-top: 0;
       margin-bottom: 9px;
+    }
+
+    > .wp-block-group {
+      padding-top: 50px;
+      clip-path: polygon(0 0, 50% 30px, 100% 0%, 100% 100%, 0% 100%);
     }
 
     & .wp-block-group__inner-container {

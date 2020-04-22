@@ -38,6 +38,7 @@ interface FrontityOrg extends Package {
       templates: string[];
       flowSectionActiveTab: number;
       isFixedHeaderVisible: boolean;
+      headerHeight: number;
       heroBlogIsLoading: boolean;
       heroTerminalPosition: "top" | "bottom";
       zIndices: {
