@@ -43,7 +43,7 @@ const settings = [
   },
   {
     name: "blog-frontity",
-    match: ["https?://[^/]+/blog($|/)"],
+    match: ["https?://[^/]+/blog[^-w]"],
     state: {
       frontity: {
         url: "https://frontity.org",
@@ -114,6 +114,14 @@ const settings = [
       "@frontity/tiny-router",
       "@frontity/html2react",
       "@frontity/head-tags",
+      {
+        name: "@frontity/google-analytics",
+        state: {
+          googleAnalytics: {
+            trackingIds: ["UA-91312941-9", "UA-91312941-14"],
+          },
+        },
+      },
     ],
   },
 ];
