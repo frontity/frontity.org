@@ -39,7 +39,7 @@ interface FrontityOrg extends Package {
       flowSectionActiveTab: number;
       isFixedHeaderVisible: boolean;
       heroBlogIsLoading: boolean;
-      heroTerminalPosition: string;
+      heroTerminalPosition: "top" | "bottom";
       zIndices: {
         navBar: number;
         flowSectionButtons: number;
