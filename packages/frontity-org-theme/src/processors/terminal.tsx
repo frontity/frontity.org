@@ -1,8 +1,10 @@
 import { Processor } from "@frontity/html2react/types";
-import { css, styled } from "frontity";
+import { connect, css, styled } from "frontity";
+import { Connect } from "frontity/types";
 import React from "react";
 
 import FrontityOrg from "../../types";
+import Arrow from "../components/icons/arrow";
 import { addAlpha } from "../utils";
 
 const TOP_HEIGHT = 24;
@@ -17,6 +19,37 @@ const Dot = styled("span")<{ colors: { [key: string]: string } }>`
   background-color: ${({ colors }) => addAlpha(colors.white, 0.15)};
 `;
 
+const Toggle = styled.a<{ terminalPosition: string }>`
+  position: absolute;
+  cursor: pointer;
+  right: 0.8em;
+  visibility: hidden;
+  ${(props) =>
+    props.terminalPosition &&
+    css`
+      transform: rotate(${props.terminalPosition === "top" ? "0" : "180"}deg);
+    `}
+
+  span {
+    color: #ffffff94;
+    font-size: 1.5em;
+  }
+`;
+
+const TogglePosition: React.FC<Connect<FrontityOrg>> = ({ actions, state }) => {
+  return (
+    <Toggle
+      onClick={actions.theme.setHeroTerminalPosition}
+      terminalPosition={state.theme.heroTerminalPosition}
+      className="change-position"
+    >
+      <Arrow color="#bbb" />
+    </Toggle>
+  );
+};
+
+const ConnectedTogglePosion = connect(TogglePosition);
+
 const Top = ({ colors }) => (
   <div
     css={css`
@@ -25,6 +58,7 @@ const Top = ({ colors }) => (
       border-top-left-radius: inherit;
       border-top-right-radius: inherit;
       border-bottom: 1px solid ${addAlpha(colors.white, 0.07)};
+      position: relative;
     `}
   >
     <Dot
@@ -35,6 +69,8 @@ const Top = ({ colors }) => (
     />
     <Dot colors={colors} />
     <Dot colors={colors} />
+
+    <ConnectedTogglePosion />
   </div>
 );
 
