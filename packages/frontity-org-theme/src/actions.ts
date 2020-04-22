@@ -4,7 +4,7 @@ const actions: FrontityOrg["actions"]["theme"] = {
   beforeSSR: async ({ state, actions }) => {
     await Promise.all(
       state.theme.templates.map((slug) =>
-        actions.source.fetch(`/wp_template_part/${slug}`)
+        actions.source.fetch(`/blog/wp_template_part/${slug}`)
       )
     );
   },
