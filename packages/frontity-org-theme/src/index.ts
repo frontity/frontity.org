@@ -3,6 +3,7 @@ import "./prism";
 import iframe from "@frontity/html2react/processors/iframe";
 
 import FrontityOrg from "../types";
+import actions from "./actions";
 import Theme from "./components";
 import { backgroundColor } from "./processors/background-color";
 import { borderRadius } from "./processors/border-radius";
@@ -24,6 +25,7 @@ import { horizontalSeparator } from "./processors/horizontal-separator";
 import { imageFrame } from "./processors/image-frame";
 import { links } from "./processors/links-buttons";
 import { mobileDesktop } from "./processors/mobile-desktop";
+import { newsletter } from "./processors/newsletter";
 import { paragraph } from "./processors/paragraph";
 import { polygonBackground } from "./processors/polygon-background";
 import { reactMadeEasy } from "./processors/react-made-easy";
@@ -33,6 +35,7 @@ import { specialIcons } from "./processors/special-icons";
 import { terminal } from "./processors/terminal";
 import { textColor } from "./processors/text-color";
 import { typingProcessor } from "./processors/typingProcessor";
+import state from "./state";
 
 const frontityOrg: FrontityOrg = {
   name: "frontity-org-theme",
@@ -40,58 +43,10 @@ const frontityOrg: FrontityOrg = {
     theme: Theme,
   },
   state: {
-    theme: {
-      colors: {
-        frontity: "#1f38c5",
-        primary: "#0f1c64",
-        voidblu: "#0c112b",
-        grass: "#82c315",
-        wall: "#f6f6f9",
-        purple: "#936af4",
-        orange: "#f4c053",
-        red: "#f76d64",
-        turqoise: "#6ac8c9",
-        lightgreen: "#8ACB88",
-        white: "#ffffff",
-      },
-      templates: ["fixed-header", "header", "footer", "newsletter"],
-      flowSectionActiveTab: 1, // Used in the frontity-flow section of the homepage
-      isFixedHeaderVisible: false,
-      zIndices: {
-        navBar: 100,
-        flowSectionButtons: 10,
-      },
-      heroBlogIsLoading: true,
-      heroTerminalPosition: "top",
-    },
+    theme: state,
   },
   actions: {
-    theme: {
-      beforeSSR: async ({ state, actions }) => {
-        await Promise.all(
-          state.theme.templates.map((slug) =>
-            actions.source.fetch(`/wp_template_part/${slug}`)
-          )
-        );
-      },
-      setFlowSectionActiveTab: ({ state }) => ({ tabNumber }) => {
-        state.theme.flowSectionActiveTab = tabNumber;
-      },
-      showFixedHeader: ({ state }) => {
-        state.theme.isFixedHeaderVisible = true;
-      },
-      hideFixedHeader: ({ state }) => {
-        state.theme.isFixedHeaderVisible = false;
-      },
-      loadHeroBlog: ({ state, actions }) => {
-        state.theme.heroBlogIsLoading = !state.theme.heroBlogIsLoading;
-        actions.theme.setHeroTerminalPosition();
-      },
-      setHeroTerminalPosition: ({ state }) => {
-        state.theme.heroTerminalPosition =
-          state.theme.heroTerminalPosition === "top" ? "bottom" : "top";
-      },
-    },
+    theme: actions,
   },
   libraries: {
     html2react: {
@@ -106,6 +61,7 @@ const frontityOrg: FrontityOrg = {
         imageFrame,
         polygonBackground,
         borderRadius,
+        newsletter,
         boxShadow,
         checklists,
         fastSection,
