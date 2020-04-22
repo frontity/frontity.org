@@ -18,12 +18,28 @@ const homePageStyles = (state: FrontityOrg["state"]["theme"]) => css`
   ul {
     opacity: 0.85;
   }
-
+  /* Top section */
+  .top-section {
+    position: relative;
+    padding-top: ${state.headerHeight}px;
+  }
+  /* About Us */
+  .hero-about-us {
+    background-color: #f2f3fc;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 92%, 0% 100%);
+    p {
+      max-width: 672px;
+      margin: auto;
+    }
+    img {
+      margin: 84px auto 20px;
+    }
+  }
   /* Hero section */
   .hero-homepage {
     background-color: #f2f3fc;
     position: relative;
-    padding-top: ${state.headerHeight}px;
     clip-path: polygon(0 0, 100% 0, 100% 92%, 0% 100%);
 
     &:after {
