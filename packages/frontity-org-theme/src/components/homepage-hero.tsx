@@ -36,8 +36,13 @@ const Container = styled.div`
   height: 100%;
 
   & > div {
+    clip-path: polygon(0 0, 100% 0, 100% 92%, 0% 100%);
     position: relative;
     height: 100%;
+
+    @media only screen and (max-width: 769px) {
+      clip-path: none;
+    }
 
     .wp-block-image {
       margin: 0;

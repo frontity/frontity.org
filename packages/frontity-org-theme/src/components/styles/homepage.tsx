@@ -28,6 +28,7 @@ const homePageStyles = (state: FrontityOrg["state"]["theme"]) => css`
     background-color: #f2f3fc;
     position: relative;
     clip-path: polygon(0 0, 100% 0, 100% 92%, 0% 100%);
+
     p {
       max-width: 672px;
       margin: auto;
@@ -38,23 +39,14 @@ const homePageStyles = (state: FrontityOrg["state"]["theme"]) => css`
   }
   /* Hero section */
   .hero-homepage {
-    background-color: #f2f3fc;
+    background-color: rgb(236, 237, 246);
+    height: 45em;
     position: relative;
     clip-path: polygon(0 0, 100% 0, 100% 92%, 0% 100%);
 
-    &:after {
-      content: "";
-      display: block;
-      position: absolute;
-      background-color: rgb(236, 237, 246);
-      bottom: 0;
-      left: 0;
-      right: 0;
-      top: 0;
-      height: 100%;
-      width: 100%;
-
-      clip-path: polygon(0 100%, 100% 85%, 100% 92%);
+    @media only screen and (max-width: 769px) {
+      height: auto;
+      clip-path: none;
     }
 
     .hero-text {

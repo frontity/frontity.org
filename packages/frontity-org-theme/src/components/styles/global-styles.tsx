@@ -233,12 +233,27 @@ const documentSetup = (colors: FrontityOrg["state"]["theme"]["colors"]) => css`
     max-width: 100%;
   }
   //Style the layout
-  div#root > div.wp-block-group > div {
-    max-width: 1080px;
-    margin: auto;
-    @media only screen and (max-width: 1080px) {
-      padding-right: 16px;
-      padding-left: 16px;
+  div#root {
+    @media only screen and (min-width: 1440px) {
+      > .wp-block-group.hero-homepage > .wp-block-group__inner-container {
+        margin-left: 12.2807%;
+        max-width: calc(1080px + 12.2807%);
+      }
+    }
+
+    > .wp-block-group > .wp-block-group__inner-container {
+      max-width: 1080px;
+      margin: auto;
+      padding-top: 4rem;
+
+      @media only screen and (max-width: 769px) {
+        padding-top: 1rem;
+      }
+
+      @media only screen and (max-width: 1080px) {
+        padding-right: 16px;
+        padding-left: 16px;
+      }
     }
   }
 `;
