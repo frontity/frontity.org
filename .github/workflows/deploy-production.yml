@@ -1,0 +1,45 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches:
+      - test-release
+
+jobs:
+  deploy-to-production:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Setup npm cache
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check if this should run
+        id: check
+        run: |
+          [ ! -n "$(find .changeset -name '*.md')" ] &&
+            echo ::set-output name=continue::yes
+
+      - name: Deploy to now
+        if: steps.check.outputs.continue == 'yes'
+        run: npx now --prod --confirm --token $NOW_TOKEN --scope frontity
+        env:
+          NOW_TOKEN: ${{ secrets.NOW_TOKEN }}
+
+      - name: Create commit comment
+        if: steps.check.outputs.continue == 'yes'
+        uses: peter-evans/commit-comment@v1
+        with:
+          token: ${{ secrets.FRONTIBOTITO_GH }}
+          body: |
+            Deploy successful at https://frontity.org.
