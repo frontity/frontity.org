@@ -1,6 +1,7 @@
 {
   "name": "@frontity/frontity-org-theme",
   "version": "1.0.1",
+  "private": true,
   "description": "The Frontity theme of https://frontity.org",
   "keywords": [
     "frontity",
