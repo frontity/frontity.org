@@ -1,6 +1,6 @@
-import { connect, css,Global, styled } from "frontity";
+import { connect, css, Global, styled } from "frontity";
 import React, { useRef } from "react";
-import { animated,useTransition } from "react-spring";
+import { animated, useTransition } from "react-spring";
 
 import useFocusEffect from "../hooks/use-focus-effect";
 import useFocusTrap from "../hooks/use-trap-focus";
@@ -41,7 +41,7 @@ const SearchModal = ({ state, actions }) => {
     // Better to trim write spaces as well
     if (searchString.trim().length > 0) {
       // Let's go search for blogs that match the search string
-      actions.router.set(`/?s=${formatQuery(searchString)}`);
+      actions.router.set(`/blog/?s=${formatQuery(searchString)}`);
 
       // Scroll the page to the top
       window.scrollTo(0, 0);

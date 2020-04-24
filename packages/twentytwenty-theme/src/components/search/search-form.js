@@ -25,7 +25,7 @@ const SearchForm = ({ state, actions, libraries }) => {
     // Better to trim write spaces as well
     if (searchString.trim().length > 0) {
       // Let's go search for blogs that match the search string
-      actions.router.set(`/?s=${searchString.toLowerCase()}`);
+      actions.router.set(`/blog/?s=${searchString.toLowerCase()}`);
 
       // Scroll the page to the top
       window.scrollTo(0, 0);
