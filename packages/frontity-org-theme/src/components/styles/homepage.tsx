@@ -40,9 +40,9 @@ const homePageStyles = (state: FrontityOrg["state"]["theme"]) => css`
   /* Hero section */
   .hero-homepage {
     background-color: rgb(236, 237, 246);
-    height: 45em;
+    height: 47em;
     position: relative;
-    clip-path: polygon(0 0, 100% 0, 100% 92%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 88%, 0% 100%);
 
     @media only screen and (max-width: 769px) {
       height: auto;

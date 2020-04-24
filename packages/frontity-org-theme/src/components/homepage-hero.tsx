@@ -36,7 +36,7 @@ const Container = styled.div`
   height: 100%;
 
   & > div {
-    clip-path: polygon(0 0, 300% 0, 120% 92%, 0% 100%);
+    clip-path: polygon(0 0, 300% 0, 120% 90%, 0% 100%);
     position: relative;
     height: 100%;
 
