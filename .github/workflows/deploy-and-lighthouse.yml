@@ -21,13 +21,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Check if it should deploy to production
-        id: deploy
-        if: github.ref == 'refs/heads/master'
-        run: echo "::set-output name=args::--prod"
-
       - name: Deploy to now
-        run: npx frontity build && npx now --confirm --token $NOW_TOKEN ${{ steps.deploy.outputs.args }} --meta commit=${GITHUB_SHA} --meta branch=${GITHUB_REF} --scope frontity | tee >(grep '^https:\/\/frontity-org-' > deploy-url.txt)
+        run: npx now --confirm --token $NOW_TOKEN --meta commit=${GITHUB_SHA} --meta branch=${GITHUB_REF} --scope frontity | tee >(grep '^https:\/\/frontity-org-' > deploy-url.txt)
         env:
           NOW_TOKEN: ${{ secrets.NOW_TOKEN }}
 
@@ -66,7 +61,7 @@ jobs:
           configPath: ./.github/workflows/lighthouserc.json
           budgetPath: ./.github/workflows/budget.json
           urls: |
-            https://frontity-org-$COMMIT_SHA.now.sh/homepage
+            https://frontity-org-$COMMIT_SHA.now.sh/
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
           COMMIT_SHA: ${{ github.sha }}

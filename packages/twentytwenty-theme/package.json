@@ -1,0 +1,27 @@
+{
+  "name": "@frontity/twentytwenty-theme",
+  "version": "1.1.2",
+  "private": true,
+  "description": "The WordPress Twenty Twenty starter theme for Frontity",
+  "homepage": "https://frontity.org",
+  "license": "GNU GPL 2",
+  "keywords": [
+    "frontity",
+    "frontity-theme",
+    "wordpress"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frontity/frontity.git"
+  },
+  "bugs": {
+    "url": "https://community.frontity.org"
+  },
+  "dependencies": {
+    "@frontity/components": "^1.3.1",
+    "@frontity/html2react": "^1.3.2",
+    "frontity": "^1.5.3",
+    "react-spinners": "^0.5.4",
+    "react-spring": "^8.0.27"
+  }
+}
