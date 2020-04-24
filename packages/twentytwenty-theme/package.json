@@ -1,0 +1,53 @@
+{
+  "_from": "@frontity/twentytwenty-theme",
+  "_id": "@frontity/twentytwenty-theme@1.1.1",
+  "_inBundle": false,
+  "_integrity": "sha512-vjyVzVCrM63x4JoqROXt0sg92ZjFhj0MQsmkYNU3thaoHnpF249/M5PTJDAolXlqUC2LDMDn5slkzyC0ZrIdYw==",
+  "_location": "/@frontity/twentytwenty-theme",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "@frontity/twentytwenty-theme",
+    "name": "@frontity/twentytwenty-theme",
+    "escapedName": "@frontity%2ftwentytwenty-theme",
+    "scope": "@frontity",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@frontity/twentytwenty-theme/-/twentytwenty-theme-1.1.1.tgz",
+  "_shasum": "bead0d05e4ec77d40b32614bc615ac5a3077c0c9",
+  "_spec": "@frontity/twentytwenty-theme",
+  "_where": "/home/mario/Desktop/Code/Frontity/frontity.org",
+  "bugs": {
+    "url": "https://community.frontity.org"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "@frontity/components": "^1.3.1",
+    "@frontity/html2react": "^1.3.2",
+    "frontity": "^1.5.3",
+    "react-spinners": "^0.5.4",
+    "react-spring": "^8.0.27"
+  },
+  "deprecated": false,
+  "description": "The WordPress Twenty Twenty starter theme for Frontity",
+  "homepage": "https://frontity.org",
+  "keywords": [
+    "frontity",
+    "frontity-theme",
+    "wordpress"
+  ],
+  "license": "GNU GPL 2",
+  "name": "@frontity/twentytwenty-theme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frontity/frontity.git"
+  },
+  "version": "1.1.1"
+}
