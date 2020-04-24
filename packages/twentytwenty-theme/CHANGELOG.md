@@ -1,5 +1,11 @@
 # @frontity/twentytwenty-theme
 
+## 1.1.2
+
+### Patch Changes
+
+- [`cd410e8`](https://github.com/frontity/frontity.org/commit/cd410e8b041b405a4c6470a1891abeac8d7d1a64) [#94](https://github.com/frontity/frontity.org/pull/94) Thanks [@SantosGuillamot](https://github.com/SantosGuillamot)! - We've moved the package twentytwenty-theme to local packages and fix the link at the title and the search.
+
 ## 1.1.1
 
 ### Patch Changes
