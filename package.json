@@ -14,7 +14,6 @@
   },
   "prettier": {},
   "workspaces": [
-    ".",
     "packages/*"
   ],
   "dependencies": {
