@@ -42,8 +42,4 @@ jobs:
         with:
           token: ${{ secrets.FRONTIBOTITO_GH }}
           body: |
-            Deployed successfully at https://frontity.org.
-
-      - name: Rebase dev onto master
-        if: steps.check.outputs.continue == 'yes'
-        run: git checkout dev && git rebase master && git push origin dev
+            Deploy successful at https://frontity.org.
