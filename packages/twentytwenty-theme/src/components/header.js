@@ -23,7 +23,7 @@ const Header = ({ state }) => {
           {/* Heading and Description of the site */}
           <TitleGroup>
             <SiteTitle>
-              <StyledLink link="/">{title}</StyledLink>
+              <StyledLink link="/blog">{title}</StyledLink>
             </SiteTitle>
             <SiteDescription>{description}</SiteDescription>
           </TitleGroup>
