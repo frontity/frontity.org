@@ -34,9 +34,9 @@ jobs:
           CI: true
 
       - name: Create Release Pull Request
-        uses: luisherranz/changeset-action@pass-env-variables-to-publish-command
+        uses: luisherranz/changeset-action@after-merge-command
         with:
-          publish: echo $FAKE_TOKEN && npx now --prod --confirm --token $NOW_TOKEN --scope frontity && git checkout dev && git rebase master && git push origin dev
+          afterMerge: echo $FAKE_TOKEN && npx now --prod --confirm --token $NOW_TOKEN --scope frontity && git checkout dev && git rebase master && git push origin dev
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NOW_TOKEN: ${{ secrets.NOW_TOKEN }}
