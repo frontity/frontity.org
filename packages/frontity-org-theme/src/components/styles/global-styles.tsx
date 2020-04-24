@@ -232,12 +232,29 @@ const documentSetup = (colors: FrontityOrg["state"]["theme"]["colors"]) => css`
   img {
     max-width: 100%;
   }
-  //Style the layout
+  /* Style the layout */
   div#root {
     @media only screen and (min-width: 1440px) {
       > .wp-block-group.hero-homepage > .wp-block-group__inner-container {
-        margin-left: 12.2807%;
-        max-width: calc(1080px + 12.2807%);
+        .wp-block-columns {
+          /* Required to keep the animated right section 
+             pinned on all landscape screens */
+          position: relative;
+        }
+
+        .wp-block-column {
+          &:first-child {
+            flex-basis: 50%;
+            flex-grow: 0;
+            margin-top: 70px;
+          }
+
+          &:not(:first-child) {
+            position: absolute;
+            margin-left: 0;
+            right: -1.7rem;
+          }
+        }
       }
     }
 
