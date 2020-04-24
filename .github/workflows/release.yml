@@ -34,7 +34,7 @@ jobs:
           CI: true
 
       - name: Create Release Pull Request
-        uses: changesets/action@master
+        uses: luisherranz/changeset-action@pass-env-variables-to-publish-command
         with:
           publish: npx now --prod --confirm --token $NOW_TOKEN --scope frontity && git checkout dev && git rebase master && git push origin dev
         env:
