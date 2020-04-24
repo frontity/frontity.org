@@ -46,8 +46,10 @@ export const links: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
         node.props.css = css`
           ${node.props.css}
           box-shadow: 0 4px 8px 0 rgba(12,17,43,0.12), 0 1px 4px 0 rgba(12,17,43,0.16);
-
-          &:hover {
+          &:hover,
+          &:active,
+          &:focus,
+          &:visited {
             filter: opacity(0.9);
             cursor: pointer;
             color: white;
