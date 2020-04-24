@@ -108,6 +108,7 @@ const settings = [
             postsPage: "/blog",
             categoryBase: "/blog/category",
             tagBase: "/blog/tag",
+            authorBase: "/blog/author",
           },
         },
       },
