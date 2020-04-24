@@ -3,7 +3,7 @@ name: Deploy to Production
 on:
   push:
     branches:
-      - test-release
+      - master
 
 jobs:
   deploy-to-production:
