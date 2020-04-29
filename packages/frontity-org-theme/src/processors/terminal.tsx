@@ -1,11 +1,11 @@
 import { Processor } from "@frontity/html2react/types";
-import { css, styled } from "frontity";
+import { connect, css, styled } from "frontity";
+import { Connect } from "frontity/types";
 import React from "react";
 
 import FrontityOrg from "../../types";
+import Arrow from "../components/icons/arrow";
 import { addAlpha } from "../utils";
-
-const TOP_HEIGHT = 24;
 
 const Dot = styled("span")<{ colors: { [key: string]: string } }>`
   display: inline-block;
@@ -17,6 +17,37 @@ const Dot = styled("span")<{ colors: { [key: string]: string } }>`
   background-color: ${({ colors }) => addAlpha(colors.white, 0.15)};
 `;
 
+const Toggle = styled.a<{ terminalPosition: string }>`
+  position: absolute;
+  cursor: pointer;
+  right: 0.8em;
+  visibility: hidden;
+  ${(props) =>
+    props.terminalPosition &&
+    css`
+      transform: rotate(${props.terminalPosition === "top" ? "0" : "180"}deg);
+    `}
+
+  span {
+    color: #ffffff94;
+    font-size: 1.5em;
+  }
+`;
+
+const TogglePosition: React.FC<Connect<FrontityOrg>> = ({ actions, state }) => {
+  return (
+    <Toggle
+      onClick={actions.theme.setHeroTerminalPosition}
+      terminalPosition={state.theme.heroTerminalPosition}
+      className="change-position"
+    >
+      <Arrow color="#bbb" />
+    </Toggle>
+  );
+};
+
+const ConnectedTogglePosion = connect(TogglePosition);
+
 const Top = ({ colors }) => (
   <div
     css={css`
@@ -25,6 +56,7 @@ const Top = ({ colors }) => (
       border-top-left-radius: inherit;
       border-top-right-radius: inherit;
       border-bottom: 1px solid ${addAlpha(colors.white, 0.07)};
+      position: relative;
     `}
   >
     <Dot
@@ -35,6 +67,8 @@ const Top = ({ colors }) => (
     />
     <Dot colors={colors} />
     <Dot colors={colors} />
+
+    <ConnectedTogglePosion />
   </div>
 );
 
@@ -53,9 +87,8 @@ export const terminal: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
 
     if (node.component === "code") {
       node.props.css = css`
-        position: absolute;
         margin-left: 15px;
-        margin-top: ${TOP_HEIGHT + 10}px;
+        margin-top: 12px;
       `;
 
       // This class is used by the CSS for Prism.js syntax highlighter
@@ -63,6 +96,7 @@ export const terminal: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
       return node;
     }
 
+    // This should apply to all element with `.wp-block-code` or `.terminal`
     node.props.css = css`
       ${node.props.css}
       display: flex;
@@ -71,15 +105,17 @@ export const terminal: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
       font-size: 0.78rem;
       line-height: 1.65;
       background: ${state.theme.colors.voidblu};
-      height: 310px;
+      height: 330px;
       width: 400px;
       padding: 0;
       border: 0;
       box-shadow: 0 2px 12px 0 rgba(12, 17, 43, 0.4),
         0 1px 4px 0 rgba(12, 17, 43, 0.39);
       border-radius: 8px;
-      overflow: unset;
+      overflow: auto;
       max-width: 100%;
+
+      color: rgba(255, 255, 255, 0.8);
 
       .wp-block-group__inner-container {
         padding-top: 10px;
@@ -124,8 +160,8 @@ export const terminal: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
       }
 
       ol li::before {
-        content: counter(counter) " ";
-        color: ${addAlpha(state.theme.colors.white, 0.15)};
+        content: "$ ";
+        color: ${addAlpha(state.theme.colors.white, 0.7)};
         margin-right: 15px;
         display: inline-block;
         text-align: right;

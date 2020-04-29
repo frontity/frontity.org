@@ -26,7 +26,7 @@ export const imageFrame: Processor<React.HTMLProps<HTMLElement>> = {
     node.props.css = css`
       ${node.props.css};
       box-shadow: 0 -1px 0 0 rgba(12, 17, 43, 0.04);
-      background-color: rgba(12, 17, 43, 0.02);
+      background-color: rgb(243, 243, 243);
       display: inline-flex;
       flex-flow: column nowrap;
       overflow: hidden;

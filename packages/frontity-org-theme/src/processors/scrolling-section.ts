@@ -22,6 +22,19 @@ export const scrollingSection: Processor<
     node.props.css = css`
       ${node.props.css};
 
+      @media screen and (min-width: 600px) {
+        .wp-block-group__inner-container .wp-block-columns {
+          display: grid;
+          align-items: start;
+          grid-gap: 4em 2em;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+          .wp-block-column {
+            margin: 0;
+          }
+        }
+      }
+
       /* This is the default breakpoint for Gutenberg's columns */
       @media only screen and (max-width: 599px) {
         overflow-x: auto;

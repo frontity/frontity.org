@@ -4,6 +4,7 @@ import iframe from "@frontity/html2react/processors/iframe";
 import image from "@frontity/html2react/processors/image";
 
 import FrontityOrg from "../types";
+import actions from "./actions";
 import Theme from "./components";
 import { backgroundColor } from "./processors/background-color";
 import { borderRadius } from "./processors/border-radius";
@@ -11,10 +12,21 @@ import { borders } from "./processors/borders";
 import { boxShadow } from "./processors/box-shadow";
 import { checklists } from "./processors/checklists";
 import { dropdown } from "./processors/dropdown";
+import { flowButton } from "./processors/frontity-flow-button";
+import { flowButtons } from "./processors/frontity-flow-buttons";
+import { flowItem } from "./processors/frontity-flow-item";
+import { flowItems } from "./processors/frontity-flow-items";
+import { headlessFlow } from "./processors/headless-flow";
+import { heroBlogImage } from "./processors/hero-blog-image";
+import { homepageHeroAnimation } from "./processors/homepage-hero";
+import { fastSection } from "./processors/homepage/frontity-fast";
+import { needInspirationSection } from "./processors/homepage/need-inspiration";
+import { showcasesGallery } from "./processors/homepage/showcases-gallery";
 import { horizontalSeparator } from "./processors/horizontal-separator";
 import { imageFrame } from "./processors/image-frame";
 import { links } from "./processors/links-buttons";
 import { mobileDesktop } from "./processors/mobile-desktop";
+import { newsletter } from "./processors/newsletter";
 import { paragraph } from "./processors/paragraph";
 import { polygonBackground } from "./processors/polygon-background";
 import { scrollingSection } from "./processors/scrolling-section";
@@ -23,6 +35,8 @@ import { specialIcons } from "./processors/special-icons";
 import { terminal } from "./processors/terminal";
 import { textColor } from "./processors/text-color";
 import { tweet } from "./processors/tweet";
+import { typingProcessor } from "./processors/typingProcessor";
+import state from "./state";
 
 const frontityOrg: FrontityOrg = {
   name: "frontity-org-theme",
@@ -30,33 +44,10 @@ const frontityOrg: FrontityOrg = {
     theme: Theme,
   },
   state: {
-    theme: {
-      colors: {
-        frontity: "#1f38c5",
-        primary: "#0f1c64",
-        voidblu: "#0c112b",
-        grass: "#82c315",
-        wall: "#f6f6f9",
-        purple: "#936af4",
-        orange: "#f4c053",
-        red: "#f76d64",
-        turqoise: "#6ac8c9",
-        lightgreen: "#8ACB88",
-        white: "#ffffff",
-      },
-      templates: ["fixed-header", "header", "footer", "newsletter"],
-    },
+    theme: state,
   },
   actions: {
-    theme: {
-      beforeSSR: ({ state, actions }) => async () => {
-        await Promise.all(
-          state.theme.templates.map((slug) =>
-            actions.source.fetch(`/wp_template_part/${slug}`)
-          )
-        );
-      },
-    },
+    theme: actions,
   },
   libraries: {
     html2react: {
@@ -72,8 +63,12 @@ const frontityOrg: FrontityOrg = {
         imageFrame,
         polygonBackground,
         borderRadius,
+        newsletter,
         boxShadow,
         checklists,
+        fastSection,
+        showcasesGallery,
+        needInspirationSection,
         dropdown,
         horizontalSeparator,
         links,
@@ -81,6 +76,14 @@ const frontityOrg: FrontityOrg = {
         section,
         specialIcons,
         tweet,
+        flowButtons,
+        flowButton,
+        flowItems,
+        flowItem,
+        headlessFlow,
+        homepageHeroAnimation,
+        typingProcessor,
+        heroBlogImage,
       ],
     },
   },
