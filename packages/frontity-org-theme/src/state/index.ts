@@ -17,7 +17,7 @@ const state: FrontityOrg["state"]["theme"] = {
   },
 
   // slugs for the WP templates that are fetched in BeforeSSR
-  templates: ["fixed-header", "header", "footer", "newsletter"],
+  templates: ["fixed-header", "header-web", "footer", "newsletter"],
 
   // Used in the frontity-flow section of the homepage
   flowSectionActiveTab: 1,
