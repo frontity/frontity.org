@@ -1,5 +1,11 @@
 # @frontity/frontity-org-theme
 
+## 1.0.2
+
+### Patch Changes
+
+- [`5c6ad07`](https://github.com/frontity/frontity.org/commit/5c6ad07ede355447fa70623ea073473a988c6ee3) [#102](https://github.com/frontity/frontity.org/pull/102) Thanks [@SantosGuillamot](https://github.com/SantosGuillamot)! - Change the header slug to match the Gutenberg side.
+
 ## 1.0.1
 
 ### Patch Changes
