@@ -10,7 +10,7 @@ import { fixedHeaderStyles, headerStyles } from "./header-styles";
 export const Header = connect<React.FC<Connect<FrontityOrg>>>(
   ({ state, actions, libraries }) => {
     // Get the header template.
-    const data = state.source.get("/blog/wp_template_part/header/");
+    const data = state.source.get("/blog/wp_template_part/header-web/");
     const header = state.source["wp_template_part"][data.id];
 
     // Get the component that transform the template to React.
