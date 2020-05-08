@@ -53,7 +53,7 @@ const homePageStyles = (state: FrontityOrg["state"]["theme"]) => css`
       top: 0;
       height: 100%;
       width: 100%;
-
+      z-index: -1;
       clip-path: polygon(0 100%, 100% 85%, 100% 92%);
     }
 
