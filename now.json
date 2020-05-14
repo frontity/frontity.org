@@ -1,5 +1,5 @@
 {
-  "scope": "frontity",
+  "name": "frontity-org",
   "version": 2,
   "builds": [
     {
