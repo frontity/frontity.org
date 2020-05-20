@@ -40,7 +40,7 @@
     "frontity": "^1.6.0",
     "husky": "^4.2.5",
     "intersection-observer": "^0.10.0",
-    "lint-staged": "10.2.4",
+    "lint-staged": "^10.2.4",
     "prettier": "^2.0.5"
   }
 }
