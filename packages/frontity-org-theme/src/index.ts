@@ -1,4 +1,6 @@
 import "./prism";
+// load the polyfill for `intersection-observer`
+import "intersection-observer";
 
 import iframe from "@frontity/html2react/processors/iframe";
 
