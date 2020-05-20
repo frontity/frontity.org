@@ -28,4 +28,7 @@ const Container = styled.div`
   .wp-block-group.has-background {
     padding: 10px 30px;
   }
+  strong {
+    font-weight: bold;
+  }
 `;
