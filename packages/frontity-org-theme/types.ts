@@ -37,6 +37,7 @@ interface FrontityOrg extends Package {
       };
       templates: string[];
       flowSectionActiveTab: number;
+      isTopBannerVisible: boolean;
       isFixedHeaderVisible: boolean;
       headerHeight: number;
       heroBlogIsLoading: boolean;
