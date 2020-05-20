@@ -222,7 +222,7 @@ export const mobileStyles = ({
     display: ${isMenuOpen ? "block" : "none"};
     /* Fixed and filling the space below the navbar */
     position: fixed;
-    top: 73px;
+    top: ${state.theme.isTopBannerVisible ? "148px" : "73px"};
     left: 0;
     right: 0;
     bottom: 0;
