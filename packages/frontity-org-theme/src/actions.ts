@@ -9,10 +9,9 @@ const actions: FrontityOrg["actions"]["theme"] = {
     );
     // Check if top banner should be visible
     const banner = state.source.get("/blog/wp_template_part/top-banner/");
-    const showBanner = banner.isError
-      ? null
-      : state.source["wp_template_part"][banner.id].acf.visible;
-    showBanner === "true" && (state.theme.isTopBannerVisible = true);
+    state.theme.isTopBannerVisible = banner.isError
+      ? false
+      : state.source["wp_template_part"][banner.id].acf.visible === "true";
   },
   setFlowSectionActiveTab: ({ state }) => ({ tabNumber }) => {
     state.theme.flowSectionActiveTab = tabNumber;
