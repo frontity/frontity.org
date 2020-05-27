@@ -30,6 +30,9 @@ jobs:
           [ ! -n "$(find .changeset -name '*.md')" ] &&
             echo ::set-output name=continue::yes
 
+      - name: Frontity build
+        run: npx frontity build --publicPath="https://frontity-org.frontity.now.sh/static"
+
       - name: Deploy to now
         if: steps.check.outputs.continue == 'yes'
         run: npx now --prod --confirm --token $NOW_TOKEN --scope frontity

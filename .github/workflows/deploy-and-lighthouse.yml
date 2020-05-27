@@ -22,7 +22,9 @@ jobs:
         run: npm ci
 
       - name: Frontity build
-        run: npx frontity build
+        run: npx frontity build --publicPath=https://frontity-org-$COMMIT_SHA.now.sh/static
+        env:
+          COMMIT_SHA: ${{ github.sha }}
 
       - name: Deploy to now
         run: npx now --confirm --token $NOW_TOKEN --meta commit=${GITHUB_SHA} --meta branch=${GITHUB_REF} --scope frontity | tee >(grep '^https:\/\/frontity-org-' > deploy-url.txt)
