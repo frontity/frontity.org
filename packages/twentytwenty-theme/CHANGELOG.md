@@ -1,5 +1,13 @@
 # @frontity/twentytwenty-theme
 
+## 1.1.3
+
+### Patch Changes
+
+- [`fb693a1`](https://github.com/frontity/frontity.org/commit/fb693a11962d820718bb65bdf9bba01ed40b31a3) [#112](https://github.com/frontity/frontity.org/pull/112) Thanks [@SantosGuillamot](https://github.com/SantosGuillamot)! - Update Frontity project with the latest release.
+
+* [`06e98f4`](https://github.com/frontity/frontity.org/commit/06e98f4930715698a84e51dfc5eef2ee3ea9659c) [#108](https://github.com/frontity/frontity.org/pull/108) Thanks [@SantosGuillamot](https://github.com/SantosGuillamot)! - Update of the project to the latest version and change of font-display to swap.
+
 ## 1.1.2
 
 ### Patch Changes
