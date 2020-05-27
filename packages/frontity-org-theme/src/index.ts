@@ -35,6 +35,8 @@ import { section } from "./processors/section";
 import { specialIcons } from "./processors/special-icons";
 import { terminal } from "./processors/terminal";
 import { textColor } from "./processors/text-color";
+import { addTweet } from "./processors/tweets/add-tweet";
+import { deleteTwitterScript } from "./processors/tweets/delete-script";
 import { typingProcessor } from "./processors/typingProcessor";
 import state from "./state";
 
@@ -82,6 +84,8 @@ const frontityOrg: FrontityOrg = {
         homepageHeroAnimation,
         typingProcessor,
         heroBlogImage,
+        addTweet,
+        deleteTwitterScript,
       ],
     },
   },
