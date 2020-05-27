@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/media-has-caption */
+
 import useInView from "@frontity/hooks/use-in-view";
 import { Connect, Package } from "frontity/types";
 import React from "react";
