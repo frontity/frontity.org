@@ -12,21 +12,21 @@ const FontFace: React.FC = () => (
         font-family: "Poppins";
         src: url(${poppinsSemiBold});
         font-weight: 600;
-        font-display: block;
+        font-display: swap;
         font-style: normal;
       }
       @font-face {
         font-family: "IBMPlexSans";
         src: url(${IBMPlexSansRegular});
         font-weight: 500;
-        font-display: block;
+        font-display: swap;
         font-style: normal;
       }
       @font-face {
         font-family: "IBMPlexSans";
         src: url(${IBMPlexSansSemiBold});
         font-weight: 600;
-        font-display: block;
+        font-display: swap;
         font-style: normal;
       }
     `}
