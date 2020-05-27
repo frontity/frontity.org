@@ -23,7 +23,7 @@ export const checklists: Processor<React.HTMLProps<HTMLElement>> = {
               display: flex;
 
               &:before {
-                content: url("https://wp.frontity.org/wp-content/uploads/2020/02/check-circle-marker.svg");
+                content: url("https://frontity.org/wp-content/uploads/2020/02/check-circle-marker.svg");
               }
             }
           `,
