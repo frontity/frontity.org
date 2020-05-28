@@ -36,6 +36,8 @@ import { specialIcons } from "./processors/special-icons";
 import { terminal } from "./processors/terminal";
 import { textColor } from "./processors/text-color";
 import { typingProcessor } from "./processors/typingProcessor";
+import { lazyVideo } from "./processors/lazy-video";
+
 import state from "./state";
 
 const frontityOrg: FrontityOrg = {
@@ -82,6 +84,7 @@ const frontityOrg: FrontityOrg = {
         homepageHeroAnimation,
         typingProcessor,
         heroBlogImage,
+        lazyVideo,
       ],
     },
   },
