@@ -1,5 +1,15 @@
 # @frontity/frontity-org-theme
 
+## 1.2.0
+
+### Minor Changes
+
+- [`9511b85`](https://github.com/frontity/frontity.org/commit/9511b85815ad433158d903b28082babfaa50f2b8) [#115](https://github.com/frontity/frontity.org/pull/115) Thanks [@SantosGuillamot](https://github.com/SantosGuillamot)! - Add processor to lazy load the videos and improve the performance of the web.
+
+### Patch Changes
+
+- [`6a857c4`](https://github.com/frontity/frontity.org/commit/6a857c40a3aebfa6923143d8b717ef26105baaf5) [#116](https://github.com/frontity/frontity.org/pull/116) Thanks [@SantosGuillamot](https://github.com/SantosGuillamot)! - Change url of the urls pointing to wp.frontity.org to frontity.org directly.
+
 ## 1.1.1
 
 ### Patch Changes
