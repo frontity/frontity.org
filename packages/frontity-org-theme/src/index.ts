@@ -3,6 +3,7 @@ import "./prism";
 import "intersection-observer";
 
 import iframe from "@frontity/html2react/processors/iframe";
+import image from "@frontity/html2react/processors/image";
 
 import FrontityOrg from "../types";
 import actions from "./actions";
@@ -56,6 +57,7 @@ const frontityOrg: FrontityOrg = {
     html2react: {
       processors: [
         iframe,
+        image,
         // ...paragraph,
         // ...mobileDesktop,
         // ...borders,
