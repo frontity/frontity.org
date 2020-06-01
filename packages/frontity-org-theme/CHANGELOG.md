@@ -1,5 +1,11 @@
 # @frontity/frontity-org-theme
 
+## 1.3.0
+
+### Minor Changes
+
+- [`b3fa821`](https://github.com/frontity/frontity.org/commit/b3fa8214944ae34128368b8ab38a4842f6d0a3d6) [#114](https://github.com/frontity/frontity.org/pull/114) Thanks [@SantosGuillamot](https://github.com/SantosGuillamot)! - Add lazy load to the tweets so we can improve the performance of the web.
+
 ## 1.2.0
 
 ### Minor Changes
