@@ -25,6 +25,7 @@ import { needInspirationSection } from "./processors/homepage/need-inspiration";
 import { showcasesGallery } from "./processors/homepage/showcases-gallery";
 import { horizontalSeparator } from "./processors/horizontal-separator";
 import { imageFrame } from "./processors/image-frame";
+import { lazyVideo } from "./processors/lazy-video";
 import { links } from "./processors/links-buttons";
 import { mobileDesktop } from "./processors/mobile-desktop";
 import { newsletter } from "./processors/newsletter";
@@ -35,9 +36,9 @@ import { section } from "./processors/section";
 import { specialIcons } from "./processors/special-icons";
 import { terminal } from "./processors/terminal";
 import { textColor } from "./processors/text-color";
+import { addTweet } from "./processors/tweets/add-tweet";
+import { deleteTwitterScript } from "./processors/tweets/delete-script";
 import { typingProcessor } from "./processors/typingProcessor";
-import { lazyVideo } from "./processors/lazy-video";
-
 import state from "./state";
 
 const frontityOrg: FrontityOrg = {
@@ -84,6 +85,8 @@ const frontityOrg: FrontityOrg = {
         homepageHeroAnimation,
         typingProcessor,
         heroBlogImage,
+        addTweet,
+        deleteTwitterScript,
         lazyVideo,
       ],
     },
