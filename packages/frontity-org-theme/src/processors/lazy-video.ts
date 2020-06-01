@@ -1,4 +1,5 @@
-import { Processor, Element } from "@frontity/html2react/types";
+import { Element,Processor } from "@frontity/html2react/types";
+
 import LazyVideo from "../components/lazy-video";
 
 export const lazyVideo: Processor<Element> = {
