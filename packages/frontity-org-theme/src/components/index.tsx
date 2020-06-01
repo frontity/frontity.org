@@ -24,7 +24,7 @@ const Theme: React.FC<Connect<FrontityOrg>> = ({ state }) => {
       <Global styles={css(gutenbergTheme)} />
       <Global styles={globalStyles(state.theme.colors)} />
 
-      <FontFace />
+      {/* <FontFace /> */}
       {state.theme.isTopBannerVisible && <TopBanner />}
       <HeaderContainer>
         <Header />
