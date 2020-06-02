@@ -22,7 +22,7 @@ const Theme: React.FC<Connect<FrontityOrg>> = ({ state }) => {
     <>
       {/* <Global styles={css(gutenbergStyle)} />
       <Global styles={css(gutenbergTheme)} /> */}
-      {/* <Global styles={globalStyles(state.theme.colors)} /> */}
+      <Global styles={globalStyles(state.theme.colors)} />
 
       {/* <FontFace /> */}
       {/* {state.theme.isTopBannerVisible && <TopBanner />}
@@ -33,7 +33,7 @@ const Theme: React.FC<Connect<FrontityOrg>> = ({ state }) => {
 
       {(data.isPage && (
         <>
-          {/* <Global styles={homepageStyles(state.theme)} /> */}
+          <Global styles={homepageStyles(state.theme)} />
           <Page />
         </>
       )) ||
