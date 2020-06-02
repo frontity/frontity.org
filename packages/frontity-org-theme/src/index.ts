@@ -13,10 +13,10 @@ import { borders } from "./processors/borders";
 import { boxShadow } from "./processors/box-shadow";
 import { checklists } from "./processors/checklists";
 import { dropdown } from "./processors/dropdown";
-// import { flowButton } from "./processors/frontity-flow-button";
-// import { flowButtons } from "./processors/frontity-flow-buttons";
-// import { flowItem } from "./processors/frontity-flow-item";
-// import { flowItems } from "./processors/frontity-flow-items";
+import { flowButton } from "./processors/frontity-flow-button";
+import { flowButtons } from "./processors/frontity-flow-buttons";
+import { flowItem } from "./processors/frontity-flow-item";
+import { flowItems } from "./processors/frontity-flow-items";
 import { headlessFlow } from "./processors/headless-flow";
 // import { heroBlogImage } from "./processors/hero-blog-image";
 // import { homepageHeroAnimation } from "./processors/homepage-hero";
@@ -77,10 +77,10 @@ const frontityOrg: FrontityOrg = {
         scrollingSection,
         section,
         specialIcons,
-        // flowButtons,
-        // flowButton,
-        // flowItems,
-        // flowItem,
+        flowButtons,
+        flowButton,
+        flowItems,
+        flowItem,
         headlessFlow,
         // homepageHeroAnimation,
         // typingProcessor,
