@@ -30,6 +30,7 @@ const settings = [
       },
       "@frontity/tiny-router",
       "@frontity/html2react",
+      "@frontity/head-tags",
     ],
   },
   {
@@ -105,6 +106,7 @@ const settings = [
       },
       "@frontity/tiny-router",
       "@frontity/html2react",
+      "@frontity/head-tags",
       {
         name: "@frontity/google-analytics",
         state: {
