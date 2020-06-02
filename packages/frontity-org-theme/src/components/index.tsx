@@ -25,11 +25,11 @@ const Theme: React.FC<Connect<FrontityOrg>> = ({ state }) => {
       <Global styles={globalStyles(state.theme.colors)} />
 
       <FontFace />
-      {/* {state.theme.isTopBannerVisible && <TopBanner />}
+      {state.theme.isTopBannerVisible && <TopBanner />}
       <HeaderContainer>
         <Header />
         <FixedHeader />
-      </HeaderContainer> */}
+      </HeaderContainer>
 
       {(data.isPage && (
         <>
@@ -38,7 +38,7 @@ const Theme: React.FC<Connect<FrontityOrg>> = ({ state }) => {
         </>
       )) ||
         (data.isError && <PageError />)}
-      {/* <Footer /> */}
+      <Footer />
       <ScrollButton />
     </>
   );
