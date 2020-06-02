@@ -1,4 +1,4 @@
-// import "./prism";
+import "./prism";
 // load the polyfill for `intersection-observer`
 import "intersection-observer";
 
