@@ -26,10 +26,10 @@ const Theme: React.FC<Connect<FrontityOrg>> = ({ state }) => {
 
       <FontFace />
       {state.theme.isTopBannerVisible && <TopBanner />}
-      <HeaderContainer>
+      {/* <HeaderContainer>
         <Header />
         <FixedHeader />
-      </HeaderContainer>
+      </HeaderContainer> */}
 
       {(data.isPage && (
         <>
