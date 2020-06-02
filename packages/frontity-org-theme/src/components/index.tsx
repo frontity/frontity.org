@@ -20,8 +20,8 @@ const Theme: React.FC<Connect<FrontityOrg>> = ({ state }) => {
 
   return (
     <>
-      {/* <Global styles={css(gutenbergStyle)} />
-      <Global styles={css(gutenbergTheme)} /> */}
+      <Global styles={css(gutenbergStyle)} />
+      <Global styles={css(gutenbergTheme)} />
       <Global styles={globalStyles(state.theme.colors)} />
 
       <FontFace />
