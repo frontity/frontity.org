@@ -16,7 +16,7 @@ const settings = [
         name: "@frontity/wp-source",
         state: {
           source: {
-            api: "https://lighthouse-frontity-org.pantheonsite.io/wp-json",
+            api: "https://frontity.org/wp-json",
             postTypes: [
               {
                 type: "/blog/wp_template_part",
@@ -103,7 +103,7 @@ const settings = [
         name: "@frontity/wp-source",
         state: {
           source: {
-            api: "https://lighthouse-frontity-org.pantheonsite.io/wp-json",
+            api: "https://frontity.org/wp-json",
             homepage: "/homepage/",
             postsPage: "/blog",
             categoryBase: "/blog/category",
