@@ -34,7 +34,7 @@ import { polygonBackground } from "./processors/polygon-background";
 import { scrollingSection } from "./processors/scrolling-section";
 import { section } from "./processors/section";
 import { specialIcons } from "./processors/special-icons";
-// import { terminal } from "./processors/terminal";
+import { terminal } from "./processors/terminal";
 import { textColor } from "./processors/text-color";
 import { addTweet } from "./processors/tweets/add-tweet";
 import { deleteTwitterScript } from "./processors/tweets/delete-script";
@@ -60,7 +60,7 @@ const frontityOrg: FrontityOrg = {
         ...mobileDesktop,
         ...borders,
         backgroundColor,
-        // terminal,
+        terminal,
         textColor,
         imageFrame,
         polygonBackground,
