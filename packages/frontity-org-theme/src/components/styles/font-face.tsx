@@ -10,7 +10,7 @@ const FontFace: React.FC = () => (
     styles={css`
       @font-face {
         font-family: "Poppins";
-        src: url(${poppinsSemiBold});
+        src: url(${IBMPlexSansSemiBold});
         font-weight: 600;
         font-display: swap;
         font-style: normal;
