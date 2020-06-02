@@ -13,13 +13,13 @@ import { borders } from "./processors/borders";
 import { boxShadow } from "./processors/box-shadow";
 import { checklists } from "./processors/checklists";
 import { dropdown } from "./processors/dropdown";
-import { flowButton } from "./processors/frontity-flow-button";
-import { flowButtons } from "./processors/frontity-flow-buttons";
-import { flowItem } from "./processors/frontity-flow-item";
-import { flowItems } from "./processors/frontity-flow-items";
+// import { flowButton } from "./processors/frontity-flow-button";
+// import { flowButtons } from "./processors/frontity-flow-buttons";
+// import { flowItem } from "./processors/frontity-flow-item";
+// import { flowItems } from "./processors/frontity-flow-items";
 import { headlessFlow } from "./processors/headless-flow";
-import { heroBlogImage } from "./processors/hero-blog-image";
-import { homepageHeroAnimation } from "./processors/homepage-hero";
+// import { heroBlogImage } from "./processors/hero-blog-image";
+// import { homepageHeroAnimation } from "./processors/homepage-hero";
 import { fastSection } from "./processors/homepage/frontity-fast";
 import { needInspirationSection } from "./processors/homepage/need-inspiration";
 import { showcasesGallery } from "./processors/homepage/showcases-gallery";
@@ -28,17 +28,17 @@ import { imageFrame } from "./processors/image-frame";
 import { lazyVideo } from "./processors/lazy-video";
 import { links } from "./processors/links-buttons";
 import { mobileDesktop } from "./processors/mobile-desktop";
-import { newsletter } from "./processors/newsletter";
+// import { newsletter } from "./processors/newsletter";
 import { paragraph } from "./processors/paragraph";
 import { polygonBackground } from "./processors/polygon-background";
 import { scrollingSection } from "./processors/scrolling-section";
 import { section } from "./processors/section";
 import { specialIcons } from "./processors/special-icons";
-import { terminal } from "./processors/terminal";
+// import { terminal } from "./processors/terminal";
 import { textColor } from "./processors/text-color";
 import { addTweet } from "./processors/tweets/add-tweet";
 import { deleteTwitterScript } from "./processors/tweets/delete-script";
-import { typingProcessor } from "./processors/typingProcessor";
+// import { typingProcessor } from "./processors/typingProcessor";
 import state from "./state";
 
 const frontityOrg: FrontityOrg = {
@@ -60,12 +60,12 @@ const frontityOrg: FrontityOrg = {
         ...mobileDesktop,
         ...borders,
         backgroundColor,
-        terminal,
+        // terminal,
         textColor,
         imageFrame,
         polygonBackground,
         borderRadius,
-        newsletter,
+        // newsletter,
         boxShadow,
         checklists,
         fastSection,
@@ -77,14 +77,14 @@ const frontityOrg: FrontityOrg = {
         scrollingSection,
         section,
         specialIcons,
-        flowButtons,
-        flowButton,
-        flowItems,
-        flowItem,
+        // flowButtons,
+        // flowButton,
+        // flowItems,
+        // flowItem,
         headlessFlow,
-        homepageHeroAnimation,
-        typingProcessor,
-        heroBlogImage,
+        // homepageHeroAnimation,
+        // typingProcessor,
+        // heroBlogImage,
         addTweet,
         deleteTwitterScript,
         lazyVideo,
