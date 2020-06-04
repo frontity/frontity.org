@@ -1,4 +1,4 @@
-import { connect, css, Global, styled } from "frontity";
+import { connect, css, Global, Head,styled } from "frontity";
 import { Connect } from "frontity/types";
 import React from "react";
 
@@ -25,6 +25,9 @@ const Theme: React.FC<Connect<FrontityOrg>> = ({ state }) => {
       <Global styles={globalStyles(state.theme.colors)} />
 
       <FontFace />
+      <Head>
+        <html lang="en" />
+      </Head>
       {state.theme.isTopBannerVisible && <TopBanner />}
       <HeaderContainer>
         <Header />
