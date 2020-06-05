@@ -32,7 +32,7 @@ const SubmitButton: React.FC<Connect<FrontityOrg>> = ({ state, children }) => {
 
   return (
     <>
-      <StyledButton type="submit">
+      <StyledButton aria-label="Submit" type="submit">
         <Logo fill={state.theme.colors.white} opacity={1} /> {children}
       </StyledButton>
     </>

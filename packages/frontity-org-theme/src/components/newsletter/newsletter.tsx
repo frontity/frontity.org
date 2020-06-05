@@ -25,10 +25,12 @@ const Newsletter: React.FC<Connect<FrontityOrg>> = ({ state, actions }) => {
             }
           `}
         >
+          <label htmlFor="newsletterEmail" aria-label="Email adress"></label>
           <Input
             placeholder="Enter your email"
             type="email"
             required
+            id="newsletterEmail"
             primary={state.theme.colors.primary}
             onChange={(e) => {
               actions.theme.setNewsletterPropString({
@@ -37,7 +39,6 @@ const Newsletter: React.FC<Connect<FrontityOrg>> = ({ state, actions }) => {
               });
             }}
           />
-
           <SubmitButton />
         </Box>
         <Checkbox>

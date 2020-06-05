@@ -209,6 +209,10 @@ const cssReset = css`
   [hidden] {
     display: none;
   }
+  strong,
+  b {
+    font-weight: bold;
+  }
 `;
 
 const documentSetup = (colors: FrontityOrg["state"]["theme"]["colors"]) => css`
