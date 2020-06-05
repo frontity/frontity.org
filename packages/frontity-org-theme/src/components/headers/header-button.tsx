@@ -76,7 +76,11 @@ const HeaderButton: React.FC<{
   onClick: MouseEventHandler;
   isMenuOpen: boolean;
 }> = ({ color, onClick, isMenuOpen }) => (
-  <button css={headerButton({ color, isMenuOpen })} onClick={onClick} />
+  <button
+    css={headerButton({ color, isMenuOpen })}
+    aria-label="Toggle Menu"
+    onClick={onClick}
+  />
 );
 
 export default HeaderButton;
