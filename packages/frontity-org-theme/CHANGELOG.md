@@ -1,5 +1,13 @@
 # @frontity/frontity-org-theme
 
+## 1.3.1
+
+### Patch Changes
+
+- [`dd548a4`](https://github.com/frontity/frontity.org/commit/dd548a47d666529497fb0aea32da24d2b2a608a3) [#120](https://github.com/frontity/frontity.org/pull/120) Thanks [@SantosGuillamot](https://github.com/SantosGuillamot)! - Add font-weight bold to strong elements.
+
+* [`9dc3b6c`](https://github.com/frontity/frontity.org/commit/9dc3b6c208ae0a9522db39a81524c6814bcf69fa) [#121](https://github.com/frontity/frontity.org/pull/121) Thanks [@SantosGuillamot](https://github.com/SantosGuillamot)! - Fix some accesibility issues.
+
 ## 1.3.0
 
 ### Minor Changes
