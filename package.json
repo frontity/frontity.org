@@ -19,7 +19,7 @@
   "dependencies": {
     "@changesets/changelog-github": "^0.2.6",
     "@changesets/cli": "^2.8.0",
-    "@frontity/core": "^1.7.0",
+    "@frontity/core": "1.8.0-react-concurrent-experimental.0",
     "@frontity/frontity-org-theme": "file:packages/frontity-org-theme",
     "@frontity/google-analytics": "^1.1.0",
     "@frontity/google-tag-manager": "^0.2.0",
