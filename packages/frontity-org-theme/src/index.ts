@@ -18,8 +18,8 @@ import { flowButtons } from "./processors/frontity-flow-buttons";
 import { flowItem } from "./processors/frontity-flow-item";
 import { flowItems } from "./processors/frontity-flow-items";
 import { headlessFlow } from "./processors/headless-flow";
-import { heroBlogImage } from "./processors/hero-blog-image";
-import { homepageHeroAnimation } from "./processors/homepage-hero";
+// import { heroBlogImage } from "./processors/hero-blog-image";
+// import { homepageHeroAnimation } from "./processors/homepage-hero";
 import { fastSection } from "./processors/homepage/frontity-fast";
 import { needInspirationSection } from "./processors/homepage/need-inspiration";
 import { showcasesGallery } from "./processors/homepage/showcases-gallery";
@@ -38,7 +38,7 @@ import { terminal } from "./processors/terminal";
 import { textColor } from "./processors/text-color";
 import { addTweet } from "./processors/tweets/add-tweet";
 import { deleteTwitterScript } from "./processors/tweets/delete-script";
-import { typingProcessor } from "./processors/typingProcessor";
+// import { typingProcessor } from "./processors/typingProcessor";
 import state from "./state";
 
 const frontityOrg: FrontityOrg = {
@@ -82,9 +82,9 @@ const frontityOrg: FrontityOrg = {
         flowItems,
         flowItem,
         headlessFlow,
-        homepageHeroAnimation,
-        typingProcessor,
-        heroBlogImage,
+        // homepageHeroAnimation,
+        // typingProcessor,
+        // heroBlogImage,
         addTweet,
         deleteTwitterScript,
         lazyVideo,
