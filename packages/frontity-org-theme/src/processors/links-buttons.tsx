@@ -17,11 +17,13 @@ export const links: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
     const isButton = node.props?.className
       ?.split(/ /)
       .includes("wp-block-button__link");
-    const isBig = node.props?.className?.split(/ /).includes("button-big");
-    const isButtonText = node.props?.className
+    const isBig = node.parent.props?.className
+      ?.split(/ /)
+      .includes("button-big");
+    const isButtonText = node.parent.props?.className
       ?.split(/ /)
       .includes("button-text");
-    const noLogo = node.props?.className?.split(/ /).includes("no-logo");
+    const noLogo = node.parent.props?.className?.split(/ /).includes("no-logo");
     const hasImage = (node as any).children.some(
       (child) => child.type === "element" && child.component === "img"
     );
@@ -113,7 +115,10 @@ export const links: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
           padding: 12px 18px;
           color: ${state.theme.colors.frontity};
           background-color: transparent;
-          &:hover {
+          &:hover,
+          &:active,
+          &:focus,
+          &:visited {
             color: ${state.theme.colors.frontity};
           }
           &:hover::after {
