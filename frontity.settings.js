@@ -3,7 +3,7 @@ const settings = [
     name: "frontity-org",
     state: {
       frontity: {
-        url: "https://frontity.org",
+        url: "https://jsforwptalk-frontity-org.pantheonsite.io/",
         title: "Frontity",
         description: "Create amazing websites using WordPress & React",
       },
@@ -16,7 +16,7 @@ const settings = [
         name: "@frontity/wp-source",
         state: {
           source: {
-            api: "https://frontity.org/wp-json",
+            api: "https://jsforwptalk-frontity-org.pantheonsite.io/wp-json",
             postTypes: [
               {
                 type: "/blog/wp_template_part",
@@ -46,7 +46,7 @@ const settings = [
     match: ["https?:\\/\\/[^/]+\\/blog([^-\\w]|$)"],
     state: {
       frontity: {
-        url: "https://frontity.org",
+        url: "https://jsforwptalk-frontity-org.pantheonsite.io/",
         title: "Frontity Blog",
         description: "Create amazing sites using WordPress & React",
       },
@@ -103,7 +103,7 @@ const settings = [
         name: "@frontity/wp-source",
         state: {
           source: {
-            api: "https://frontity.org/wp-json",
+            api: "https://jsforwptalk-frontity-org.pantheonsite.io/wp-json",
             homepage: "/homepage/",
             postsPage: "/blog",
             categoryBase: "/blog/category",
