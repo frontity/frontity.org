@@ -1,13 +1,9 @@
-import { Processor } from "@frontity/html2react/types";
+import { Element,Processor } from "@frontity/html2react/types";
 import { css } from "frontity";
-import React from "react";
 
 import FrontityOrg from "../../../types";
 
-export const showcasesGallery: Processor<
-  React.HTMLProps<HTMLElement>,
-  FrontityOrg
-> = {
+export const showcasesGallery: Processor<Element, FrontityOrg> = {
   name: "showcases-gallery",
   test: ({ node }) =>
     node.type === "element" &&

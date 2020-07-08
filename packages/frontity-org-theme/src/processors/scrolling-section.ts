@@ -1,21 +1,15 @@
-import { Processor } from "@frontity/html2react/types";
+import { Element,Processor } from "@frontity/html2react/types";
 import { css } from "frontity";
-import React from "react";
 
 import FrontityOrg from "../../types";
 import { addAlpha } from "../utils";
 
-export const scrollingSection: Processor<
-  React.HTMLProps<HTMLElement>,
-  FrontityOrg
-> = {
+export const scrollingSection: Processor<Element, FrontityOrg> = {
   name: "scrolling-section",
   test: ({ node }) =>
     node.type === "element" &&
     node.props?.className?.split(" ").includes("carrousel-bar"),
   processor: ({ node, state }) => {
-    if (node.type !== "element") return node;
-
     const thumbColor = state.theme.colors.frontity;
     const trackColor = addAlpha(state.theme.colors.primary, 0.08);
 
