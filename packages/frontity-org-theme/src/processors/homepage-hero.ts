@@ -1,18 +1,14 @@
-import { Element } from "@frontity/html2react/himalaya/types";
-import { Processor } from "@frontity/html2react/types";
-import { HTMLProps } from "react";
+import { Element,Processor } from "@frontity/html2react/types";
 
 import HomepageHero from "../components/homepage-hero";
 
-export const homepageHeroAnimation: Processor<HTMLProps<Element>> = {
+export const homepageHeroAnimation: Processor<Element> = {
   name: "homepage-hero-animation",
   test: ({ node }) =>
     node.type === "element" &&
     node.props.className?.split(" ").includes("homepage-hero-animation"),
   processor: ({ node }) => {
-    if (node.type === "element") {
-      node.component = HomepageHero;
-    }
+    node.component = HomepageHero;
 
     return node;
   },

@@ -1,24 +1,22 @@
-import { Node, Processor } from "@frontity/html2react/types";
+import { Element,Processor } from "@frontity/html2react/types";
 import { css, keyframes } from "frontity";
-import React from "react";
 
 import FrontityOrg from "../../../types";
 import Logo from "../../components/logo";
 import { addAlpha } from "../../utils";
 
-export const fastSection: Processor<
-  React.HTMLProps<HTMLElement>,
-  FrontityOrg
-> = {
+type Logo = Element & {
+  props: {
+    fill: string;
+  };
+};
+
+export const fastSection: Processor<Element, FrontityOrg> = {
   name: "frontity-ssg-section",
   test: ({ node }) =>
     node.type === "element" &&
     node.props?.className?.split(" ").includes("frontity-ssg"),
   processor: ({ node, state }) => {
-    if (node.type !== "element") {
-      return node;
-    }
-
     //Logo animation
     const move = keyframes`
     0% { 
@@ -33,7 +31,8 @@ export const fastSection: Processor<
     `;
 
     //Add Logo svg
-    const element: Node<React.HTMLProps<HTMLElement> & { fill: string }> = {
+
+    const element: Logo = {
       type: "element",
       component: Logo,
       props: {

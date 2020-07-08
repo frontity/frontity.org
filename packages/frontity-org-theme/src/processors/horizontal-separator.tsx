@@ -1,26 +1,20 @@
-import { Processor } from "@frontity/html2react/types";
+import { Element,Processor } from "@frontity/html2react/types";
 import { css } from "frontity";
-import React from "react";
 
 import FrontityOrg from "../../types";
 import { addAlpha } from "../utils";
 
-export const horizontalSeparator: Processor<
-  React.HTMLProps<HTMLElement>,
-  FrontityOrg
-> = {
+export const horizontalSeparator: Processor<Element, FrontityOrg> = {
   name: "horizontalSeparator",
   test: ({ node }) =>
     node.type === "element" &&
     node.props.className &&
     node.props.className.split(" ").includes("wp-block-separator"),
   processor: ({ node, state }) => {
-    if (node.type === "element") {
-      node.props.css = css`
-        border-color: ${addAlpha(state.theme.colors.primary, 0.12)};
-        max-width: 1080px;
-      `;
-    }
+    node.props.css = css`
+      border-color: ${addAlpha(state.theme.colors.primary, 0.12)};
+      max-width: 1080px;
+    `;
 
     return node;
   },

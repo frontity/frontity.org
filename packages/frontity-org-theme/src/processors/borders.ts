@@ -10,9 +10,6 @@ function createBordersProcessors(obj: {
       node.props.className?.split(/ /).includes(className),
 
     processor: ({ node }) => {
-      // Do nothing if this node is not an `node` (just a type guard).
-      if (node.type !== "element") return node;
-
       // Return the new component
       return {
         ...node,

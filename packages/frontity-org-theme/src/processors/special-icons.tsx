@@ -1,31 +1,26 @@
-import { Processor } from "@frontity/html2react/types";
+import { Element,Processor } from "@frontity/html2react/types";
 import { css } from "frontity";
-import React from "react";
 
 import FrontityOrg from "../../types";
 import { addAlpha } from "../utils";
 
 const borderRadiusRegex = /has-border-radius-(\d+)px/;
 
-export const specialIcons: Processor<
-  React.HTMLProps<HTMLElement>,
-  FrontityOrg
-> = {
+export const specialIcons: Processor<Element, FrontityOrg> = {
   name: "special-icons",
   test: ({ node }) =>
     node.type === "element" &&
     node.props.className &&
     node.props.className.split(" ").includes("special-icon"),
   processor: ({ node, state }) => {
-    if (node.type === "element") {
-      const classNames = node.props.className.split(" ");
+    const classNames = node.props.className.split(" ");
 
-      const hasBackground = classNames.includes("has-background");
-      const hasBorderRadius = classNames.some((c) => borderRadiusRegex.test(c));
+    const hasBackground = classNames.includes("has-background");
+    const hasBorderRadius = classNames.some((c) => borderRadiusRegex.test(c));
 
-      const defaultBgColor = addAlpha(state.theme.colors.primary, 0.08);
+    const defaultBgColor = addAlpha(state.theme.colors.primary, 0.08);
 
-      node.props.css = css`
+    node.props.css = css`
         ${node.props.css}
         ${!hasBackground && `background-color: ${defaultBgColor};`}
         ${!hasBorderRadius && `border-radius: 12px;`}
@@ -62,7 +57,6 @@ export const specialIcons: Processor<
           }
         }
       `;
-    }
 
     return node;
   },

@@ -24,7 +24,6 @@ import { fastSection } from "./processors/homepage/frontity-fast";
 import { needInspirationSection } from "./processors/homepage/need-inspiration";
 import { showcasesGallery } from "./processors/homepage/showcases-gallery";
 import { horizontalSeparator } from "./processors/horizontal-separator";
-import { imageFrame } from "./processors/image-frame";
 import { lazyVideo } from "./processors/lazy-video";
 import { links } from "./processors/links-buttons";
 import { mobileDesktop } from "./processors/mobile-desktop";
@@ -39,6 +38,7 @@ import { textColor } from "./processors/text-color";
 import { addTweet } from "./processors/tweets/add-tweet";
 import { deleteTwitterScript } from "./processors/tweets/delete-script";
 import { typingProcessor } from "./processors/typingProcessor";
+import { webBrowser } from "./processors/web-browser";
 import state from "./state";
 
 const frontityOrg: FrontityOrg = {
@@ -62,7 +62,7 @@ const frontityOrg: FrontityOrg = {
         backgroundColor,
         terminal,
         textColor,
-        imageFrame,
+        webBrowser,
         polygonBackground,
         borderRadius,
         newsletter,

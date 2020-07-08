@@ -1,4 +1,4 @@
-import { Processor } from "@frontity/html2react/types";
+import { Element,Processor } from "@frontity/html2react/types";
 import { connect, css, styled } from "frontity";
 import { Connect } from "frontity/types";
 import React from "react";
@@ -72,7 +72,7 @@ const Top = ({ colors }) => (
   </div>
 );
 
-export const terminal: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
+export const terminal: Processor<Element, FrontityOrg> = {
   name: "terminal",
   test: ({ node }) =>
     node.type === "element" &&
@@ -81,10 +81,6 @@ export const terminal: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
       node.component === "code"),
 
   processor: ({ node, state }) => {
-    if (node.type !== "element") {
-      return node;
-    }
-
     if (node.component === "code") {
       node.props.css = css`
         margin-left: 15px;
@@ -169,7 +165,7 @@ export const terminal: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
       }
     `;
 
-    const top: any = {
+    const top: Element = {
       type: "element",
       component: Top,
       props: { colors: state.theme.colors },

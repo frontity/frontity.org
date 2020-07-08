@@ -1,18 +1,14 @@
-import { Processor } from "@frontity/html2react/types";
+import { Element,Processor } from "@frontity/html2react/types";
 import { css } from "frontity";
-import React from "react";
 
 import FrontityOrg from "../../types";
 import Logo from "../components/logo";
 
-export const links: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
+export const links: Processor<Element, FrontityOrg> = {
   test: ({ node }) => node.type === "element" && node.component === "a",
   priority: 5,
 
   processor: ({ node, state }) => {
-    // just a TS type guard
-    if (node.type !== "element") return node;
-
     // Add all needed conditions
     const isButton = node.props?.className
       ?.split(/ /)
@@ -68,7 +64,7 @@ export const links: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
         const fillColor = isButtonText
           ? state.theme.colors.frontity
           : state.theme.colors.wall;
-        const element: any = {
+        const element: Element = {
           component: Logo,
           props: {
             css: css`

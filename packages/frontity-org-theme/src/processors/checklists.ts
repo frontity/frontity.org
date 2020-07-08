@@ -1,8 +1,7 @@
-import { Processor } from "@frontity/html2react/types";
+import { Element,Processor } from "@frontity/html2react/types";
 import { css } from "frontity";
-import React from "react";
 
-export const checklists: Processor<React.HTMLProps<HTMLElement>> = {
+export const checklists: Processor<Element> = {
   name: "checklists",
   test: ({ node }) =>
     node.type === "element" &&
