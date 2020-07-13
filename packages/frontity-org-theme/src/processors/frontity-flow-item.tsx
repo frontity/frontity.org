@@ -1,6 +1,5 @@
-import { Processor } from "@frontity/html2react/types";
+import { Element,Processor } from "@frontity/html2react/types";
 import { css } from "frontity";
-import React from "react";
 
 import FrontityOrg from "../../types";
 import FlowItem from "../components/frontity-flow-item";
@@ -8,19 +7,13 @@ import { FLOW_SECTION_BREAKPOINT } from "./frontity-flow-items";
 
 const flowItemRegex = /^frontity-flow-item-(\w+)$/;
 
-export const flowItem: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
+export const flowItem: Processor<Element, FrontityOrg> = {
   name: "flow-item",
   test: ({ node }) =>
     node.type === "element" &&
     node.props?.className?.split(" ").some((name) => flowItemRegex.test(name)),
 
-  // TODO: The `any` is a workaround until we have better types for processors
-  // because TS complains when I add new props like `tag` & `tabNumber` below.
-  processor: ({ node }: any) => {
-    if (node.type !== "element") {
-      return node;
-    }
-
+  processor: ({ node }) => {
     // Get value
     const [, tabNumber] = node.props.className
       .split(" ")
