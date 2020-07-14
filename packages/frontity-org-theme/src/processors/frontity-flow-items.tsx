@@ -1,4 +1,4 @@
-import { Node, Processor } from "@frontity/html2react/types";
+import { Element,Processor } from "@frontity/html2react/types";
 import { connect, css, styled } from "frontity";
 import { Connect } from "frontity/types";
 import React from "react";
@@ -41,14 +41,12 @@ const Dots: React.FC<Connect<FrontityOrg>> = connect(({ state }) => (
   </span>
 ));
 
-export const flowItems: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
+export const flowItems: Processor<Element, FrontityOrg> = {
   name: "flow-items",
   test: ({ node }) =>
     node.type === "element" &&
     node.props?.className?.split(" ").includes("frontity-flow-all-items"),
   processor: ({ node, state }) => {
-    if (node.type !== "element") return node;
-
     const { flowSectionActiveTab } = state.theme;
 
     node.props.css = css`
@@ -85,7 +83,7 @@ export const flowItems: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
       }
     `;
 
-    const dots: Node<React.HTMLProps<HTMLElement>> = {
+    const dots: Element = {
       type: "element",
       component: Dots,
       props: {},

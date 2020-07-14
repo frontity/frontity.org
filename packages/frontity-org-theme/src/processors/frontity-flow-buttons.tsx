@@ -1,6 +1,5 @@
-import { Node, Processor } from "@frontity/html2react/types";
+import { Element,Processor } from "@frontity/html2react/types";
 import { css, styled } from "frontity";
-import React from "react";
 
 import FrontityOrg from "../../types";
 import { FLOW_SECTION_BREAKPOINT } from "./frontity-flow-items";
@@ -59,17 +58,19 @@ const SlidingButton = styled.div<{
   }
 `;
 
-export const flowButtons: Processor<
-  React.HTMLProps<HTMLElement>,
-  FrontityOrg
-> = {
+type SlidingButton = Element & {
+  props: {
+    activeTab: number;
+    frontity: string;
+  };
+};
+
+export const flowButtons: Processor<Element, FrontityOrg> = {
   name: "flow-buttons",
   test: ({ node }) =>
     node.type === "element" &&
     node.props?.className?.split(" ").includes("frontity-flow-buttons"),
   processor: ({ node, state }) => {
-    if (node.type !== "element") return node;
-
     node.props.css = css`
       ${node.props.css};
 
@@ -90,9 +91,7 @@ export const flowButtons: Processor<
       }
     `;
 
-    const slidingButton: Node<
-      React.HTMLProps<HTMLElement> & { activeTab: number; frontity: string }
-    > = {
+    const slidingButton: SlidingButton = {
       type: "element",
       component: SlidingButton,
       props: {

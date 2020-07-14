@@ -1,4 +1,4 @@
-import { Processor } from "@frontity/html2react/types";
+import { Element,Processor } from "@frontity/html2react/types";
 import { connect, css, styled } from "frontity";
 import { Connect } from "frontity/types";
 import React from "react";
@@ -64,7 +64,7 @@ const LoadingText = styled.div`
 
 const ConnectedHeroBlogImageComponent = connect(HeroBlogImageComponent);
 
-export const heroBlogImage: Processor = {
+export const heroBlogImage: Processor<Element> = {
   name: "hero-blog-image",
   test: ({ node }) =>
     node.type === "element" &&
@@ -72,9 +72,7 @@ export const heroBlogImage: Processor = {
     node.props.className?.split(" ").includes("has-browser-window") &&
     node.props.className?.split(" ").includes("hero-blog-image"),
   processor: ({ node }) => {
-    if (node.type === "element") {
-      node.component = ConnectedHeroBlogImageComponent;
-    }
+    node.component = ConnectedHeroBlogImageComponent;
 
     return node;
   },

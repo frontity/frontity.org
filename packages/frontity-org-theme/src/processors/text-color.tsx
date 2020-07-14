@@ -1,6 +1,5 @@
-import { Processor } from "@frontity/html2react/types";
+import { Element,Processor } from "@frontity/html2react/types";
 import { css } from "frontity";
-import React from "react";
 
 import FrontityOrg from "../../types";
 import { addAlpha } from "../utils";
@@ -8,7 +7,7 @@ import { addAlpha } from "../utils";
 const colorClassRegex = /has-([\w-]+)-color/;
 const opacityClassRegex = /has-text-opacity-(\d+)/;
 
-export const textColor: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
+export const textColor: Processor<Element, FrontityOrg> = {
   name: "text-color",
   test: ({ node }) =>
     node.type === "element" &&
