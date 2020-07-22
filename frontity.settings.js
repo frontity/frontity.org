@@ -16,7 +16,7 @@ const settings = [
         name: "@frontity/wp-source",
         state: {
           source: {
-            api: "https://frontity.org/wp-json",
+            api: "https://dev-frontity-org.pantheonsite.io/wp-json",
             postTypes: [
               {
                 type: "/blog/wp_template_part",
@@ -32,9 +32,9 @@ const settings = [
       "@frontity/html2react",
       "@frontity/head-tags",
       {
-        name: "@frontity/google-tag-manager",
+        name: "@frontity/google-tag-manager-analytics",
         state: {
-          googleTagManager: {
+          googleTagManagerAnalytics: {
             containerId: "GTM-NDGDFKR",
           },
         },
