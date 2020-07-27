@@ -22,7 +22,6 @@
     "@frontity/core": "^1.7.2",
     "@frontity/frontity-org-theme": "file:packages/frontity-org-theme",
     "@frontity/google-analytics": "^1.2.0",
-    "@frontity/google-tag-manager": "^0.3.0",
     "@frontity/google-tag-manager-analytics": "^1.0.0",
     "@frontity/head-tags": "^1.0.4",
     "@frontity/html2react": "^1.3.4",
