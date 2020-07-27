@@ -16,7 +16,7 @@ const settings = [
         name: "@frontity/wp-source",
         state: {
           source: {
-            api: "https://dev-frontity-org.pantheonsite.io/wp-json",
+            api: "https://frontity.org/wp-json",
             postTypes: [
               {
                 type: "/blog/wp_template_part",
