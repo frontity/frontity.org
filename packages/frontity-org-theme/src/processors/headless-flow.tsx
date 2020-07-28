@@ -1,21 +1,29 @@
-import { Node, Processor } from "@frontity/html2react/types";
+import { Element,Node, Processor } from "@frontity/html2react/types";
 import { css } from "frontity";
-import React from "react";
 
 import FrontityOrg from "../../types";
 import Dots from "../components/dots";
 
-export const headlessFlow: Processor<
-  React.HTMLProps<HTMLElement>,
-  FrontityOrg
-> = {
+type DotsBeep = Element & {
+  props: {
+    primary: string;
+    grass: string;
+  };
+};
+
+type PlainDots = Element & {
+  props: {
+    plain: boolean;
+    primary: string;
+  };
+};
+
+export const headlessFlow: Processor<Element, FrontityOrg> = {
   name: "headlessFlow",
   test: ({ node }) =>
     node.type === "element" &&
     node.props?.className?.split(" ").includes("headless-flow"),
   processor: ({ node, state }) => {
-    if (node.type !== "element") return node;
-
     node.props.css = css`
       flex-wrap: nowrap;
 
@@ -48,9 +56,7 @@ export const headlessFlow: Processor<
       }
     `;
 
-    const dotsWithBeep: Node<
-      React.HTMLProps<HTMLElement> & { primary: string; grass: string }
-    > = {
+    const dotsWithBeep: DotsBeep = {
       type: "element",
       component: Dots,
       props: {
@@ -59,9 +65,7 @@ export const headlessFlow: Processor<
       },
     };
 
-    const plainDots: Node<
-      React.HTMLProps<HTMLElement> & { plain: true; primary: string }
-    > = {
+    const plainDots: PlainDots = {
       type: "element",
       component: Dots,
       props: { plain: true, primary: state.theme.colors.primary },

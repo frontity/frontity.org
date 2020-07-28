@@ -1,4 +1,4 @@
-import { connect,styled } from "frontity";
+import { connect, styled } from "frontity";
 import React from "react";
 
 const description404 = (
@@ -37,8 +37,8 @@ export default connect(Page404);
 
 const Container = styled.div`
   max-width: 800px;
-  margin: 150px auto;
-  padding: 24px;
+  margin: auto;
+  padding: 150px 0px;
   text-align: center;
 `;
 

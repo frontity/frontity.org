@@ -32,9 +32,9 @@ const settings = [
       "@frontity/html2react",
       "@frontity/head-tags",
       {
-        name: "@frontity/google-tag-manager",
+        name: "@frontity/google-tag-manager-analytics",
         state: {
-          googleTagManager: {
+          googleTagManagerAnalytics: {
             containerId: "GTM-NDGDFKR",
           },
         },

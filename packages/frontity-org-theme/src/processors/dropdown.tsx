@@ -1,25 +1,34 @@
+import { Element, Processor } from "@frontity/html2react/types";
+
 import Dropdown from "../components/dropdown";
 
-export const dropdown = {
+interface DropdownItem extends Element {
+  children: [DropdownInnerContainer];
+}
+
+interface DropdownInnerContainer extends Element {
+  children: [Element, Element];
+}
+
+export const dropdown: Processor<DropdownItem> = {
   name: "dropdown",
   test: ({ node }) =>
     node.type === "element" &&
     node.props.className &&
     node.props.className.split(" ").includes("dropdown-item"),
   processor: ({ node }) => {
-    if (node.type === "element") {
-      // Get children from the inner component.
-      const [dropdownButton, dropdownContent] = node.children[0].children;
+    // Get children from the inner component.
+    const [dropdownButton, dropdownContent] = node.children[0].children;
 
+    return {
+      ...node,
       /**
        * Set them as "children" (we cannot pass them as other props because)
        * they wouldn't be rendered. Also, other processors wouldn't run.
        */
-      node.children = [dropdownButton, dropdownContent];
-
+      children: [dropdownButton, dropdownContent],
       // Change node component by Dropdown.
-      node.component = Dropdown;
-    }
-    return node;
+      component: Dropdown,
+    };
   },
 };

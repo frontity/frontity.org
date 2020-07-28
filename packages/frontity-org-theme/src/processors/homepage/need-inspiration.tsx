@@ -1,22 +1,14 @@
-import { Processor } from "@frontity/html2react/types";
+import { Element,Processor } from "@frontity/html2react/types";
 import { css } from "frontity";
-import React from "react";
 
 import FrontityOrg from "../../../types";
 
-export const needInspirationSection: Processor<
-  React.HTMLProps<HTMLElement>,
-  FrontityOrg
-> = {
+export const needInspirationSection: Processor<Element, FrontityOrg> = {
   name: "need-inspiration-section",
   test: ({ node }) =>
     node.type === "element" &&
     node.props?.className?.split(" ").includes("need-inspiration-section"),
   processor: ({ node }) => {
-    if (node.type !== "element") {
-      return node;
-    }
-
     //Style the section
     node.props.css = css`
       ${node.props.css};

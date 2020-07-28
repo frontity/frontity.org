@@ -1,36 +1,29 @@
-import { Processor } from "@frontity/html2react/types";
+import { Element, Processor } from "@frontity/html2react/types";
 import { css } from "frontity";
-import React from "react";
 
-export const checklists: Processor<React.HTMLProps<HTMLElement>> = {
+export const checklists: Processor<Element> = {
   name: "checklists",
   test: ({ node }) =>
     node.type === "element" &&
     node.props.className &&
     node.props.className.split(" ").includes("check-marker-list"),
-  processor: ({ node }) => {
-    if (node.type === "element") {
-      return {
-        ...node,
-        props: {
-          ...node.props,
-          css: css`
-            ${node.props.css}
-            list-style: none;
+  processor: ({ node }) => ({
+    ...node,
+    props: {
+      ...node.props,
+      css: css`
+        ${node.props.css}
+        list-style: none;
 
-            li {
-              position: relative;
-              display: flex;
+        li {
+          position: relative;
+          display: flex;
 
-              &:before {
-                content: url("https://frontity.org/wp-content/uploads/2020/02/check-circle-marker.svg");
-              }
-            }
-          `,
-        },
-      };
-    }
-
-    return node;
-  },
+          &:before {
+            content: url("https://frontity.org/wp-content/uploads/2020/02/check-circle-marker.svg");
+          }
+        }
+      `,
+    },
+  }),
 };

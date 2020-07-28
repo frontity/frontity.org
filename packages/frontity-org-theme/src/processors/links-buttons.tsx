@@ -1,27 +1,25 @@
-import { Processor } from "@frontity/html2react/types";
+import { Element,Processor } from "@frontity/html2react/types";
 import { css } from "frontity";
-import React from "react";
 
 import FrontityOrg from "../../types";
 import Logo from "../components/logo";
 
-export const links: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
+export const links: Processor<Element, FrontityOrg> = {
   test: ({ node }) => node.type === "element" && node.component === "a",
   priority: 5,
 
   processor: ({ node, state }) => {
-    // just a TS type guard
-    if (node.type !== "element") return node;
-
     // Add all needed conditions
     const isButton = node.props?.className
       ?.split(/ /)
       .includes("wp-block-button__link");
-    const isBig = node.props?.className?.split(/ /).includes("button-big");
-    const isButtonText = node.props?.className
+    const isBig = node.parent.props?.className
+      ?.split(/ /)
+      .includes("button-big");
+    const isButtonText = node.parent.props?.className
       ?.split(/ /)
       .includes("button-text");
-    const noLogo = node.props?.className?.split(/ /).includes("no-logo");
+    const noLogo = node.parent.props?.className?.split(/ /).includes("no-logo");
     const hasImage = (node as any).children.some(
       (child) => child.type === "element" && child.component === "img"
     );
@@ -68,7 +66,7 @@ export const links: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
         const fillColor = isButtonText
           ? state.theme.colors.frontity
           : state.theme.colors.wall;
-        const element: any = {
+        const element: Element = {
           component: Logo,
           props: {
             css: css`
@@ -113,7 +111,10 @@ export const links: Processor<React.HTMLProps<HTMLElement>, FrontityOrg> = {
           padding: 12px 18px;
           color: ${state.theme.colors.frontity};
           background-color: transparent;
-          &:hover {
+          &:hover,
+          &:active,
+          &:focus,
+          &:visited {
             color: ${state.theme.colors.frontity};
           }
           &:hover::after {

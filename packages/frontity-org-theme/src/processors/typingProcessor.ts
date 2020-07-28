@@ -1,8 +1,9 @@
-import { Processor } from "@frontity/html2react/types";
+import { Element,Processor } from "@frontity/html2react/types";
 
+import FrontityOrg from "../../types";
 import Typing from "../components/typing";
 
-export const typingProcessor: Processor = {
+export const typingProcessor: Processor<Element, FrontityOrg> = {
   name: "typing-processor",
   priority: 20,
   test: ({ node }) =>
@@ -10,9 +11,7 @@ export const typingProcessor: Processor = {
     node.props.className &&
     node.props.className?.split(" ").includes("typist-terminal"),
   processor: ({ node }) => {
-    if (node.type === "element") {
-      node.component = Typing;
-    }
+    node.component = Typing;
 
     return node;
   },
