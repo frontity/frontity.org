@@ -1,5 +1,17 @@
 # @frontity/frontity-org-theme
 
+## 1.3.2
+
+### Patch Changes
+
+- [`1b24522`](https://github.com/frontity/frontity.org/commit/1b24522fa169c8fc7ebdebc37850d2574a643db9) [#127](https://github.com/frontity/frontity.org/pull/127) Thanks [@SantosGuillamot](https://github.com/SantosGuillamot)! - Fix 404 page layout.
+
+* [`32e577e`](https://github.com/frontity/frontity.org/commit/32e577e16078efb8dcdc177d950b42c5cce15623) [#128](https://github.com/frontity/frontity.org/pull/128) Thanks [@SantosGuillamot](https://github.com/SantosGuillamot)! - Refactor all the processors to use the new types.
+
+- [`ec4532b`](https://github.com/frontity/frontity.org/commit/ec4532b676a0dc75bc3e7379ef30ce9748cdedb7) [#130](https://github.com/frontity/frontity.org/pull/130) Thanks [@SantosGuillamot](https://github.com/SantosGuillamot)! - Update dependencies.
+
+* [`522ed6c`](https://github.com/frontity/frontity.org/commit/522ed6c1ecedb68b5c31015ac98af11beecd5867) [#126](https://github.com/frontity/frontity.org/pull/126) Thanks [@SantosGuillamot](https://github.com/SantosGuillamot)! - Adapt links processor to new Gutenberg version.
+
 ## 1.3.1
 
 ### Patch Changes

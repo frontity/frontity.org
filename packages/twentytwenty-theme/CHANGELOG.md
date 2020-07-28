@@ -1,5 +1,11 @@
 # @frontity/twentytwenty-theme
 
+## 1.1.4
+
+### Patch Changes
+
+- [`ec4532b`](https://github.com/frontity/frontity.org/commit/ec4532b676a0dc75bc3e7379ef30ce9748cdedb7) [#130](https://github.com/frontity/frontity.org/pull/130) Thanks [@SantosGuillamot](https://github.com/SantosGuillamot)! - Update dependencies.
+
 ## 1.1.3
 
 ### Patch Changes
