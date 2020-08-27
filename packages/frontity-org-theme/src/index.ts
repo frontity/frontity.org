@@ -25,6 +25,7 @@ import { needInspirationSection } from "./processors/homepage/need-inspiration";
 import { showcasesGallery } from "./processors/homepage/showcases-gallery";
 import { horizontalSeparator } from "./processors/horizontal-separator";
 import { lazyVideo } from "./processors/lazy-video";
+import { linkComponent } from "./processors/link-component";
 import { links } from "./processors/links-buttons";
 import { mobileDesktop } from "./processors/mobile-desktop";
 import { newsletter } from "./processors/newsletter";
@@ -88,6 +89,7 @@ const frontityOrg: FrontityOrg = {
         addTweet,
         deleteTwitterScript,
         lazyVideo,
+        linkComponent,
       ],
     },
   },
