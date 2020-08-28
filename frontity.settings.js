@@ -11,6 +11,11 @@ const settings = [
     packages: [
       {
         name: "@frontity/frontity-org-theme",
+        state: {
+          theme: {
+            autoPrefetch: "in-view",
+          },
+        },
       },
       {
         name: "@frontity/wp-source",
