@@ -1,5 +1,11 @@
 # @frontity/frontity-org-theme
 
+## 1.3.3
+
+### Patch Changes
+
+- [`600e485`](https://github.com/frontity/frontity.org/commit/600e48564ede9a04901e48e3d993bbe5ce210bf2) [#132](https://github.com/frontity/frontity.org/pull/132) Thanks [@SantosGuillamot](https://github.com/SantosGuillamot)! - Update both themes and add the Link component to the <a> elements at frontity.org.
+
 ## 1.3.2
 
 ### Patch Changes
