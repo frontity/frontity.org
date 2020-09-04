@@ -26,8 +26,8 @@ const actions: FrontityOrg["actions"]["theme"] = {
     state.theme.newsletter.sending.newsletterForm = true;
     const { email } = state.theme.newsletter.newsletterForm;
 
-    actions.analytics.sendEvent({
-      event: "newsletter",
+    actions.analytics.event({
+      name: "newsletter",
       payload: { email, role: "undefined" },
     });
 
@@ -39,8 +39,8 @@ const actions: FrontityOrg["actions"]["theme"] = {
     const { name, answers } = state.theme.newsletter.afterNewsletter;
     state.theme.newsletter.sending.afterNewsletter = true;
 
-    actions.analytics.sendEvent({
-      event: "after-newsletter",
+    actions.analytics.event({
+      name: "after-newsletter",
       payload: {
         name,
         answers,
