@@ -121,10 +121,10 @@ const settings = [
       "@frontity/html2react",
       "@frontity/head-tags",
       {
-        name: "@frontity/google-analytics",
+        name: "@frontity/google-tag-manager-analytics",
         state: {
-          googleAnalytics: {
-            trackingIds: ["UA-91312941-9", "UA-91312941-14"],
+          googleTagManagerAnalytics: {
+            containerId: "GTM-NDGDFKR",
           },
         },
       },
