@@ -1,5 +1,11 @@
 # @frontity/frontity-org-theme
 
+## 1.3.5
+
+### Patch Changes
+
+- [`2369406`](https://github.com/frontity/frontity.org/commit/2369406b5ce2a9667b04d913a7bc270493d13566) [#137](https://github.com/frontity/frontity.org/pull/137) Thanks [@SantosGuillamot](https://github.com/SantosGuillamot)! - Update dependencies.
+
 ## 1.3.4
 
 ### Patch Changes
