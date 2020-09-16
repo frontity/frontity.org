@@ -35,7 +35,14 @@ const settings = [
       },
       "@frontity/tiny-router",
       "@frontity/html2react",
-      "@frontity/head-tags",
+      {
+        name: "@frontity/yoast",
+        state: {
+          yoast: {
+            renderTags: "server",
+          },
+        },
+      },
       {
         name: "@frontity/google-tag-manager-analytics",
         state: {
@@ -119,7 +126,14 @@ const settings = [
       },
       "@frontity/tiny-router",
       "@frontity/html2react",
-      "@frontity/head-tags",
+      {
+        name: "@frontity/yoast",
+        state: {
+          yoast: {
+            renderTags: "server",
+          },
+        },
+      },
       {
         name: "@frontity/google-tag-manager-analytics",
         state: {
