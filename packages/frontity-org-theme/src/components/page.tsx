@@ -7,7 +7,7 @@ import FrontityOrg from "../../types";
 const Page: React.FC<Connect<FrontityOrg>> = ({ state, libraries }) => {
   const data = state.source.get(state.router.link);
   const Html2React = libraries.html2react.Component;
-  const page = state.source.page[data.id];
+  const page = state.source[data.type][data.id];
 
   return (
     <>

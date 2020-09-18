@@ -27,6 +27,10 @@ const settings = [
                 type: "/blog/wp_template_part",
                 endpoint: "template-parts",
               },
+              {
+                type: "/partner",
+                endpoint: "partner",
+              },
             ],
             homepage: "/homepage/",
             postsPage: "/blog/",

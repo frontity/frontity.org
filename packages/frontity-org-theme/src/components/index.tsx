@@ -1,4 +1,4 @@
-import { connect, css, Global, Head,styled } from "frontity";
+import { connect, css, Global, Head, styled } from "frontity";
 import { Connect } from "frontity/types";
 import React from "react";
 
@@ -34,7 +34,7 @@ const Theme: React.FC<Connect<FrontityOrg>> = ({ state }) => {
         <FixedHeader />
       </HeaderContainer>
 
-      {(data.isPage && (
+      {(data.isPostType && (
         <>
           <Global styles={homepageStyles(state.theme)} />
           <Page />
