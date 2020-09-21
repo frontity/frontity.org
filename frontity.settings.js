@@ -55,6 +55,7 @@ const settings = [
           },
         },
       },
+      "frontity-contact-form-7",
     ],
   },
   {
