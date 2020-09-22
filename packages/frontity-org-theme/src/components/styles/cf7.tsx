@@ -79,6 +79,23 @@ const cf7Styles = (colors: FrontityOrg["state"]["theme"]["colors"]) => css`
   .wpcf7-form > p {
     margin-top: 12px;
   }
+
+  // Submitting messages
+  .wpcf7 div[class*="ErrorMessage"],
+  .wpcf7 div[class*="SuccessMessage"] {
+    margin-top: 20px;
+    border-radius: 8px;
+  }
+  // Error
+  .wpcf7 div[class*="ErrorMessage"] {
+    border: 1px solid ${colors.red};
+    color: ${colors.red};
+  }
+  // Success
+  .wpcf7 div[class*="SuccessMessage"] {
+    border: 1px solid ${colors.lightgreen};
+    font-weight: bold;
+  }
 `;
 
 export default cf7Styles;
