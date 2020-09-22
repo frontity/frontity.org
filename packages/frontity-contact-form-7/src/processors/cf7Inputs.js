@@ -12,7 +12,6 @@ const cf7Inputs = {
     );
   },
   processor: ({ node }) => {
-    console.log(node);
     const ariaInvalid =
       "undefined" === typeof node.props["aria-invalid"]
         ? ""
