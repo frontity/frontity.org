@@ -1,6 +1,7 @@
-import React from 'react';
-import FormIdContext from "../context/FormIdContext";
 import { connect } from "frontity";
+import React from "react";
+
+import FormIdContext from "../context/FormIdContext";
 
 /**
  * Textarea Component.
@@ -11,40 +12,37 @@ import { connect } from "frontity";
  *
  * @return {*}
  */
-const Textarea = ( { state, actions, inputProps } ) => {
+const Textarea = ({ state, actions, inputProps }) => {
+  const id = React.useContext(FormIdContext);
+  const inputName = inputProps.name;
+  const placeholder = inputProps.placeholder;
 
-	const id          = React.useContext( FormIdContext );
-	const inputName   = inputProps.name;
-	const placeholder = inputProps.placeholder;
+  if ("undefined" === typeof state.cf7.forms[id].inputVals[inputName]) {
+    actions.cf7.changeInputValue({ id, inputName, value: inputProps.value });
+  }
 
-	if ( 'undefined' === typeof ( state.cf7.forms[ id ].inputVals[ inputName ] ) ) {
-		actions.cf7.changeInputValue( { id, inputName, value: inputProps.value } );
-	}
+  /**
+   * Textarea onChange event handler.
+   *
+   * @param {Object} event Event.
+   */
+  const onChange = (event) => {
+    actions.cf7.changeInputValue({ id, inputName, value: event.target.value });
+  };
 
-	/**
-	 * Textarea onChange event handler.
-	 *
-	 * @param {Object} event Event.
-	 */
-	const onChange = ( event ) => {
-
-		actions.cf7.changeInputValue( { id, inputName, value: event.target.value } );
-
-	};
-
-	return (
-		<textarea
-			name={ inputProps.name }
-			className={ inputProps.className }
-			aria-invalid={ inputProps.ariaInvalid }
-			aria-required={ inputProps.ariaRequired }
-			cols={ inputProps.cols }
-			rows={ inputProps.rows }
-			value={ state.cf7.forms[ id ].inputVals[ inputName ] }
-			onChange={ onChange }
-			placeholder={ placeholder }
-		/>
-	);
+  return (
+    <textarea
+      name={inputProps.name}
+      className={inputProps.className}
+      aria-invalid={inputProps.ariaInvalid}
+      aria-required={inputProps.ariaRequired}
+      cols={inputProps.cols}
+      rows={inputProps.rows}
+      value={state.cf7.forms[id].inputVals[inputName]}
+      onChange={onChange}
+      placeholder={placeholder}
+    />
+  );
 };
 
-export default connect( Textarea );
+export default connect(Textarea);

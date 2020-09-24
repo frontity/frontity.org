@@ -1,6 +1,7 @@
-import React from 'react';
-import FormIdContext from "../context/FormIdContext";
 import { connect, styled } from "frontity";
+import React from "react";
+
+import FormIdContext from "../context/FormIdContext";
 
 /**
  * Span component
@@ -12,32 +13,31 @@ import { connect, styled } from "frontity";
  *
  * @return {*}
  */
-const Span = ( { state, children, className, spanKey } ) => {
+const Span = ({ state, children, className, spanKey }) => {
+  const id = React.useContext(FormIdContext);
 
-	const id = React.useContext( FormIdContext );
-	
-	let errorMessage = '';
+  let errorMessage = "";
 
-	if ( 'undefined' !== typeof ( state.cf7.forms[ id ].invalidFields ) ) {
-		errorMessage = ( 'undefined' !== typeof ( state.cf7.forms[id].invalidFields[spanKey] ) ) ? state.cf7.forms[id].invalidFields[spanKey] : '';
-	}
+  if ("undefined" !== typeof state.cf7.forms[id].invalidFields) {
+    errorMessage =
+      "undefined" !== typeof state.cf7.forms[id].invalidFields[spanKey]
+        ? state.cf7.forms[id].invalidFields[spanKey]
+        : "";
+  }
 
-	return (
-		<span className={ className }>
-			{ children }
-			{ errorMessage && (
-				<NotValidTip>{ errorMessage }</NotValidTip>
-			) }
-		</span>
-	);
-
+  return (
+    <span className={className}>
+      {children}
+      {errorMessage && <NotValidTip>{errorMessage}</NotValidTip>}
+    </span>
+  );
 };
 
 const NotValidTip = styled.span`
-	color: #f00;
-    font-size: 1em;
-    font-weight: normal;
-    display: block;
+  color: #f00;
+  font-size: 1em;
+  font-weight: normal;
+  display: block;
 `;
 
-export default connect( Span );
+export default connect(Span);
