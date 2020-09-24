@@ -1,27 +1,4 @@
 {
-  "_from": "frontity-contact-form-7@^0.1.7",
-  "_id": "frontity-contact-form-7@0.1.7",
-  "_inBundle": false,
-  "_integrity": "sha512-hlRUSdsgrZGauovljh8nW7t5QwzvzJrhcqQjzbRFbd5IO3bdQ34fNGmlja0YgPR18XNbEm2Jz1aQqSpRLrVqNg==",
-  "_location": "/frontity-contact-form-7",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "range",
-    "registry": true,
-    "raw": "frontity-contact-form-7@^0.1.7",
-    "name": "frontity-contact-form-7",
-    "escapedName": "frontity-contact-form-7",
-    "rawSpec": "^0.1.7",
-    "saveSpec": null,
-    "fetchSpec": "^0.1.7"
-  },
-  "_requiredBy": [
-    "/"
-  ],
-  "_resolved": "https://registry.npmjs.org/frontity-contact-form-7/-/frontity-contact-form-7-0.1.7.tgz",
-  "_shasum": "1cd7f804648967a5cee3bef915716eb96792d284",
-  "_spec": "frontity-contact-form-7@^0.1.7",
-  "_where": "/home/mario/Desktop/Code/Frontity/frontity.org",
   "author": {
     "name": "Imran Sayed, Smit Patadiya"
   },
