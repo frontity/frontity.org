@@ -5,7 +5,7 @@ const settings = [
       frontity: {
         url: "https://frontity.org",
         title: "Frontity",
-        description: "Create amazing websites using WordPress & React",
+        description: "The React framework for WordPress",
       },
     },
     packages: [
@@ -65,7 +65,7 @@ const settings = [
       frontity: {
         url: "https://frontity.org",
         title: "Frontity Blog",
-        description: "Create amazing sites using WordPress & React",
+        description: "The React framework for WordPress",
       },
     },
     packages: [
@@ -74,18 +74,9 @@ const settings = [
         state: {
           theme: {
             menu: [
-              [
-                "Frontity",
-                "https://frontity.org?utm_source=blog&utm_medium=horizontal-menu-link",
-              ],
-              [
-                "Community",
-                "https://community.frontity.org/?utm_source=blog&utm_medium=horizontal-menu-link",
-              ],
-              [
-                "Docs",
-                "https://docs.frontity.org/?utm_source=blog&utm_medium=horizontal-menu-link",
-              ],
+              ["Frontity", "https://frontity.org"],
+              ["Community", "https://community.frontity.org"],
+              ["Docs", "https://docs.frontity.org"],
               ["GitHub", "https://github.com/frontity/frontity"],
               ["Twitter", "https://twitter.com/frontity"],
             ],
