@@ -1,4 +1,4 @@
-import { connect, css, Global, Head,styled } from "frontity";
+import { connect, css, Global, Head, styled } from "frontity";
 import { Connect } from "frontity/types";
 import React from "react";
 
@@ -8,6 +8,7 @@ import { FixedHeader, Header } from "./headers";
 import Page from "./page";
 import PageError from "./page-error";
 import ScrollButton from "./scroll-button";
+import cf7Styles from "./styles/cf7";
 import FontFace from "./styles/font-face";
 import globalStyles from "./styles/global-styles";
 import gutenbergStyle from "./styles/gutenberg/style.css";
@@ -23,6 +24,7 @@ const Theme: React.FC<Connect<FrontityOrg>> = ({ state }) => {
       <Global styles={css(gutenbergStyle)} />
       <Global styles={css(gutenbergTheme)} />
       <Global styles={globalStyles(state.theme.colors)} />
+      <Global styles={cf7Styles(state.theme.colors)} />
 
       <FontFace />
       <Head>
@@ -34,7 +36,7 @@ const Theme: React.FC<Connect<FrontityOrg>> = ({ state }) => {
         <FixedHeader />
       </HeaderContainer>
 
-      {(data.isPage && (
+      {(data.isPostType && (
         <>
           <Global styles={homepageStyles(state.theme)} />
           <Page />
