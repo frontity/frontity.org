@@ -1,6 +1,7 @@
 const settings = [
   {
     name: "frontity-org",
+    match: ["(\\?|&)post_type=\\w+"],
     state: {
       frontity: {
         url: "https://frontity.org",
