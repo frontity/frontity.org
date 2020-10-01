@@ -1,6 +1,7 @@
 const settings = [
   {
     name: "frontity-org",
+    match: ["(\\?|&)post_type=\\w+"],
     state: {
       frontity: {
         url: "https://frontity.org",
@@ -60,10 +61,7 @@ const settings = [
   },
   {
     name: "blog-frontity",
-    match: [
-      "https?:\\/\\/[^/]+\\/blog([^-\\w]|$)",
-      "https?:\\/\\/[^/]+\\/\\?p=\\d+",
-    ],
+    match: ["https?:\\/\\/[^/]+\\/blog([^-\\w]|$)", "(\\?|&)p=\\d+"],
     state: {
       frontity: {
         url: "https://frontity.org",
