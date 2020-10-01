@@ -29,7 +29,7 @@ const settings = [
                 endpoint: "template-parts",
               },
               {
-                type: "/partner",
+                type: "partner",
                 endpoint: "partner",
               },
             ],
