@@ -62,7 +62,7 @@ const settings = [
     name: "blog-frontity",
     match: [
       "https?:\\/\\/[^/]+\\/blog([^-\\w]|$)",
-      "https?:\\/\\/[^/]+\\/\\?p=\\d+",
+      "https?:\\/\\/[^/?]+\\/?\\?p=\\d+",
     ],
     state: {
       frontity: {
