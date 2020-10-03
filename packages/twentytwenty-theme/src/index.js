@@ -1,3 +1,5 @@
+import "./prism";
+
 import image from "@frontity/html2react/processors/image";
 
 import Theme from "./components";
