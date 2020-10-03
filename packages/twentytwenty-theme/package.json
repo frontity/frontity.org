@@ -22,7 +22,6 @@
     "@frontity/html2react": "^1.4.0",
     "frontity": "^1.12.0",
     "react-spinners": "^0.9.0",
-    "react-spring": "^8.0.27",
-    "prismjs": "^1.21.0"
+    "react-spring": "^8.0.27"
   }
 }
