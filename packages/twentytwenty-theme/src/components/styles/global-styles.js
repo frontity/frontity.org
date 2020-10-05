@@ -488,7 +488,7 @@ const syntaxHighlightStyles = css`
   /* Code blocks */
   pre[class*="language-"] {
     position: relative;
-    overflow: visible;
+    overflow: auto;
     padding: 3rem 2rem;
     margin: 4rem 0;
   }
