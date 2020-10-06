@@ -1,7 +1,7 @@
 import image from "@frontity/html2react/processors/image";
 
 import Theme from "./components";
-import { prismProcessor } from "./prism-processor";
+import prismProcessor from "./processors/prism";
 
 const twentyTwentyTheme = {
   name: "@frontity/twentytwenty-theme",
@@ -77,10 +77,6 @@ const twentyTwentyTheme = {
   },
   libraries: {
     html2react: {
-      /**
-       * Add a processor to `html2react` so it processes the `<img>` tags
-       * inside the content HTML. You can add your own processors too
-       */
       processors: [image, prismProcessor],
     },
   },
