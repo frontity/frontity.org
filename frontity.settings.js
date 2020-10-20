@@ -1,11 +1,12 @@
 const settings = [
   {
     name: "frontity-org",
+    match: ["(\\?|&)post_type=\\w+"],
     state: {
       frontity: {
         url: "https://frontity.org",
         title: "Frontity",
-        description: "Create amazing websites using WordPress & React",
+        description: "The React framework for WordPress",
       },
     },
     packages: [
@@ -27,6 +28,10 @@ const settings = [
                 type: "/blog/wp_template_part",
                 endpoint: "template-parts",
               },
+              {
+                type: "partner",
+                endpoint: "partner",
+              },
             ],
             homepage: "/homepage/",
             postsPage: "/blog/",
@@ -35,7 +40,14 @@ const settings = [
       },
       "@frontity/tiny-router",
       "@frontity/html2react",
-      "@frontity/head-tags",
+      {
+        name: "@frontity/yoast",
+        state: {
+          yoast: {
+            renderTags: "server",
+          },
+        },
+      },
       {
         name: "@frontity/google-tag-manager-analytics",
         state: {
@@ -44,16 +56,17 @@ const settings = [
           },
         },
       },
+      "frontity-contact-form-7",
     ],
   },
   {
     name: "blog-frontity",
-    match: ["https?:\\/\\/[^/]+\\/blog([^-\\w]|$)"],
+    match: ["https?:\\/\\/[^/]+\\/blog([^-\\w]|$)", "(\\?|&)p=\\d+"],
     state: {
       frontity: {
         url: "https://frontity.org",
         title: "Frontity Blog",
-        description: "Create amazing sites using WordPress & React",
+        description: "The React framework for WordPress",
       },
     },
     packages: [
@@ -62,18 +75,9 @@ const settings = [
         state: {
           theme: {
             menu: [
-              [
-                "Frontity",
-                "https://frontity.org?utm_source=blog&utm_medium=horizontal-menu-link",
-              ],
-              [
-                "Community",
-                "https://community.frontity.org/?utm_source=blog&utm_medium=horizontal-menu-link",
-              ],
-              [
-                "Docs",
-                "https://docs.frontity.org/?utm_source=blog&utm_medium=horizontal-menu-link",
-              ],
+              ["Frontity", "https://frontity.org"],
+              ["Community", "https://community.frontity.org"],
+              ["Docs", "https://docs.frontity.org"],
               ["GitHub", "https://github.com/frontity/frontity"],
               ["Twitter", "https://twitter.com/frontity"],
             ],
@@ -119,12 +123,19 @@ const settings = [
       },
       "@frontity/tiny-router",
       "@frontity/html2react",
-      "@frontity/head-tags",
       {
-        name: "@frontity/google-analytics",
+        name: "@frontity/yoast",
         state: {
-          googleAnalytics: {
-            trackingIds: ["UA-91312941-9", "UA-91312941-14"],
+          yoast: {
+            renderTags: "server",
+          },
+        },
+      },
+      {
+        name: "@frontity/google-tag-manager-analytics",
+        state: {
+          googleTagManagerAnalytics: {
+            containerId: "GTM-NDGDFKR",
           },
         },
       },
