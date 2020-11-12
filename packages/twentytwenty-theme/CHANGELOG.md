@@ -1,5 +1,11 @@
 # @frontity/twentytwenty-theme
 
+## 1.2.0
+
+### Minor Changes
+
+- [`5c91406`](https://github.com/frontity/frontity.org/commit/5c9140628d7b74b9cfa8edfff5b9e47692251c63) [#143](https://github.com/frontity/frontity.org/pull/143) Thanks [@michalczaplinski](https://github.com/michalczaplinski)! - Add syntax highlighting to the frontity blog.
+
 ## 1.1.7
 
 ### Patch Changes
