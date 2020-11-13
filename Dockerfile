@@ -5,4 +5,4 @@ COPY . .
 RUN npm install --only=production
 RUN npx frontity build
 EXPOSE 8080
-CMD ["node", "server.js"]
+CMD [ "sh", "-c", "npx frontity serve --port 8080" ]
