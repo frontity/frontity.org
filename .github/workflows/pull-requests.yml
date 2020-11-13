@@ -11,7 +11,7 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Work in Progress
-        uses: wip/action@v1.0.0
+        uses: wip/action@v1.1.0
 
   tasks:
     runs-on: ubuntu-latest
