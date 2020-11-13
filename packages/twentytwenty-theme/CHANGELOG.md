@@ -1,5 +1,11 @@
 # @frontity/twentytwenty-theme
 
+## 1.3.0
+
+### Minor Changes
+
+- [`5480824`](https://github.com/frontity/frontity.org/commit/5480824d2705ed5ee2ac5525860dd5e3217bb3c5) [#147](https://github.com/frontity/frontity.org/pull/147) Thanks [@SantosGuillamot](https://github.com/SantosGuillamot)! - Add PHP language to prismjs.
+
 ## 1.2.0
 
 ### Minor Changes
