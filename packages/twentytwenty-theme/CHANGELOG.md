@@ -1,5 +1,11 @@
 # @frontity/twentytwenty-theme
 
+## 1.3.2
+
+### Patch Changes
+
+- [`a1ac5d0`](https://github.com/frontity/frontity.org/commit/a1ac5d0f6604e14a75355ab100639337059ae3c4) [#152](https://github.com/frontity/frontity.org/pull/152) Thanks [@SantosGuillamot](https://github.com/SantosGuillamot)! - Add support for center alignment from Gutenberg.
+
 ## 1.3.1
 
 ### Patch Changes
