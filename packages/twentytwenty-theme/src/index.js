@@ -1,4 +1,5 @@
 import image from "@frontity/html2react/processors/image";
+import link from "@frontity/html2react/processors/link";
 
 import Theme from "./components";
 import prismProcessor from "./processors/prism";
@@ -77,7 +78,7 @@ const twentyTwentyTheme = {
   },
   libraries: {
     html2react: {
-      processors: [image, prismProcessor],
+      processors: [image, prismProcessor, link],
     },
   },
 };
