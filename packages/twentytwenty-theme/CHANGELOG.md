@@ -1,5 +1,11 @@
 # @frontity/twentytwenty-theme
 
+## 1.3.1
+
+### Patch Changes
+
+- [`9e1b233`](https://github.com/frontity/frontity.org/commit/9e1b2332937e16c41c2a8cc88feaefc43062d0ec) [#150](https://github.com/frontity/frontity.org/pull/150) Thanks [@SantosGuillamot](https://github.com/SantosGuillamot)! - Use official link processor.
+
 ## 1.3.0
 
 ### Minor Changes
