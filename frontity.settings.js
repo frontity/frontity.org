@@ -4,7 +4,7 @@ const settings = [
     match: ["(\\?|&)post_type=\\w+"],
     state: {
       frontity: {
-        url: "https://frontity.org",
+        url: "https://utm-frontity-org.pantheonsite.io",
         title: "Frontity",
         description: "The React framework for WordPress",
       },
@@ -22,7 +22,7 @@ const settings = [
         name: "@frontity/wp-source",
         state: {
           source: {
-            api: "https://frontity.org/wp-json",
+            api: "https://utm-frontity-org.pantheonsite.io/wp-json",
             postTypes: [
               {
                 type: "/blog/wp_template_part",
@@ -64,7 +64,7 @@ const settings = [
     match: ["https?:\\/\\/[^/]+\\/blog([^-\\w]|$)", "(\\?|&)p=\\d+"],
     state: {
       frontity: {
-        url: "https://frontity.org",
+        url: "https://utm-frontity-org.pantheonsite.io/",
         title: "Frontity Blog",
         description: "The React framework for WordPress",
       },
@@ -112,7 +112,7 @@ const settings = [
         name: "@frontity/wp-source",
         state: {
           source: {
-            api: "https://frontity.org/wp-json",
+            api: "https://utm-frontity-org.pantheonsite.io/wp-json",
             homepage: "/homepage/",
             postsPage: "/blog",
             categoryBase: "/blog/category",
