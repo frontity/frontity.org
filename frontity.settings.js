@@ -68,6 +68,9 @@ const settings = [
         title: "Frontity Blog",
         description: "The React framework for WordPress",
       },
+      source: {
+        url: "https://frontity.org",
+      },
     },
     packages: [
       {

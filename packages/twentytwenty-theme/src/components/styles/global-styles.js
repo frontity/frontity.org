@@ -373,6 +373,9 @@ const mediaStyle = (colors) => css`
     display: block;
     margin: 0;
   }
+  figure.aligncenter img {
+    margin: auto;
+  }
 
   iframe {
     display: block;

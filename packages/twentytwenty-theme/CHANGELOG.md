@@ -1,5 +1,23 @@
 # @frontity/twentytwenty-theme
 
+## 1.3.2
+
+### Patch Changes
+
+- [`a1ac5d0`](https://github.com/frontity/frontity.org/commit/a1ac5d0f6604e14a75355ab100639337059ae3c4) [#152](https://github.com/frontity/frontity.org/pull/152) Thanks [@SantosGuillamot](https://github.com/SantosGuillamot)! - Add support for center alignment from Gutenberg.
+
+## 1.3.1
+
+### Patch Changes
+
+- [`9e1b233`](https://github.com/frontity/frontity.org/commit/9e1b2332937e16c41c2a8cc88feaefc43062d0ec) [#150](https://github.com/frontity/frontity.org/pull/150) Thanks [@SantosGuillamot](https://github.com/SantosGuillamot)! - Use official link processor.
+
+## 1.3.0
+
+### Minor Changes
+
+- [`5480824`](https://github.com/frontity/frontity.org/commit/5480824d2705ed5ee2ac5525860dd5e3217bb3c5) [#147](https://github.com/frontity/frontity.org/pull/147) Thanks [@SantosGuillamot](https://github.com/SantosGuillamot)! - Add PHP language to prismjs.
+
 ## 1.2.0
 
 ### Minor Changes
