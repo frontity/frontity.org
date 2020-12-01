@@ -218,7 +218,7 @@ const cssReset = css`
 const documentSetup = (colors: FrontityOrg["state"]["theme"]["colors"]) => css`
   body {
     background: ${colors.wall};
-    font-family: "IBMPlexSans";
+    font-family: "IBMPlexSans", Sans-Serif;
     color: ${addAlpha(colors.primary, 0.8)};
     font-size: 16px;
     line-height: 24px;
@@ -230,7 +230,7 @@ const documentSetup = (colors: FrontityOrg["state"]["theme"]["colors"]) => css`
   h4,
   h5,
   h6 {
-    font-family: "Poppins";
+    font-family: "Poppins", Sans-Serif;
     color: ${colors.primary};
   }
   img {
