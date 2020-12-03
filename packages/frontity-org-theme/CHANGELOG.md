@@ -1,5 +1,11 @@
 # @frontity/frontity-org-theme
 
+## 1.4.0
+
+### Minor Changes
+
+- [`5c813b1`](https://github.com/frontity/frontity.org/commit/5c813b15ca21f0428a6eb699f5a8cf5f3234f2ca) [#155](https://github.com/frontity/frontity.org/pull/155) Thanks [@luisherranz](https://github.com/luisherranz)! - Add fallback to sans-serif for custom fonts.
+
 ## 1.3.6
 
 ### Patch Changes
