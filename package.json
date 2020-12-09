@@ -23,7 +23,7 @@
     "@frontity/frontity-org-theme": "file:packages/frontity-org-theme",
     "@frontity/google-tag-manager-analytics": "^1.1.1",
     "@frontity/html2react": "^1.5.0",
-    "@frontity/tiny-router": "^1.2.3",
+    "@frontity/tiny-router": "^1.2.4",
     "@frontity/twentytwenty-theme": "file:packages/twentytwenty-theme",
     "@frontity/wp-source": "^1.10.0",
     "@frontity/yoast": "^2.0.1",
