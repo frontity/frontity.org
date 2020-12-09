@@ -1,5 +1,11 @@
 # @frontity/frontity-org-theme
 
+## 1.4.1
+
+### Patch Changes
+
+- [`056f6e0`](https://github.com/frontity/frontity.org/commit/056f6e0c1dcb1ae3f0dc8815f5ee212676a1b8f4) [#158](https://github.com/frontity/frontity.org/pull/158) Thanks [@michalczaplinski](https://github.com/michalczaplinski)! - Bump the version of tiny-router and install the @frontity/components package.
+
 ## 1.4.0
 
 ### Minor Changes
