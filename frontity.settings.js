@@ -87,10 +87,10 @@ const settings = [
               ["Twitter", "https://twitter.com/frontity"],
             ],
             colors: {
-              primary: "#4d6bee",
+              primary: "#0f1c64",
               headerBg: "#ffffff",
               footerBg: "#ffffff",
-              bodyBg: "#ffffff",
+              bodyBg: "#f2f3fc",
             },
             // Whether to show the search button in page header
             showSearchInHeader: true,
