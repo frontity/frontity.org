@@ -90,7 +90,7 @@ const settings = [
               primary: "#4d6bee",
               headerBg: "#ffffff",
               footerBg: "#ffffff",
-              bodyBg: "#ffffff",
+              bodyBg: "#f2f3fc",
             },
             // Whether to show the search button in page header
             showSearchInHeader: true,
