@@ -1,5 +1,11 @@
 # @frontity/twentytwenty-theme
 
+## 1.3.3
+
+### Patch Changes
+
+- [`bf9d048`](https://github.com/frontity/frontity.org/commit/bf9d048a01e79343e7dd0412094181afd6655ad1) [#160](https://github.com/frontity/frontity.org/pull/160) Thanks [@SantosGuillamot](https://github.com/SantosGuillamot)! - Fix feature image in blog posts not showing correctly on mobile.
+
 ## 1.3.2
 
 ### Patch Changes
