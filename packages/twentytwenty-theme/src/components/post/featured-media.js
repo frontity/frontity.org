@@ -40,7 +40,6 @@ export default connect(FeaturedMedia);
 const Figure = styled.figure`
   margin-top: 5rem;
   position: relative;
-  min-height: 300px;
 
   @media (min-width: 700px) {
     margin-top: 6rem;
