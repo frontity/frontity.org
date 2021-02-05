@@ -1,5 +1,11 @@
 # @frontity/frontity-org-theme
 
+## 1.4.2
+
+### Patch Changes
+
+- [`17581fb`](https://github.com/frontity/frontity.org/commit/17581fbac7880c2039f7ed1b78f82561d9f37b50) [#162](https://github.com/frontity/frontity.org/pull/162) Thanks [@SantosGuillamot](https://github.com/SantosGuillamot)! - Move submenu styles out of is-link-with icon.
+
 ## 1.4.1
 
 ### Patch Changes
