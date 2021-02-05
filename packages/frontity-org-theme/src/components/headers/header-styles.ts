@@ -138,10 +138,10 @@ export const desktopStyles = ({ state }: { state: State<FrontityOrg> }) =>
         /* Margins for links with icons */
         &.is-link-with-icon {
           margin-left: 16px;
-          /* Tooltip styles */
-          &.has-child > .wp-block-navigation__container {
-            ${tooltipStyles({ state })};
-          }
+        }
+        /* Tooltip styles */
+        &.has-child > .wp-block-navigation__container {
+          ${tooltipStyles({ state })};
         }
 
         .wp-block-navigation-link__content {
