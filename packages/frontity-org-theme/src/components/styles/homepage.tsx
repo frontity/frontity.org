@@ -15,9 +15,6 @@ const homePageStyles = (state: FrontityOrg["state"]["theme"]) => css`
     }
   }
 
-  ul {
-    opacity: 0.85;
-  }
   /* Top section */
   .top-section {
     position: relative;
