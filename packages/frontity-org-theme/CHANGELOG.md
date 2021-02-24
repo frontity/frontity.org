@@ -1,5 +1,11 @@
 # @frontity/frontity-org-theme
 
+## 1.4.3
+
+### Patch Changes
+
+- [`98ee689`](https://github.com/frontity/frontity.org/commit/98ee6890c39e189ffb1187a2d03a95c202beddc9) [#164](https://github.com/frontity/frontity.org/pull/164) Thanks [@juanmaguitar](https://github.com/juanmaguitar)! - Remove opacity definition to avoid background transparency
+
 ## 1.4.2
 
 ### Patch Changes
