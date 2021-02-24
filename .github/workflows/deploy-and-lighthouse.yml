@@ -22,7 +22,7 @@ jobs:
         run: npm ci
 
       - name: Frontity build
-        run: npx frontity build --publicPath=https://frontity-org-$COMMIT_SHA.now.sh/static
+        run: npx frontity build --publicPath=https://frontity-org-$COMMIT_SHA.vercel.app/static
         env:
           COMMIT_SHA: ${{ github.sha }}
 
@@ -39,7 +39,7 @@ jobs:
           ZEIT_TEAMID: ${{ secrets.ZEIT_TEAM }}
 
       - name: Create alias for this deploy
-        run: npx now alias --token $NOW_TOKEN set "$(< deploy-url.txt)" frontity-org-$COMMIT_SHA.now.sh
+        run: npx now alias --token $NOW_TOKEN set "$(< deploy-url.txt)" frontity-org-$COMMIT_SHA.vercel.app
         env:
           COMMIT_SHA: ${{ github.sha }}
           NOW_TOKEN: ${{ secrets.NOW_TOKEN }}
@@ -66,7 +66,7 @@ jobs:
           configPath: ./.github/workflows/lighthouserc.json
           budgetPath: ./.github/workflows/budget.json
           urls: |
-            https://frontity-org-$COMMIT_SHA.now.sh/
+            https://frontity-org-$COMMIT_SHA.vercel.app/
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
           COMMIT_SHA: ${{ github.sha }}
