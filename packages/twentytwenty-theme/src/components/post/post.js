@@ -1,6 +1,5 @@
-import { connect,styled } from "frontity";
-import React, { useEffect } from "react";
-
+import { connect, styled } from "frontity";
+import React from "react";
 import FeaturedMedia from "./featured-media";
 import PostCategories from "./post-categories";
 import {
@@ -13,20 +12,17 @@ import {
 } from "./post-item";
 import PostMeta from "./post-meta";
 import PostTags from "./post-tags";
-
-const Post = ({ state, actions, libraries }) => {
+const Post = ({ state, libraries, link }) => {
   // Get information about the current URL.
-  const data = state.source.get(state.router.link);
+  const data = state.source.get(link);
   // Get the data of the post.
   const post = state.source[data.type][data.id];
   // Get the data of the author.
   // const author = state.source.author[post.author];
   // Get a human readable date.
   // const date = new Date(post.date);
-
   // Get the html2react component.
   const Html2React = libraries.html2react.Component;
-
   // Get all categories
   const allCategories = state.source.category;
   /**
@@ -35,7 +31,6 @@ const Post = ({ state, actions, libraries }) => {
    */
   const categories =
     post.categories && post.categories.map((catId) => allCategories[catId]);
-
   // Get all tags
   const allTags = state.source.tag;
   /**
@@ -43,16 +38,6 @@ const Post = ({ state, actions, libraries }) => {
    * So, we'll look up the details of each tag in allTags
    */
   const tags = post.tags && post.tags.map((tagId) => allTags[tagId]);
-
-  /**
-   * Once the post has loaded in the DOM, prefetch both the
-   * home posts and the list component so if the user visits
-   * the home page, everything is ready and it loads instantly.
-   */
-  useEffect(() => {
-    actions.source.fetch("/");
-  }, []);
-
   // Load the post, but only if the data is ready.
   return data.isReady ? (
     <PostArticle>
@@ -60,18 +45,15 @@ const Post = ({ state, actions, libraries }) => {
         <SectionContainer>
           {/* If the post has categories, render the categories */}
           {post.categories && <PostCategories categories={categories} />}
-
           <PostTitle
             as="h1"
             className="heading-size-1"
             dangerouslySetInnerHTML={{ __html: post.title.rendered }}
           />
-
           {/* The post's metadata like author, publish date, and comments */}
           <PostMeta item={post} />
         </SectionContainer>
       </Header>
-
       {/*
        * If the want to show featured media in the
        * list of featured posts, we render the media.
@@ -79,7 +61,6 @@ const Post = ({ state, actions, libraries }) => {
       {state.theme.featuredMedia.showOnPost && (
         <FeaturedImage id={post.featured_media} isSinglePost={true} />
       )}
-
       {/* If the post has an excerpt (short summary text), we render it */}
       {post.content && (
         <PostInner size="thin">
@@ -93,9 +74,7 @@ const Post = ({ state, actions, libraries }) => {
     </PostArticle>
   ) : null;
 };
-
 export default connect(Post);
-
 const Header = styled(PostHeader)`
   background-color: #fff;
   margin: 0;
@@ -104,19 +83,15 @@ const Header = styled(PostHeader)`
     padding: 8rem 0;
   }
 `;
-
 const PostArticle = styled(_Post)`
   padding-top: 0 !important;
 `;
-
 const FeaturedImage = styled(FeaturedMedia)`
   margin-top: 0 !important;
   position: relative;
-
   > div {
     position: relative;
   }
-
   &:before {
     background: #fff;
     content: "";
