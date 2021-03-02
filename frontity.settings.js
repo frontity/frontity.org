@@ -4,12 +4,12 @@ const settings = [
     match: ["(\\?|&)post_type=\\w+"],
     state: {
       frontity: {
-        url: "https://frontity.org",
+        url: "https://inf-scroll-frontity-org.pantheonsite.io",
         title: "Frontity",
         description: "The React framework for WordPress",
       },
       source: {
-        url: "https://frontity.org",
+        url: "https://inf-scroll-frontity-org.pantheonsite.io",
       },
     },
     packages: [
@@ -66,12 +66,12 @@ const settings = [
     match: ["https?:\\/\\/[^/]+\\/blog([^-\\w]|$)", "(\\?|&)p=\\d+"],
     state: {
       frontity: {
-        url: "https://frontity.org",
+        url: "https://inf-scroll-frontity-org.pantheonsite.io",
         title: "Frontity Blog",
         description: "The React framework for WordPress",
       },
       source: {
-        url: "https://frontity.org",
+        url: "https://inf-scroll-frontity-org.pantheonsite.io",
       },
     },
     packages: [
