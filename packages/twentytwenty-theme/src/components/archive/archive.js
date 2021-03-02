@@ -27,4 +27,5 @@ const Archive = () => {
     </>
   );
 };
+
 export default connect(Archive);

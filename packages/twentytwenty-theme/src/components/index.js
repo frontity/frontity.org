@@ -1,6 +1,7 @@
 import Switch from "@frontity/components/switch";
 import { connect, Global, Head, styled } from "frontity";
 import React from "react";
+
 import Archive from "./archive";
 import Footer from "./footer";
 import Header from "./header";

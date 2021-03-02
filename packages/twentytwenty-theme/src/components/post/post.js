@@ -1,5 +1,6 @@
 import { connect, styled } from "frontity";
 import React from "react";
+
 import FeaturedMedia from "./featured-media";
 import PostCategories from "./post-categories";
 import {
@@ -42,8 +43,8 @@ const Post = ({ state, libraries, link }) => {
    * So, we'll look up the details of each tag in allTags
    */
   const tags = post.tags && post.tags.map((tagId) => allTags[tagId]);
-  // Load the post, but only if the data is ready.
 
+  // Load the post, but only if the data is ready.
   return data.isReady ? (
     <PostArticle>
       <Header>
@@ -106,6 +107,7 @@ const FeaturedImage = styled(FeaturedMedia)`
   > div {
     position: relative;
   }
+
   &:before {
     background: #fff;
     content: "";

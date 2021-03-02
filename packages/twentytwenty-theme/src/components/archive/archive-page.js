@@ -1,5 +1,6 @@
 import { connect, decode } from "frontity";
 import React, { Fragment, useEffect } from "react";
+
 import Post from "../post";
 import Article from "../post/post-item";
 import PostSeparator from "../post/post-separator";
@@ -54,4 +55,5 @@ const Archive = ({ state, showExcerpt, showMedia, link }) => {
     </>
   );
 };
+
 export default connect(Archive);
