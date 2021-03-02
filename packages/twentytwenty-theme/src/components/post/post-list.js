@@ -5,13 +5,7 @@ import Loading from "../loading";
 import Post from "./post";
 
 const PostList = ({ actions }) => {
-  const {
-    posts,
-    isLimit,
-    isFetching,
-    isError,
-    fetchNext,
-  } = usePostTypeInfiniteScroll();
+  const { posts, isFetching, isError, fetchNext } = usePostTypeInfiniteScroll();
 
   /**
    * Once the post has loaded in the DOM, prefetch both the
@@ -31,7 +25,6 @@ const PostList = ({ actions }) => {
         </Wrapper>
       ))}
       {isFetching && <Loading />}
-      {isLimit && <button onClick={fetchNext}>Load Next Page</button>}
       {isError && <button onClick={fetchNext}>Something failed - Retry</button>}
     </div>
   );
