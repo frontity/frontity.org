@@ -1,5 +1,11 @@
 # @frontity/twentytwenty-theme
 
+## 1.4.1
+
+### Patch Changes
+
+- [`6dd777d`](https://github.com/frontity/frontity.org/commit/6dd777d4982c178cc83352a8579e29f8a18fb701) [#171](https://github.com/frontity/frontity.org/pull/171) Thanks [@SantosGuillamot](https://github.com/SantosGuillamot)! - Revert the infinite scroll release.
+
 ## 1.4.0
 
 ### Minor Changes
