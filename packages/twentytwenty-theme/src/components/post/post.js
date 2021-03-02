@@ -12,6 +12,7 @@ import {
 } from "./post-item";
 import PostMeta from "./post-meta";
 import PostTags from "./post-tags";
+
 const Post = ({ state, libraries, link }) => {
   // Get information about the current URL.
   const data = state.source.get(link);
@@ -21,8 +22,10 @@ const Post = ({ state, libraries, link }) => {
   // const author = state.source.author[post.author];
   // Get a human readable date.
   // const date = new Date(post.date);
+
   // Get the html2react component.
   const Html2React = libraries.html2react.Component;
+
   // Get all categories
   const allCategories = state.source.category;
   /**
@@ -31,6 +34,7 @@ const Post = ({ state, libraries, link }) => {
    */
   const categories =
     post.categories && post.categories.map((catId) => allCategories[catId]);
+
   // Get all tags
   const allTags = state.source.tag;
   /**
@@ -39,21 +43,25 @@ const Post = ({ state, libraries, link }) => {
    */
   const tags = post.tags && post.tags.map((tagId) => allTags[tagId]);
   // Load the post, but only if the data is ready.
+
   return data.isReady ? (
     <PostArticle>
       <Header>
         <SectionContainer>
           {/* If the post has categories, render the categories */}
           {post.categories && <PostCategories categories={categories} />}
+
           <PostTitle
             as="h1"
             className="heading-size-1"
             dangerouslySetInnerHTML={{ __html: post.title.rendered }}
           />
+
           {/* The post's metadata like author, publish date, and comments */}
           <PostMeta item={post} />
         </SectionContainer>
       </Header>
+
       {/*
        * If the want to show featured media in the
        * list of featured posts, we render the media.
@@ -61,6 +69,7 @@ const Post = ({ state, libraries, link }) => {
       {state.theme.featuredMedia.showOnPost && (
         <FeaturedImage id={post.featured_media} isSinglePost={true} />
       )}
+
       {/* If the post has an excerpt (short summary text), we render it */}
       {post.content && (
         <PostInner size="thin">
@@ -74,7 +83,9 @@ const Post = ({ state, libraries, link }) => {
     </PostArticle>
   ) : null;
 };
+
 export default connect(Post);
+
 const Header = styled(PostHeader)`
   background-color: #fff;
   margin: 0;
@@ -83,12 +94,15 @@ const Header = styled(PostHeader)`
     padding: 8rem 0;
   }
 `;
+
 const PostArticle = styled(_Post)`
   padding-top: 0 !important;
 `;
+
 const FeaturedImage = styled(FeaturedMedia)`
   margin-top: 0 !important;
   position: relative;
+
   > div {
     position: relative;
   }

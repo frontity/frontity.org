@@ -3,6 +3,7 @@ import { connect } from "frontity";
 import React from "react";
 import Loading from "../loading";
 import ArchivePage from "./archive-page";
+
 const Archive = () => {
   const {
     pages,
@@ -11,6 +12,7 @@ const Archive = () => {
     isError,
     fetchNext,
   } = useArchiveInfiniteScroll();
+
   return (
     <>
       {pages.map(({ key, link, isLast, Wrapper }) => (

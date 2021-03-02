@@ -3,6 +3,7 @@ import { connect } from "frontity";
 import React, { useEffect } from "react";
 import Loading from "../loading";
 import Post from "./post";
+
 const PostList = ({ actions }) => {
   const {
     posts,
@@ -11,6 +12,7 @@ const PostList = ({ actions }) => {
     isError,
     fetchNext,
   } = usePostTypeInfiniteScroll();
+
   /**
    * Once the post has loaded in the DOM, prefetch both the
    * home posts and the list component so if the user visits
@@ -19,6 +21,7 @@ const PostList = ({ actions }) => {
   useEffect(() => {
     actions.source.fetch("/");
   }, []);
+
   return (
     <div>
       {posts.map(({ key, link, isLast, Wrapper }) => (
@@ -33,4 +36,5 @@ const PostList = ({ actions }) => {
     </div>
   );
 };
+
 export default connect(PostList);
