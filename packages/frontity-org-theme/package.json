@@ -9,16 +9,16 @@
   ],
   "license": "Apache-2.0",
   "dependencies": {
-    "@frontity/components": "^1.7.1",
-    "@frontity/html2react": "^1.6.1",
-    "@frontity/source": "^1.5.1",
-    "@frontity/router": "^1.3.0",
-    "frontity": "^1.14.2",
-    "react-intersection-observer": "^8.31.0",
+    "@frontity/components": "^1.6.0",
+    "@frontity/html2react": "^1.5.0",
+    "@frontity/source": "^1.4.0",
+    "@frontity/router": "^1.1.2",
+    "frontity": "^1.13.0",
+    "react-intersection-observer": "^8.30.3",
     "react-typist": "^2.0.5",
     "use-media": "^1.4.0"
   },
   "devDependencies": {
-    "@types/react": "^17.0.2"
+    "@types/react": "^16.9.56"
   }
 }
