@@ -8,7 +8,7 @@ import Header from "./header";
 import Loading from "./loading";
 import PageError from "./page-error";
 import MetaTitle from "./page-meta-title";
-import Post from "./post";
+import PostList from "./post";
 import SearchResults from "./search/search-results";
 import FontFaces from "./styles/font-faces";
 import globalStyles from "./styles/global-styles";
@@ -52,7 +52,7 @@ const Theme = ({ state }) => {
             <Loading when={data.isFetching} />
             <SearchResults when={data.isSearch} />
             <Archive when={data.isArchive} />
-            <Post when={data.isPostType} />
+            <PostList when={data.isPostType} />
             <PageError when={data.isError} />
           </Switch>
         </Main>
