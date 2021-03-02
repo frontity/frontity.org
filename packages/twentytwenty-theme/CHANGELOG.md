@@ -1,5 +1,11 @@
 # @frontity/twentytwenty-theme
 
+## 1.4.0
+
+### Minor Changes
+
+- [`b012343`](https://github.com/frontity/frontity.org/commit/b012343eeac82a541d8169f577aedc36e8b2109b) [#168](https://github.com/frontity/frontity.org/pull/168) Thanks [@SantosGuillamot](https://github.com/SantosGuillamot)! - Add infinite scroll hooks.
+
 ## 1.3.3
 
 ### Patch Changes
