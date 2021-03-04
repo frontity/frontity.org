@@ -1,26 +1,35 @@
-import { useArchiveInfiniteScroll } from "@frontity/hooks";
+import { usePostTypeInfiniteScroll } from "@frontity/hooks";
 import { connect, styled } from "frontity";
-import React from "react";
+import React, { useEffect } from "react";
 import Loading from "../loading";
-import ArchivePage from "./archive-page";
+import Post from "./post";
 import Button from "../styles/button";
 
-const Archive = ({ state }) => {
+const PostList = ({ state, actions }) => {
   const {
-    pages,
+    posts,
     isFetching,
     isLimit,
     isError,
     fetchNext,
-  } = useArchiveInfiniteScroll({ limit: 3 });
+  } = usePostTypeInfiniteScroll({ limit: 3 });
 
   const { primary } = state.theme.colors;
 
+  /**
+   * Once the post has loaded in the DOM, prefetch both the
+   * home posts and the list component so if the user visits
+   * the home page, everything is ready and it loads instantly.
+   */
+  useEffect(() => {
+    actions.source.fetch("/");
+  }, []);
+
   return (
-    <>
-      {pages.map(({ key, link, isLast, Wrapper }) => (
+    <div>
+      {posts.map(({ key, link, isLast, Wrapper }) => (
         <Wrapper key={key}>
-          <ArchivePage link={link} />
+          <Post link={link} />
           {!isLast && <hr />}
         </Wrapper>
       ))}
@@ -39,11 +48,11 @@ const Archive = ({ state }) => {
           </Button>
         </ButtonContainer>
       )}
-    </>
+    </div>
   );
 };
 
-export default connect(Archive);
+export default connect(PostList);
 
 const ButtonContainer = styled.div`
   display: block;
