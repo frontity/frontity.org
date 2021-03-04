@@ -1,11 +1,20 @@
 import { usePostTypeInfiniteScroll } from "@frontity/hooks";
-import { connect } from "frontity";
+import { connect, styled } from "frontity";
 import React, { useEffect } from "react";
 import Loading from "../loading";
 import Post from "./post";
+import Button from "../styles/button";
 
-const PostList = ({ actions }) => {
-  const { posts, isFetching, isError, fetchNext } = usePostTypeInfiniteScroll();
+const PostList = ({ state, actions }) => {
+  const {
+    posts,
+    isFetching,
+    isLimit,
+    isError,
+    fetchNext,
+  } = usePostTypeInfiniteScroll({ limit: 3 });
+
+  const { primary } = state.theme.colors;
 
   /**
    * Once the post has loaded in the DOM, prefetch both the
@@ -25,9 +34,28 @@ const PostList = ({ actions }) => {
         </Wrapper>
       ))}
       {isFetching && <Loading />}
-      {isError && <button onClick={fetchNext}>Something failed - Retry</button>}
+      {isLimit && (
+        <ButtonContainer>
+          <Button bg={primary} onClick={fetchNext}>
+            Load more
+          </Button>
+        </ButtonContainer>
+      )}
+      {isError && (
+        <ButtonContainer>
+          <Button bg={primary} onClick={fetchNext}>
+            Something failed - Retry
+          </Button>
+        </ButtonContainer>
+      )}
     </div>
   );
 };
 
 export default connect(PostList);
+
+const ButtonContainer = styled.div`
+  display: block;
+  text-align: center;
+  margin: 80px auto;
+`;

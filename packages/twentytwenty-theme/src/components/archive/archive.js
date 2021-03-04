@@ -1,11 +1,20 @@
 import { useArchiveInfiniteScroll } from "@frontity/hooks";
-import { connect } from "frontity";
+import { connect, styled } from "frontity";
 import React from "react";
 import Loading from "../loading";
 import ArchivePage from "./archive-page";
+import Button from "../styles/button";
 
-const Archive = () => {
-  const { pages, isFetching, isError, fetchNext } = useArchiveInfiniteScroll();
+const Archive = ({ state }) => {
+  const {
+    pages,
+    isFetching,
+    isLimit,
+    isError,
+    fetchNext,
+  } = useArchiveInfiniteScroll({ limit: 3 });
+
+  const { primary } = state.theme.colors;
 
   return (
     <>
@@ -16,9 +25,28 @@ const Archive = () => {
         </Wrapper>
       ))}
       {isFetching && <Loading />}
-      {isError && <button onClick={fetchNext}>Something failed - Retry</button>}
+      {isLimit && (
+        <ButtonContainer>
+          <Button bg={primary} onClick={fetchNext}>
+            Load more
+          </Button>
+        </ButtonContainer>
+      )}
+      {isError && (
+        <ButtonContainer>
+          <Button bg={primary} onClick={fetchNext}>
+            Something failed - Retry
+          </Button>
+        </ButtonContainer>
+      )}
     </>
   );
 };
 
 export default connect(Archive);
+
+const ButtonContainer = styled.div`
+  display: block;
+  text-align: center;
+  margin: 80px auto;
+`;
