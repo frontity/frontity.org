@@ -25,17 +25,10 @@ const Archive = ({ state }) => {
         </Wrapper>
       ))}
       {isFetching && <Loading />}
-      {isLimit && (
+      {(isLimit || isError) && (
         <ButtonContainer>
           <Button bg={primary} onClick={fetchNext}>
-            Load more
-          </Button>
-        </ButtonContainer>
-      )}
-      {isError && (
-        <ButtonContainer>
-          <Button bg={primary} onClick={fetchNext}>
-            Something failed - Retry
+            {isError ? "Something failed - Retry" : "Load More"}
           </Button>
         </ButtonContainer>
       )}
