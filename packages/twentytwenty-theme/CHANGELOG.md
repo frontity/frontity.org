@@ -1,5 +1,11 @@
 # @frontity/twentytwenty-theme
 
+## 1.5.1
+
+### Patch Changes
+
+- [`b7d09d0`](https://github.com/frontity/frontity.org/commit/b7d09d0c550b2d5dc6d7cdfc051352a0e22a0557) [#177](https://github.com/frontity/frontity.org/pull/177) Thanks [@SantosGuillamot](https://github.com/SantosGuillamot)! - Join isLimit and isError statements in Infinite Scroll hooks.
+
 ## 1.5.0
 
 ### Minor Changes
