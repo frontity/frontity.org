@@ -1,5 +1,3 @@
-import { connect } from "frontity";
-
 import Span from "./../components/Span";
 
 const cf7Spans = {
@@ -13,4 +11,4 @@ const cf7Spans = {
   },
 };
 
-export default connect(cf7Spans);
+export default cf7Spans;
