@@ -1,4 +1,5 @@
 import { warn } from "frontity";
+import { useEffect, useState } from "react";
 
 export const addAlpha = (hex: string, alpha: number) => {
   const match = hex.match(/^#(.{2})(.{2})(.{2})$/);
@@ -36,4 +37,40 @@ export const mixAlpha = (hex: string, alpha: number) => {
     ${(1 - alpha) * 255 + alpha * Number(`0x${match[2]}`)}, 
     ${(1 - alpha) * 255 + alpha * Number(`0x${match[3]}`)}
   )`;
+};
+
+/*
+ *
+ *  React hook that tracks state of a CSS media query. It's based on this
+ *  library: https://github.com/streamich/use-media
+ *
+ */
+export const useMedia = (query: string) => {
+  const [state, setState] = useState(false);
+
+  useEffect(() => {
+    let mounted = true;
+    const mediaQueryList: MediaQueryList =
+      typeof window === "undefined"
+        ? mockMediaQueryList
+        : window.matchMedia(query);
+
+    const onChange = () => {
+      if (!mounted) {
+        return;
+      }
+
+      setState(Boolean(mediaQueryList.matches));
+    };
+
+    mediaQueryList.addListener(onChange);
+    setState(mediaQueryList.matches);
+
+    return () => {
+      mounted = false;
+      mediaQueryList.removeListener(onChange);
+    };
+  }, [query]);
+
+  return state;
 };
