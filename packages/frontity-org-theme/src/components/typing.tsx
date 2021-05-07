@@ -1,7 +1,7 @@
 import { connect, styled } from "frontity";
 import { Connect } from "frontity/types";
 import React, { ReactElement } from "react";
-import Typist from "../react-typist/src/Typist";
+import Typist from "../react-typist/Typist";
 
 import FrontityOrg from "../../types";
 
