@@ -39,11 +39,12 @@ export const mixAlpha = (hex: string, alpha: number) => {
   )`;
 };
 
-/*
+/**
+ * React hook that tracks state of a CSS media query. It's based on this
+ * library: https://github.com/streamich/use-media.
  *
- *  React hook that tracks state of a CSS media query. It's based on this
- *  library: https://github.com/streamich/use-media
- *
+ * @param query - Media query in string format.
+ * @returns Boolean value indicating if the media query has matched.
  */
 export const useMedia = (query: string) => {
   const [state, setState] = useState(false);
