@@ -1,23 +1,22 @@
 import { connect, styled } from "frontity";
 import { Connect } from "frontity/types";
 import React, { ReactElement } from "react";
-import Typist from "react-typist";
+import Typist from "../react-typist/Typist";
 
 import FrontityOrg from "../../types";
 
-const Typing: React.FC<Connect<
-  FrontityOrg,
-  {
-    children: ReactElement[];
-  }
->> = ({ children, actions }) => {
+const Typing: React.FC<
+  Connect<
+    FrontityOrg,
+    {
+      children: ReactElement[];
+    }
+  >
+> = ({ children, actions }) => {
   return (
     <Container>
       <Typist
         avgTypingDelay={100}
-        cursor={{
-          show: false,
-        }}
         onTypingDone={() => {
           actions.theme.loadHeroBlog();
         }}
