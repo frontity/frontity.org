@@ -18,10 +18,10 @@
     "url": "https://community.frontity.org"
   },
   "dependencies": {
-    "@frontity/components": "^1.7.1",
-    "@frontity/html2react": "^1.6.2",
-    "frontity": "^1.14.3",
-    "react-spinners": "^0.10.6",
+    "@frontity/components": "^1.7.3",
+    "@frontity/html2react": "^1.7.0",
+    "frontity": "^1.16.0",
+    "react-spinners": "^0.11.0",
     "react-spring": "^8.0.27"
   }
 }
