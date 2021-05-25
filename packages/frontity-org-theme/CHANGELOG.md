@@ -1,5 +1,11 @@
 # @frontity/frontity-org-theme
 
+## 1.4.5
+
+### Patch Changes
+
+- [#182](https://github.com/frontity/frontity.org/pull/182) [`74046a0`](https://github.com/frontity/frontity.org/commit/74046a0a85853e60f501d5dcd43ea361176b6915) Thanks [@SantosGuillamot](https://github.com/SantosGuillamot)! - Update dependencies and add changes to twentytwenty-theme.
+
 ## 1.4.4
 
 ### Patch Changes
