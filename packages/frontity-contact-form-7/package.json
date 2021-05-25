@@ -24,8 +24,8 @@
   "main": "src/index.js",
   "name": "frontity-contact-form-7",
   "peerDependencies": {
-    "frontity": "^1.14.3",
-    "@frontity/html2react": "^1.6.2"
+    "frontity": "^1.16.0",
+    "@frontity/html2react": "^1.7.0"
   },
   "publishConfig": {
     "access": "public"
