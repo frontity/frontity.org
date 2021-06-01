@@ -42,6 +42,8 @@ export const webBrowser: Processor<Element> = {
       iframe,
       video {
         display: block;
+        /* Required for some lazy-loaded elements to be shown */
+        min-height: 1px;
       }
     `;
 
