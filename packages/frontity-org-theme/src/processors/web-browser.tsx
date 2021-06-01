@@ -42,7 +42,10 @@ export const webBrowser: Processor<Element> = {
       iframe,
       video {
         display: block;
-        /* Required for some lazy-loaded elements to be shown */
+      }
+
+      /* Required for some lazy-loaded elements to be shown in Chrome */
+      [loading="lazy"] {
         min-height: 1px;
       }
     `;
