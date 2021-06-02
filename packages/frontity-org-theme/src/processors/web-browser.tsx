@@ -43,6 +43,11 @@ export const webBrowser: Processor<Element> = {
       video {
         display: block;
       }
+
+      /* Required for some lazy-loaded elements to be shown in Chrome */
+      [loading="lazy"] {
+        min-height: 1px;
+      }
     `;
 
     return node;
