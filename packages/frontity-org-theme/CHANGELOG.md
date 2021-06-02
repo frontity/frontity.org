@@ -1,5 +1,13 @@
 # @frontity/frontity-org-theme
 
+## 1.4.6
+
+### Patch Changes
+
+- [#184](https://github.com/frontity/frontity.org/pull/184) [`b05bafd`](https://github.com/frontity/frontity.org/commit/b05bafd370b4eb121df2b13e9d8745b5a2c0699e) Thanks [@DAreRodz](https://github.com/DAreRodz)! - Add a workaround for some lazy-loaded images not being shown in Chrome.
+
+  These images are rendered inside a web-browser component, in the "Get some inspiration" section of the "/learn/" page.
+
 ## 1.4.5
 
 ### Patch Changes
