@@ -7,8 +7,8 @@
     "noEmit": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "jsx": "react",
-    "allowJs": true,
-    "types": ["@emotion/react/types/css-prop"]
+    "jsx": "react-jsx",
+    "jsxImportSource": "@emotion/react",
+    "allowJs": true
   }
 }
