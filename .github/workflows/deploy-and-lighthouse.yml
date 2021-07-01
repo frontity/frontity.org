@@ -26,8 +26,8 @@ jobs:
         env:
           COMMIT_SHA: ${{ github.sha }}
 
-      - name: Deploy to now
-        run: npx now --confirm --token $NOW_TOKEN --meta commit=${GITHUB_SHA} --meta branch=${GITHUB_REF} --scope frontity | tee >(grep '^https:\/\/frontity-org-' > deploy-url.txt)
+      - name: Deploy to vercel
+        run: npx vercel --confirm --token $NOW_TOKEN --meta commit=${GITHUB_SHA} --meta branch=${GITHUB_REF} --scope frontity | tee >(grep '^https:\/\/frontity-org-' > deploy-url.txt)
         env:
           NOW_TOKEN: ${{ secrets.NOW_TOKEN }}
 
@@ -39,7 +39,7 @@ jobs:
           ZEIT_TEAMID: ${{ secrets.ZEIT_TEAM }}
 
       - name: Create alias for this deploy
-        run: npx now alias --token $NOW_TOKEN set "$(< deploy-url.txt)" frontity-org-$COMMIT_SHA.vercel.app
+        run: npx vercel alias --token $NOW_TOKEN set "$(< deploy-url.txt)" frontity-org-$COMMIT_SHA.vercel.app
         env:
           COMMIT_SHA: ${{ github.sha }}
           NOW_TOKEN: ${{ secrets.NOW_TOKEN }}
