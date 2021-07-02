@@ -33,9 +33,9 @@ jobs:
       - name: Frontity build
         run: npx frontity build --publicPath="https://frontity-org-frontity.vercel.app/static"
 
-      - name: Deploy to now
+      - name: Deploy to vercel
         if: steps.check.outputs.continue == 'yes'
-        run: npx now --prod --confirm --token $NOW_TOKEN --scope frontity
+        run: npx vercel --prod --confirm --token $NOW_TOKEN --scope frontity
         env:
           NOW_TOKEN: ${{ secrets.NOW_TOKEN }}
 
