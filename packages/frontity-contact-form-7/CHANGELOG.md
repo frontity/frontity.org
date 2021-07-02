@@ -1,5 +1,11 @@
 # frontity-contact-form-7
 
+## 0.1.10
+
+### Patch Changes
+
+- [`628f900`](https://github.com/frontity/frontity.org/commit/628f90031c87beee9a5259b535615817f9e472b2) Thanks [@luisherranz](https://github.com/luisherranz)! - Update dependencies.
+
 ## 0.1.9
 
 ### Patch Changes
