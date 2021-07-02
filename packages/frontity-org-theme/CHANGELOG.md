@@ -1,5 +1,11 @@
 # @frontity/frontity-org-theme
 
+## 1.4.7
+
+### Patch Changes
+
+- [`628f900`](https://github.com/frontity/frontity.org/commit/628f90031c87beee9a5259b535615817f9e472b2) Thanks [@luisherranz](https://github.com/luisherranz)! - Update dependencies.
+
 ## 1.4.6
 
 ### Patch Changes
