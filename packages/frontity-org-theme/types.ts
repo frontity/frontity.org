@@ -2,8 +2,7 @@ import Analytics from "@frontity/analytics/types";
 import Html2React from "@frontity/html2react/types";
 import Router from "@frontity/router/types";
 import Source from "@frontity/source/types";
-import { Action, AsyncAction, Package } from "frontity/types";
-import { ReactType } from "react";
+import { Action, AsyncAction, MergePackages, Package } from "frontity/types";
 
 type PostEntityWithACF = {
   acf: {
@@ -18,7 +17,7 @@ type PostEntityWithACF = {
 interface FrontityOrg extends Package {
   name: "frontity-org-theme";
   roots: {
-    theme: ReactType;
+    theme: React.ElementType;
   };
   state: {
     theme: {
@@ -76,41 +75,40 @@ interface FrontityOrg extends Package {
         };
       };
     };
-    source?: Source["state"]["source"] & {
+    source?: {
       page: Record<string, PostEntityWithACF>;
     };
-    router?: Router["state"]["router"];
   };
   actions: {
     theme: {
-      beforeSSR: AsyncAction<FrontityOrg>;
-      setFlowSectionActiveTab: Action<FrontityOrg, { tabNumber: number }>;
-      showFixedHeader: Action<FrontityOrg>;
-      hideFixedHeader: Action<FrontityOrg>;
-      sendNewsletter: Action<FrontityOrg>;
-      sendAfterNewsletter: Action<FrontityOrg>;
-      setAnswer: Action<FrontityOrg, { name: string; answer: string }>;
+      beforeSSR: AsyncAction<Packages>;
+      setFlowSectionActiveTab: Action<Packages, { tabNumber: number }>;
+      showFixedHeader: Action<Packages>;
+      hideFixedHeader: Action<Packages>;
+      sendNewsletter: Action<Packages>;
+      sendAfterNewsletter: Action<Packages>;
+      setAnswer: Action<Packages, { name: string; answer: string }>;
       setNewsletterPropString: Action<
-        FrontityOrg,
+        Packages,
         { name: string; value: string }
       >;
       setNewsletterPropBoolean: Action<
-        FrontityOrg,
+        Packages,
         { name: string; value: boolean }
       >;
-      setAfterNewsletterProp: Action<
-        FrontityOrg,
-        { name: string; value: string }
-      >;
-      setHeroTerminalPosition: Action<FrontityOrg>;
-      loadHeroBlog: Action<FrontityOrg>;
+      setAfterNewsletterProp: Action<Packages, { name: string; value: string }>;
+      setHeroTerminalPosition: Action<Packages>;
+      loadHeroBlog: Action<Packages>;
     };
-    analytics?: Analytics["actions"]["analytics"];
-    source?: Source["actions"]["source"];
-  };
-  libraries: {
-    html2react?: Partial<Html2React["libraries"]["html2react"]>;
   };
 }
+
+export type Packages = MergePackages<
+  FrontityOrg,
+  Html2React,
+  Analytics,
+  Source,
+  Router
+>;
 
 export default FrontityOrg;

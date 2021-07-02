@@ -18,9 +18,9 @@
     "url": "https://community.frontity.org"
   },
   "dependencies": {
-    "@frontity/components": "^1.7.3",
+    "@frontity/components": "^1.8.0",
     "@frontity/html2react": "^1.7.0",
-    "frontity": "^1.16.0",
+    "frontity": "^1.16.1",
     "react-spinners": "^0.11.0",
     "react-spring": "^8.0.27"
   }
