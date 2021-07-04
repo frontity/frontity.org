@@ -1,6 +1,6 @@
-import Span from "./../components/Span";
+import Span from "../components/Span";
 
-const cf7Spans = {
+export const cf7Spans = {
   name: "cf7Spans",
   test: ({ node }) =>
     node.component === "span" &&
@@ -10,5 +10,3 @@ const cf7Spans = {
     return node;
   },
 };
-
-export default cf7Spans;
