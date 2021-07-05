@@ -1,6 +1,4 @@
-import { connect } from "frontity";
 import processors from "./processors";
-
 
 const MyForm = {
   state: {
@@ -124,4 +122,4 @@ const MyForm = {
     },
   },
 };
-export default connect(MyForm);
+export default MyForm;
