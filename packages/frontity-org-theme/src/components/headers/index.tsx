@@ -1,7 +1,7 @@
 import { connect, Head, useConnect } from "frontity";
 import { Connect } from "frontity/types";
 import { isPostType } from "@frontity/source";
-import React from "react";
+import React, { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import FrontityOrg, { Packages } from "../../../types";
 import HeaderButton from "./header-button";
@@ -22,6 +22,10 @@ export const Header = connect(() => {
 
   // Store if the menu is open (for the mobile view).
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [state.router.link])
 
   // Check if this bar is visible or not.
   const [ref, isInView] = useInView();
