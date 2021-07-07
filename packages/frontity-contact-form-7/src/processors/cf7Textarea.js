@@ -1,6 +1,6 @@
 import Textarea from "../components/Textarea";
 
-const cf7Textarea = {
+export const cf7Textarea = {
   name: "cf7Textarea",
   test: ({ node }) =>
     node.component === "textarea" &&
@@ -41,5 +41,3 @@ const cf7Textarea = {
     return node;
   },
 };
-
-export default cf7Textarea;

@@ -1,11 +1,4 @@
-import { connect } from "frontity";
-
-import cf7Form from "./processors/cf7Form";
-import cf7HiddenInputs from "./processors/cf7HiddenInputs";
-import cf7Inputs from "./processors/cf7Inputs";
-import cf7Select from "./processors/cf7Select";
-import cf7Span from "./processors/cf7Span";
-import cf7Textarea from "./processors/cf7Textarea";
+import processors from "./processors";
 
 const MyForm = {
   state: {
@@ -15,14 +8,7 @@ const MyForm = {
   },
   libraries: {
     html2react: {
-      processors: [
-        cf7Form,
-        cf7Span,
-        cf7Inputs,
-        cf7HiddenInputs,
-        cf7Textarea,
-        cf7Select,
-      ],
+      processors
     },
   },
   actions: {
@@ -86,7 +72,7 @@ const MyForm = {
           formData.append(key, myData[key]);
         });
         // CF7 REST API URL.
-        const url = `${state.source.api}/contact-form-7/v1/contact-forms/${id}/feedback`;
+        const url = `${state.source.api}contact-form-7/v1/contact-forms/${id}/feedback`;
         // Post Request.
         const res = await fetch(url, {
           method: "POST",
@@ -136,4 +122,4 @@ const MyForm = {
     },
   },
 };
-export default connect(MyForm);
+export default MyForm;

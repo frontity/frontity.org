@@ -1,6 +1,6 @@
 import HiddenInput from "../components/HiddenInput";
 
-const cf7HiddenInputs = {
+export const cf7HiddenInputs = {
   name: "cf7HiddenInputs",
   test: ({ node }) =>
     node.component === "input" &&
@@ -20,5 +20,3 @@ const cf7HiddenInputs = {
     return node;
   },
 };
-
-export default cf7HiddenInputs;
