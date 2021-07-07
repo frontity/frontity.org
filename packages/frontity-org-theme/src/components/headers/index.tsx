@@ -25,7 +25,7 @@ export const Header = connect(() => {
 
   useEffect(() => {
     setIsMenuOpen(false);
-  }, [state.router.link])
+  }, [state.router.link]);
 
   // Check if this bar is visible or not.
   const [ref, isInView] = useInView();
@@ -59,26 +59,29 @@ export const Header = connect(() => {
       )}
     </div>
   );
-}, { injectProps: false });
+});
 
-export const FixedHeader = connect(() => {
-  const { state, libraries } = useConnect<Packages>();
-  // Get the header template.
-  const data = state.source.get("/blog/wp_template_part/fixed-header/");
+export const FixedHeader = connect(
+  () => {
+    const { state, libraries } = useConnect<Packages>();
+    // Get the header template.
+    const data = state.source.get("/blog/wp_template_part/fixed-header/");
 
-  // Bail out if the data returned doesn't belong to a post type.
-  if (!isPostType(data)) return null;
+    // Bail out if the data returned doesn't belong to a post type.
+    if (!isPostType(data)) return null;
 
-  const header = state.source["wp_template_part"][data.id];
+    const header = state.source["wp_template_part"][data.id];
 
-  // Get the component that transform the template to React.
-  const Html2React = libraries.html2react.Component;
-  const { isFixedHeaderVisible } = state.theme;
+    // Get the component that transform the template to React.
+    const Html2React = libraries.html2react.Component;
+    const { isFixedHeaderVisible } = state.theme;
 
-  return (
-    <div css={fixedHeaderStyles({ state, isFixedHeaderVisible })}>
-      {/* Render the template */}
-      <Html2React html={header.content.rendered} />
-    </div>
-  );
-}, { injectProps: false} );
+    return (
+      <div css={fixedHeaderStyles({ state, isFixedHeaderVisible })}>
+        {/* Render the template */}
+        <Html2React html={header.content.rendered} />
+      </div>
+    );
+  },
+  { injectProps: false }
+);
