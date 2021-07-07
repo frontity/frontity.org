@@ -10,7 +10,7 @@
   "plugins": ["simple-import-sort"],
   "rules": {
     "react/prop-types": "off",
-    "simple-import-sort/sort": "error"
+    "simple-import-sort/imports": "error"
   },
   "env": {
     "browser": true,
