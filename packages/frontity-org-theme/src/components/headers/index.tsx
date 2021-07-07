@@ -1,9 +1,9 @@
-import { connect, Head, useConnect } from "frontity";
-import { Connect } from "frontity/types";
 import { isPostType } from "@frontity/source";
+import { connect, Head, useConnect } from "frontity";
 import React, { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
-import FrontityOrg, { Packages } from "../../../types";
+
+import { Packages } from "../../../types";
 import HeaderButton from "./header-button";
 import { fixedHeaderStyles, headerStyles } from "./header-styles";
 
@@ -30,7 +30,7 @@ export const Header = connect(() => {
   // Check if this bar is visible or not.
   const [ref, isInView] = useInView();
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isInView) {
       actions.theme.hideFixedHeader();
     } else {
@@ -59,7 +59,7 @@ export const Header = connect(() => {
       )}
     </div>
   );
-});
+}, { injectProps: false });
 
 export const FixedHeader = connect(() => {
   const { state, libraries } = useConnect<Packages>();
@@ -81,4 +81,4 @@ export const FixedHeader = connect(() => {
       <Html2React html={header.content.rendered} />
     </div>
   );
-});
+}, { injectProps: false} );
