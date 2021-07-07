@@ -1,6 +1,5 @@
 import Input from "../components/Input";
-
-export const cf7Inputs = {
+const cf7Inputs = {
   name: "cf7Inputs",
   test: ({ node }) => {
     return (
@@ -49,3 +48,4 @@ export const cf7Inputs = {
     return node;
   },
 };
+export default cf7Inputs;

@@ -1,6 +1,6 @@
 import Span from "../components/Span";
 
-export const cf7Span = {
+const cf7Span = {
   name: "cf7Span",
   test: ({ node }) =>
     node.component === "span" &&
@@ -18,3 +18,5 @@ export const cf7Span = {
     return node;
   },
 };
+
+export default cf7Span;
