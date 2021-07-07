@@ -1,6 +1,6 @@
-import Form from "../components/Form";
+import Form from "./../components/Form";
 
-export const cf7Form = {
+const cf7Form = {
   name: "cf7Form",
   test: ({ node }) =>
     node.component === "form" && /wpcf7-form/.test(node.props.className),
@@ -12,3 +12,5 @@ export const cf7Form = {
     return node;
   },
 };
+
+export default cf7Form;

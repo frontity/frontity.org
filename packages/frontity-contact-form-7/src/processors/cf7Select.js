@@ -1,6 +1,6 @@
 import Select from "../components/Select";
 
-export const cf7Select = {
+const cf7Select = {
   name: "cf7Select",
   test: ({ node }) =>
     node.component === "select" &&
@@ -53,3 +53,5 @@ export const cf7Select = {
     return node;
   },
 };
+
+export default cf7Select;
