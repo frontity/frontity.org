@@ -1,5 +1,11 @@
 # frontity-contact-form-7
 
+## 0.2.0
+
+### Minor Changes
+
+- [#195](https://github.com/frontity/frontity.org/pull/195) [`b6c2965`](https://github.com/frontity/frontity.org/commit/b6c296533c24e97fb68507548c3c8e968987f117) Thanks [@kasperaamodt](https://github.com/kasperaamodt)! - Change import of processors to the recomended way, fixed the fetch url and removed connect to make the form writable
+
 ## 0.1.10
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @frontity/frontity-org-theme
 
+## 1.4.8
+
+### Patch Changes
+
+- [#194](https://github.com/frontity/frontity.org/pull/194) [`c08979d`](https://github.com/frontity/frontity.org/commit/c08979d0f35b5a83b6aa39e78d0a2c23d185bb92) Thanks [@michalczaplinski](https://github.com/michalczaplinski)! - Add a useEffect to the header which closes the mobile menu on state.router.link changes. The work for this was actually done in #192, but Michal forgot to add the changeset there.
+
 ## 1.4.7
 
 ### Patch Changes
