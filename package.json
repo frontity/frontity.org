@@ -39,6 +39,7 @@
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "frontity": "^1.16.1",
     "frontity-contact-form-7": "file:packages/frontity-contact-form-7",
+    "frontity-cookieyes": "file:packages/frontity-cookieyes",
     "intersection-observer": "^0.12.0",
     "jest": "^26.6.3",
     "lint-staged": "^10.5.4",
