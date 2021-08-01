@@ -1,0 +1,11 @@
+{
+  "name": "frontity-cookieyes",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Frontity package for CookieYes platform",
+  "keywords": [
+    "frontity",
+    "cookieyes"
+  ],
+  "license": "Apache-2.0"
+}

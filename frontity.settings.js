@@ -14,12 +14,12 @@ const settings = [
     },
     packages: [
       {
+        name: "frontity-cookieyes",
+        state: { cookieyes: { id: "55f4be1c19ac371f8f42d9ea" } },
+      },
+      {
         name: "@frontity/frontity-org-theme",
-        state: {
-          theme: {
-            autoPrefetch: "in-view",
-          },
-        },
+        state: { theme: { autoPrefetch: "in-view" } },
       },
       {
         name: "@frontity/wp-source",
@@ -44,19 +44,11 @@ const settings = [
       "@frontity/html2react",
       {
         name: "@frontity/yoast",
-        state: {
-          yoast: {
-            renderTags: "server",
-          },
-        },
+        state: { yoast: { renderTags: "server" } },
       },
       {
         name: "@frontity/google-tag-manager-analytics",
-        state: {
-          googleTagManagerAnalytics: {
-            containerId: "GTM-NDGDFKR",
-          },
-        },
+        state: { googleTagManagerAnalytics: { containerId: "GTM-NDGDFKR" } },
       },
       "frontity-contact-form-7",
     ],
@@ -75,6 +67,10 @@ const settings = [
       },
     },
     packages: [
+      {
+        name: "frontity-cookieyes",
+        state: { cookieyes: { id: "55f4be1c19ac371f8f42d9ea" } },
+      },
       {
         name: "@frontity/twentytwenty-theme",
         state: {
@@ -129,19 +125,11 @@ const settings = [
       "@frontity/html2react",
       {
         name: "@frontity/yoast",
-        state: {
-          yoast: {
-            renderTags: "server",
-          },
-        },
+        state: { yoast: { renderTags: "server" } },
       },
       {
         name: "@frontity/google-tag-manager-analytics",
-        state: {
-          googleTagManagerAnalytics: {
-            containerId: "GTM-NDGDFKR",
-          },
-        },
+        state: { googleTagManagerAnalytics: { containerId: "GTM-NDGDFKR" } },
       },
     ],
   },
