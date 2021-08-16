@@ -47,17 +47,36 @@ const Newsletter: React.FC<Connect<FrontityOrg>> = ({ state, actions }) => {
               name="hasAgreed"
               type="checkbox"
               required
-              checked={state.theme.newsletter.newsletterForm.hasAgreed}
+              checked={state.theme.newsletter.newsletterForm.hasAgreedPolicy}
               onChange={(e) => {
                 actions.theme.setNewsletterPropBoolean({
-                  name: "hasAgreed",
+                  name: "hasAgreedPolicy",
                   value: e.target.checked,
                 });
               }}
             />
             <span>
-              I agree to the <a href="/privacy-policy">Privacy Policy</a>
+              I agree to the <a href="/privacy-policy">Privacy Policy</a>.
             </span>
+          </label>
+        </Checkbox>
+        <Checkbox>
+          <label>
+            <input
+              name="hasAgreedCommunication"
+              type="checkbox"
+              required
+              checked={
+                state.theme.newsletter.newsletterForm.hasAgreedCommercial
+              }
+              onChange={(e) => {
+                actions.theme.setNewsletterPropBoolean({
+                  name: "hasAgreedCommercial",
+                  value: e.target.checked,
+                });
+              }}
+            />
+            <span>I agree to receive commercial communications.</span>
           </label>
         </Checkbox>
       </Form>
