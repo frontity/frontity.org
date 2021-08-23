@@ -3,8 +3,7 @@ import FrontityOrg from "../../types";
 const state: FrontityOrg["state"]["theme"]["newsletter"] = {
   newsletterForm: {
     email: "",
-    hasAgreedPolicy: false,
-    hasAgreedCommercial: false,
+    hasAgreed: false,
   },
   afterNewsletter: {
     name: "",

@@ -48,8 +48,7 @@ interface FrontityOrg extends Package {
       newsletter: {
         newsletterForm: {
           email: string;
-          hasAgreedPolicy: boolean;
-          hasAgreedCommercial: boolean;
+          hasAgreed: boolean;
         };
         afterNewsletter: {
           name: string;
