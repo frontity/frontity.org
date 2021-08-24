@@ -56,7 +56,8 @@ const Newsletter: React.FC<Connect<FrontityOrg>> = ({ state, actions }) => {
               }}
             />
             <span>
-              I agree to the <a href="/privacy-policy">Privacy Policy</a>
+              I agree to the <a href="/legal">Terms of Service</a> and have read
+              the <a href="/privacy-policy">Privacy Policy</a>.
             </span>
           </label>
         </Checkbox>
@@ -72,7 +73,7 @@ const Form = styled.form`
   @media only screen and (max-width: 769px) {
     margin-left: 0px;
   }
-  max-width: 400px;
+  max-width: 450px;
 `;
 const Box = styled.div`
   width: 100%;
