@@ -2,4 +2,4 @@
 "@frontity/frontity-org-theme": minor
 ---
 
-Add an additional checkbox to the newsletter.
+Add Terms and Services note to the newsletter checkbox text.
