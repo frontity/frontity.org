@@ -1,5 +1,11 @@
 # @frontity/frontity-org-theme
 
+## 1.5.0
+
+### Minor Changes
+
+- [#199](https://github.com/frontity/frontity.org/pull/199) [`2e6ff58`](https://github.com/frontity/frontity.org/commit/2e6ff58fbee29f26b5774bdb14a9dceb9ea6dd98) Thanks [@luisherranz](https://github.com/luisherranz)! - Add Terms and Services note to the newsletter checkbox text.
+
 ## 1.4.8
 
 ### Patch Changes
