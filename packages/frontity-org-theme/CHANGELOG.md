@@ -1,5 +1,11 @@
 # @frontity/frontity-org-theme
 
+## 1.5.1
+
+### Patch Changes
+
+- [#201](https://github.com/frontity/frontity.org/pull/201) [`0978d05`](https://github.com/frontity/frontity.org/commit/0978d05ecdabf5c53812529a2b8d9a39e9232989) Thanks [@SantosGuillamot](https://github.com/SantosGuillamot)! - Fix top banner error.
+
 ## 1.5.0
 
 ### Minor Changes
