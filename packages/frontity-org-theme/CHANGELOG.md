@@ -1,5 +1,13 @@
 # @frontity/frontity-org-theme
 
+## 1.5.2
+
+### Patch Changes
+
+- [#203](https://github.com/frontity/frontity.org/pull/203) [`196234d`](https://github.com/frontity/frontity.org/commit/196234d866a4db48600cfb2109413db6efcb798b) Thanks [@SantosGuillamot](https://github.com/SantosGuillamot)! - Fix meta title.
+
+* [#204](https://github.com/frontity/frontity.org/pull/204) [`1e58593`](https://github.com/frontity/frontity.org/commit/1e58593471dfab20c40044f9ae59a8fcbb8d6458) Thanks [@SantosGuillamot](https://github.com/SantosGuillamot)! - Fix images not working properly.
+
 ## 1.5.1
 
 ### Patch Changes
