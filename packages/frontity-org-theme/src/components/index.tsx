@@ -7,6 +7,7 @@ import Footer from "./footer";
 import { FixedHeader, Header } from "./headers";
 import Page from "./page";
 import PageError from "./page-error";
+import MetaTitle from "./page-meta-title.js";
 import ScrollButton from "./scroll-button";
 import cf7Styles from "./styles/cf7";
 import FontFace from "./styles/font-face";
@@ -30,6 +31,8 @@ const Theme: React.FC<Connect<FrontityOrg>> = ({ state }) => {
       <Head>
         <html lang="en" />
       </Head>
+      <MetaTitle />
+
       {state.theme.isTopBannerVisible && <TopBanner />}
       <HeaderContainer>
         <Header />
