@@ -1,4 +1,4 @@
-import { Element,Processor } from "@frontity/html2react/types";
+import { Element, Processor } from "@frontity/html2react/types";
 import { css } from "frontity";
 
 import FrontityOrg from "../../types";
@@ -37,6 +37,12 @@ export const links: Processor<Element, FrontityOrg> = {
         border-radius: 8px;
         &:active {
           transform: translateY(2px);
+        }
+        svg,
+        img,
+        embed,
+        object {
+          display: inline-block;
         }
       `;
       //Shadow
@@ -155,7 +161,8 @@ export const links: Processor<Element, FrontityOrg> = {
           box-shadow: outline;
         }
         cursor: pointer;
-        &:hover, &:active{
+        &:hover,
+        &:active {
           opacity: 0.8;
         }
       `;

@@ -236,6 +236,14 @@ const documentSetup = (colors: FrontityOrg["state"]["theme"]["colors"]) => css`
   img {
     max-width: 100%;
   }
+  svg,
+  img,
+  embed,
+  object {
+    display: block;
+    height: auto;
+    max-width: 100%;
+  }
   //Style the layout
   div#root > div.wp-block-group > div {
     max-width: 1080px;
