@@ -3,19 +3,19 @@ import FrontityOrg from "../types";
 const actions: FrontityOrg["actions"]["theme"] = {
   beforeSSR: async ({ state, actions }) => {
     await Promise.all(
-      state.theme.templates.map((slug) =>
-        actions.source.fetch(`/blog/wp_template_part/${slug}`)
-      )
+      state.theme.templates.map((slug) => actions.source.fetch(`/blog/${slug}`))
     );
     // Check if top banner should be visible
-    const banner = state.source.get("/blog/wp_template_part/top-banner/");
+    const banner = state.source.get("/blog/top-banner/");
     state.theme.isTopBannerVisible = banner.isError
       ? false
       : state.source["wp_template_part"][banner.id].acf.visible === "true";
   },
-  setFlowSectionActiveTab: ({ state }) => ({ tabNumber }) => {
-    state.theme.flowSectionActiveTab = tabNumber;
-  },
+  setFlowSectionActiveTab:
+    ({ state }) =>
+    ({ tabNumber }) => {
+      state.theme.flowSectionActiveTab = tabNumber;
+    },
   showFixedHeader: ({ state }) => {
     state.theme.isFixedHeaderVisible = true;
   },
@@ -50,21 +50,29 @@ const actions: FrontityOrg["actions"]["theme"] = {
     state.theme.newsletter.sent.afterNewsletter = true;
   },
 
-  setAnswer: ({ state }) => ({ name, answer }) => {
-    state.theme.newsletter.afterNewsletter.answers[name] = answer;
-  },
+  setAnswer:
+    ({ state }) =>
+    ({ name, answer }) => {
+      state.theme.newsletter.afterNewsletter.answers[name] = answer;
+    },
 
-  setNewsletterPropString: ({ state }) => ({ name, value }) => {
-    state.theme.newsletter.newsletterForm[name] = value;
-  },
+  setNewsletterPropString:
+    ({ state }) =>
+    ({ name, value }) => {
+      state.theme.newsletter.newsletterForm[name] = value;
+    },
 
-  setNewsletterPropBoolean: ({ state }) => ({ name, value }) => {
-    state.theme.newsletter.newsletterForm[name] = value;
-  },
+  setNewsletterPropBoolean:
+    ({ state }) =>
+    ({ name, value }) => {
+      state.theme.newsletter.newsletterForm[name] = value;
+    },
 
-  setAfterNewsletterProp: ({ state }) => ({ name, value }) => {
-    state.theme.newsletter.afterNewsletter[name] = value;
-  },
+  setAfterNewsletterProp:
+    ({ state }) =>
+    ({ name, value }) => {
+      state.theme.newsletter.afterNewsletter[name] = value;
+    },
   loadHeroBlog: ({ state, actions }) => {
     state.theme.heroBlogIsLoading = !state.theme.heroBlogIsLoading;
     actions.theme.setHeroTerminalPosition();

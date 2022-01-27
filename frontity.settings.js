@@ -27,7 +27,7 @@ const settings = [
           source: {
             postTypes: [
               {
-                type: "/blog/wp_template_part",
+                type: "/blog",
                 endpoint: "template-parts",
               },
               {
