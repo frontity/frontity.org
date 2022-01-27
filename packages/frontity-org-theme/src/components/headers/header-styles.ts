@@ -8,6 +8,7 @@ const tooltipStyles = ({ state }: { state: State<FrontityOrg> }) => css`
   left: unset;
   right: -12px;
   top: calc(100% + 16px);
+  background: white;
 
   padding: 2px 24px;
   border: none;
@@ -19,23 +20,7 @@ const tooltipStyles = ({ state }: { state: State<FrontityOrg> }) => css`
 
   transition: opacity 0.1s linear 0.5s, visibility 0.1s linear 0.5s;
 
-  /* Arrow */
-  :after {
-    content: " ";
-    width: 16px;
-    height: 16px;
-    position: absolute;
-    top: 0;
-    right: 9px;
-
-    transform: translate(-50%, -50%) rotate(45deg);
-
-    background-color: white;
-    border-left: 1px solid rgba(31, 56, 197, 0.09);
-    border-top: 1px solid rgba(31, 56, 197, 0.09);
-  }
-
-  .wp-block-navigation-link {
+  .wp-block-navigation-item {
     color: ${state.theme.colors.primary};
     padding: 16px 0;
     margin: 0;
@@ -45,13 +30,14 @@ const tooltipStyles = ({ state }: { state: State<FrontityOrg> }) => css`
     }
   }
 
-  .wp-block-navigation-link__content {
+  .wp-block-navigation-item__content {
     padding: 0;
     font-family: "IBMPlexSans";
   }
 
   /* icons margin */
-  .wp-block-navigation-link__label img {
+  .wp-block-navigation-item__label img {
+    display: inline;
     margin-right: 12px;
     width: 16px;
     height: 16px;
@@ -99,9 +85,9 @@ export const generalStyles = ({ state }: { state: State<FrontityOrg> }) => css`
   .wp-block-navigation {
     width: auto;
 
-    .wp-block-navigation-link {
+    .wp-block-navigation-item {
       min-height: fit-content;
-      .wp-block-navigation-link__content {
+      .wp-block-navigation-item__content {
         padding: 0;
         :hover {
           color: ${state.theme.colors.frontity};
@@ -127,7 +113,7 @@ export const desktopStyles = ({ state }: { state: State<FrontityOrg> }) =>
       /* Final padding at the right of the navbar */
       padding-right: 8px;
 
-      .wp-block-navigation-link {
+      .wp-block-navigation-item {
         align-items: center;
 
         /* Margins for links with only text */
@@ -135,22 +121,26 @@ export const desktopStyles = ({ state }: { state: State<FrontityOrg> }) =>
           margin-left: 40px;
         }
 
-        /* Margins for links with icons */
-        &.is-link-with-icon {
-          margin-left: 16px;
-        }
-        /* Tooltip styles */
-        &.has-child > .wp-block-navigation__container {
-          ${tooltipStyles({ state })};
-        }
-
-        .wp-block-navigation-link__content {
+        .wp-block-navigation-item__content {
           padding: 0;
         }
       }
 
+      /* Margins for links with icons */
+      .is-link-with-icon {
+        margin-left: 16px;
+      }
+      /* Tooltip styles */
+      .has-child {
+        display: block;
+        position: relative;
+        .wp-block-navigation__submenu-container {
+          ${tooltipStyles({ state })};
+        }
+      }
+
       /* Separator between links */
-      .wp-block-navigation-link:not(.is-link-with-icon) + .is-link-with-icon {
+      .wp-block-navigation-item:not(.is-link-with-icon) + .is-link-with-icon {
         margin-left: 0;
         &::before {
           content: " ";
@@ -163,9 +153,9 @@ export const desktopStyles = ({ state }: { state: State<FrontityOrg> }) =>
       }
 
       /* Style links with icons */
-      .wp-block-navigation-link.is-link-with-icon
-        > .wp-block-navigation-link__content
-        > .wp-block-navigation-link__label {
+      .wp-block-navigation-item.is-link-with-icon
+        > .wp-block-navigation-item__content
+        > .wp-block-navigation-item__label {
         font-size: 0;
         vertical-align: text-bottom;
 
@@ -244,7 +234,7 @@ export const mobileStyles = ({
         0 2px 4px 0 rgba(31, 56, 197, 0.12);
 
       /* Arrows at the end of the links */
-      > .wp-block-navigation-link > .wp-block-navigation-link__content:after {
+      > .wp-block-navigation-item > .wp-block-navigation-item__content:after {
         content: " ";
         width: 6px;
         height: 6px;
@@ -257,17 +247,17 @@ export const mobileStyles = ({
       }
     }
 
-    .wp-block-navigation-link {
+    .wp-block-navigation-item {
       flex-direction: column;
       color: ${state.theme.colors.frontity};
       border-top: 1px solid ${addAlpha(state.theme.colors.primary, 0.08)};
       font-size: 14px;
       line-height: 21px;
-      .wp-block-navigation-link__content {
+      .wp-block-navigation-item__content {
         padding: 24px 8px;
         width: auto;
       }
-      .wp-block-navigation-link__label {
+      .wp-block-navigation-item__label {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -278,15 +268,18 @@ export const mobileStyles = ({
       }
     }
 
-    .wp-block-navigation-link.is-link-with-icon
-      > .wp-block-navigation-link__content
-      > .wp-block-navigation-link__label
+    .wp-block-navigation-item.is-link-with-icon
+      > .wp-block-navigation-item__content
       img {
       filter: saturate(2.3) hue-rotate(5deg);
     }
 
     /* Submenu */
-    .wp-block-navigation-link.has-child > .wp-block-navigation__container {
+    .wp-block-navigation-item.has-child {
+      margin: 0;
+    }
+    .wp-block-navigation-item.has-child
+      > .wp-block-navigation__submenu-container {
       max-width: none;
       position: static;
       visibility: visible;
@@ -294,7 +287,7 @@ export const mobileStyles = ({
       border: none;
       margin-left: 36px;
 
-      .wp-block-navigation-link {
+      .wp-block-navigation-item {
         font-family: "IBMPlexSans";
         font-size: 16px;
         letter-spacing: 0;
@@ -304,7 +297,7 @@ export const mobileStyles = ({
         }
       }
 
-      .wp-block-navigation-link__content {
+      .wp-block-navigation-item__content {
         padding: 12px 0;
       }
     }
