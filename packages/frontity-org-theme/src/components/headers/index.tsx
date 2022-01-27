@@ -10,7 +10,7 @@ import { fixedHeaderStyles, headerStyles } from "./header-styles";
 export const Header = connect(() => {
   const { state, actions, libraries } = useConnect<Packages>();
   // Get the header template.
-  const data = state.source.get("/blog/wp_template_part/header-web/");
+  const data = state.source.get("/blog/header-web/");
 
   // Bail out if the data returned doesn't belong to a post type.
   if (!isPostType(data)) return null;
@@ -65,7 +65,7 @@ export const FixedHeader = connect(
   () => {
     const { state, libraries } = useConnect<Packages>();
     // Get the header template.
-    const data = state.source.get("/blog/wp_template_part/fixed-header/");
+    const data = state.source.get("/blog/fixed-header/");
 
     // Bail out if the data returned doesn't belong to a post type.
     if (!isPostType(data)) return null;

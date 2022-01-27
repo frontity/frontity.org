@@ -6,7 +6,7 @@ import FrontityOrg from "../../types";
 import { addAlpha } from "../utils";
 
 const Footer: React.FC<Connect<FrontityOrg>> = ({ state, libraries }) => {
-  const data = state.source.get("/blog/wp_template_part/footer/");
+  const data = state.source.get("/blog/footer/");
   const footer = state.source["wp_template_part"][data.id];
   const Html2React = libraries.html2react.Component;
 
