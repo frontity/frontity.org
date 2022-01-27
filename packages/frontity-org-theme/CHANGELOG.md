@@ -1,5 +1,11 @@
 # @frontity/frontity-org-theme
 
+## 1.5.3
+
+### Patch Changes
+
+- [#206](https://github.com/frontity/frontity.org/pull/206) [`cea3774`](https://github.com/frontity/frontity.org/commit/cea37740a1ba243864b62bb0a6416eda1608a59e) Thanks [@SantosGuillamot](https://github.com/SantosGuillamot)! - Change template parts urls and css of the navigation block.
+
 ## 1.5.2
 
 ### Patch Changes
