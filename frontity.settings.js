@@ -28,7 +28,7 @@ const settings = [
             postTypes: [
               {
                 type: "/blog",
-                endpoint: "template-parts",
+                endpoint: "frontity-template-parts",
               },
               {
                 type: "partner",

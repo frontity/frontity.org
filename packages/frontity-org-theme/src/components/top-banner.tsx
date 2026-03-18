@@ -7,7 +7,7 @@ import FrontityOrg from "../../types";
 const TopBanner: React.FC<Connect<FrontityOrg>> = ({ state, libraries }) => {
   // Get the banner template.
   const data = state.source.get("/blog/top-banner/");
-  const banner = state.source["wp_template_part"][data.id];
+  const banner = state.source["frontity_tp"][data.id];
 
   // Get the component that transform the template to React.
   const Html2React = libraries.html2react.Component;

@@ -15,7 +15,7 @@ export const Header = connect(() => {
   // Bail out if the data returned doesn't belong to a post type.
   if (!isPostType(data)) return null;
 
-  const header = state.source["wp_template_part"][data.id];
+  const header = state.source["frontity_tp"][data.id];
 
   // Get the component that transform the template to React.
   const Html2React = libraries.html2react.Component;
@@ -70,7 +70,7 @@ export const FixedHeader = connect(
     // Bail out if the data returned doesn't belong to a post type.
     if (!isPostType(data)) return null;
 
-    const header = state.source["wp_template_part"][data.id];
+    const header = state.source["frontity_tp"][data.id];
 
     // Get the component that transform the template to React.
     const Html2React = libraries.html2react.Component;
